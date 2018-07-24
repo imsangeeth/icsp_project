@@ -1,12 +1,12 @@
-<div id="main-wrapper">
+
     <!-- header header  -->
     <div class="header">
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
             <!-- Logo -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="">
                     <!-- Logo icon -->
-                    <b><img src="assets/images/logo.png" alt="homepage" class="dark-logo-" /></b>
+                    <b><img width="128px" src="assets/images/logo.png" alt="homepage" class="dark-logo" /></b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
                     <!-- <span><img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" /></span>-->
@@ -210,18 +210,25 @@
                 <ul id="sidebarnav">
                     <li class="nav-devider"></li>
                     <li class="nav-label">Home</li>
-                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">2</span></span></a>
+                    <li> <a class="has-arrow  "routerLink="/" aria-expanded="false"><i class="fa fa-tachometer"></i><span class="hide-menu">Dashboard <span class="label label-rouded label-primary pull-right">2</span></span></a>
                         <ul aria-expanded="false" class="collapse">
                             <li><a href="index.html">Ecommerce </a></li>
                             <li><a href="index1.html">Analytics </a></li>
                         </ul>
                     </li>
-                    <li class="nav-label">Apps</li>
-                    <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-envelope"></i><span class="hide-menu">Email</span></a>
-                        <ul aria-expanded="false" class="collapse">
-                            <li><a href="email-compose.html">Compose</a></li>
-                            <li><a href="email-read.html">Read</a></li>
+                    <li class="nav-label">Customer</li>
+                    <li class="active"> <a class="has-arrow" routerLink="/viewcustomer" aria-expanded="true"><i class="fa fa-envelope"></i><span class="hide-menu">Create Customer</span></a>
+                        <ul aria-expanded="true" class="">
+                            <li class="active"><a routerLink="/Createcustomer" >Create Customer</a></li>
+                            <li><a routerLink="/viewcustomer">View Customer</a></li>
                             <li><a href="email-inbox.html">Inbox</a></li>
+                        </ul>
+                    </li>
+                    <li class="active"> <a class="has-arrow  " href="#" aria-expanded="true"><i class="fa fa-address-card-o"></i><span class="hide-menu">Contact</span></a>
+                        <ul aria-expanded="true" class="collapse in" style="">
+                            <li class="active"><a href="addcontact.php" class="active">Add Contact</a></li>
+                            <li><a href="viewcontact.php">View Contact</a></li>
+                            <li><a href="abandoned.php">Abandoned</a></li>
                         </ul>
                     </li>
                     <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Charts</span></a>
@@ -334,4 +341,4 @@
     <!-- Page wrapper  -->
     
     <!-- End Page wrapper  -->
-</div>
+
