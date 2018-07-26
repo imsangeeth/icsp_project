@@ -30,7 +30,7 @@ export class CreatecustomerComponent implements OnInit {
 
   this.data.postusers(contact).subscribe((response) => {
     console.log(response);
-});
+   });
 
   };
 

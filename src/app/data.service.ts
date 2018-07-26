@@ -9,12 +9,13 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getUsers() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users')
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 
   postusers(contact)
   {
-    return this.http.get('http://localhost/lab/php/json_decode.php',contact)
+    //return this.http.post('http://jsonplaceholder.typicode.com/posts',contact);
+    return this.http.post('http://localhost/lab/php/json_decode.php',contact);
   }
 
 }
