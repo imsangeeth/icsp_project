@@ -2,11 +2,11 @@
     <!-- Bread crumb -->
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-primary">Add Contact</h3> </div>
+            <h3 class="text-primary">Add New Customer</h3> </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Services</a></li>
-                <li class="breadcrumb-item active">Add Contact</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                <li class="breadcrumb-item active">Add New Customer</li>
             </ol>
         </div>
     </div>
@@ -23,8 +23,78 @@
                         <form action="#">
                             <div class="form-body">
         
-                                <h3 class="box-title m-t-40">Add Contact</h3>
+                                <h3 class="box-title m-t-40">Add New Customer</h3>
                                 <hr>
+
+                                <div class="row">
+                                    <div class="col-md-12 ">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input  type="text" name="firstName" [(ngModel)]="firstName" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group has-danger">
+                                            <label class="control-label">Last Name</label>
+                                            <input type="text" id="lastName" class="form-control form-control-danger" placeholder="">
+                                             </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group has-danger">
+                                            <label class="control-label">Mobile Number</label>
+                                            <input type="text" id="lastName" class="form-control form-control-danger" placeholder="">
+                                             </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">DOB </label>
+                                            <input type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Gender</label>
+                                            <select class="form-control custom-select">
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                        </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nationality</label>
+                                                <select class="form-control custom-select">
+                                                    <option>India</option>
+                                                    <option>UAE</option>
+                                                </select>
+                                            </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Emirates Id Number</label>
+                                                    <input type="text" id="lastName" class="form-control form-control-danger" placeholder="">
+                                                     </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Address</label>
+                                                    <textarea class="form-control form-control-danger" ></textarea>
+                                                     </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Address</label>
+                                                    <textarea class="form-control form-control-danger" ></textarea>
+                                                     </div>
+                                            </div>
+
+                                            
+
+                                </div>
 
                                 <div class="row">
                                 <div class="col-md-6">
@@ -61,28 +131,10 @@
                                     
                                     
                                     
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label">DOB </label>
-                                            <input type="date" class="form-control" placeholder="dd/mm/yyyy">
-                                        </div>
-                                    </div>
+                                 
 </div>
 
-                                <div class="row">
-                                    <div class="col-md-12 ">
-                                        <div class="form-group">
-                                            <label>First Name</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group has-danger">
-                                            <label class="control-label">Last Name</label>
-                                            <input type="text" id="lastName" class="form-control form-control-danger" placeholder="">
-                                             </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
