@@ -11,6 +11,17 @@ import { Observable } from 'rxjs';
 export class CreatecustomerComponent implements OnInit {
 
   firstName: string = '';
+  lastName: string = '';
+  DOB: string = '';
+  nationality: string = '';
+  emiratesid: string = '';
+  email: string = '';
+  insurance: string = '';
+  insurancecompany: string = '';
+  homeaddress: string = '';
+  companyaddress: string = '';
+  mobilenumber: string = '';
+  gender: string = '';
 
   constructor(private data: DataService) { }
 
@@ -21,14 +32,17 @@ export class CreatecustomerComponent implements OnInit {
    
     var  contact  = {
       name:  this.firstName,
-      address:  "Home N 333 Apartment 300",
-      createdBy:  1,
-      description:  "This is the third contact",
-      email:  "abbess@email.com",
-      first_name:  "kaya",
-      isActive: true,
-      last_name: "Abbes",
-      phone: "00121212101"
+      lastName:  this.lastName,
+      DOB:  this.DOB,
+      nationality:  this.nationality,
+      emiratesid:  this.emiratesid,
+      email:  this.email,
+      insurance: this.insurance,
+      insurancecompany: this.insurancecompany,
+      homeaddress:this.homeaddress,
+      companyaddress:this.companyaddress,
+      mobilenumber:this.mobilenumber,
+      gender: this.gender
   };
    
  
@@ -39,3 +53,4 @@ export class CreatecustomerComponent implements OnInit {
   };
 
 }
+ 

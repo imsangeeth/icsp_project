@@ -2,7 +2,7 @@
     <!-- Bread crumb -->
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-primary">Add New Customer</h3> </div>
+            <h5 class="text-primary">New Customer</h5> </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         <!-- Start Page Content -->
         <div class="row justify-content-center">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="form-validation">
@@ -23,11 +23,11 @@
                         <form action="#">
                             <div class="form-body">
         
-                                <h3 class="box-title m-t-40">Add New Customer</h3>
+                                <h5 class="box-title m-t-40">Add New Customer</h5>
                                 <hr>
 
                                 <div class="row">
-                                    <div class="col-md-12 ">
+                                    <div class="col-md-6 ">
                                         <div class="form-group">
                                             <label>First Name</label>
                                             <input  type="text" name="firstName" [(ngModel)]="firstName" class="form-control">
@@ -36,28 +36,28 @@
                                     <div class="col-md-6">
                                         <div class="form-group has-danger">
                                             <label class="control-label">Last Name</label>
-                                            <input type="text" id="lastName" class="form-control form-control-danger" placeholder="">
+                                            <input type="text" name="lastName" [(ngModel)]="lastName" class="form-control form-control-danger" placeholder="">
                                              </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group has-danger">
                                             <label class="control-label">Mobile Number</label>
-                                            <input type="text" id="lastName" class="form-control form-control-danger" placeholder="">
+                                            <input type="text" name="mobilenumber" [(ngModel)]="mobilenumber"  class="form-control form-control-danger" placeholder="">
                                              </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">DOB </label>
-                                            <input type="date" class="form-control" placeholder="dd/mm/yyyy">
+                                            <input type="date" name="DOB" [(ngModel)]="DOB" class="form-control" placeholder="dd/mm/yyyy">
                                         </div>
                                     </div>
                                     
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Gender</label>
-                                            <select class="form-control custom-select">
-                                                <option>Male</option>
-                                                <option>Female</option>
+                                            <select name="gender" [(ngModel)]="gender" class="form-control custom-select">
+                                                <option value="male">Male</option>
+                                                <option value="female">Female</option>
                                             </select>
                                         </div>
                                         </div>
@@ -65,9 +65,9 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nationality</label>
-                                                <select class="form-control custom-select">
-                                                    <option>India</option>
-                                                    <option>UAE</option>
+                                                <select name="nationality" [(ngModel)]="nationality" class="form-control custom-select">
+                                                    <option value="India">India</option>
+                                                    <option value="Uae">UAE</option>
                                                 </select>
                                             </div>
                                             </div>
@@ -75,20 +75,41 @@
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
                                                     <label class="control-label">Emirates Id Number</label>
-                                                    <input type="text" id="lastName" class="form-control form-control-danger" placeholder="">
+                                                    <input type="text" [(ngModel)]="emiratesid" name="emiratesid" class="form-control form-control-danger" placeholder="">
                                                      </div>
                                             </div>
 
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">Address</label>
-                                                    <textarea class="form-control form-control-danger" ></textarea>
+                                                    <label class="control-label">Email</label>
+                                                    <input type="text" name="email" [(ngModel)]="email" class="form-control form-control-danger" placeholder="">
+                                                     </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Insurance Card No</label>
+                                                    <input type="text" name="insurance" [(ngModel)]="insurance" class="form-control form-control-danger" placeholder="">
+                                                     </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Insurance Company</label>
+                                                    <input type="text" name="insurancecompany" [(ngModel)]="insurancecompany" class="form-control form-control-danger" placeholder="">
+                                                     </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group has-danger">
+                                                    <label class="control-label">Home Address</label>
+                                                    <textarea name="homeaddress" [(ngModel)]="homeaddress" style="height: 100px;" class="form-control form-control-danger" ></textarea>
                                                      </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group has-danger">
-                                                    <label class="control-label">Address</label>
-                                                    <textarea class="form-control form-control-danger" ></textarea>
+                                                    <label class="control-label">Company Address</label>
+                                                    <textarea name="companyaddress" [(ngModel)]="companyaddress" style="height: 100px;" class="form-control form-control-danger" ></textarea>
                                                      </div>
                                             </div>
 
@@ -96,91 +117,16 @@
 
                                 </div>
 
-                                <div class="row">
-                                <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>SelectCampaign</label>
-                                            <select class="form-control custom-select">
-                                                <option>Select Campaingn</option>
-                                                <option>After Claim Service</option>
-                                                <option>Abandoned Calls Callback</option>
-                                                <option>Policies Renewal</option>
-                                                <option>Customer Satisfication</option>
-                                                <option>Product Selling</option>
-                                            </select>
-                                        </div>
 
-                                        
-                                        
-                                    </div>
-                                    
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>SelectCampaign mode</label>
-                                            <select class="form-control custom-select">
-                                                <option>Select Campaingn Mode</option>
-                                                <option>SMS</option>
-                                                <option>Email</option>
-                                                <option>Voice</option>
-                                            </select>
-                                        </div>
-
-                                        
-                                        
-                                    </div>
-                                    
-                                    
-                                    
-                                 
-</div>
 
                                 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>	Nationality</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <!--/span-->
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>	Mob No</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <!--/span-->
-                                </div>
+                              
                                 <!--/row-->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Fax No</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <!--/span-->
-                                   
-                                    <!--/span-->
-                                  
-
-                            </div>
+                            
                                 </div>
-                                
-                                <div class="row">
-                                    <div class="col-md-12 ">
-                                        <div class="form-group">
-                                            <label>Upload file</label>
-                                            <input style="background-color: #d8d8d8;border: 1px solid #e6e6e6;" type="file" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                   
-                                
-                                
                                 
                             <div class="form-actions">
-                                <button type="button" (click)="createContact()" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                                <button type="button" (click)="createContact()" class="btn btn-success" style="margin: 8px;background: #2196F3;border: 1px solid #3F51B5;"> <i class="fa fa-check"></i> Save</button>
                                 <button type="button" class="btn btn-inverse">Cancel</button>
                             </div>
                         </form>
