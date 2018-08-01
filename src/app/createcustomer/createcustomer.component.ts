@@ -8,20 +8,21 @@ import { Observable } from 'rxjs';
   templateUrl: './createcustomer.component.html',
   styleUrls: ['./createcustomer.component.css']
 })
+
 export class CreatecustomerComponent implements OnInit {
 
-  firstName: string = '';
-  lastName: string = '';
-  DOB: string = '';
-  nationality: string = '';
-  emiratesid: string = '';
-  email: string = '';
-  insurance: string = '';
-  insurancecompany: string = '';
-  homeaddress: string = '';
-  companyaddress: string = '';
-  mobilenumber: string = '';
-  gender: string = '';
+  firstName: string = ''
+  lastName: string = ''
+  DOB: string = ''
+  nationality: string = ''
+  emiratesid: string = ''
+  email: string = ''
+  insurance: string = ''
+  insurancecompany: string = ''
+  homeaddress: string = ''
+  companyaddress: string = ''
+  mobilenumber: string = ''
+  gender: string = ''
 
   constructor(private data: DataService) { }
 

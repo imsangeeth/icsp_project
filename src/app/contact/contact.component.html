@@ -1,0 +1,167 @@
+<!-- main app container -->
+
+    
+    <!-- credits -->
+    
+          
+
+    <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h5 class="text-primary">New Contact</h5> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Add New Customer</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                <div class="card-body">
+                                
+                                    <div class="form-body">
+                
+                                        <h5 class="box-title m-t-40">Create New Contact</h5>
+                                        <hr>
+                                       
+                                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                        <div class="row">
+                                            
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>DestinationNumber<span>*</span></label>
+                                                            
+                                                            <input type="text" name="destinationNumber"  formControlName="destinationNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.destinationNumber.errors }" />
+                                                            <div *ngIf="submitted && f.destinationNumber.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.destinationNumber.errors.required">DestinationNumber is required</div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>Dialer</label><span>*</span>
+                                                            <input type="text" formControlName="Dialer" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Dialer.errors }" />
+                                                            <div *ngIf="submitted && f.Dialer.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.Dialer.errors.required">Dialer Name is required</div>
+                                                            </div>
+                                                        </div>
+                                                          </div>
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>StartTime</label><span>*</span><br>
+                                                            <mat-form-field class="example-full-width">
+                                                                    <input formControlName="StartTime" type="time" matInput placeholder="Choose time" value="">
+                                                                  </mat-form-field>
+                                                            <!--<input type="text" formControlName="StartTime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StartTime.errors }" />
+                                                            <div *ngIf="submitted && f.StartTime.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.StartTime.errors.required">StartTime Name is required</div>
+                                                            </div>-->
+                                                        </div>
+                                                        </div>
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>StartDate</label><span>*</span><br>
+                                                            <mat-form-field class="example-full-width">
+                                                                <input formControlName="StartDateval" matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                                                  </mat-form-field>
+
+                                                            <!--<input type="text" formControlName="StartDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StartDate.errors }" />
+                                                            <div *ngIf="submitted && f.StartDate.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.StartDate.errors.required">StartDate Name is required</div>
+                                                            </div>-->
+                                                        </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>StopTime</label><span>*</span>
+                                                            <mat-form-field class="example-full-width">
+                                                                    <input formControlName="StopTime" type="time" matInput placeholder="Choose time" value="">
+                                                                  </mat-form-field>
+                                                            
+                                                            <!--<input type="text" formControlName="StopTime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StopTime.errors }" />
+                                                            <div *ngIf="submitted && f.StopTime.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.StopTime.errors.required">StopTime Name is required</div>
+                                                            </div>-->
+                                                        </div>
+                                                        </div>
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>StopDate</label><span>*</span>
+                                                            <mat-form-field class="example-full-width">
+                                                                    <input formControlName="StopDate" matInput [matDatepicker]="pickers" placeholder="Choose a stop date">
+                                                                        <mat-datepicker-toggle matSuffix [for]="pickers"></mat-datepicker-toggle>
+                                                                        <mat-datepicker #pickers startView="year" [startAt]="startDate"></mat-datepicker>
+                                                                      </mat-form-field>
+                                                            
+                                                            <!--<input type="text" formControlName="StopDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StopDate.errors }" />
+                                                            <div *ngIf="submitted && f.StopDate.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.StopDate.errors.required">StopDate Name is required</div>
+                                                            </div>-->
+                                                        </div>
+                                                        </div>
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>Prio</label><span>*</span>
+                                                            <input type="text" formControlName="Prio" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Prio.errors }" />
+                                                            <div *ngIf="submitted && f.Prio.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.Prio.errors.required">Prio required</div>
+                                                                <!--<div *ngIf="f.Prio.errors.required">Prio is required</div>-->
+                                                            </div>
+                                                        </div>
+                                                           </div>
+
+                                                           <div class="col-md-6 ">  
+                                                        <div class="form-group">
+                                                            <label>CallTag(name)</label><span>*</span>
+                                                            <input type="text" formControlName="CallTag" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CallTag.errors }" />
+                                                            <div *ngIf="submitted && f.CallTag.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.CallTag.errors.required">Call Tag is required</div>
+                                                                <!--<div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>-->
+                                                            </div>
+                                                        </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>CallTag(Trackid)</label><span>*</span>
+                                                            <input type="text" formControlName="CallTagtrack" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.CallTagtrack.errors }" />
+                                                            <div *ngIf="submitted && f.CallTagtrack.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.CallTagtrack.errors.required">Call Tag Track is required</div>
+                                                                <!--<div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>-->
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        <div class="col-md-6 "></div>
+                                                        <div class="col-md-6 "></div>
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-actions">
+                                                            <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Create</button>
+                                                            <button type="button" class="btn btn-inverse">Cancel</button>
+                                                        </div>
+                                                        </div>
+                                                    
+                                                
+                                            </div></form>
+        
+                                        </div>
+                            </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+    

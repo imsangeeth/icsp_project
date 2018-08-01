@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '/style/icons/font-awesome/css/font-awesome.min.css';
 @import '/style/icons/simple-line-icons/css/simple-line-icons.css';
 @import '/style/icons/weather-icons/css/weather-icons.min.css';
@@ -2873,8 +2874,9 @@
     border: 1px solid #6352ce;
   }
   .btn-primary.disabled {
-    background: #5c4ac7;
-    border: 1px solid #5c4ac7;
+    background-color: #262627;
+    border-color: #414244;
+    cursor: not-allowed;
     -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
     box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
     -webkit-transition: 0.2s ease-in;
@@ -2882,10 +2884,10 @@
     transition: 0.2s ease-in;
   }
   .btn-primary.disabled:hover {
-    background: #5c4ac7;
+    background: #414244;
     -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
-    border: 1px solid #5c4ac7;
+    border: 1px solid #414244;
   }
   .btn-primary.disabled:active {
     background: #6352ce;
@@ -2953,6 +2955,11 @@
   .btn-themecolor.disabled.active {
     background: #028ee1;
   }
+  btn-success:disabled {
+    color: #fff;
+    background-color: #363a37 ;
+    border-color: #3b3c3b;
+}
   .btn-success {
     background: #2196F3;
     border: 1px solid #3F51B5;
@@ -6726,6 +6733,9 @@
     font-weight: 900;
     line-height: 210px;
     color: #444c67;
+  }
+  .example-full-width{
+    width: 100%;
   }
   /*
   /* Version: 1.0
