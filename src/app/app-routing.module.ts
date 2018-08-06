@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { CreatecustomerComponent } from './createcustomer/createcustomer.component';
 import { ViewcustomerComponent } from './viewcustomer/viewcustomer.component';
 import { ContactComponent } from './contact/contact.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { ViewcontactComponent } from './viewcontact/viewcontact.component'
 
 
 const routes: Routes = [
@@ -22,6 +24,10 @@ const routes: Routes = [
   {
     path: 'createcontact',
     component: ContactComponent
+  },
+  {
+    path: 'viewcontact',
+    component: ViewcontactComponent
   }
 
 ];

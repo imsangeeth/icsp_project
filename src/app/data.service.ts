@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from './models/user.model' ;
+//import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+  
+  private serviceUrl  = "http://jsonplaceholder.typicode.com/users";
 
   constructor(private http: HttpClient) { }
+
+  getUser(): Observable<User[]> {
+    return this.http.get<User[]>(this.serviceUrl);
+  }
 
   getUsers() {
     return this.http.get('http://localhost/IcspApi/Api/index.php/user/viewcustomer');

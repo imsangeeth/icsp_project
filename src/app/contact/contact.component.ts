@@ -13,8 +13,18 @@ export class ContactComponent implements OnInit {
 
     registerForm: FormGroup;
     submitted = false;
-    firstName: string = ''
-    startDate = new Date(2018, 0, 1);
+    firstName: string = '';
+    startDate: string = '';
+    destinationNumber: string = '';
+    Dialer: string = '';
+    Prio: string = '';
+    StartTime: string = '';
+    StartDateval:string = '';
+    StopTime: string = '';
+    StopDate: string = '';
+    CallTag: string = '';
+    CallTagtrack: string = '';
+    msg: string = '';
     
 
   constructor(private formBuilder: FormBuilder,private data: DataService) { }
@@ -50,14 +60,24 @@ export class ContactComponent implements OnInit {
     }
 
     var  contact  = {
-      destinationNumb:  this.registerForm.get('destinationNumber').value,
-  };
+      destinationNumbVal:  this.registerForm.get('destinationNumber').value,
+      DialerVal:  this.registerForm.get('Dialer').value,
+      PrioVal:  this.registerForm.get('Prio').value,
+      StartTimeVal:  this.registerForm.get('StartTime').value,
+      StartDtval: this.registerForm.get('StartDateval').value,
+      StopTimeVal:  this.registerForm.get('StopTime').value,
+      StopDateVal:  this.registerForm.get('StopDate').value,
+      CallTagVal:  this.registerForm.get('CallTag').value,
+      CallTagtrackVal:  this.registerForm.get('CallTagtrack').value,
+      
+    };
 
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
     alert(this.registerForm.get('StartTime').value)
 
     this.data.postcontact(contact).subscribe((response) => {
       console.log(response);
+       this.msg = response['msg']
      });
    }
 

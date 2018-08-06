@@ -8,7 +8,8 @@ import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+//import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,13 @@ import { HomeComponent } from './home/home.component';
 import { ViewcustomerComponent } from './viewcustomer/viewcustomer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactComponent } from './contact/contact.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { DataTableComponent } from './data-table/data-table.component';
+import { UsertableComponent } from './components/usertable/usertable.component';
+import { DataService } from './data.service';
+import { ViewcontactComponent } from './viewcontact/viewcontact.component'
+
 
 @NgModule({
   declarations: [
@@ -26,7 +34,10 @@ import { ContactComponent } from './contact/contact.component';
     CreatecustomerComponent,
     HomeComponent,
     ViewcustomerComponent,
-    ContactComponent
+    ContactComponent,
+    DataTableComponent,
+    UsertableComponent,
+    ViewcontactComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +52,16 @@ import { ContactComponent } from './contact/contact.component';
     MatFormFieldModule,
     MatNativeDateModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule
+    //MatPaginator,
+   // MatSort,
+   // MatTableDataSource
     
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
