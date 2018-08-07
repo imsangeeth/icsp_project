@@ -11,13 +11,15 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 })
 export class ViewcontactComponent implements OnInit {
 
-  displayedColumns: string[] = ['created', 'state', 'number', 'title'];
+  displayedColumns: string[] = ['userid','destinationumber', 'dialer', 'startTime', 'StartDate','StopTime','StopDate','Prio','CallTag_name','CallTag_Trackid'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
 
   resultsLength = 0;
   isLoadingResults = true;
   isRateLimitReached = false;
+
+  
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -43,7 +45,6 @@ export class ViewcontactComponent implements OnInit {
           this.isLoadingResults = false;
           this.isRateLimitReached = false;
           this.resultsLength = data.total_count;
-
           return data.items;
         }),
         catchError(() => {
@@ -62,20 +63,34 @@ export interface GithubApi {
 }
 
 export interface GithubIssue {
-  created_at: string;
-  number: string;
-  state: string;
-  title: string;
+  destinationumber: string;
+  dialer: string;
+  startTime: string;
+  StartDate: string;
+  StopTime: string;
+  StopDate: string;
+  email: string;
+  Prio: string;
+  CallTag_name: string;
+  CallTag_Trackid: string;
+  userid:string;
 }
 
 /** An example database that the data source uses to retrieve data for the table. */
 export class ExampleHttpDao {
   constructor(private http: HttpClient) {}
 
-  getRepoIssues(sort: string, order: string, page: number): Observable<GithubApi> {
-    const href = 'https://api.github.com/search/issues';
+  getRepoIssues(sort: string = 'sort', order: string = 'asc' , page: number): Observable<GithubApi> {
+
+    console.log(sort);
+    console.log(order);
+
+    const href = 'http://localhost/IcspApi/Api/index.php/user/allcontacts';
+    //const requestUrl ='http://localhost/IcspApi/Api/index.php/user/allcontacts';
+   // const requestUrl =
+      //  `${href}?q=repo:angular/material2&sort=${sort}&order=${order}&page=${page + 1}`;
     const requestUrl =
-        `${href}?q=repo:angular/material2&sort=${sort}&order=${order}&page=${page + 1}`;
+        `${href}/${sort}/${order}/${page + 1}`;
 
     return this.http.get<GithubApi>(requestUrl);
   }

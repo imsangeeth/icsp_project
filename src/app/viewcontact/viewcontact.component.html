@@ -2,11 +2,11 @@
     <!-- Bread crumb -->
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h5 class="text-primary">Customer Details</h5> </div>
+            <h5 class="text-primary">View Contacts</h5> </div>
         <div class="col-md-7 align-self-center">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active">DashCustomer Details</li>
+                <li class="breadcrumb-item active">View Contacts</li>
             </ol>
         </div>
     </div>
@@ -31,55 +31,106 @@
                   </ul>-->
 
             <div class="col-lg-12">
-                <div class="card">
+                
 
                     <div class="example-container mat-elevation-z8">
                         <div class="example-loading-shade"
                              *ngIf="isLoadingResults || isRateLimitReached">
                           <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-                          <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-                            GitHub's API rate limit has been reached. It will be reset in one minute.
-                          </div>
+                          
                         </div>
                       
                         <div class="example-table-container">
                       
                           <table mat-table [dataSource]="data" class="example-table"
                                  matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
+
+
+                                 <ng-container matColumnDef="userid">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                        #
+                                      </th>
+                                  <td mat-cell *matCellDef="let row">{{row.userid}}</td>
+                                </ng-container>
                             <!-- Number Column -->
-                            <ng-container matColumnDef="number">
-                              <th mat-header-cell *matHeaderCellDef>#</th>
-                              <td mat-cell *matCellDef="let row">{{row.number}}</td>
+                            <ng-container matColumnDef="destinationumber">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                    Destinationumber
+                                  </th>
+                              <td mat-cell *matCellDef="let row">{{row.destinationumber}}</td>
                             </ng-container>
                       
                             <!-- Title Column -->
-                            <ng-container matColumnDef="title">
-                              <th mat-header-cell *matHeaderCellDef>Title</th>
-                              <td mat-cell *matCellDef="let row">{{row.title}}</td>
+                            <ng-container matColumnDef="dialer">
+                              <th mat-header-cell *matHeaderCellDef>Dialer</th>
+                              <td mat-cell *matCellDef="let row">{{row.dialer}}</td>
                             </ng-container>
                       
                             <!-- State Column -->
-                            <ng-container matColumnDef="state">
-                              <th mat-header-cell *matHeaderCellDef>State</th>
-                              <td mat-cell *matCellDef="let row">{{row.state}}</td>
+                            <ng-container matColumnDef="startTime">
+                              <th mat-header-cell *matHeaderCellDef>StartTime</th>
+                              <td mat-cell *matCellDef="let row">{{row.startTime}}</td>
                             </ng-container>
                       
                             <!-- Created Column -->
-                            <ng-container matColumnDef="created">
+                            <ng-container matColumnDef="StartDate">
                               <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                Created
+                                StartDate
                               </th>
-                              <td mat-cell *matCellDef="let row">{{row.created_at | date}}</td>
+                              <td mat-cell *matCellDef="let row">{{row.StartDate}}</td>
                             </ng-container>
+
+                            <ng-container matColumnDef="StopTime">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                    StopTime
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{row.StopTime}}</td>
+                              </ng-container>
+
+                              <ng-container matColumnDef="StopDate">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                    StopDate
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{row.StopDate}}</td>
+                              </ng-container>
+
+                              <ng-container matColumnDef="email">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                    Email
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{row.email}}</td>
+                              </ng-container>
+
+                              <ng-container matColumnDef="Prio">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                    Prio
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{row.Prio}}</td>
+                              </ng-container>
+
+                              <ng-container matColumnDef="CallTag_name">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                    CallTag Name
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{row.CallTag_name}}</td>
+                              </ng-container>
+
+                              
+                              <ng-container matColumnDef="CallTag_Trackid">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                    CallTag Trackid
+                                </th>
+                                <td mat-cell *matCellDef="let row">{{row.CallTag_Trackid}}</td>
+                              </ng-container>
                       
-                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
                           </table>
                         </div>
                       
-                        <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator>
+                        <mat-paginator [length]="resultsLength" [pageSize]="10"></mat-paginator>
                       </div>
-                              </div>
+                             
 
                        <!-- <div class="tab-pane" id="settings" role="tabpanel">
                                 <div class="card-body">

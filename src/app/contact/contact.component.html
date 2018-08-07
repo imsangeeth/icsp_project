@@ -30,12 +30,7 @@
                                 
                                     <div class="form-body">
 
-                                            <div class="card-content">
-                                                    <div class="alert alert-primary alert-dismissible fade show">
-                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <strong>{{msg}}</strong> 
-                                                    </div>
-                                          </div>
+                                           
                 
                                         <h5 class="box-title m-t-40">Create New Contact </h5>
                                         <hr>
@@ -155,12 +150,19 @@
                                                         <div class="col-md-6 ">
                                                         <div class="form-actions">
                                                             <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Create</button>
-                                                            <button type="button" class="btn btn-inverse">Cancel</button>
+                                                            <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
                                                         </div>
                                                         </div>
                                                     
                                                 
                                             </div></form>
+
+                                            <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
+                                                <div class="alert alert-primary alert-dismissible fade show">
+                                                    <button type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <strong>{{msg}}</strong> 
+                                                </div>
+                                        </div>
         
                                         </div>
                             </div>

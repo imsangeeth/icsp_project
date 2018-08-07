@@ -25,6 +25,8 @@ export class ContactComponent implements OnInit {
     CallTag: string = '';
     CallTagtrack: string = '';
     msg: string = '';
+    msgview = false;
+    bgcolor: string = ''
     
 
   constructor(private formBuilder: FormBuilder,private data: DataService) { }
@@ -72,14 +74,31 @@ export class ContactComponent implements OnInit {
       
     };
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
-    alert(this.registerForm.get('StartTime').value)
-
+  //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
+   // alert(this.registerForm.get('StartTime').value)
     this.data.postcontact(contact).subscribe((response) => {
-      console.log(response);
-       this.msg = response['msg']
+       if(response['error'] = false)
+       {
+          
+       }
+       this.registerForm.reset();
+       this.msg = response['msg'];
+       this.bgcolor = response['bgcolor'];
+       this.msgview = true;
      });
    }
+
+   msgclose()
+   {
+    console.log('clicked');
+    this.msgview = false;
+   }
+
+   cancel_form()
+    {this.registerForm.reset();
+
+    }
+   
 
 
 

@@ -5846,9 +5846,14 @@
   /*Aleart
   -------------*/
   .alert-primary {
-    background-color: #a2bfff;
-    border-color: #a2bfff;
-    color: #4680ff;
+    color: #f3f3f3 !important;
+    background-color: #4CAF50 !important;
+    border-color: #f1f1f1 !important;
+    width: 28%;
+    position: absolute !important;
+    min-height: 6%;
+    right: 3px;
+    font-size: 14px;
   }
   .alert-success {
     background-color: #93ede9;
