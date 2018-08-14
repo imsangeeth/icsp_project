@@ -24,7 +24,9 @@ import {MatSortModule} from '@angular/material/sort';
 import { DataTableComponent } from './data-table/data-table.component';
 import { UsertableComponent } from './components/usertable/usertable.component';
 import { DataService } from './data.service';
-import { ViewcontactComponent } from './viewcontact/viewcontact.component'
+import { ViewcontactComponent } from './viewcontact/viewcontact.component';
+import { CreateserviceComponent } from './createservice/createservice.component';
+import { ViewserviceComponent } from './viewservice/viewservice.component'
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { ViewcontactComponent } from './viewcontact/viewcontact.component'
     ContactComponent,
     DataTableComponent,
     UsertableComponent,
-    ViewcontactComponent
+    ViewcontactComponent,
+    CreateserviceComponent,
+    ViewserviceComponent
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { CreatecustomerComponent } from './createcustomer/createcustomer.component';
 import { ViewcustomerComponent } from './viewcustomer/viewcustomer.component';
 import { ContactComponent } from './contact/contact.component';
-import { DataTableComponent } from './data-table/data-table.component';
-import { ViewcontactComponent } from './viewcontact/viewcontact.component'
+import { ViewcontactComponent } from './viewcontact/viewcontact.component';
+import { CreateserviceComponent } from './createservice/createservice.component';
+import { ViewserviceComponent } from './viewservice/viewservice.component'
 
 
 const routes: Routes = [
@@ -28,6 +29,14 @@ const routes: Routes = [
   {
     path: 'viewcontact',
     component: ViewcontactComponent
+  },
+  {
+    path: 'createservice',
+    component: CreateserviceComponent
+  },
+  {
+    path: 'viewservices',
+    component: ViewserviceComponent
   }
 
 ];

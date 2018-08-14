@@ -30,9 +30,12 @@ export class DataService {
 
   postcontact(contact)
   {
-    //return this.http.post('http://jsonplaceholder.typicode.com/posts',contact); 
-    //return this.http.post('http://localhost/lab/php/json_decode.php',contact);
     return this.http.post('http://localhost/IcspApi/Api/index.php/user/createcontact',contact);
+  }
+
+  postservices(contact)
+  {
+    return this.http.post('http://localhost/IcspApi/Api/index.php/user/createservices',contact);
   }
 
 }

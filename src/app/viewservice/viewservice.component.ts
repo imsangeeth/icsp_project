@@ -5,13 +5,13 @@ import {merge, Observable, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 
 @Component({
-  selector: 'app-viewcontact',
-  templateUrl: './viewcontact.component.html',
-  styleUrls: ['./viewcontact.component.css']
+  selector: 'app-viewservice',
+  templateUrl: './viewservice.component.html',
+  styleUrls: ['./viewservice.component.css']
 })
-export class ViewcontactComponent implements OnInit {
+export class ViewserviceComponent implements OnInit {
 
-  displayedColumns: string[] = ['destinationumber', 'dialer', 'startTime', 'StartDate','StopTime','StopDate','Prio','CallTag_name','CallTag_Trackid'];
+  displayedColumns: string[] = ['CustomerName', 'ReasonForCall', 'CallerTime', 'CallerType','CustomerType','remarks'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
 
@@ -63,16 +63,12 @@ export interface GithubApi {
 }
 
 export interface GithubIssue {
-  destinationumber: string;
-  dialer: string;
-  startTime: string;
-  StartDate: string;
-  StopTime: string;
-  StopDate: string;
-  email: string;
-  Prio: string;
-  CallTag_name: string;
-  CallTag_Trackid: string;
+  CustomerName: string;
+  ReasonForCall: string;
+  CallerTime: string;
+  CallerType: string;
+  CustomerType: string;
+  remarks: string;
 }
 
 /** An example database that the data source uses to retrieve data for the table. */
@@ -84,7 +80,7 @@ export class ExampleHttpDao {
     console.log(sort);
     console.log(order);
 
-    const href = 'http://localhost/IcspApi/Api/index.php/user/allcontacts';
+    const href = 'http://localhost/IcspApi/Api/index.php/user/allservices';
     //const requestUrl ='http://localhost/IcspApi/Api/index.php/user/allcontacts';
    // const requestUrl =
       //  `${href}?q=repo:angular/material2&sort=${sort}&order=${order}&page=${page + 1}`;
@@ -93,4 +89,5 @@ export class ExampleHttpDao {
 
     return this.http.get<GithubApi>(requestUrl);
   }
+
 }

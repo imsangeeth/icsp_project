@@ -1,0 +1,156 @@
+<!-- main app container -->
+
+    
+    <!-- credits -->
+    
+          
+
+    <div class="page-wrapper">
+      <!-- Bread crumb -->
+      <div class="row page-titles">
+          <div class="col-md-5 align-self-center">
+              <h5 class="text-primary">Create Services</h5> </div>
+          <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                  <li class="breadcrumb-item active">Create Services</li>
+              </ol>
+          </div>
+      </div>
+      <!-- End Bread crumb -->
+      <!-- Container fluid  -->
+      <div class="container-fluid">
+          <!-- Start Page Content -->
+          <div class="row justify-content-center">
+              <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="form-validation">
+                          <div class="card-body">
+                          
+                              <div class="form-body">
+
+                                     
+          
+                                  <h5 class="box-title m-t-40">Create New Services </h5>
+                                  <hr>
+                                 
+                                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                  <div class="row">
+                                      
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Customer Name<span>*</span></label>
+       
+                                                      <input type="text" name="customername"  formControlName="customername" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.customername.errors }" />
+                                                      <div *ngIf="submitted && f.customername.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.customername.errors.required">Customer name is required</div>
+                                                      </div>
+                                                  </div>
+                                                  </div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Reason Of Call</label><span>*</span>
+                                                      <select name="Reason" formControlName="Reason" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                        <option value="1">Reason 1</option>
+                                                        <option value="2">Reason 2</option>
+                                                    </select>
+
+            
+                                                      <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                      </div>
+                                                  </div>
+                                                    </div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Caller Time</label><span>*</span><br>
+                                                      <mat-form-field class="example-full-width">
+                                                              <input formControlName="callerTime" type="time" matInput placeholder="Choose time" value="">
+                                                            </mat-form-field>
+                                                      <!--<input type="text" formControlName="StartTime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StartTime.errors }" />
+                                                      <div *ngIf="submitted && f.StartTime.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.StartTime.errors.required">StartTime Name is required</div>
+                                                      </div>-->
+                                                  </div>
+                                                  </div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Caller Date</label><span>*</span><br>
+                                                      <mat-form-field class="example-full-width">
+                                                          <input formControlName="callerdate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                                            </mat-form-field>
+
+                                                      <!--<input type="text" formControlName="StartDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StartDate.errors }" />
+                                                      <div *ngIf="submitted && f.StartDate.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.StartDate.errors.required">StartDate Name is required</div>
+                                                      </div>-->
+                                                  </div>
+                                                  </div>
+
+                                                
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Caller Type</label><span>*</span>
+                                                      <select formControlName="callerType"  name="callerType" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.callerType.errors }">
+                                                        <option value="1">Type 1</option>
+                                                        <option value="2">Type 2</option>
+                                                    </select>
+                                                      
+                                                    <div *ngIf="submitted && f.callerType.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.callerType.errors.required">callerType is required</div>
+                                                    </div>
+                                                      <!--<input type="text" formControlName="StopDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StopDate.errors }" />
+                                                      <div *ngIf="submitted && f.StopDate.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.StopDate.errors.required">StopDate Name is required</div>
+                                                      </div>-->
+                                                  </div>
+                                                  </div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Customer Type</label>
+                                                      <select formControlName="customerType"  name="customerType" class="form-control custom-select">
+                                                        <option value="1">Customer 1</option>
+                                                        <option value="2">Customer 2</option>
+                                                    </select>
+                                                  </div>
+                                                     </div>
+
+                                                  <div class="col-md-6 ">  
+                                                  <div class="form-group">
+                                                      <label>Remarks</label><span>*</span>
+                                                      <textarea name="homeaddress" formControlName="Remarks"   style="height: 100px;" class="form-control form-control-danger" ></textarea>
+                                                  </div>
+                                                  </div>
+
+                                                 
+                                                  <div class="col-md-6 "></div>
+                                                  <div class="col-md-6 "></div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-actions">
+                                                      <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Create</button>
+                                                      <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                  </div>
+                                                  </div>
+                                              
+                                          
+                                      </div></form>
+
+                                      <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
+                                          <div class="alert alert-primary alert-dismissible fade show">
+                                              <button type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                              <strong>{{msg}}</strong> 
+                                          </div>
+                                  </div>
+  
+                                  </div>
+                      </div>
+                          </div>
+  
+                      </div>
+                  </div>
+              </div>
+          </div>
+  
