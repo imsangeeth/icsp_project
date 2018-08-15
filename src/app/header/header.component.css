@@ -1,0 +1,15 @@
+.collapse.in {
+    display: block;
+}
+.sidebar-nav > ul > li.active > a i {
+    color: #5a7bef;
+}
+.sidebar-nav > ul > li.active > a {
+    color: #5a7bef;
+    font-weight: 500;
+    border-left: 3px solid #fff;
+}
+.sidebar-nav .has-arrow {
+    position: relative;
+    cursor: pointer;
+}

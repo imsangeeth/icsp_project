@@ -1,0 +1,160 @@
+<!-- main app container -->
+
+    
+    <!-- credits -->
+    
+          
+
+    <div class="page-wrapper">
+      <!-- Bread crumb -->
+      <div class="row page-titles">
+          <div class="col-md-5 align-self-center">
+              <h5 class="text-primary">Create New campaign</h5> </div>
+          <div class="col-md-7 align-self-center">
+              <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                  <li class="breadcrumb-item active">Create New campaign</li>
+              </ol>
+          </div>
+      </div>
+      <!-- End Bread crumb -->
+      <!-- Container fluid  -->
+      <div class="container-fluid">
+          <!-- Start Page Content -->
+          <div class="row justify-content-center">
+              <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="form-validation">
+                          <div class="card-body">
+                          
+                              <div class="form-body">
+
+                                     
+          
+                                  <h5 class="box-title m-t-40">Create New campaign</h5>
+                                  <hr>
+                                 
+                                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                  <div class="row">
+                                      
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Campaign Name<span>*</span></label>
+                                                      
+                                                      <input type="text" name="Campaignname"  formControlName="Campaignname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Campaignname.errors }" />
+                                                      <div *ngIf="submitted && f.Campaignname.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.Campaignname.errors.required">Campaign Name is required</div>
+                                                      </div>
+                                                  </div>
+                                                  </div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Mode</label><span>*</span>
+                                                      <select formControlName="Mode"  name="Mode" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Mode.errors }">
+                                                        <option value="1">Type 1</option>
+                                                        <option value="2">Type 2</option>
+                                                    </select>
+                                                      <div *ngIf="submitted && f.Mode.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.Mode.errors.required">Mode Name is required</div>
+                                                      </div>
+                                                  </div>
+                                                    </div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Schedule Time</label><span>*</span><br>
+                                                      <mat-form-field class="example-full-width">
+                                                              <input formControlName="Scheduletime" name="Scheduletime" type="time" matInput placeholder="Choose time" value="">
+                                                            </mat-form-field>
+                                                      <!--<input type="text" formControlName="StartTime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StartTime.errors }" />-->
+                                                      <div *ngIf="submitted && f.Scheduletime.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.Scheduletime.errors.required">Scheduletime Name is required</div>
+                                                      </div>
+                                                  </div>
+                                                  </div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Schedule Date</label><span>*</span><br>
+                                                      <mat-form-field class="example-full-width">
+                                                          <input formControlName="Scheduledate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                              <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                                                            </mat-form-field>
+
+                                                      <!--<input type="text" formControlName="StartDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StartDate.errors }" />-->
+                                                      <div *ngIf="submitted && f.Scheduledate.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.Scheduledate.errors.required">Schedule date Name is required</div>
+                                                      </div>
+                                                  </div>
+                                                  </div>
+
+                                                
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Campaign Date</label><span>*</span>
+                                                      <mat-form-field class="example-full-width">
+                                                              <input formControlName="Campaigndate" matInput [matDatepicker]="pickers" placeholder="Choose a stop date">
+                                                                  <mat-datepicker-toggle matSuffix [for]="pickers"></mat-datepicker-toggle>
+                                                                  <mat-datepicker #pickers startView="year" [startAt]="startDate"></mat-datepicker>
+                                                                </mat-form-field>
+                                                      
+                                                      <!--<input type="text" formControlName="StopDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StopDate.errors }" />
+                                                      <div *ngIf="submitted && f.StopDate.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.StopDate.errors.required">StopDate Name is required</div>
+                                                      </div>-->
+                                                  </div>
+                                                  </div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-group">
+                                                      <label>Service Provider</label><span>*</span>
+                                                      <select formControlName="serviceprovider"  name="serviceprovider" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.serviceprovider.errors }">
+                                                        <option value="1">Service 1</option>
+                                                        <option value="2">Service 2</option>
+                                                    </select>
+                                                      <div *ngIf="submitted && f.serviceprovider.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.serviceprovider.errors.required">Service Provider required</div>
+                                                          <!--<div *ngIf="f.Prio.errors.required">Prio is required</div>-->
+                                                      </div>
+                                                  </div>
+                                                     </div>
+
+                                                     <div class="col-md-6 ">  
+                                                  <div class="form-group">
+                                                      <label>Campaign Description</label><span>*</span>
+                                                      <textarea name="Campaigndes" formControlName="Campaigndes"   style="height: 100px;" class="form-control form-control-danger"  [ngClass]="{ 'is-invalid': submitted && f.Campaigndes.errors }" ></textarea>
+                                                      <div *ngIf="submitted && f.Campaigndes.errors" class="invalid-feedback">
+                                                          <div *ngIf="f.Campaigndes.errors.required">Campaign Description required</div>
+                                                          <!--<div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>-->
+                                                      </div>
+                                                  </div>
+                                                  </div>
+
+                                                
+                                                  <div class="col-md-6 "></div>
+                                                  <div class="col-md-6 "></div>
+                                                  <div class="col-md-6 ">
+                                                  <div class="form-actions">
+                                                      <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Create</button>
+                                                      <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                  </div>
+                                                  </div>
+                                              
+                                          
+                                      </div></form>
+
+                                      <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
+                                          <div class="alert alert-primary alert-dismissible fade show">
+                                              <button type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                              <strong>{{msg}}</strong> 
+                                          </div>
+                                  </div>
+  
+                                  </div>
+                      </div>
+                          </div>
+  
+                      </div>
+                  </div>
+              </div>
+          </div>
+  

@@ -6,7 +6,10 @@ import { ViewcustomerComponent } from './viewcustomer/viewcustomer.component';
 import { ContactComponent } from './contact/contact.component';
 import { ViewcontactComponent } from './viewcontact/viewcontact.component';
 import { CreateserviceComponent } from './createservice/createservice.component';
-import { ViewserviceComponent } from './viewservice/viewservice.component'
+import { ViewserviceComponent } from './viewservice/viewservice.component';
+import { CampaignComponent } from './campaign/campaign.component';
+import { CampaignviewComponent } from './campaignview/campaignview.component'
+
 
 
 const routes: Routes = [
@@ -37,6 +40,14 @@ const routes: Routes = [
   {
     path: 'viewservices',
     component: ViewserviceComponent
+  },
+  {
+    path: 'createcampaign',
+    component: CampaignComponent
+  },
+  {
+    path: 'viewcampaign',
+    component: CampaignviewComponent
   }
 
 ];

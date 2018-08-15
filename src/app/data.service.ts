@@ -37,5 +37,13 @@ export class DataService {
   {
     return this.http.post('http://localhost/IcspApi/Api/index.php/user/createservices',contact);
   }
+  
+  postcampaign(contact)
+  {
+    return this.http.post('http://localhost/IcspApi/Api/index.php/user/createcampaign',contact);
+  }
+
+
+  
 
 }

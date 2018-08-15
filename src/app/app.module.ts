@@ -26,7 +26,9 @@ import { UsertableComponent } from './components/usertable/usertable.component';
 import { DataService } from './data.service';
 import { ViewcontactComponent } from './viewcontact/viewcontact.component';
 import { CreateserviceComponent } from './createservice/createservice.component';
-import { ViewserviceComponent } from './viewservice/viewservice.component'
+import { ViewserviceComponent } from './viewservice/viewservice.component';
+import { CampaignComponent } from './campaign/campaign.component';
+import { CampaignviewComponent } from './campaignview/campaignview.component'
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import { ViewserviceComponent } from './viewservice/viewservice.component'
     UsertableComponent,
     ViewcontactComponent,
     CreateserviceComponent,
-    ViewserviceComponent
+    ViewserviceComponent,
+    CampaignComponent,
+    CampaignviewComponent
   ],
   imports: [
     BrowserModule,
