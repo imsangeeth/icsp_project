@@ -9,6 +9,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatIconModule} from '@angular/material/icon';
 //import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +29,8 @@ import { ViewcontactComponent } from './viewcontact/viewcontact.component';
 import { CreateserviceComponent } from './createservice/createservice.component';
 import { ViewserviceComponent } from './viewservice/viewservice.component';
 import { CampaignComponent } from './campaign/campaign.component';
-import { CampaignviewComponent } from './campaignview/campaignview.component'
+import { CampaignviewComponent } from './campaignview/campaignview.component';
+import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component'
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { CampaignviewComponent } from './campaignview/campaignview.component'
     CreateserviceComponent,
     ViewserviceComponent,
     CampaignComponent,
-    CampaignviewComponent
+    CampaignviewComponent,
+    UpdatecontactviewComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +66,8 @@ import { CampaignviewComponent } from './campaignview/campaignview.component'
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule
     //MatPaginator,
    // MatSort,
    // MatTableDataSource

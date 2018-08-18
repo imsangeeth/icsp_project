@@ -42,6 +42,12 @@ export class DataService {
   {
     return this.http.post('http://localhost/IcspApi/Api/index.php/user/createcampaign',contact);
   }
+  
+
+  geteditcontact(userId)
+  {
+    return this.http.get('http://localhost/IcspApi/Api/index.php/user/editcontact/'+userId)
+  }
 
 
   

@@ -3,6 +3,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort} from '@angular/material';
 import {merge, Observable, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
+import {DomSanitizer} from '@angular/platform-browser';
+import {MatIconRegistry} from '@angular/material';
 
 @Component({
   selector: 'app-viewcontact',
@@ -11,7 +13,7 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 })
 export class ViewcontactComponent implements OnInit {
 
-  displayedColumns: string[] = ['destinationumber', 'dialer', 'startTime', 'StartDate','StopTime','StopDate','Prio','CallTag_name','CallTag_Trackid'];
+  displayedColumns: string[] = ['destinationumber', 'dialer', 'startTime', 'StartDate','StopTime','StopDate','Prio','CallTag_name','CallTag_Trackid','Edit'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
 
@@ -24,7 +26,12 @@ export class ViewcontactComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'thumbs-up',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/baseline-edit-24px.svg'));
+
+  }
 
   ngOnInit() {
     this.exampleDatabase = new ExampleHttpDao(this.http);
@@ -73,6 +80,8 @@ export interface GithubIssue {
   Prio: string;
   CallTag_name: string;
   CallTag_Trackid: string;
+  Edit:string;
+  userid:string;
 }
 
 /** An example database that the data source uses to retrieve data for the table. */

@@ -53,3 +53,11 @@ font-weight: bold;
   max-height: 550px;
   overflow: auto;
 }
+.mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
