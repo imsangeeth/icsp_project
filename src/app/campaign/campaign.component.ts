@@ -22,7 +22,8 @@ export class CampaignComponent implements OnInit {
     Campaigndes:string = '';
     msg: string = '';
     msgview = false;
-    bgcolor: string = ''
+    bgcolor: string = '';
+    startDate: string = '';
     
 
   constructor(private formBuilder: FormBuilder,private data: DataService) { }

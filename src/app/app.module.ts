@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
+
 //import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +31,9 @@ import { CreateserviceComponent } from './createservice/createservice.component'
 import { ViewserviceComponent } from './viewservice/viewservice.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { CampaignviewComponent } from './campaignview/campaignview.component';
-import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component'
+import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component'
 
 
 @NgModule({
@@ -48,7 +51,9 @@ import { UpdatecontactviewComponent } from './updatecontactview/updatecontactvie
     ViewserviceComponent,
     CampaignComponent,
     CampaignviewComponent,
-    UpdatecontactviewComponent
+    UpdatecontactviewComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

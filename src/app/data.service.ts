@@ -46,7 +46,12 @@ export class DataService {
 
   geteditcontact(userId)
   {
-    return this.http.get('http://localhost/IcspApi/Api/index.php/user/editcontact/'+userId)
+    return this.http.get('http://localhost/IcspApi/Api/index.php/user/editcontact/'+userId);
+  }
+
+  getupdatecontact(contact)
+  {
+    return this.http.post('http://localhost/IcspApi/Api/index.php/user/updatecontact/',contact);
   }
 
 

@@ -9,7 +9,8 @@ import { CreateserviceComponent } from './createservice/createservice.component'
 import { ViewserviceComponent } from './viewservice/viewservice.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { CampaignviewComponent } from './campaignview/campaignview.component';
-import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component'
+import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'updatecontacts/:id',
     component: UpdatecontactviewComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 
 

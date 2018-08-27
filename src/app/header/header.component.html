@@ -240,6 +240,12 @@
                             <li ><a routerLink="/viewcampaign">View Campaign</a></li>
                         </ul>
                     </li>
+                    <li (click)="changescampign()" [ngClass]="campstatus ? 'active' : '' "> <a class="has-arrow" aria-expanded="false"><i class="fa  fa-cc-mastercard"></i><span class="hide-menu">Master</span></a>
+                        <ul [ngClass]="campstatus ? 'collapse in' : 'collapse' " aria-expanded="false" class="">
+                            <li ><a routerLink="/createcampaign">Create Master</a></li>
+                            <li ><a routerLink="/viewcampaign">View Master</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->
