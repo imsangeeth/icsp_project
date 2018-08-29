@@ -10,6 +10,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatStepperModule} from '@angular/material/stepper';
 
 //import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
@@ -33,7 +35,8 @@ import { CampaignComponent } from './campaign/campaign.component';
 import { CampaignviewComponent } from './campaignview/campaignview.component';
 import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component';
 import { LoginComponent } from './login/login.component';
-import { AdminComponent } from './admin/admin.component'
+import { AdminComponent } from './admin/admin.component';
+import { SingleserviceviewComponent } from './singleserviceview/singleserviceview.component'
 
 
 @NgModule({
@@ -53,7 +56,8 @@ import { AdminComponent } from './admin/admin.component'
     CampaignviewComponent,
     UpdatecontactviewComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    SingleserviceviewComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +76,9 @@ import { AdminComponent } from './admin/admin.component'
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatIconModule
+    MatIconModule,
+    MatTabsModule,
+    MatStepperModule
     //MatPaginator,
    // MatSort,
    // MatTableDataSource

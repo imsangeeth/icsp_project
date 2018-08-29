@@ -12,17 +12,23 @@ export class CreateserviceComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
+
   customername: string = '';
   Reason: string = '';
-  callerTime: string = '';
-  callerdate : string = '';
-  callerType : string = '';
-  customerType : string = '';
-  Remarks : string = '';
-  msg: string = '';
+  Description: string = '';
+  Subject : string = '';
+  Received : string = '';
+  priority : string = '';
+  assign : string = '';
+  department: string = '';
+  ticketstatus: string = '';
+  duedate: string = '';
+  phonenumber: string = '';
+  policynumber : string = '';
   msgview = false;
   bgcolor: string = '';
   startDate: string = '';
+  msg: string = '';
   
 
 constructor(private formBuilder: FormBuilder,private data: DataService) { }
@@ -35,16 +41,22 @@ ngOnInit() {
   this.registerForm = this.formBuilder.group({
     customername: ['', Validators.required],
     Reason: ['', Validators.required],
-    callerTime : ['', Validators.required],
-    callerdate : ['', Validators.required],
-    callerType : ['', Validators.required],
-    customerType : [''],
-    Remarks : ['', Validators.required],
-
-    
+    Description : ['', Validators.required],
+    Subject : ['', Validators.required],
+    Received : ['', Validators.required],
+    priority : [''],
+    assign : ['', Validators.required],
+    department: ['', Validators.required],
+    ticketstatus: ['', Validators.required],
+    duedate : ['', Validators.required],
+    phonenumber : ['', Validators.required],
+    policynumber : ['', Validators.required],
      //email: ['', [Validators.required, Validators.email]],
     //password: ['', [Validators.required, Validators.minLength(6)]]
 });
+
+
+
 }
 
 get f() { return this.registerForm.controls; }
@@ -60,11 +72,17 @@ onSubmit() {
   var  sevices  = {
     customername:  this.registerForm.get('customername').value,
     Reason:  this.registerForm.get('Reason').value,
-    callerTime:  this.registerForm.get('callerTime').value,
-    callerdate:  this.registerForm.get('callerdate').value,
-    callerType:  this.registerForm.get('callerType').value,
-    customerType : this.registerForm.get('customerType').value,
-    Remarks : this.registerForm.get('Remarks').value,
+    Description:  this.registerForm.get('Description').value,
+    Subject:  this.registerForm.get('Subject').value,
+    Received:  this.registerForm.get('Received').value,
+    priority : this.registerForm.get('priority').value,
+    assign : this.registerForm.get('assign').value,
+    department:  this.registerForm.get('department').value,
+    ticketstatus:  this.registerForm.get('ticketstatus').value,
+    duedate:  this.registerForm.get('duedate').value,
+    phonenumber:  this.registerForm.get('phonenumber').value,
+    policynumber : this.registerForm.get('policynumber').value,
+  
   };
 
 //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));

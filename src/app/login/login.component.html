@@ -18,28 +18,28 @@
                       <div class="card-body">
                           <div class="form-validation">
                           <div class="card-body">
-                          
+                            <form [formGroup]="Loginform" (ngSubmit)="onSubmit()">
                               <div class="form-body">
                                   <h5 class="box-title m-t-40">Login</h5>
                                   <hr>
 
                                   <div class="example-container">
                                     <mat-form-field>
-                                      <input matInput placeholder="Input">
+                                      <input name="username"  formControlName="username" matInput placeholder="Username">
                                     </mat-form-field>
                                     <mat-form-field>
-                                      <input matInput placeholder="Input">
+                                      <input name="password"  formControlName="password" matInput placeholder="password">
                                     </mat-form-field>
-                        
                                   </div>    
                                   
                                   <div class="button-row">
-                                    <button mat-raised-button color="primary">Primary</button>
+                                    <button mat-raised-button color="primary">Login</button>
                                   </div>
 
                                 
   
                                   </div>
+                                  </form>
                       </div>
                           </div>
   
