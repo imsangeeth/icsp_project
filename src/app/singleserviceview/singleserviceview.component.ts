@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from "@angular/router";
+import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-singleserviceview',
@@ -7,9 +11,59 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SingleserviceviewComponent implements OnInit {
 
-  constructor() { }
+  user$: Object;
+  comment$:object;
+  Commentform: FormGroup;
+  submitted = false;
+  comment: string = '';
+  msg:string = '';
+  bgcolor:string ='';
+  msgview = false;
+  taskid;
 
-  ngOnInit() {
-  }
+  constructor(private route: ActivatedRoute, private data: DataService,private formBuilder: FormBuilder) { 
+    this.route.params.subscribe( params => this.user$ = params.id );
+    this.taskid = this.user$;
+ }
+
+ angularForm = new FormGroup ({
+  name: new FormControl()
+  });
+
+    ngOnInit() {
+      
+      this.data.gettaskcomments(this.user$).subscribe(
+        data => this.comment$ = data
+      );
+
+    this.data.getservicesdview(this.user$).subscribe(
+      data => this.user$ = data 
+    );
+
+    this.Commentform = this.formBuilder.group({
+      comment: ['', Validators.required],
+    });
+   }
+
+   onSubmit() {
+    this.submitted = true;
+
+    if (this.Commentform.invalid) {
+      return;
+   }
+  
+    var  contact  = {
+      comment:  this.Commentform.get('comment').value,
+      tskid: this.taskid
+    };
+
+    this.data.posttservicescomment(contact).subscribe((response) => {
+      this.Commentform.controls['comment'].setValue('');
+       console.log(response);
+     });
+   }
+
+
+
 
 }

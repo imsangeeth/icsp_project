@@ -54,6 +54,21 @@ export class DataService {
     return this.http.post('http://localhost/IcspApi/Api/index.php/user/updatecontact/',contact);
   }
 
+  getservicesdview(userId)
+  {
+    return this.http.get('http://localhost/IcspApi/Api/index.php/user/servicesdetailedview/'+userId);
+  }
+
+  gettaskcomments(userId)
+  {
+    return this.http.get('http://localhost/IcspApi/Api/index.php/user/taskcomments/'+userId);
+  }
+
+  posttservicescomment(contact)
+  {
+    return this.http.post('http://localhost/IcspApi/Api/index.php/user/createtaskcomment/',contact);
+  }
+
 
   
 

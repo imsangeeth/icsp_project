@@ -12,6 +12,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
 
 //import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
@@ -36,7 +38,8 @@ import { CampaignviewComponent } from './campaignview/campaignview.component';
 import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
-import { SingleserviceviewComponent } from './singleserviceview/singleserviceview.component'
+import { SingleserviceviewComponent } from './singleserviceview/singleserviceview.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -78,7 +81,10 @@ import { SingleserviceviewComponent } from './singleserviceview/singleservicevie
     MatProgressSpinnerModule,
     MatIconModule,
     MatTabsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatDividerModule,
+    MatListModule,
+    MatCardModule
     //MatPaginator,
    // MatSort,
    // MatTableDataSource

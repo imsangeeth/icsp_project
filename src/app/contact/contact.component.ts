@@ -95,7 +95,8 @@ export class ContactComponent implements OnInit {
    }
 
    cancel_form()
-    {this.registerForm.reset();
+    {
+      this.registerForm.reset();
 
     }
    

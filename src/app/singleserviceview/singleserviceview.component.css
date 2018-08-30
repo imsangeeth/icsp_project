@@ -1,0 +1,20 @@
+.mat-elevation-z4 {
+    margin-top: 22px;
+    box-shadow: none;
+}
+.example-card {
+    max-width: 100%;
+    box-shadow: none;
+  }
+  
+  .example-header-image {
+    background-image: url('/assets/images/noimage.png');
+    background-size: cover;
+  }
+  .h5, h5 {
+    font-size: 15px;
+    /* font-weight: bold; */
+  }
+  .mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 0px 0px 0px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 0px 0px 0 rgba(0,0,0,.12);
+   }

@@ -11,6 +11,7 @@ import { CampaignComponent } from './campaign/campaign.component';
 import { CampaignviewComponent } from './campaignview/campaignview.component';
 import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component';
 import { LoginComponent } from './login/login.component';
+import { SingleserviceviewComponent } from './singleserviceview/singleserviceview.component';
 
 
 
@@ -58,7 +59,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
-  }
+  },
+  {
+    path: 'singletask/:id',
+    component: SingleserviceviewComponent
+  },
 
 
 ];
