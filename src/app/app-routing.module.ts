@@ -12,6 +12,8 @@ import { CampaignviewComponent } from './campaignview/campaignview.component';
 import { UpdatecontactviewComponent } from './updatecontactview/updatecontactview.component';
 import { LoginComponent } from './login/login.component';
 import { SingleserviceviewComponent } from './singleserviceview/singleserviceview.component';
+import {AuthGuard} from './auth.guard';
+
 
 
 
@@ -26,7 +28,8 @@ const routes: Routes = [
   },
   {
     path: 'viewcustomer',
-    component: ViewcustomerComponent
+    component: ViewcustomerComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'createcontact',

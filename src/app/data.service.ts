@@ -4,6 +4,17 @@ import { User } from './models/user.model' ;
 //import { Observable } from 'rxjs/Observable';
 import { Observable } from 'rxjs';
 
+interface myData {
+  error : boolean,
+  message : string
+
+}
+
+interface isLoggedIn {
+  status:boolean
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +22,22 @@ export class DataService {
   
   private serviceUrl  = "http://jsonplaceholder.typicode.com/users";
 
+  private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false')
+
   constructor(private http: HttpClient) { }
+
+  setLoggedIn(value: boolean){
+    this.loggedInStatus = value
+    localStorage.setItem('loggedIn','true')
+  }
+
+  get isLoggedIn() {
+    return  JSON.parse(localStorage.getItem('loggedIn')) || this.loggedInStatus.toString()
+  }
+
+ // isLoggedIn() : Observable<isLoggedIn> {
+    //return  this.http.get<isLoggedIn>('http://localhost/IcspApi/Api/index.php/user/viewcustomer')
+  //}
 
   getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.serviceUrl);
@@ -68,6 +94,11 @@ export class DataService {
   {
     return this.http.post('http://localhost/IcspApi/Api/index.php/user/createtaskcomment/',contact);
   }
+
+  getUserdetails(contact)
+   {
+    return this.http.post<myData>('http://localhost/IcspApi/Api/index.php/user/user_check_details/',contact);
+   }
 
 
   

@@ -14,6 +14,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {AuthGuard} from './auth.guard';
 
 //import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
@@ -90,7 +91,7 @@ import {MatCardModule} from '@angular/material/card';
    // MatTableDataSource
     
   ],
-  providers: [DataService],
+  providers: [DataService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
