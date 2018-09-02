@@ -11,7 +11,7 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 })
 export class ViewserviceComponent implements OnInit {
 
-  displayedColumns: string[] = ['ticket_id','customer_name', 'phonenumber', 'department','assign','duedate','view'];
+  displayedColumns: string[] = ['ticket_id','customer_name', 'phonenumber', 'department','assign','duedate','ticketStatus','view'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
 
@@ -69,6 +69,7 @@ export interface GithubIssue {
   department: string;
   assign: string;
   duedate: string;
+  ticketStatus: string;
   
 }
 

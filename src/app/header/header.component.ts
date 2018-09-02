@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +14,11 @@ export class HeaderComponent implements OnInit {
   campstatus: boolean = false;
   
 
-  constructor() { }
+  constructor(private data: DataService) { console.log(this.data.isLoggedIn); }
 
   ngOnInit() {
     
+  
   }
 
   changeviewcustomer()

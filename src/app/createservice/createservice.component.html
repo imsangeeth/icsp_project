@@ -4,7 +4,7 @@
     <!-- credits -->
     
           
-
+    <app-header></app-header>
     <div class="page-wrapper">
       <!-- Bread crumb -->
       <div class="row page-titles">
@@ -102,8 +102,8 @@
                                                         <div class="form-group">
                                                             <label>Ticket Status</label><span>*</span>
                                                             <select formControlName="ticketstatus"  name="ticketstatus" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.ticketstatus.errors }">
-                                                              <option value="1">Type 1</option>
-                                                              <option value="2">Type 2</option>
+                                                              <option value="Open">Open</option>
+                                                              <option value="Closed">Closed</option>
                                                           </select>
                                                             
                                                           <div *ngIf="submitted && f.ticketstatus.errors" class="invalid-feedback">
@@ -129,9 +129,9 @@
                                                               <div class="form-group">
                                                                   <label>Assign</label>
                                                                   <select formControlName="assign"  name="assign" class="form-control custom-select">
-                                                                    <option value="Ram">Ram</option>
-                                                                    <option value="Sangeeth">Sangeeth</option>
-                                                                    <option value="Ravi">Ravi</option>
+                                                                    <option value="1">Ram</option>
+                                                                    <option value="2">Sangeeth</option>
+                                                            
                                                                 </select>
                                                               </div>
                                                                  </div>
@@ -140,8 +140,8 @@
                                                                   <div class="form-group">
                                                                       <label>Priority</label>
                                                                       <select formControlName="priority"  name="priority" class="form-control custom-select">
-                                                                        <option value="1">Normal</option>
-                                                                        <option value="2">Customer 2</option>
+                                                                        <option value="Normal">Normal</option>
+                                                                        <option value="Quick">Quick</option>
                                                                     </select>
                                                                   </div>
                                                                      </div>
@@ -150,8 +150,8 @@
                                                                       <div class="form-group">
                                                                           <label>Received Via</label>
                                                                           <select formControlName="Received"  name="Received" class="form-control custom-select">
-                                                                            <option value="1">Customer 1</option>
-                                                                            <option value="2">Customer 2</option>
+                                                                            <option value="PhoneCall">Phone Call</option>
+                                                                            <option value="Socialmedia">Social media</option>
                                                                         </select>
                                                                       </div>
                                                                          </div>

@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="page-wrapper">
   <!-- Bread crumb -->
   <div class="row page-titles">
@@ -39,11 +40,11 @@
                             <mat-list>
                                     <mat-list-item><b>Ticket id</b> : {{taskid}}</mat-list-item>
                                     <mat-divider></mat-divider>
-                                <mat-list-item><b>Assign to</b>     : Ram</mat-list-item>
+                                <mat-list-item><b>Assign to</b>     : {{user$.assign}} </mat-list-item>
                                 <mat-divider></mat-divider>
-                                <mat-list-item><b>Department</b>    : Sales</mat-list-item>
+                                <mat-list-item><b>Department</b>    : {{user$.department}}</mat-list-item>
                                 <mat-divider></mat-divider>
-                                <mat-list-item><b>Ticket Status</b> : <span class="badge badge-success">Open</span></mat-list-item>
+                                <mat-list-item><b>Ticket Status</b> : <span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></mat-list-item>
                                 <mat-divider></mat-divider>
                                 <mat-list-item><b>Customer Name</b>    : {{user$.Name}}</mat-list-item>
                                 <mat-divider></mat-divider>
@@ -51,9 +52,9 @@
                                 <mat-divider></mat-divider>
                                 <mat-list-item><b>Policy Number</b>    : {{user$.policynumber}}</mat-list-item>
                                 <mat-divider></mat-divider>
-                                <mat-list-item><b>Reason For Call</b> : New requirement</mat-list-item>
+                                <mat-list-item><b>Reason For Call</b> : {{user$.reason}}</mat-list-item>
                                 <mat-divider></mat-divider>
-                                <mat-list-item><b>Received</b>   : Phoen Call</mat-list-item>
+                                <mat-list-item><b>Received</b>   :{{user$.Received}}</mat-list-item>
                                 <mat-divider></mat-divider>
                                 <mat-list-item><b>Duedate</b>    : {{user$.duedate}}</mat-list-item>
                                 <mat-divider></mat-divider>

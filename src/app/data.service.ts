@@ -22,22 +22,21 @@ export class DataService {
   
   private serviceUrl  = "http://jsonplaceholder.typicode.com/users";
 
-  private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false')
+  private loggedInStatus = false
 
   constructor(private http: HttpClient) { }
 
   setLoggedIn(value: boolean){
     this.loggedInStatus = value
-    localStorage.setItem('loggedIn','true')
   }
 
   get isLoggedIn() {
-    return  JSON.parse(localStorage.getItem('loggedIn')) || this.loggedInStatus.toString()
+    return this.loggedInStatus
   }
 
- // isLoggedIn() : Observable<isLoggedIn> {
-    //return  this.http.get<isLoggedIn>('http://localhost/IcspApi/Api/index.php/user/viewcustomer')
-  //}
+  isLoggedInt() : Observable<isLoggedIn> {
+    return  this.http.get<isLoggedIn>('http://localhost/IcspApi/Api/index.php/user/chceklg')
+  }
 
   getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.serviceUrl);
