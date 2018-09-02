@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './models/user.model' ;
 //import { Observable } from 'rxjs/Observable';
-import { Observable } from 'rxjs';
+import { Observable,of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { AuthService } from './auth.service';
+
 
 interface myData {
   error : boolean,
@@ -15,6 +18,9 @@ interface isLoggedIn {
 }
 
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -22,9 +28,11 @@ export class DataService {
   
   private serviceUrl  = "http://jsonplaceholder.typicode.com/users";
 
-  private loggedInStatus = false
+  private loggedInStatus = false;
 
-  constructor(private http: HttpClient) { }
+  private heroesUrl = 'api/heroes';  // URL to web api
+
+  constructor(private http: HttpClient,private auth: AuthService) { }
 
   setLoggedIn(value: boolean){
     this.loggedInStatus = value
@@ -40,6 +48,10 @@ export class DataService {
 
   getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.serviceUrl);
+  }
+
+  homedata(){
+    return this.http.get<myData>('/user/chceklghome')
   }
 
   getUsers() {
@@ -99,6 +111,8 @@ export class DataService {
     return this.http.post<myData>('http://localhost/IcspApi/Api/index.php/user/user_check_details/',contact);
    }
 
+
+   
 
   
 

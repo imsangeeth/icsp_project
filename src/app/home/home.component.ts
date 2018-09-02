@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  message = "Loading..."
+
+  constructor(private data: DataService) { }
 
   ngOnInit() {
+
+    this.data.homedata().subscribe(data => {
+      this.message = data.message
+    })
     
   }
 

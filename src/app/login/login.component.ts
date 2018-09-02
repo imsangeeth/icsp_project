@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
    this.data.getUserdetails(contact).subscribe((response) => {
     if(response.error == false) 
     {
-      this.router.navigate(['viewcustomer'])
+      this.router.navigate(['home'])
       this.data.setLoggedIn(true)
     }else{
       console.log(response.message)

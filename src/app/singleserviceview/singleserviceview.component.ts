@@ -18,6 +18,18 @@ export class SingleserviceviewComponent implements OnInit {
   comment: string = '';
   msg:string = '';
   bgcolor:string ='';
+  assign:string;
+  department:string
+  btnstyle:string
+  ticketstatus:string
+  name:string
+  phonenumber:string
+  policynumber:string
+  reason:string
+  Received:string
+  duesate:string
+  subject:string
+  Description:string
   msgview = false;
   taskid;
 

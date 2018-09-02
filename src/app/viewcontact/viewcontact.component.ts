@@ -5,6 +5,7 @@ import {merge, Observable, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
+import {MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-viewcontact',
@@ -62,6 +63,16 @@ export class ViewcontactComponent implements OnInit {
         })
       ).subscribe(data => this.data = data);
   }
+
+  dataSource = new MatTableDataSource(this.data);
+  
+  applyFilter(filterValue: string) {
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+  console.log( this.dataSource.filter);
+
+  } 
+
+
 }
 
 export interface GithubApi {

@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="page-wrapper">
     <!-- Bread crumb -->
     <div class="row page-titles">
@@ -41,12 +42,13 @@
                         </div>
                       
                         <div class="example-table-container">
+
+                                <mat-form-field>
+                                        <input matInput autocomplete="off" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                                      </mat-form-field>
                       
                           <table mat-table [dataSource]="data" class="example-table"
-                                 matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
-
-
-                                 
+                                 matSort matSortActive="created" matSortDisableClear matSortDirection="asc">  
                             <!-- Number Column -->
                             <ng-container matColumnDef="destinationumber">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>

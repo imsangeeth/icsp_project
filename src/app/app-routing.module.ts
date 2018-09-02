@@ -64,6 +64,11 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'home',
+    component: HomeComponent,
+    canActivate:[AuthGuard]
+  },
+  {
     path: 'singletask/:id',
     component: SingleserviceviewComponent
   },

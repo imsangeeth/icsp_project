@@ -1,0 +1,10 @@
+{ 
+
+    "api/*" :{
+        "target" : "http://localhost/IcspApi/Api/index.php/user",
+        "secure" : false,
+        "changeOrigin" : true
+    }
+
+
+}
