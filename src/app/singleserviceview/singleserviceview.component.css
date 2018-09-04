@@ -1,3 +1,17 @@
+.mat-grid-tile .mat-figure {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+ 
+}
 .mat-elevation-z4 {
     margin-top: 22px;
     box-shadow: none;
@@ -18,3 +32,43 @@
   .mat-card:not([class*=mat-elevation-z]) {
     box-shadow: 0 0px 0px 0px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 0px 0px 0 rgba(0,0,0,.12);
    }
+   .mat-list .mat-list-item, .mat-list .mat-list-option, .mat-nav-list .mat-list-item, .mat-nav-list .mat-list-option, .mat-selection-list .mat-list-item, .mat-selection-list .mat-list-option {
+    display: block;
+    height: 42px;
+    -webkit-tap-highlight-color: transparent;
+}
+.mat-list .mat-list-item, .mat-nav-list .mat-list-item, .mat-selection-list .mat-list-item{
+  font-size: 14px;
+}
+h5[_ngcontent-c1] {
+  font-size: 19px;
+}
+
+.h4, h4 {
+  font-size: 17px;
+}
+.stepperspan{
+  font-size: 14px;
+}
+.mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-accent {
+  background-color: #51a1e3;
+}
+.mat-fab.mat-accent, .mat-flat-button.mat-accent, .mat-mini-fab.mat-accent, .mat-raised-button.mat-warn {
+  background-color: #6c757d;;
+}
+.mat-fab.mat-primary, .mat-flat-button.mat-primary, .mat-mini-fab.mat-primary, .mat-raised-button.mat-primary{
+  background-color: #51a1e3;
+}
+.mat-step-header .mat-step-icon {
+  background-color: #2196F3;
+  color: #fff;
+}
+.divider{
+  width:5px;
+  height:auto;
+  display:inline-block;
+}
+b, strong {
+  font-weight: bolder;
+  color: #6b6b6b;
+}

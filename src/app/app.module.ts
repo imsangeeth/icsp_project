@@ -15,6 +15,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {AuthGuard} from './auth.guard';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 //import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
@@ -85,7 +86,8 @@ import {MatCardModule} from '@angular/material/card';
     MatStepperModule,
     MatDividerModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule
     //MatPaginator,
    // MatSort,
    // MatTableDataSource

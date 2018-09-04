@@ -31,6 +31,7 @@ export class SingleserviceviewComponent implements OnInit {
   subject:string
   Description:string
   msgview = false;
+  isLinear = false;
   taskid;
 
   constructor(private route: ActivatedRoute, private data: DataService,private formBuilder: FormBuilder) { 

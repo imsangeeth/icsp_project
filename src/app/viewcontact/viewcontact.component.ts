@@ -14,7 +14,7 @@ import {MatTableDataSource} from '@angular/material';
 })
 export class ViewcontactComponent implements OnInit {
 
-  displayedColumns: string[] = ['destinationumber', 'dialer', 'startTime', 'StartDate','StopTime','StopDate','Prio','CallTag_name','CallTag_Trackid','Edit'];
+  displayedColumns: string[] = ['slno','destinationumber', 'dialer', 'startTime', 'StartDate','StopTime','StopDate','Prio','CallTag_name','CallTag_Trackid','Edit'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
 
