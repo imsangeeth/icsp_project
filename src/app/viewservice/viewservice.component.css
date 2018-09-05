@@ -53,4 +53,11 @@
     max-height: 550px;
     overflow: auto;
 }
-  
+.divider{
+  width:15px;
+  height:auto;
+  display:inline-block;
+}
+.searchheader{
+  background-color: #fff;
+}

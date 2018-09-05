@@ -41,12 +41,33 @@
                         <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
                         
                       </div>
-                    
+                     
+                     <div class="searchheader">
+
+                            <mat-form-field>
+                                    <input autocomplete="off" matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                                  </mat-form-field>
+
+                                  <div class="divider"></div>
+
+                                  <mat-form-field>
+                                        <mat-select MatSelect [(ngModel)]="selectedValue" (selectionChange)="assignchange($event.value)" placeholder="Assign Name">
+                                          <mat-option *ngFor="let food of foods" [value]="food.value">
+                                            {{food.viewValue}}
+                                          </mat-option>
+                                        </mat-select>
+                                       
+                                      </mat-form-field>
+
+                     </div>
+
+
                       <div class="example-table-container">
+                           
+
                     
                         <table mat-table [dataSource]="data" class="example-table"
-                               matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
-
+                            matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
 
                                <ng-container matColumnDef="slno">
                                 <th mat-header-cell *matHeaderCellDef>

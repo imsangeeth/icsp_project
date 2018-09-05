@@ -16,6 +16,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {AuthGuard} from './auth.guard';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
 
 //import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
@@ -42,6 +43,7 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { SingleserviceviewComponent } from './singleserviceview/singleserviceview.component';
 import {MatCardModule} from '@angular/material/card';
+import { EditservicesComponent } from './editservices/editservices.component';
 
 
 @NgModule({
@@ -62,7 +64,8 @@ import {MatCardModule} from '@angular/material/card';
     UpdatecontactviewComponent,
     LoginComponent,
     AdminComponent,
-    SingleserviceviewComponent
+    SingleserviceviewComponent,
+    EditservicesComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import {MatCardModule} from '@angular/material/card';
     MatDividerModule,
     MatListModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule
     //MatPaginator,
    // MatSort,
    // MatTableDataSource

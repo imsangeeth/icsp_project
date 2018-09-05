@@ -74,6 +74,11 @@ export class DataService {
   {
     return this.http.post('http://localhost/IcspApi/Api/index.php/user/createservices',contact);
   }
+
+  postupdateservices(contact)
+  {
+    return this.http.post('http://localhost/IcspApi/Api/index.php/user/Updateservices',contact);
+  }
   
   postcampaign(contact)
   {
@@ -96,10 +101,22 @@ export class DataService {
     return this.http.get('http://localhost/IcspApi/Api/index.php/user/servicesdetailedview/'+userId);
   }
 
+  getservicesdviedit(userId)
+  {
+    return this.http.get('http://localhost/IcspApi/Api/index.php/user/servicesdetailededit/'+userId);
+  }
+
+
   gettaskcomments(userId)
   {
     return this.http.get('http://localhost/IcspApi/Api/index.php/user/taskcomments/'+userId);
   }
+
+  getauditdeatils(userId)
+  {
+    return this.http.get('http://localhost/IcspApi/Api/index.php/user/auditdeatils/'+userId);
+  }
+
 
   posttservicescomment(contact)
   {

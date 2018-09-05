@@ -13,6 +13,7 @@ export class SingleserviceviewComponent implements OnInit {
 
   user$: Object;
   comment$:object;
+  auidt$:object;
   Commentform: FormGroup;
   submitted = false;
   comment: string = '';
@@ -48,6 +49,11 @@ export class SingleserviceviewComponent implements OnInit {
       this.data.gettaskcomments(this.user$).subscribe(
         data => this.comment$ = data
       );
+      
+      this.data.getauditdeatils(this.user$).subscribe(
+        data => this.auidt$ = data
+      );
+      
 
     this.data.getservicesdview(this.user$).subscribe(
       data => this.user$ = data 
