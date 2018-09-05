@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SingleserviceviewComponent } from './singleserviceview/singleserviceview.component';
 import {AuthGuard} from './auth.guard';
 import { EditservicesComponent } from './editservices/editservices.component';
+import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetails.component';
 
 
 
@@ -74,9 +75,10 @@ const routes: Routes = [
     component: SingleserviceviewComponent
   },
   {
-    path: 'editservice/:id',
-    component: EditservicesComponent
+    path: 'singleuserview/:id',
+    component: SingleuserdetailsComponent
   },
+  
 
 
 ];

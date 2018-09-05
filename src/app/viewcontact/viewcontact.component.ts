@@ -14,9 +14,11 @@ import {MatTableDataSource} from '@angular/material';
 })
 export class ViewcontactComponent implements OnInit {
 
-  displayedColumns: string[] = ['slno','destinationumber', 'dialer', 'startTime', 'StartDate','StopTime','StopDate','Prio','CallTag_name','CallTag_Trackid','Edit'];
+  displayedColumns: string[] = ['slno','name', 'insurancecard', 'companyname', 'PolicyNumber','InsuredAmount','View'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
+  name = 'Imp';
+  searchval:string;
 
   resultsLength = 0;
   isLoadingResults = true;
@@ -46,7 +48,7 @@ export class ViewcontactComponent implements OnInit {
         switchMap(() => {
           this.isLoadingResults = true;
           return this.exampleDatabase!.getRepoIssues(
-            this.sort.active, this.sort.direction, this.paginator.pageIndex);
+            this.sort.active, this.sort.direction, this.paginator.pageIndex,this.name);
         }),
         map(data => {
           // Flip flag to show that loading has finished.
@@ -64,13 +66,39 @@ export class ViewcontactComponent implements OnInit {
       ).subscribe(data => this.data = data);
   }
 
-  dataSource = new MatTableDataSource(this.data);
-  
   applyFilter(filterValue: string) {
-  this.dataSource.filter = filterValue.trim().toLowerCase();
-  console.log( this.dataSource.filter);
 
-  } 
+    if(filterValue.trim().toLowerCase()!='')
+    {
+      this.searchval = filterValue.trim().toLowerCase();
+    }else{
+      this.searchval = 'Imp';
+    }
+
+    merge(this.sort.sortChange, this.paginator.page)
+    .pipe(
+      startWith({}),
+      switchMap(() => {
+        this.isLoadingResults = true;
+        return this.exampleDatabase!.getRepoIssues(
+          this.sort.active, this.sort.direction, this.paginator.pageIndex,this.searchval);
+      }),
+      map(data => {
+        // Flip flag to show that loading has finished.
+        this.isLoadingResults = false;
+        this.isRateLimitReached = false;
+        this.resultsLength = data.total_count;
+        return data.items;
+      }),
+      catchError(() => {
+        this.isLoadingResults = false;
+        // Catch if the GitHub API has reached its rate limit. Return empty data.
+        this.isRateLimitReached = true;
+        return observableOf([]);
+      })
+    ).subscribe(data => this.data = data);
+
+  }
 
 
 }
@@ -81,16 +109,12 @@ export interface GithubApi {
 }
 
 export interface GithubIssue {
-  destinationumber: string;
-  dialer: string;
-  startTime: string;
-  StartDate: string;
-  StopTime: string;
-  StopDate: string;
-  email: string;
-  Prio: string;
-  CallTag_name: string;
-  CallTag_Trackid: string;
+  name: string;
+  insurancecard: string;
+  companyname: string;
+  PolicyNumber: string;
+  InsuredAmount: string;
+
   Edit:string;
   userid:string;
 }
@@ -99,17 +123,18 @@ export interface GithubIssue {
 export class ExampleHttpDao {
   constructor(private http: HttpClient) {}
 
-  getRepoIssues(sort: string = '2d242uyz', order: string = 'asc' , page: number): Observable<GithubApi> {
+  getRepoIssues(sort: string = '2d242uyz', order: string = 'asc' , page: number,search:string = 'Imp'): Observable<GithubApi> {
 
     console.log(sort);
     console.log(order);
+
 
     const href = 'http://localhost/IcspApi/Api/index.php/user/allcontacts';
     //const requestUrl ='http://localhost/IcspApi/Api/index.php/user/allcontacts';
    // const requestUrl =
       //  `${href}?q=repo:angular/material2&sort=${sort}&order=${order}&page=${page + 1}`;
     const requestUrl =
-        `${href}/${sort}/${order}/${page + 1}`;
+    `${href}/${sort}/${search}/${page + 1}/${order}`;
 
     return this.http.get<GithubApi>(requestUrl);
   }

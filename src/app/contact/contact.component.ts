@@ -13,17 +13,23 @@ export class ContactComponent implements OnInit {
 
     registerForm: FormGroup;
     submitted = false;
-    firstName: string = '';
-    startDate: string = '';
-    destinationNumber: string = '';
-    Dialer: string = '';
-    Prio: string = '';
-    StartTime: string = '';
-    StartDateval:string = '';
-    StopTime: string = '';
-    StopDate: string = '';
-    CallTag: string = '';
-    CallTagtrack: string = '';
+    firstname: string = '';
+    lastname : string = '';
+    email : string = '';
+    companyname : string = '';
+    mobilenumber : string = '';
+    dob: string = '';
+    Gender: string = '';
+    Nationality: string = '';
+    Title: string = '';
+    Source: string = '';
+    Type: string = '';
+    emiratesId: string = '';
+    insurancecard: string = '';
+    insurancecompany: string = '';
+    homeaddress: string = '';
+    Companyaddress: string = '';
+    
     msg: string = '';
     msgview = false;
     bgcolor: string = ''
@@ -37,16 +43,23 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      destinationNumber: ['', Validators.required],
-      Dialer: ['', Validators.required],
-      Prio: ['', Validators.required],
-      StartTime: ['', Validators.required],
-      StartDateval: ['', Validators.required],
-      StopTime: ['', Validators.required],
-      StopDate: ['', Validators.required],
-      CallTag: ['', Validators.required],
-      CallTagtrack: ['', Validators.required],
-       //email: ['', [Validators.required, Validators.email]],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      Title: ['', Validators.required],
+      companyname: ['', Validators.required],
+      mobilenumber: ['', Validators.required],
+      dob: ['', Validators.required],
+      Gender: ['', Validators.required],
+      Nationality: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      Source: ['', Validators.required],
+      Type: ['', Validators.required],
+      emiratesId: ['', Validators.required],
+      insurancecard: ['', Validators.required],
+      insurancecompany: ['', Validators.required],
+      homeaddress: ['', Validators.required],
+      Companyaddress: ['', Validators.required],
+
       //password: ['', [Validators.required, Validators.minLength(6)]]
   });
   }
@@ -62,28 +75,32 @@ export class ContactComponent implements OnInit {
     }
 
     var  contact  = {
-      destinationNumbVal:  this.registerForm.get('destinationNumber').value,
-      DialerVal:  this.registerForm.get('Dialer').value,
-      PrioVal:  this.registerForm.get('Prio').value,
-      StartTimeVal:  this.registerForm.get('StartTime').value,
-      StartDtval: this.registerForm.get('StartDateval').value,
-      StopTimeVal:  this.registerForm.get('StopTime').value,
-      StopDateVal:  this.registerForm.get('StopDate').value,
-      CallTagVal:  this.registerForm.get('CallTag').value,
-      CallTagtrackVal:  this.registerForm.get('CallTagtrack').value,
+      firstName:  this.registerForm.get('firstname').value,
+      lastname:  this.registerForm.get('lastname').value,
+      Title:  this.registerForm.get('Title').value,
+      companyname:  this.registerForm.get('companyname').value,
+      mobilenumber: this.registerForm.get('mobilenumber').value,
+      dob:  this.registerForm.get('dob').value,
+      Gender:  this.registerForm.get('Gender').value,
+      Nationality:  this.registerForm.get('Nationality').value,
+      email:  this.registerForm.get('email').value,
+      Source:  this.registerForm.get('Source').value,
+      Type:  this.registerForm.get('Type').value,
+      emiratesId:  this.registerForm.get('emiratesId').value,
+      insurancecard:  this.registerForm.get('insurancecard').value,
+      insurancecompany: this.registerForm.get('insurancecompany').value,
+      homeaddress:  this.registerForm.get('homeaddress').value,
+      Companyaddress:  this.registerForm.get('Companyaddress').value,
+     
       
     };
 
   //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
    // alert(this.registerForm.get('StartTime').value)
-    this.data.postcontact(contact).subscribe((response) => {
-       if(response['error'] = false)
-       {
-          
-       }
-       this.registerForm.reset();
+    this.data.postusers(contact).subscribe((response) => {
+      // this.registerForm.reset();
        this.msg = response['msg'];
-       this.bgcolor = response['bgcolor'];
+       this.bgcolor = response['bgclr'];
        this.msgview = true;
      });
    }

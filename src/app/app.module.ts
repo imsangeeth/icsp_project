@@ -44,6 +44,7 @@ import { AdminComponent } from './admin/admin.component';
 import { SingleserviceviewComponent } from './singleserviceview/singleserviceview.component';
 import {MatCardModule} from '@angular/material/card';
 import { EditservicesComponent } from './editservices/editservices.component';
+import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetails.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { EditservicesComponent } from './editservices/editservices.component';
     LoginComponent,
     AdminComponent,
     SingleserviceviewComponent,
-    EditservicesComponent
+    EditservicesComponent,
+    SingleuserdetailsComponent
   ],
   imports: [
     BrowserModule,

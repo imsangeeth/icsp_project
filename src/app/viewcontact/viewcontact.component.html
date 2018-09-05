@@ -5,12 +5,9 @@
         <div class="col-md-5 align-self-center">
             <h5 class="text-primary">View Contacts</h5> </div>
         <div class="col-md-7 align-self-center">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                <li class="breadcrumb-item active">View Contacts</li>
-            </ol>
+            
         </div>
-    </div>
+    </div> 
     <!-- End Bread crumb -->
     <!-- Container fluid  -->
     <div class="container-fluid">
@@ -40,12 +37,23 @@
                           <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
                           
                         </div>
+
+                        <div class="searchheader">
+
+                                <mat-form-field>
+                                        <input autocomplete="off" matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+                                      </mat-form-field>
+    
+                                      <div class="divider"></div>
+    
+                                   
+    
+                         </div>
+
                        
                         <div class="example-table-container">
 
-                                <mat-form-field>
-                                        <input matInput autocomplete="off" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-                                      </mat-form-field>
+                            
                       
                           <table mat-table [dataSource]="data" class="example-table"
                                  matSort matSortActive="created" matSortDisableClear matSortDirection="asc">  
@@ -56,81 +64,60 @@
                                   </th>
                               <td mat-cell *matCellDef="let row">{{row.slno}}</td>
                             </ng-container>   
-                            <ng-container matColumnDef="destinationumber">
+                            <ng-container matColumnDef="name">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    Destination Number
+                                   Name
                                   </th>
-                              <td mat-cell *matCellDef="let row">{{row.destinationumber}}</td>
+                              <td mat-cell *matCellDef="let row">{{row.name}}</td>
                             </ng-container>
                       
                             <!-- Title Column -->
-                            <ng-container matColumnDef="dialer">
-                              <th mat-header-cell *matHeaderCellDef>Dialer</th>
-                              <td mat-cell *matCellDef="let row">{{row.dialer}}</td>
+                            <ng-container matColumnDef="insurancecard">
+                              <th mat-header-cell *matHeaderCellDef>insurancecard</th>
+                              <td mat-cell *matCellDef="let row">{{row.insurancecard}}</td>
                             </ng-container>
                       
                             <!-- State Column -->
-                            <ng-container matColumnDef="startTime">
-                              <th mat-header-cell *matHeaderCellDef>StartTime</th>
-                              <td mat-cell *matCellDef="let row">{{row.startTime}}</td>
+                            <ng-container matColumnDef="companyname">
+                              <th mat-header-cell *matHeaderCellDef>companyname</th>
+                              <td mat-cell *matCellDef="let row">{{row.companyname}}</td>
                             </ng-container>
                       
                             <!-- Created Column -->
-                            <ng-container matColumnDef="StartDate">
+                            <ng-container matColumnDef="PolicyNumber">
                               <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                StartDate
+                                    PolicyNumber
                               </th>
-                              <td mat-cell *matCellDef="let row">{{row.StartDate}}</td>
+                              <td mat-cell *matCellDef="let row">{{row.PolicyNumber}}</td>
                             </ng-container>
 
-                            <ng-container matColumnDef="StopTime">
+                            <ng-container matColumnDef="InsuredAmount">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    StopTime
+                                        InsuredAmount
                                 </th>
-                                <td mat-cell *matCellDef="let row">{{row.StopTime}}</td>
+                                <td mat-cell *matCellDef="let row">{{row.InsuredAmount}}</td>
                               </ng-container>
 
-                              <ng-container matColumnDef="StopDate">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    StopDate
+                              <ng-container matColumnDef="View">
+                                <th mat-header-cell *matHeaderCellDef>
+                                    
                                 </th>
-                                <td mat-cell *matCellDef="let row">{{row.StopDate}}</td>
-                              </ng-container>
-
-                              <ng-container matColumnDef="email">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    Email
-                                </th>
-                                <td mat-cell *matCellDef="let row">{{row.email}}</td>
-                              </ng-container>
-
-                              <ng-container matColumnDef="Prio">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    Prio
-                                </th>
-                                <td mat-cell *matCellDef="let row">{{row.Prio}}</td>
-                              </ng-container>
-
-                              <ng-container matColumnDef="CallTag_name">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    CallTag Name
-                                </th>
-                                <td mat-cell *matCellDef="let row">{{row.CallTag_name}}</td>
+                                <td mat-cell *matCellDef="let row"><a mat-stroked-button routerLink="/singletask/{{row.ticket_id}}">Details</a></td>
                               </ng-container>
 
                               
-                              <ng-container matColumnDef="CallTag_Trackid">
-                                <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    CallTag Trackid
-                                </th>
-                                <td mat-cell *matCellDef="let row">{{row.CallTag_Trackid}}</td>
-                              </ng-container>
 
-                              <ng-container matColumnDef="Edit">
+                              
+                              
+
+                              
+                             
+
+                              <!--<ng-container matColumnDef="Edit">
                                     <th mat-header-cell *matHeaderCellDef></th>
 
                                     <td mat-cell *matCellDef="let row"><a routerLink="/updatecontacts/{{row.userid}}"><mat-icon svgIcon="thumbs-up"></mat-icon></a></td>
-                            </ng-container>
+                            </ng-container>-->
                       
                             <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr> 
                             <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>

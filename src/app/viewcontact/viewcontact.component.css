@@ -10,7 +10,7 @@
 }
 
 table {
-  width: 100%;
+  width: 100%; 
 }
 
 .example-loading-shade {
@@ -60,4 +60,7 @@ font-weight: bold;
   height: 24px;
   width: 24px;
   cursor: pointer;
+}
+.searchheader{
+  background-color: #fff;
 }
