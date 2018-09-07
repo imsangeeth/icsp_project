@@ -37,7 +37,7 @@
                "src/style/icons/material-design-iconic-font/css/materialdesignicons.min.css"
             ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery/dist/jquery.min.js"]
+              "node_modules/jquery/dist/jquery.min.js","style/awl.min.js"]
           },
           "configurations": {
             "production": {
@@ -98,7 +98,7 @@
                "src/style/icons/material-design-iconic-font/css/materialdesignicons.min.css"
             ],
             "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery/dist/jquery.min.js"],
+              "node_modules/jquery/dist/jquery.js","style/awl.min.js"],
             "assets": [
               "src/favicon.ico",
               "src/assets"

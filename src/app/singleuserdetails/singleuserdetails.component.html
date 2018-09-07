@@ -13,24 +13,24 @@
     <div class="row">
 <div class="col-lg-12">
     <div class="card">
-        <div class="card-body">
+        <div class="card-body" *ngIf="user$">
             <div class="card-two">
                 <header>
                     <div class="avatar">
-                        <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Allison Walker">
+                        <img src="assets/images/Facebook-no.jpg" alt="Allison Walker">
                     </div>
                 </header>
 
-                <h3>Allison Walker</h3>
+                <h3>{{user$.firstname}}</h3>
                 <div class="desc">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit et cupiditate deleniti.
+                        {{user$.email}}
                 </div>
-                <div class="contacts">
+                <!--<div class="contacts">
                     <a href=""><i class="fa fa-plus"></i></a>
                     <a href=""><i class="fa fa-whatsapp"></i></a>
                     <a href=""><i class="fa fa-envelope"></i></a>
                     <div class="clear"></div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
     <div class="card">
 
         <mat-tab-group dynamicHeight *ngIf="user$">
-            <mat-tab label="Services Details">
+            <mat-tab label="User Details">
               <div class="example-small-box mat-elevation-z4">
                       
 
@@ -56,15 +56,15 @@
                                            
                                           <tr>
                                               </tr><tr>
-                                                  <td><b>Assign to</b></td>
-                                                  <td>{{user$.assign}}</td>
+                                                  <td><b>companyname</b></td>
+                                                  <td>{{user$.companyname}}</td>
                                                   
                                               </tr>
                                           
                                           <tr>
                                               </tr><tr>
-                                                  <td><b>Department</b></td>
-                                                  <td>{{user$.department}}</td>
+                                                  <td><b>mobile_number</b></td>
+                                                  <td>{{user$.mobile_number}}</td>
                                                   
                                               </tr>
 
@@ -78,18 +78,18 @@
                                           
                                           
                                           <tr>
-                                              <td><b>Customer Name</b></td>
-                                              <td>{{user$.Name}}</td>
+                                              <td><b>DOB</b></td>
+                                              <td>{{user$.DOB}}</td>
                                               
                                           </tr>
                                           <tr>
-                                              <td><b>Phonenumber</b></td>
-                                              <td>{{user$.phonenumber}}</td>
+                                              <td><b>gender</b></td>
+                                              <td>{{user$.gender}}</td>
                                               
                                           </tr>
                                           <tr>
-                                              <td><b>Reason For Call</b></td>
-                                              <td>{{user$.reason}}</td>
+                                              <td><b>nationality</b></td>
+                                              <td>{{user$.nationality}}</td>
                                               
                                           </tr>
                                       </tbody>
@@ -112,8 +112,8 @@
                                                   </tr>-->
 
                                                   <tr>
-                                                      <td><b>Due Date</b></td>
-                                                      <td>{{user$.duedate}}</td>
+                                                      <td><b>insurance Amount</b></td>
+                                                      <td>{{user$.insurance_amount}}</td>
                                                       
                                                   </tr>
                                                   
@@ -121,26 +121,26 @@
 
                                                       <tr>
                                                           </tr><tr>
-                                                              <td><b>Policy Number</b></td>
-                                                              <td>{{user$.policynumber}}</td>
+                                                              <td><b>insurance Card No</b></td>
+                                                              <td>{{user$.insurance_card_no}}</td>
                                                               
                                                           </tr>
                                                   
                                                   <tr>
                                                       </tr><tr>
-                                                          <td><b>Priority</b></td>
-                                                          <td>{{user$.Priority}}</td>
+                                                          <td><b>insurance_company</b></td>
+                                                          <td>{{user$.insurance_company}}</td>
                                                           
                                                       </tr>
                                                   
                                                   <tr>
-                                                      <td><b>Received</b></td>
-                                                      <td>{{user$.Received}}</td>
+                                                      <td><b>home_address</b></td>
+                                                      <td>{{user$.home_address}}</td>
                                                       
                                                   </tr>
                                                   <tr>
-                                                      <td><b>Subject</b></td>
-                                                      <td>{{user$.subject}}</td>
+                                                      <td><b>company_address</b></td>
+                                                      <td>{{user$.company_address}}</td>
                                                       
                                                   </tr>
                                                   
@@ -159,66 +159,12 @@
                                 </mat-list>-->
                               </mat-grid-list>
 
-                              <mat-grid-list cols="1" rowHeight="100px" > 
-                                      <mat-grid-tile > <div class="card-body">
-                                              <div class="table-responsive">
-                                                  <table class="table">
-                                                     
-                                                      <tbody>
-                                                          
-                                                          <tr>
-                                                              </tr><tr>
-                                                                  <td style="width: 12%;"> <b>Description :</b></td>
-                                                                  <td style="text-align: left;"> {{user$.Description}}</td>
-                                                                  
-                                                              </tr>
-                                                          
-                                                         
-                                                      </tbody>
-                                                  </table>
-                                              </div>
-                                             
-                                          </div></mat-grid-tile>
-                              </mat-grid-list>
+                              
 
 
                       </mat-card>
               </div>
             </mat-tab>
-            <mat-tab label="Add Comment">
-              <div class="example-large-box mat-elevation-z4">
-                  <form  [formGroup]="Commentform" (ngSubmit)="onSubmit()"  class="example-form" style="margin-bottom: 80px;">
-                      <mat-form-field class="example-full-width">
-                        <textarea name="comment"  formControlName="comment"    matInput placeholder="Leave a comment"></textarea>
-                      </mat-form-field>
-                      <button mat-raised-button color="primary">Add</button>
-                    </form>
-
-                    <h4 class="box-title m-t-40">Previous Comments</h4>
-                              <hr>
-                    <mat-card class="example-card">
-                        <mat-card-header *ngFor="let com of comment$">
-                          <div mat-card-avatar class="example-header-image"></div>
-                          <mat-card-title>{{com.name}}</mat-card-title>
-                          <mat-card-subtitle>{{com.comments}}</mat-card-subtitle>
-                          
-                        </mat-card-header>
-                      </mat-card>
-              </div>
-            </mat-tab>
-            <mat-tab label="Audit">
-                  <div class="example-large-box mat-elevation-z4">
-                         
-                                <mat-vertical-stepper [linear]="isLinear" #stepper>
-                                  <mat-step *ngFor="let aud of auidt$" >                                      
-                                      <ng-template matStepLabel>{{aud.heading}} {{aud.time}}</ng-template>
-                                      <span class="stepperspan">{{aud.message}}</span>
-                                  </mat-step>
-                                </mat-vertical-stepper>
-                                
-                  </div>
-                </mat-tab>
-
           </mat-tab-group>
 
     

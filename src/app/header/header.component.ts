@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-header',
@@ -17,6 +19,13 @@ export class HeaderComponent implements OnInit {
   constructor(private data: DataService) { console.log(this.data.isLoggedIn); }
 
   ngOnInit() {
+
+    $(document).ready(function(){
+
+      //var cli = new AWL.client();
+      
+      
+  });
     
   
   }

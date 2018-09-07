@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    this.data.homedata().subscribe(data => {
-      this.message = data.message
-    })
+    
     
   }
 

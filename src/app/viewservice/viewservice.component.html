@@ -50,7 +50,7 @@
 
                                   <div class="divider"></div>
 
-                                  <mat-form-field>
+                                  <mat-form-field > 
                                         <mat-select MatSelect [(ngModel)]="selectedValue" (selectionChange)="assignchange($event.value)" placeholder="Assign Name">
                                           <mat-option *ngFor="let food of foods" [value]="food.value">
                                             {{food.viewValue}}

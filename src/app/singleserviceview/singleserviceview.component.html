@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="page-wrapper">
   <!-- Bread crumb -->
-  <div class="row page-titles">
+  <div class="row page-titles" *ngIf="user$">
 
       
         <div class="col-md-5 align-self-center">
@@ -50,9 +50,9 @@
                 </ul>-->
 
           <div class="col-lg-12">
-              <div class="card">
+              <div class="card" *ngIf="user$">
 
-                  <mat-tab-group dynamicHeight *ngIf="user$">
+                  <mat-tab-group dynamicHeight>
                       <mat-tab label="Services Details">
                         <div class="example-small-box mat-elevation-z4">
                                 

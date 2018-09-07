@@ -78,6 +78,11 @@ const routes: Routes = [
     path: 'singleuserview/:id',
     component: SingleuserdetailsComponent
   },
+  {
+    path: 'editservice/:id',
+    component: EditservicesComponent
+  },
+
   
 
 

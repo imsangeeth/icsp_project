@@ -32,6 +32,8 @@ export class DataService {
 
   private heroesUrl = 'api/heroes';  // URL to web api
 
+  private url
+
   constructor(private http: HttpClient,private auth: AuthService) { }
 
   setLoggedIn(value: boolean){
@@ -43,7 +45,7 @@ export class DataService {
   }
 
   isLoggedInt() : Observable<isLoggedIn> {
-    return  this.http.get<isLoggedIn>('http://localhost/IcspApi/Api/index.php/user/chceklg')
+    return  this.http.get<isLoggedIn>('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/chceklg')
   }
 
   getUser(): Observable<User[]> {
@@ -55,77 +57,82 @@ export class DataService {
   }
 
   getUsers() {
-    return this.http.get('http://localhost/IcspApi/Api/index.php/user/viewcustomer');
+    return this.http.get('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/viewcustomer');
   }
 
   postusers(contact)
   {
     //return this.http.post('http://jsonplaceholder.typicode.com/posts',contact); 
     //return this.http.post('http://localhost/lab/php/json_decode.php',contact);
-    return this.http.post('http://localhost/IcspApi/Api/index.php/user/createcustomer',contact);
+    return this.http.post('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/createcustomer',contact);
   }
 
   postcontact(contact)
   {
-    return this.http.post('http://localhost/IcspApi/Api/index.php/user/createcontact',contact);
+    return this.http.post('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/createcontact',contact);
   }
 
   postservices(contact)
   {
-    return this.http.post('http://localhost/IcspApi/Api/index.php/user/createservices',contact);
+    return this.http.post('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/createservices',contact);
   }
 
   postupdateservices(contact)
   {
-    return this.http.post('http://localhost/IcspApi/Api/index.php/user/Updateservices',contact);
+    return this.http.post('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/Updateservices',contact);
   }
   
   postcampaign(contact)
   {
-    return this.http.post('http://localhost/IcspApi/Api/index.php/user/createcampaign',contact);
+    return this.http.post('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/createcampaign',contact);
   }
   
 
   geteditcontact(userId)
   {
-    return this.http.get('http://localhost/IcspApi/Api/index.php/user/editcontact/'+userId);
+    return this.http.get('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/editcontact/'+userId);
   }
 
   getupdatecontact(contact)
   {
-    return this.http.post('http://localhost/IcspApi/Api/index.php/user/updatecontact/',contact);
+    return this.http.post('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/updatecontact/',contact);
   }
 
   getservicesdview(userId)
   {
-    return this.http.get('http://localhost/IcspApi/Api/index.php/user/servicesdetailedview/'+userId);
+    return this.http.get('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/servicesdetailedview/'+userId);
+  }
+
+  getcontactview(userId)
+  {
+    return this.http.get('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/contactsingledetails/'+userId);
   }
 
   getservicesdviedit(userId)
   {
-    return this.http.get('http://localhost/IcspApi/Api/index.php/user/servicesdetailededit/'+userId);
+    return this.http.get('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/servicesdetailededit/'+userId);
   }
 
 
   gettaskcomments(userId)
   {
-    return this.http.get('http://localhost/IcspApi/Api/index.php/user/taskcomments/'+userId);
+    return this.http.get('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/taskcomments/'+userId);
   }
 
   getauditdeatils(userId)
   {
-    return this.http.get('http://localhost/IcspApi/Api/index.php/user/auditdeatils/'+userId);
+    return this.http.get('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/auditdeatils/'+userId);
   }
 
 
   posttservicescomment(contact)
   {
-    return this.http.post('http://localhost/IcspApi/Api/index.php/user/createtaskcomment/',contact);
+    return this.http.post('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/createtaskcomment/',contact);
   }
 
   getUserdetails(contact)
    {
-    return this.http.post<myData>('http://localhost/IcspApi/Api/index.php/user/user_check_details/',contact);
+    return this.http.post<myData>('https://ipocc.inaipi.me/IcspApi/Api/index.php/user/user_check_details/',contact);
    }
 
 
