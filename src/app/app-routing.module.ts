@@ -16,9 +16,6 @@ import {AuthGuard} from './auth.guard';
 import { EditservicesComponent } from './editservices/editservices.component';
 import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetails.component';
 
-
-
-
 const routes: Routes = [
   {
     path: '',
@@ -68,7 +65,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate:[AuthGuard]
+    
   },
   {
     path: 'singletask/:id',
@@ -82,9 +79,6 @@ const routes: Routes = [
     path: 'editservice/:id',
     component: EditservicesComponent
   },
-
-  
-
 
 ];
 

@@ -11,160 +11,476 @@
 <div class="container-fluid">
     <!-- Start Page Content -->
     <div class="row">
-<div class="col-lg-12">
+<div class="col-lg-4">
     <div class="card">
-        <div class="card-body" *ngIf="user$">
+        <div class="card-body" style="margin-top: 0px;"  *ngIf="user$">
             <div class="card-two">
-                <header>
-                    <div class="avatar">
-                        <img src="assets/images/Facebook-no.jpg" alt="Allison Walker">
-                    </div>
-                </header>
+               <h4>{{user$.firstname}}</h4>
+                <div class="desc">{{user$.email}}</div>
 
-                <h3>{{user$.firstname}}</h3>
-                <div class="desc">
-                        {{user$.email}}
-                </div>
+                <div class="card-body" style="padding: 0">
+                        <div class="table-responsive">
+                            <table class="table">
+                               
+                                <tbody>
+                                     
+                                    <!-- <tr>
+                                        </tr><tr>
+                                            <td><b>companyname</b></td>
+                                            <td>{{user$.companyname}}</td>
+                                            
+                                        </tr> -->
+                                    
+                                    <tr>
+                                        </tr><tr>
+                                            <td><b>Mobile Number</b></td>
+                                            <td>{{user$.mobile_number}}</td>
+                                            
+                                        </tr>
+
+                                       <!-- <tr>
+                                            </tr><tr>
+                                                <td><b>Status</b></td>
+                                                <td><span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></td>
+                                                
+                                            </tr>-->
+                                    
+                                    
+                                    
+                                    <tr>
+                                        <td><b>DOB</b></td>
+                                        <td>{{user$.DOB}}</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><b>Land Line No</b></td>
+                                        <td>{{user$.gender}}</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><b>Nationality</b></td>
+                                        <td>{{user$.nationality}}</td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                       
+                    </div>
                 <!--<div class="contacts">
                     <a href=""><i class="fa fa-plus"></i></a>
                     <a href=""><i class="fa fa-whatsapp"></i></a>
                     <a href=""><i class="fa fa-envelope"></i></a>
                     <div class="clear"></div>
                 </div>-->
+
+                
             </div>
         </div>
     </div>
 </div>
 
-<div class="col-lg-12">
+<div class="col-lg-8">
     <div class="card">
 
         <mat-tab-group dynamicHeight *ngIf="user$">
-            <mat-tab label="User Details">
-              <div class="example-small-box mat-elevation-z4">
-                      
+            <mat-tab label="Call Note">
+                
+                <form class="callnoteform" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="row" style="margin-top: 7%;margin-left: 5%;">
 
-                      <mat-card>
-                              <mat-grid-list cols="2" rowHeight="350px" > 
-                                      
-                      <mat-grid-tile>
-                          <div class="card-body">
-                              <div class="table-responsive">
-                                  <table class="table">
-                                     
-                                      <tbody>
+                                   <div class="col-md-12">
+                                    <div class="form-group">
+                                                <mat-form-field>
+                                                <mat-select formControlName="Calltype"  placeholder="Call Type">
+                                                  <mat-option>None</mat-option>
+                                                  <mat-option value="option1">Option 1</mat-option>
+                                                  <mat-option value="option2">Option 2</mat-option>
+                                                  <mat-option value="option3">Option 3</mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                    </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                            <div class="form-group">
+                                                    <mat-form-field>
+                                                        <mat-select formControlName="Callreason"   placeholder="Call Reason">
+                                                          <mat-option>None</mat-option>
+                                                          <mat-option value="option1">Option 1</mat-option>
+                                                          <mat-option value="option2">Option 2</mat-option>
+                                                          <mat-option value="option3">Option 3</mat-option>
+                                                        </mat-select>
+                                                      </mat-form-field>
+                                            </div>
+                                            </div>
+                                    <div class="col-md-12">
+                                    <div class="form-group">
+                                             <mat-form-field class="example-full-width">
+                                                <textarea matInput formControlName="comment"  placeholder="Leave a comment"></textarea>
+                                              </mat-form-field>
+                                    </div>
+                                    </div>
+                                             <div class="col-md-12">
+                                             <div class="form-group">
+                                             <button [disabled]="registerForm.pristine || registerForm.invalid" mat-raised-button color="primary">Create</button>
+                                             </div></div>
+
+                     </div>
+                     </form>
+            </mat-tab>
+
+            <mat-tab label="Active Policy Information">
+                    <div class="example-small-box mat-elevation-z4">
+                            
+      
+                            <mat-card>
+                                    <mat-grid-list cols="1">            
+                                <mat-grid-tile>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
                                            
-                                          <tr>
-                                              </tr><tr>
-                                                  <td><b>companyname</b></td>
-                                                  <td>{{user$.companyname}}</td>
-                                                  
-                                              </tr>
-                                          
-                                          <tr>
-                                              </tr><tr>
-                                                  <td><b>mobile_number</b></td>
-                                                  <td>{{user$.mobile_number}}</td>
-                                                  
-                                              </tr>
+                                            <tbody>
 
-                                             <!-- <tr>
-                                                  </tr><tr>
-                                                      <td><b>Status</b></td>
-                                                      <td><span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></td>
-                                                      
-                                                  </tr>-->
-                                          
-                                          
-                                          
-                                          <tr>
-                                              <td><b>DOB</b></td>
-                                              <td>{{user$.DOB}}</td>
-                                              
-                                          </tr>
-                                          <tr>
-                                              <td><b>gender</b></td>
-                                              <td>{{user$.gender}}</td>
-                                              
-                                          </tr>
-                                          <tr>
-                                              <td><b>nationality</b></td>
-                                              <td>{{user$.nationality}}</td>
-                                              
-                                          </tr>
-                                      </tbody>
-                                  </table>
-                              </div>
-                             
-                          </div></mat-grid-tile>
-
-                      <mat-grid-tile >
-                              <div class="card-body">
-                                      <div class="table-responsive">
-                                          <table class="table">
-                                             
-                                              <tbody>
-                                                  
-                                                  <!--<tr>
-                                                      <td><b>Create Date</b></td>
-                                                      <td>{{user$.createDate}}</td>
-                                                      
-                                                  </tr>-->
-
-                                                  <tr>
-                                                      <td><b>insurance Amount</b></td>
-                                                      <td>{{user$.insurance_amount}}</td>
-                                                      
-                                                  </tr>
-                                                  
-                                                 
-
-                                                      <tr>
-                                                          </tr><tr>
-                                                              <td><b>insurance Card No</b></td>
-                                                              <td>{{user$.insurance_card_no}}</td>
+                                                    <tr>
+                                                            <td><b>Branch</b></td>
+                                                              <td>{{user$.DOB}}</td>
                                                               
                                                           </tr>
-                                                  
-                                                  <tr>
-                                                      </tr><tr>
-                                                          <td><b>insurance_company</b></td>
-                                                          <td>{{user$.insurance_company}}</td>
-                                                          
-                                                      </tr>
-                                                  
-                                                  <tr>
-                                                      <td><b>home_address</b></td>
-                                                      <td>{{user$.home_address}}</td>
-                                                      
-                                                  </tr>
-                                                  <tr>
-                                                      <td><b>company_address</b></td>
-                                                      <td>{{user$.company_address}}</td>
-                                                      
-                                                  </tr>
-                                                  
-                                              </tbody>
-                                          </table>
-                                      </div>
-                                     
-                                  </div>
-                          
-                          
-                          </mat-grid-tile> 
-                              <!--<mat-list>
-                                      
-                                  <mat-divider></mat-divider>
+                                                          <tr>
+                                                                <td><b>Policy number</b></td>
+                                                                  <td>{{user$.DOB}}</td>
+                                                                  
+                                                              </tr>
+                                                 
+                                                    <tr>
+                                                          <td><b>Sum Insured</b></td>
+                                                            <td>{{user$.DOB}}</td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Policy from date</b></td>
+                                                            <td>{{user$.gender}}</td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Policy to date</b></td>
+                                                            <td>{{user$.nationality}}</td>
+                                                            
+                                                        </tr>
+
+                                                        <tr>
+                                                                <td><b>Policy Approved date</b></td>
+                                                                <td>{{user$.nationality}}</td>
+                                                                
+                                                        </tr>
+                                                        <tr>
+                                                                <td><b>Policy Created user</b></td>
+                                                                <td>{{user$.nationality}}</td>
+                                                                
+                                                        </tr>
+      
+                                                        <tr>
+                                                                <td><b>Gross Premium</b></td>
+                                                                <td>{{user$.nationality}}</td>
+                                                                
+                                                        </tr>
+                                                        <tr>
+                                                                <td><b>Discount</b></td>
+                                                                <td>{{user$.nationality}}</td>
+                                                                
+                                                        </tr>
+                                                        <tr>
+                                                                <td><b>Commission</b></td>
+                                                                <td>{{user$.nationality}}</td>
+                                                                
+                                                        </tr>
+        
+                                                        <tr>
+                                                                <td><b>Net</b></td>
+                                                                <td>{{user$.nationality}}</td>
+                                                                
+                                                        </tr>
+        
+                                                       
+                                                       
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                   
+                                </div></mat-grid-tile>
+      
+                           
+                                    <!--<mat-list>
+                                            
+                                        <mat-divider></mat-divider>
+                                        
+                                      </mat-list>-->
+                                    </mat-grid-list>
+      
+                                    
+      
+      
+                            </mat-card>
+                    </div>
+                  </mat-tab>
+
+                  <mat-tab label="Vehicle  Information">
+                        <div class="example-small-box mat-elevation-z4">
+                                
+          
+                                <mat-card>
+                                          <mat-grid-list cols="2"  > 
+                                            <div class="col-md-12" style="border-bottom: 1px solid #dcdcdc;">
+                                            <div class="form-group">
+                                            <div ><span style="font-size: 15px;background-color: #272727;padding: 5px;color: #fff;margin-left: 17px;">Vehicle Information 1</span> 
+                                            <button mat-raised-button color="accent" style="margin-left: 48%;margin-top: 2%;">Create Services</button></div>
+                                            </div></div>  
+                                <mat-grid-tile>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                               
+                                                <tbody>
+                                                     
+                                                    <tr>
+                                                        </tr><tr>
+                                                            <td><b>Vehicle Make</b></td>
+                                                            <td>{{user$.companyname}}</td>
+                                                            
+                                                        </tr>
+                                                    
+                                                    <tr>
+                                                        </tr><tr>
+                                                            <td><b>Vehicle Model</b></td>
+                                                            <td>{{user$.mobile_number}}</td>
+                                                            
+                                                        </tr>
+          
+                                                       <!-- <tr>
+                                                            </tr><tr>
+                                                                <td><b>Status</b></td>
+                                                                <td><span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></td>
+                                                                
+                                                            </tr>-->
+                                                    
+                                                    
+                                                    
+                                                    <tr>
+                                                        <td><b>Body Type</b></td>
+                                                        <td>{{user$.DOB}}</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td><b>Chassis Number</b></td>
+                                                        <td>{{user$.gender}}</td>
+                                                        
+                                                    </tr>
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                       
+                                    </div></mat-grid-tile>
+
                                   
-                                </mat-list>-->
-                              </mat-grid-list>
+          
+                                <mat-grid-tile >
+                                        <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                       
+                                                        <tbody>
+                                                            
+                                                            <!--<tr>
+                                                                <td><b>Create Date</b></td>
+                                                                <td>{{user$.createDate}}</td>
+                                                                
+                                                            </tr>-->
 
-                              
+                                                            <tr>
+                                                                    <td><b>Registration No</b></td>
+                                                                    <td>{{user$.nationality}}</td>
+                                                                    
+                                                                </tr>
+          
+                                                            <tr>
+                                                                <td><b>Agency</b></td>
+                                                                <td>{{user$.insurance_amount}}</td>
+                                                                
+                                                            </tr>
+                                                            
+                                                           
+          
+                                                                <tr>
+                                                                    </tr><tr>
+                                                                        <td><b>Location</b></td>
+                                                                        <td>{{user$.insurance_card_no}}</td>
+                                                                        
+                                                                    </tr>
+                                                            
+                                                            <tr>
+                                                                </tr><tr>
+                                                                    <td><b>Vehicle Age</b></td>
+                                                                    <td>{{user$.insurance_company}}</td>
+                                                                    
+                                                                </tr>
+
+                                                                
+                                                            
+                                                            
+                                                            
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                               
+                                            </div>
+                                    
+                                    
+                                    </mat-grid-tile> 
 
 
-                      </mat-card>
-              </div>
+                                        <!--<mat-list>
+                                                
+                                            <mat-divider></mat-divider>
+                                            
+                                          </mat-list>-->
+                                        </mat-grid-list>
+          
+                                        
+          
+          
+                                </mat-card>
+                        </div>
+                      </mat-tab>
+            <mat-tab label="Claim Information">
+                            <div class="example-small-box mat-elevation-z4">
+                                    
+              
+                                    <mat-card>
+                                            <mat-grid-list cols="2" rowHeight="350px" > 
+                                                    
+                                    <mat-grid-tile>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                   
+                                                    <tbody>
+                                                         
+                                                        <tr>
+                                                            </tr><tr>
+                                                                <td><b>companyname</b></td>
+                                                                <td>{{user$.companyname}}</td>
+                                                                
+                                                            </tr>
+                                                        
+                                                        <tr>
+                                                            </tr><tr>
+                                                                <td><b>mobile_number</b></td>
+                                                                <td>{{user$.mobile_number}}</td>
+                                                                
+                                                            </tr>
+              
+                                                           <!-- <tr>
+                                                                </tr><tr>
+                                                                    <td><b>Status</b></td>
+                                                                    <td><span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></td>
+                                                                    
+                                                                </tr>-->
+                                                        
+                                                        
+                                                        
+                                                        <tr>
+                                                            <td><b>DOB</b></td>
+                                                            <td>{{user$.DOB}}</td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>gender</b></td>
+                                                            <td>{{user$.gender}}</td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>nationality</b></td>
+                                                            <td>{{user$.nationality}}</td>
+                                                            
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                           
+                                        </div></mat-grid-tile>
+              
+                                    <mat-grid-tile >
+                                            <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                           
+                                                            <tbody>
+                                                                
+                                                                <!--<tr>
+                                                                    <td><b>Create Date</b></td>
+                                                                    <td>{{user$.createDate}}</td>
+                                                                    
+                                                                </tr>-->
+              
+                                                                <tr>
+                                                                    <td><b>insurance Amount</b></td>
+                                                                    <td>{{user$.insurance_amount}}</td>
+                                                                    
+                                                                </tr>
+                                                                
+                                                               
+              
+                                                                    <tr>
+                                                                        </tr><tr>
+                                                                            <td><b>insurance Card No</b></td>
+                                                                            <td>{{user$.insurance_card_no}}</td>
+                                                                            
+                                                                        </tr>
+                                                                
+                                                                <tr>
+                                                                    </tr><tr>
+                                                                        <td><b>insurance_company</b></td>
+                                                                        <td>{{user$.insurance_company}}</td>
+                                                                        
+                                                                    </tr>
+                                                                
+                                                                <tr>
+                                                                    <td><b>home_address</b></td>
+                                                                    <td>{{user$.home_address}}</td>
+                                                                    
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>company_address</b></td>
+                                                                    <td>{{user$.company_address}}</td>
+                                                                    
+                                                                </tr>
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                   
+                                                </div>
+                                        
+                                        
+                                        </mat-grid-tile> 
+                                            <!--<mat-list>
+                                                    
+                                                <mat-divider></mat-divider>
+                                                
+                                              </mat-list>-->
+                                            </mat-grid-list>
+              
+                                            
+              
+              
+                                    </mat-card>
+                            </div>
             </mat-tab>
+
+
           </mat-tab-group>
 
     

@@ -42,7 +42,9 @@ export class ContactComponent implements OnInit {
   });
 
   ngOnInit() {
+
     this.registerForm = this.formBuilder.group({
+      
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
       Title: ['', Validators.required],
