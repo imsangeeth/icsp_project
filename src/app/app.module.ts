@@ -45,6 +45,7 @@ import { SingleserviceviewComponent } from './singleserviceview/singleservicevie
 import {MatCardModule} from '@angular/material/card';
 import { EditservicesComponent } from './editservices/editservices.component';
 import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetails.component';
+import { SurveyComponent } from './survey/survey.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetail
     AdminComponent,
     SingleserviceviewComponent,
     EditservicesComponent,
-    SingleuserdetailsComponent
+    SingleuserdetailsComponent,
+    SurveyComponent
   ],
   imports: [
     BrowserModule,

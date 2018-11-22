@@ -62,6 +62,18 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/viewcustomer');
   }
 
+  getofficelocation(){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/officelocation');
+  }
+
+  branchoffice(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/officebranches/'+ofid);
+  }
+
+  branchaddress(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/officebranchaddress/'+ofid);
+  }
+
   postusers(contact)
   {
     //return this.http.post('http://jsonplaceholder.typicode.com/posts',contact); 
@@ -73,7 +85,7 @@ export class DataService {
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createcontact',contact);
   }
-
+  
   postservices(contact)
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createservices',contact);

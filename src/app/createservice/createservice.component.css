@@ -12,4 +12,6 @@
     margin-bottom: .5rem;
     font-size: 14px;
 }
-  
+.mat-tab-body-content {
+  height: 100%;
+}

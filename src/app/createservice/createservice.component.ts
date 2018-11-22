@@ -12,6 +12,9 @@ export class CreateserviceComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
+  location$: Object;
+  branch$: Object;
+  branchaddress$:object;
 
   customername: string = '';
   Reason: string = '';
@@ -38,6 +41,7 @@ angularForm = new FormGroup ({
 });
 
 ngOnInit() {
+
   this.registerForm = this.formBuilder.group({
     customername: ['', Validators.required],
     Reason: ['', Validators.required],
@@ -54,6 +58,10 @@ ngOnInit() {
      //email: ['', [Validators.required, Validators.email]],
     //password: ['', [Validators.required, Validators.minLength(6)]]
 });
+
+this.data.getofficelocation().subscribe(
+  data => this.location$ = data  
+);
 
 
 
@@ -97,6 +105,23 @@ onSubmit() {
      this.bgcolor = response['bgcolor'];
      this.msgview = true;
    });
+ }
+
+ onChangeoffice(deviceValue)
+ {
+   console.log(deviceValue);
+
+    this.data.branchoffice(deviceValue).subscribe(
+     data => this.branch$ = data  
+    );
+ }
+
+
+ onChangeadreess(brancId)
+ {
+   this.data.branchaddress(brancId).subscribe(
+    data => this.branchaddress$ = data  
+   ); 
  }
 
  msgclose()
