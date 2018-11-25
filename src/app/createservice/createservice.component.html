@@ -44,7 +44,7 @@
                                                                         <div *ngIf="f.Reason.errors.required">Reason is required</div>
                                                                     </div>
                                                                 </div>
-                                                                  </div>
+                                                                  </div> 
                                                                 <div class="col-md-6 ">
                                                                 <div class="form-group">
                                                                     <label>Branch</label><span>*</span>
@@ -87,25 +87,26 @@
                                                             
                                                         
                                                     </div></form></mat-tab>
-                                        <mat-tab label="Individual"> <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                        <mat-tab label="Individual"> 
+                                            <form [formGroup]="IndividualForm" (ngSubmit)="onSubmit_individual()">
                                                 <div class="row" style="margin-top: 2%">
                                                         <div class="col-md-6 ">
                                                                 <div class="form-group">
                                                                     <label>Insurance Type</label><span>*</span>
-                                                                    <select (change)="onChangeoffice($event.target.value)" name="Reason" formControlName="Reason" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
-                                                                      <option *ngFor="let loca of location$" value="{{loca.locId}}">{{loca.name}}</option>
+                                                                    <select (change)="onChangeInsType($event.target.value)" name="Insurancetype" formControlName="Insurancetype" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                      <option *ngFor="let type of insurancetype$" value="{{type.typeID}}">{{type.name}}</option>
                                                                       
                                                                   </select> 
                                                                     <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
-                                                                        <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                        <div *ngIf="f.Reason.errors.required">Insurance Type is required</div>
                                                                     </div>
                                                                 </div>
                                                                   </div>
                                                                 <div class="col-md-6 ">
                                                                 <div class="form-group">
-                                                                    <label>Branch</label><span>*</span>
-                                                                    <select (change)="onChangeadreess($event.target.value)" name="Reason" formControlName="Reason" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
-                                                                        <option *ngFor="let bran of branch$" value="{{bran.branId}}">{{bran.name}}</option>
+                                                                    <label>Choose 2</label><span>*</span>
+                                                                    <select (change)="onChangeInsphase2($event.target.value)" name="Individual_two" formControlName="Individual_two" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                        <option *ngFor="let insphase2 of insphase2$" value="{{insphase2.typeID}}">{{insphase2.name}}</option>
                                                                   </select>
                                                                     <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
                                                                         <div *ngIf="f.Reason.errors.required">Reason is required</div>
@@ -114,21 +115,128 @@
                                                                   </div>
 
                                                                   <div class="col-md-6 ">
+                                                                    <div class="form-group">
+                                                                        <label>Choose 3</label><span>*</span>
+                                                                        <select (change)="onChangeInsphase3($event.target.value)" name="Individual_three" formControlName="Individual_three" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                            <option *ngFor="let insphase3 of insphase3$" value="{{insphase3.typeID}}">{{insphase3.name}}</option>
+                                                                      </select>
+                                                                        <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                      </div>
+
+                                                                      <div class="col-md-6 ">
                                                                         <div class="form-group">
-                                                                            <label>Mobile Number</label><span>*</span>
-                                                                            <input type="text" name="firstname"  class="form-control"  />
+                                                                            <label>Choose 4</label><span>*</span>
+                                                                            <select (change)="onChangeInsphase4($event.target.value)" name="Individual_four" formControlName="Individual_four" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                <option *ngFor="let insphase4 of insphase4$" value="{{insphase4.typeID}}">{{insphase4.name}}</option>
+                                                                          </select>
+                                                                            <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                            </div>
+                                                                        </div>
+                                                                          </div>
+
+                                                                          
+
+                                                             <div class="col-md-6 ">
+                                                                <div class="form-group">
+                                                                    <label>Choose 5</label><span>*</span>
+                                                                <select (change)="onChangeInsphase5($event.target.value)" name="Individual_five" formControlName="Individual_five" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                    <option *ngFor="let insphase5 of insphase5$" value="{{insphase5.typeID}}">{{insphase5.name}}</option>
+                                                                </select>
+                                                                       <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                   <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                  </div>
+                                                                </div>
+                                                                </div>
+                                                                    
+
+                                                                <div class="col-md-6 ">
+                                                                    <div class="form-group">
+                                                                        <label>Choose 6</label><span>*</span>
+                                                                    <select (change)="onChangeInsphase6($event.target.value)" name="Individual_six" formControlName="Individual_six" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                        <option *ngFor="let insphase6 of insphase6$" value="{{insphase6.typeID}}">{{insphase6.name}}</option>
+                                                                    </select>
+                                                                           <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                       <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                      </div>
+                                                                    </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6 ">
+                                                                        <div class="form-group">
+                                                                            <label>Choose 7</label><span>*</span>
+                                                                        <select (change)="onChangeInsphase7($event.target.value)" name="Individual_sevan" formControlName="Individual_sevan" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                            <option *ngFor="let insphase7 of insphase7$" value="{{insphase7.typeID}}">{{insphase7.name}}</option>
+                                                                        </select>
+                                                                               <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                           <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                          </div>
+                                                                        </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-6 ">
+                                                                            <div class="form-group">
+                                                                                <label>Choose 8</label><span>*</span>
+                                                                            <select (change)="onChangeInsphase8($event.target.value)" name="Individual_eight" formControlName="Individual_eight" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                <option *ngFor="let insphase8 of insphase8$" value="{{insphase8.typeID}}">{{insphase8.name}}</option>
+                                                                            </select>
+                                                                                   <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                               <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                              </div>
+                                                                            </div>
+                                                                            </div> 
+
+                                                                            <div class="col-md-6 ">
+                                                                                <div class="form-group">
+                                                                                    <label>Choose 9</label><span>*</span>
+                                                                                <select name="Individual_nine" formControlName="Individual_nine" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                    <option *ngFor="let insphase9 of insphase9$" value="{{insphase9.typeID}}">{{insphase9.name}}</option>
+                                                                                </select>
+                                                                                       <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                                   <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                                  </div>
+                                                                                </div>
+                                                                                </div> 
+
+                                                                                <div class="col-md-6 ">
+                                                                                    <div class="form-group">
+                                                                                        <label>Department</label><span>*</span>
+                                                                                    <select (change)="onChangedepartment($event.target.value)" name="ser_department" formControlName="ser_department" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                        <option *ngFor="let department of getoffice_department" value="{{department.id}}">{{department.department}}</option>
+                                                                                    </select>
+                                                                                           <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                                       <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    </div> 
+
+
+                                                                               <div class="col-md-6 ">
+                                                                                        <div class="form-group">
+                                                                                            <label>Assign</label><span>*</span>
+                                                                                        <select name="ser_assign" formControlName="ser_assign" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                            <option *ngFor="let office_department_user of office_department_user$" value="{{office_department_user.id}}">{{office_department_user.department}}</option>
+                                                                                        </select>
+                                                                                               <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                                           <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                        </div> 
+
+                                                                              
+
+                                                                  <div class="col-md-6 ">
+                                                                        <div class="form-group">
+                                                                            <label>Remarks</label><span>*</span>
+                                                                            <input type="text"  formControlName="Remarks" name="Remarks"  class="form-control"  />
                 
                                                                         </div>
                                                                    </div>
 
-                                                                   <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                            <label>Address : </label>
-                                                                            <div *ngFor="let branadd of branchaddress$" >
-                                                                            <input type="checkbox" ><p>{{branadd.name}}</p>
-                                                                            </div>
-                                                                        </div>
-                                                                          </div>
+                                                                 
                                                                   
                                                          
                                                                
@@ -136,14 +244,177 @@
                                                                 <div class="col-md-6 "></div>
                                                                 <div class="col-md-6 ">
                                                                 <div class="form-actions">
-                                                                    <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Send SMS</button>
+                                                                    <button [disabled]="IndividualForm.pristine || IndividualForm.invalid" class="btn btn-primary" style="margin: 8px;">Create Service</button>
                                                                     <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
                                                                 </div>
                                                                 </div>
                                                             
                                                         
                                                     </div></form> </mat-tab>
-                                        <mat-tab label="Corporate"> Content 3 </mat-tab>
+                                        <mat-tab label="Corporate"> 
+                                            <form [formGroup]="IndividualForm" (ngSubmit)="onSubmit_individual()">
+                                                <div class="row" style="margin-top: 2%">
+                                                        <div class="col-md-6 ">
+                                                                <div class="form-group">
+                                                                    <label>Corporate</label><span>*</span>
+                                                                    <select (change)="onChangeCopType($event.target.value)" name="Insurancetype" formControlName="Insurancetype" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                      <option *ngFor="let allCopType of allCopType$" value="{{allCopType.typeID}}">{{allCopType.name}}</option>
+                                                                      
+                                                                  </select> 
+                                                                    <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.Reason.errors.required">Insurance Type is required</div>
+                                                                    </div>
+                                                                </div>
+                                                                  </div>
+                                                                <div class="col-md-6 ">
+                                                                <div class="form-group">
+                                                                    <label>Choose 2</label><span>*</span>
+                                                                    <select (change)="onChangeInsphase2($event.target.value)" name="Individual_two" formControlName="Individual_two" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                        <option *ngFor="let insphase2 of insphase2$" value="{{insphase2.typeID}}">{{insphase2.name}}</option>
+                                                                  </select>
+                                                                    <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                        <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                    </div>
+                                                                </div>
+                                                                  </div>
+
+                                                                  <div class="col-md-6 ">
+                                                                    <div class="form-group">
+                                                                        <label>Choose 3</label><span>*</span>
+                                                                        <select (change)="onChangeInsphase3($event.target.value)" name="Individual_three" formControlName="Individual_three" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                            <option *ngFor="let insphase3 of insphase3$" value="{{insphase3.typeID}}">{{insphase3.name}}</option>
+                                                                      </select>
+                                                                        <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                        </div>
+                                                                    </div>
+                                                                      </div>
+
+                                                                      <div class="col-md-6 ">
+                                                                        <div class="form-group">
+                                                                            <label>Choose 4</label><span>*</span>
+                                                                            <select (change)="onChangeInsphase4($event.target.value)" name="Individual_four" formControlName="Individual_four" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                <option *ngFor="let insphase4 of insphase4$" value="{{insphase4.typeID}}">{{insphase4.name}}</option>
+                                                                          </select>
+                                                                            <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                                <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                            </div>
+                                                                        </div>
+                                                                          </div>
+
+                                                                          
+
+                                                             <div class="col-md-6 ">
+                                                                <div class="form-group">
+                                                                    <label>Choose 5</label><span>*</span>
+                                                                <select (change)="onChangeInsphase5($event.target.value)" name="Individual_five" formControlName="Individual_five" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                    <option *ngFor="let insphase5 of insphase5$" value="{{insphase5.typeID}}">{{insphase5.name}}</option>
+                                                                </select>
+                                                                       <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                   <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                  </div>
+                                                                </div>
+                                                                </div>
+                                                                    
+
+                                                                <div class="col-md-6 ">
+                                                                    <div class="form-group">
+                                                                        <label>Choose 6</label><span>*</span>
+                                                                    <select (change)="onChangeInsphase6($event.target.value)" name="Individual_six" formControlName="Individual_six" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                        <option *ngFor="let insphase6 of insphase6$" value="{{insphase6.typeID}}">{{insphase6.name}}</option>
+                                                                    </select>
+                                                                           <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                       <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                      </div>
+                                                                    </div>
+                                                                    </div>
+
+                                                                    <div class="col-md-6 ">
+                                                                        <div class="form-group">
+                                                                            <label>Choose 7</label><span>*</span>
+                                                                        <select (change)="onChangeInsphase7($event.target.value)" name="Individual_sevan" formControlName="Individual_sevan" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                            <option *ngFor="let insphase7 of insphase7$" value="{{insphase7.typeID}}">{{insphase7.name}}</option>
+                                                                        </select>
+                                                                               <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                           <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                          </div>
+                                                                        </div>
+                                                                        </div>
+
+                                                                        <div class="col-md-6 ">
+                                                                            <div class="form-group">
+                                                                                <label>Choose 8</label><span>*</span>
+                                                                            <select (change)="onChangeInsphase8($event.target.value)" name="Individual_eight" formControlName="Individual_eight" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                <option *ngFor="let insphase8 of insphase8$" value="{{insphase8.typeID}}">{{insphase8.name}}</option>
+                                                                            </select>
+                                                                                   <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                               <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                              </div>
+                                                                            </div>
+                                                                            </div> 
+
+                                                                            <div class="col-md-6 ">
+                                                                                <div class="form-group">
+                                                                                    <label>Choose 9</label><span>*</span>
+                                                                                <select name="Individual_nine" formControlName="Individual_nine" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                    <option *ngFor="let insphase9 of insphase9$" value="{{insphase9.typeID}}">{{insphase9.name}}</option>
+                                                                                </select>
+                                                                                       <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                                   <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                                  </div>
+                                                                                </div>
+                                                                                </div> 
+
+                                                                                <div class="col-md-6 ">
+                                                                                    <div class="form-group">
+                                                                                        <label>Department</label><span>*</span>
+                                                                                    <select (change)="onChangedepartment($event.target.value)" name="ser_department" formControlName="ser_department" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                        <option *ngFor="let department of getoffice_department" value="{{department.id}}">{{department.department}}</option>
+                                                                                    </select>
+                                                                                           <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                                       <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                                      </div>
+                                                                                    </div>
+                                                                                    </div> 
+
+
+                                                                               <div class="col-md-6 ">
+                                                                                        <div class="form-group">
+                                                                                            <label>Assign</label><span>*</span>
+                                                                                        <select name="ser_assign" formControlName="ser_assign" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
+                                                                                            <option *ngFor="let office_department_user of office_department_user$" value="{{office_department_user.id}}">{{office_department_user.department}}</option>
+                                                                                        </select>
+                                                                                               <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
+                                                                                           <div *ngIf="f.Reason.errors.required">Reason is required</div>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                        </div> 
+
+                                                                              
+
+                                                                  <div class="col-md-6 ">
+                                                                        <div class="form-group">
+                                                                            <label>Remarks</label><span>*</span>
+                                                                            <input type="text"  formControlName="Remarks" name="Remarks"  class="form-control"  />
+                
+                                                                        </div>
+                                                                   </div>
+
+                                                                 
+                                                                  
+                                                         
+                                                               
+                                                                <div class="col-md-6 "></div>
+                                                                <div class="col-md-6 "></div>
+                                                                <div class="col-md-6 ">
+                                                                <div class="form-actions">
+                                                                    <button [disabled]="IndividualForm.pristine || IndividualForm.invalid" class="btn btn-primary" style="margin: 8px;">Create Service</button>
+                                                                    <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                                </div>
+                                                                </div>
+                                                            
+                                                        
+                                                    </div></form> </mat-tab>
                                         <mat-tab label="Inbound"> Content 2 </mat-tab>
                                         <mat-tab label="Outbound"> Content 3 </mat-tab>
                                         <mat-tab label="Suggestions"> Content 2 </mat-tab>

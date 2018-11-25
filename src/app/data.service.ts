@@ -66,6 +66,15 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/officelocation');
   }
 
+  getoffice_department(){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/office_department');
+  }
+
+
+  office_department_user($ky){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/office_department_user/'+$ky);
+  }
+
   branchoffice(ofid){
     return this.http.get(this.base+'IcspApi/Api/index.php/user/officebranches/'+ofid);
   }
@@ -73,6 +82,60 @@ export class DataService {
   branchaddress(ofid){
     return this.http.get(this.base+'IcspApi/Api/index.php/user/officebranchaddress/'+ofid);
   }
+
+  insuranctype(){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insuranctype');
+  }
+
+  insurance_phase2(typid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase2/'+typid);
+  }
+
+  insurance_phase3(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase3/'+phaseId);
+  }
+
+  insurance_phase4(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase4/'+phaseId);
+  }
+
+  insurance_phase5(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase5/'+phaseId);
+  }
+
+  insurance_phase6(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase6/'+phaseId);
+  }
+
+  insurance_phase7(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase7/'+phaseId);
+  }
+
+  insurance_phase8(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase8/'+phaseId);
+  }
+
+  insurance_phase9(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase9/'+phaseId);
+  }
+
+  
+
+  allCopType()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/allCopType/');
+  }
+
+
+
+
 
   postusers(contact)
   {
@@ -84,6 +147,11 @@ export class DataService {
   postcontact(contact)
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createcontact',contact);
+  }
+
+  createservice_ind(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_ind',contact);
   }
   
   postservices(contact)
