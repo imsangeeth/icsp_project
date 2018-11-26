@@ -25,12 +25,15 @@ export class SingleuserdetailsComponent implements OnInit {
   Calltype : string
   Callreason : string
   comment :String
+  phn$:string
 
 
 
   constructor(private route: ActivatedRoute, private data: DataService,private formBuilder: FormBuilder) {
-    this.route.params.subscribe( params => this.user$ = params.id );
+    this.route.params.subscribe(params => this.user$ = params.id);
+    this.route.params.subscribe(params => this.phn$ = params.phn);
     this.taskid = this.user$; 
+    this.comment = this.phn$;
    }
 
    angularForm = new FormGroup ({
@@ -39,6 +42,11 @@ export class SingleuserdetailsComponent implements OnInit {
 
   ngOnInit() {
   
+  console.log(this.user$)  
+  console.log(this.phn$)  
+
+ 
+
   this.data.getcontactview(this.user$).subscribe(
     data => this.user$ = data 
   );

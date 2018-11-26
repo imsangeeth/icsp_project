@@ -126,13 +126,53 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase9/'+phaseId);
   }
 
-  
+  cspinboundphase2(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/cspinboundphase2/'+phaseId);
+  }
+
+  cspinboundphase3(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/cspinboundphase3/'+phaseId);
+  }
+
+  cspinboundphase4(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/cspinboundphase4/'+phaseId);
+  }
+
+
+
+
+  allinbound()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/allinbound/');
+  }
 
   allCopType()
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/allCopType/');
   }
 
+  cop_phase2(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/cop_phase2/'+phaseId);
+  }
+
+  cop_phase3(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/cop_phase3/'+phaseId);
+  }
+
+  cop_phase4(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/cop_phase4/'+phaseId);
+  }
+
+  cop_phase5(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/cop_phase5/'+phaseId);
+  }
 
 
 
@@ -152,6 +192,16 @@ export class DataService {
   createservice_ind(contact)
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_ind',contact);
+  }
+
+  createservice_cop(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_cop',contact);
+  }
+
+  createservice_inbound(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_inbound',contact);
   }
   
   postservices(contact)
@@ -182,7 +232,7 @@ export class DataService {
 
   getservicesdview(userId)
   {
-    return this.http.get(this.base+'IcspApi/Api/index.php/user/servicesdetailedview/'+userId);
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/createservice_cop_view/'+userId);
   }
 
   getcontactview(userId)

@@ -17,7 +17,7 @@ export interface Food {
 })
 export class ViewserviceComponent implements OnInit {
 
-  displayedColumns: string[] = ['slno','ticket_id','customer_name', 'phonenumber', 'department','assign','duedate','ticketStatus','view'];
+  displayedColumns: string[] = ['slno','ticket_id','type', 'phonenumber','department','assign','createdate','ticketStatus','view'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
   name = 'Imp';
@@ -138,13 +138,14 @@ export interface GithubApi {
 }
 
 export interface GithubIssue {
-  customer_name: string;
+ // customer_name: string;
   ticket_id: string;
   phonenumber: string;
   department: string;
   assign: string;
   duedate: string;
   ticketStatus: string;
+  type:string;
   
 }
 
@@ -161,7 +162,6 @@ export class ExampleHttpDao {
       console.log(sort);
       console.log(order);
       console.log(assignsort);
-
 
     const href = 'http://localhost/IcspApi/Api/index.php/user/allservices';
     //const requestUrl ='http://localhost/IcspApi/Api/index.php/user/allcontacts';

@@ -50,14 +50,14 @@
 
                                   <div class="divider"></div>
 
-                                  <mat-form-field > 
+                                  <!-- <mat-form-field > 
                                         <mat-select MatSelect [(ngModel)]="selectedValue" (selectionChange)="assignchange($event.value)" placeholder="Assign Name">
                                           <mat-option *ngFor="let food of foods" [value]="food.value">
                                             {{food.viewValue}}
                                           </mat-option>
                                         </mat-select>
                                        
-                                      </mat-form-field>
+                                      </mat-form-field> -->
 
                      </div>
 
@@ -85,12 +85,12 @@
                                 </ng-container>
 
 
-                            <ng-container matColumnDef="customer_name">
+                             <ng-container matColumnDef="type">
                                 <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    Customer Name
+                                        Type
                                   </th>
-                              <td mat-cell *matCellDef="let row">{{row.customer_name}}</td>
-                            </ng-container>
+                              <td mat-cell *matCellDef="let row">{{row.type}}</td>
+                            </ng-container> 
 
                                
                           <!-- Number Column -->
@@ -114,11 +114,11 @@
                           </ng-container>
                     
                           <!-- Created Column -->
-                          <ng-container matColumnDef="duedate">
+                          <ng-container matColumnDef="createdate">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
-                                    Duedate
+                                    Created Date
                             </th>
-                            <td mat-cell *matCellDef="let row">{{row.duedate}}</td>
+                            <td mat-cell *matCellDef="let row">{{row.createdate}}</td>
                           </ng-container>
 
                           <ng-container matColumnDef="ticketStatus">

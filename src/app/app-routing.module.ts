@@ -19,44 +19,53 @@ import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetail
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    //canActivate:[AuthGuard]
   },
   {
     path: 'Createcustomer',
-    component: CreatecustomerComponent
+    component: CreatecustomerComponent,
+    //canActivate:[AuthGuard]
   },
   {
     path: 'viewcustomer',
     component: ViewcustomerComponent,
-    canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path: 'createcontact',
-    component: ContactComponent
+    component: ContactComponent,
+    //canActivate:[AuthGuard]
   },
   {
     path: 'viewcontact',
-    component: ViewcontactComponent
+    component: ViewcontactComponent,
+    //canActivate:[AuthGuard]
   },
   {
     path: 'createservice',
-    component: CreateserviceComponent
+    component: CreateserviceComponent,
+    //canActivate:[AuthGuard]
   },
   {
     path: 'viewservices',
-    component: ViewserviceComponent
+    component: ViewserviceComponent,
+    //canActivate:[AuthGuard]
   },
   {
     path: 'createcampaign',
-    component: CampaignComponent
+    component: CampaignComponent,
+   // canActivate:[AuthGuard]
   },
   {
     path: 'viewcampaign',
-    component: CampaignviewComponent
+    component: CampaignviewComponent,
+    //canActivate:[AuthGuard]
   },
   {
     path: 'updatecontacts/:id',
-    component: UpdatecontactviewComponent
+    component: UpdatecontactviewComponent,
+   // canActivate:[AuthGuard]
   },
   {
     path: 'login',
@@ -65,19 +74,29 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+   // canActivate:[AuthGuard]
     
   },
   {
     path: 'singletask/:id',
-    component: SingleserviceviewComponent
+    component: SingleserviceviewComponent,
+   // canActivate:[AuthGuard]
+
   },
   {
     path: 'singleuserview/:id',
-    component: SingleuserdetailsComponent
+    component: SingleuserdetailsComponent,
+   // canActivate:[AuthGuard]
+  },
+  {
+    path: 'singleuserview/:id/:phn',
+    component: SingleuserdetailsComponent,
+   // canActivate:[AuthGuard]
   },
   {
     path: 'editservice/:id',
-    component: EditservicesComponent
+    component: EditservicesComponent,
+   // canActivate:[AuthGuard]
   },
 
 ];
