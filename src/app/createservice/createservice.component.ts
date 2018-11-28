@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
@@ -58,6 +59,7 @@ export class CreateserviceComponent implements OnInit {
   bgcolor: string = '';
   startDate: string = '';
   msg: string = '';
+  phone:string = '';
 
   Insurancetype:string;
   Individual_two:String;
@@ -92,19 +94,21 @@ export class CreateserviceComponent implements OnInit {
   inboundtype_department:string;
   inboundtypeRemarks:string;
   inboundtypecomment:string;
+  phn$: string;
 
   allinbound$:object;
 
-
-
-
-constructor(private formBuilder: FormBuilder,private data: DataService) { }
+constructor(private route: ActivatedRoute,private formBuilder: FormBuilder,private data: DataService) {
+  this.route.params.subscribe( params => this.phn$ = params.phn );
+ }
 
 angularForm = new FormGroup ({
   name: new FormControl()
 });
 
 ngOnInit() {
+
+  console.log(this.phn$);
 
   this.registerForm = this.formBuilder.group({
     customername: ['', Validators.required],
@@ -220,6 +224,7 @@ onSubmit_inbound() {
     inboundtype_department : this.inboundForm.get('inboundtype_department').value,
     inboundtypeRemarks : this.inboundForm.get('inboundtypeRemarks').value,
     inboundtypecomment:  this.inboundForm.get('inboundtypecomment').value,
+    phone:this.phone,
   };
 
   this.data.createservice_inbound(inbound).subscribe((response) => {
@@ -257,6 +262,7 @@ onSubmit_corporate() {
     Corporate_department : this.corporateForm.get('Corporate_department').value,
     CorporateRemarks:  this.corporateForm.get('CorporateRemarks').value,
     Corporatecomment:  this.corporateForm.get('Corporatecomment').value,
+    phone:this.phone,
   };
 
   console.log(corporates);
@@ -303,6 +309,7 @@ onSubmit_individual() {
     ser_assign:  this.IndividualForm.get('ser_assign').value,
     ser_comment:this.IndividualForm.get('ser_comment').value,
     Remarks:  this.IndividualForm.get('Remarks').value,
+    phone:this.phone,
    
   };
 
@@ -314,6 +321,10 @@ onSubmit_individual() {
  this.data.createservice_ind(individual).subscribe((response) => {
 
   this.IndividualForm.reset();
+
+  this.msg = response['msg'];
+  this.bgcolor = response['bgcolor'];
+  this.msgview = true;
   
 });
 

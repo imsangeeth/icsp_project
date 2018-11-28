@@ -68,7 +68,7 @@
                        
                     </div>
                <div class="contacts">
-                    <a title="Create new Service" href=""><button mat-button color="primary">Create new Services</button>
+                    <a title="Create new Service" href="createservice/{{this.phn$}}"><button mat-button color="primary">Create new Services</button>
                     
                     </a>
 
@@ -97,9 +97,8 @@
                                                 <mat-form-field>
                                                 <mat-select formControlName="Calltype"  placeholder="Call Type">
                                                   <mat-option>None</mat-option>
-                                                  <mat-option value="option1">Option 1</mat-option>
-                                                  <mat-option value="option2">Option 2</mat-option>
-                                                  <mat-option value="option3">Option 3</mat-option>
+                                                  <mat-option *ngFor="let call_ty of call_type$" value="{{call_ty.typeID}}">{{call_ty.name}}</mat-option>
+                                                  
                                                 </mat-select>
                                               </mat-form-field>
                                     </div>
@@ -110,9 +109,8 @@
                                                     <mat-form-field>
                                                         <mat-select formControlName="Callreason"   placeholder="Call Reason">
                                                           <mat-option>None</mat-option>
-                                                          <mat-option value="option1">Option 1</mat-option>
-                                                          <mat-option value="option2">Option 2</mat-option>
-                                                          <mat-option value="option3">Option 3</mat-option>
+                                                          <mat-option *ngFor="let call_reason of call_reason$" value="{{call_reason.typeID}}">{{call_reason.name}}</mat-option>
+                                                         
                                                         </mat-select>
                                                       </mat-form-field>
                                             </div>
@@ -132,6 +130,65 @@
                      </div>
                      </form>
             </mat-tab>
+            <mat-tab label="Call History">
+                <div class="example-small-box mat-elevation-z4">
+                        <mat-card>
+                                <mat-grid-list cols="1">            
+                            <mat-grid-tile>
+                                    <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="card-body">                      
+                                                     <div class="table-responsive m-t-40">
+                                                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                                <thead>
+                                                                        <tr>
+                                                                                <th>Sl No</th>
+                                                                                <th>Call Type</th>
+                                                                                <th>Call Reason</th>
+                                                                                <th>Called Date</th>
+                                                                                <th>Comment</th>
+                                                                        </tr>
+                                                                </thead>
+                                                              
+                                                                <tbody> 
+                                                                    <tr *ngFor="let call_note of call_note$">
+                                                                        <td>{{call_note.slno}}</td>
+                                                                        <td>{{call_note.calltype}}</td>
+                                                                        <td>{{call_note.callreason}}</td>
+                                                                        <td>{{call_note.callNoteTime}}</td>
+                                                                        <td>{{call_note.comment}}</td>
+                                                                    </tr>
+                                                                   
+                         
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                            </div>
+                                        </div>
+
+                           
+                        
+                            </mat-grid-tile>
+  
+                       
+                                <!--<mat-list>
+                                        
+                                    <mat-divider></mat-divider>
+                                    
+                                  </mat-list>-->
+                                </mat-grid-list>
+  
+                                
+  
+  
+                        </mat-card>
+                </div>
+              </mat-tab>
+            
 
             <mat-tab label="Active Policy Information">
                     <div class="example-small-box mat-elevation-z4">

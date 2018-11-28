@@ -87,6 +87,15 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/insuranctype');
   }
 
+
+  call_type(){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/call_type');
+  }
+
+  call_reason(){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/csp_call_reason');
+  }
+
   insurance_phase2(typid){
     return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase2/'+typid);
   }
@@ -94,6 +103,17 @@ export class DataService {
   insurance_phase3(phaseId)
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase3/'+phaseId);
+  }
+
+  addcallcallnote(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/addcallcallnote',contact);
+  }
+
+
+  viewcall_note(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewcall_note/'+phaseId);
   }
 
   insurance_phase4(phaseId)

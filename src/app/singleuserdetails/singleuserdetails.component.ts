@@ -10,13 +10,14 @@ import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./singleuserdetails.component.css']
 })
 
-
-
 export class SingleuserdetailsComponent implements OnInit {
 
   user$: Object;
   comment$:object; 
   auidt$:object;
+  call_reason$:object;
+  call_type$:object;
+  call_note$:object;
   taskid;
   selected = 'option2';
 
@@ -27,13 +28,11 @@ export class SingleuserdetailsComponent implements OnInit {
   comment :String
   phn$:string
 
-
-
   constructor(private route: ActivatedRoute, private data: DataService,private formBuilder: FormBuilder) {
     this.route.params.subscribe(params => this.user$ = params.id);
     this.route.params.subscribe(params => this.phn$ = params.phn);
     this.taskid = this.user$; 
-    this.comment = this.phn$;
+    //this.comment = this.phn$;
    }
 
    angularForm = new FormGroup ({
@@ -42,14 +41,22 @@ export class SingleuserdetailsComponent implements OnInit {
 
   ngOnInit() {
   
-  console.log(this.user$)  
-  console.log(this.phn$)  
-
- 
-
   this.data.getcontactview(this.user$).subscribe(
     data => this.user$ = data 
   );
+
+  this.data.call_type().subscribe(
+    data => this.call_type$ = data 
+  );
+
+  this.data.call_reason().subscribe(
+    data => this.call_reason$ = data 
+  );
+
+  this.data.viewcall_note(this.phn$).subscribe(
+    data => this.call_note$ = data 
+  );
+
 
   this.registerForm = this.formBuilder.group({
       
@@ -59,6 +66,7 @@ export class SingleuserdetailsComponent implements OnInit {
   
     //password: ['', [Validators.required, Validators.minLength(6)]]
 });
+
   }
 
   get f() { return this.registerForm.controls; }
@@ -76,9 +84,16 @@ export class SingleuserdetailsComponent implements OnInit {
       Calltype:  this.registerForm.get('Calltype').value,
       Callreason:  this.registerForm.get('Callreason').value,
       Comment:  this.registerForm.get('comment').value, 
+      phonenumber: this.phn$
     };
 
     console.log(contact);
+
+    this.data.addcallcallnote(contact).subscribe((response) => {
+      this.registerForm.reset();
+    });
+
+  
    }
 
 }

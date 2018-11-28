@@ -48,6 +48,11 @@ const routes: Routes = [
     //canActivate:[AuthGuard]
   },
   {
+    path: 'createservice/:phn',
+    component: CreateserviceComponent,
+    //canActivate:[AuthGuard]
+  },
+  {
     path: 'viewservices',
     component: ViewserviceComponent,
     //canActivate:[AuthGuard]

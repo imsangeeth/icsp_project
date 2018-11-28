@@ -196,21 +196,21 @@
                                                                 
                                                             </tr>
                                                             <tr>
-                                                                <td><b>phase_category1</b></td>
+                                                                <td><b>phase4</b></td>
                                                                 <td>{{user$.phase_category1}}</td>
                                                                 
                                                             </tr>
         
                                                                <tr>
                                                                 </tr><tr>
-                                                                    <td><b>phase_category2</b></td>
+                                                                    <td><b>phase5</b></td>
                                                                     <td>{{user$.phase_category2}}</td>
                                                                     
                                                                 </tr>
 
                                                                 <tr>
                                                                     </tr><tr>
-                                                                        <td><b>phonenumber</b></td>
+                                                                        <td><b>Phonenumber</b></td>
                                                                         <td>{{user$.phonenumber}}</td>
                                                                         
                                                                     </tr>
@@ -230,26 +230,26 @@
                                                                 <tbody>
                                                                     
                                                                     <tr>
-                                                                        <td><b>phase_category3</b></td>
+                                                                        <td><b>phase1</b></td>
                                                                         <td>{{user$.phase_category3}}</td>
                                                                         
                                                                     </tr>
         
                                                                     <tr>
                                                                         </tr><tr>
-                                                                            <td><b>phase_category4</b></td>
+                                                                            <td><b>phase2</b></td>
                                                                             <td>{{user$.phase_category4}}</td>
                                                                             
                                                                     </tr>
         
                                                                     <tr>
-                                                                        <td><b>phase_category5</b></td>
+                                                                        <td><b>phase3</b></td>
                                                                         <td>{{user$.phase_category5}}</td>
                                                                         
                                                                     </tr>
 
                                                                     <tr>
-                                                                            <td><b>phase_category6</b></td>
+                                                                            <td><b>phase4</b></td>
                                                                             <td>{{user$.phase_category6}}</td>
                                                                             
                                                                         </tr>
@@ -282,6 +282,74 @@
                                             
                                             
                                             </mat-grid-tile> 
+
+                                            <mat-grid-tile *ngIf="user$.type =='inbound'" >
+                                                    <div class="card-body">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                   
+                                                                    <tbody>
+                                                                            
+                                                                        <tr>
+                                                                                    <td><b>Category Type</b></td>
+                                                                                    <td>inbound</td>
+                                                                                    
+                                                                        </tr>
+
+                                                                        
+                                                                        <tr>
+                                                                            <td><b>Category 1</b></td>
+                                                                            <td>{{user$.csp_inbound_phase1_val}}</td>
+                                                                            
+                                                                        </tr>
+            
+                                                                        <tr>
+                                                                            </tr><tr>
+                                                                                <td><b>Category 2</b></td>
+                                                                                <td>{{user$.csp_inbound_phase2_val}}</td>
+                                                                                
+                                                                        </tr>
+            
+                                                                        <tr>
+                                                                            <td><b>Category 3</b></td>
+                                                                            <td>{{user$.csp_inbound_phase3_val}}</td>
+                                                                            
+                                                                        </tr>
+    
+                                                                        <tr>
+                                                                                <td><b>Category 4</b></td>
+                                                                                <td>{{user$.csp_inbound_phase4_val}}</td>
+                                                                                
+                                                                            </tr>
+                                                                        
+                                                                        <tr>
+                                                                            </tr><tr>
+                                                                                <td><b>Assigned department</b></td>
+                                                                                <td>{{user$.csp_office_department}}</td>
+                                                                                
+                                                                            </tr>
+                                                                        
+                                                                       <tr>
+                                                                            <td><b>Assigned user</b></td>
+                                                                            <td>{{user$.csp_department_user}}</td>
+                                                                            
+                                                                        </tr>
+    
+                                                                        <tr>
+                                                                                <td><b>remarks</b></td>
+                                                                                <td>{{user$.remarks}}</td>
+                                                                                
+                                                                            </tr>
+                                                                        
+                                                                        
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                           
+                                                        </div>
+                                                
+                                                
+                                                </mat-grid-tile> 
 
                                         <!--<mat-list>
                                                 

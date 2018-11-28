@@ -13,3 +13,8 @@
     position: relative;
     cursor: pointer;
 }
+.header .top-navbar .navbar-header {
+    line-height: 45px;
+    text-align: center;
+    background: rgba(0, 86, 64, 0.67);
+}
