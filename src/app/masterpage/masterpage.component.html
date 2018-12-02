@@ -1,0 +1,78 @@
+<!-- main app container -->
+
+    
+    <!-- credits -->
+    
+    <app-header></app-header>     
+
+    <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h5 class="text-primary">Master page</h5> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Add New Customer</li> -->
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                <div class="card-body">
+                                
+                                    <div class="form-body">
+
+                                        <h5 class="box-title m-t-40">Create New Contact </h5>
+                                        <hr>
+                                        
+                                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                        <div class="row">
+                                            
+                                              <div class="col-md-6 ">
+                                              <div class="form-group">
+                                                            <label>First Name<span>*</span></label>
+                                                            
+                                                            <input type="text" name="firstname"  formControlName="firstname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }" />
+                                                            <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.firstname.errors.required">firstname is required</div>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-md-6 "></div>
+                                                     
+                                                        <div class="col-md-6 ">
+                                                        <div class="form-actions">
+                                                            <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Create</button>
+                                                            <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                        </div>
+                                                        </div>
+                                                    
+                                                
+                                            </div></form>
+
+                                            <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
+                                                <div class="alert alert-primary alert-dismissible fade show">
+                                                    <button type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <strong>{{msg}}</strong> 
+                                                </div>
+                                        </div>
+        
+                                        </div>
+                            </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+    

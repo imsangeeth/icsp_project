@@ -34,6 +34,7 @@ export class DataService {
 
   private url
 
+  //private base = "http://172.16.1.46/";
   private base = "http://localhost/"
 
   constructor(private http: HttpClient,private auth: AuthService) { }
@@ -161,9 +162,6 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/cspinboundphase4/'+phaseId);
   }
 
-
-
-
   allinbound()
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/allinbound/');
@@ -257,8 +255,15 @@ export class DataService {
 
   getcontactview(userId)
   {
-    return this.http.get(this.base+'IcspApi/Api/index.php/user/contactsingledetails/'+userId);
+    return this.http.post(this.base+'oracle/customer_details.php/',userId);
   }
+
+  vehicle_info(userId)
+  {
+    return this.http.post(this.base+'oracle/vehicle.php/',userId);
+  }
+
+
 
   getservicesdviedit(userId)
   {
@@ -269,6 +274,11 @@ export class DataService {
   gettaskcomments(userId)
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/taskcomments/'+userId);
+  }
+
+  policy_information(userId)
+  {
+    return this.http.post(this.base+'oracle/policy.php',userId);
   }
 
   getauditdeatils(userId)

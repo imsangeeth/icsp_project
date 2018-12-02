@@ -14,6 +14,7 @@ export class SingleserviceviewComponent implements OnInit {
   user$: Object;
   comment$:object;
   auidt$:object;
+  responseobjec:object;
   Commentform: FormGroup;
   submitted = false;
   comment: string = '';
@@ -77,8 +78,13 @@ export class SingleserviceviewComponent implements OnInit {
     };
 
     this.data.posttservicescomment(contact).subscribe((response) => {
+      this.responseobjec = response;
       this.Commentform.controls['comment'].setValue('');
+      this.comment$ = Object.assign(response,this.comment$); 
+
        console.log(response);
+       console.log(this.comment$);
+       
      });
    }
 

@@ -12,12 +12,16 @@ import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 export class SingleuserdetailsComponent implements OnInit {
 
-  user$: Object;
+  user_det$: Object;
+  user$:object;
   comment$:object; 
   auidt$:object;
   call_reason$:object;
   call_type$:object;
   call_note$:object;
+  policy_information$:object;
+  vehicle$ : object;
+
   taskid;
   selected = 'option2';
 
@@ -40,9 +44,17 @@ export class SingleuserdetailsComponent implements OnInit {
   });
 
   ngOnInit() {
+
+    var  phnumber  = {
+      number: this.phn$,
+    };
   
-  this.data.getcontactview(this.user$).subscribe(
+  this.data.getcontactview(phnumber).subscribe(
     data => this.user$ = data 
+  );
+
+  this.data.vehicle_info(phnumber).subscribe(
+    data => this.vehicle$ = data 
   );
 
   this.data.call_type().subscribe(
@@ -55,6 +67,10 @@ export class SingleuserdetailsComponent implements OnInit {
 
   this.data.viewcall_note(this.phn$).subscribe(
     data => this.call_note$ = data 
+  );
+
+  this.data.policy_information(phnumber).subscribe(
+    data => this.policy_information$ = data 
   );
 
 

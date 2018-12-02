@@ -37,49 +37,11 @@
                                   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                                         <div class="row">
                                             
-                                                        <div class="col-md-6 ">
-                                                        <div class="form-group">
-                                                            <label>Customer Name<span>*</span></label>
-             
-                                                            <input autocomplete="off" type="text" name="customername"  formControlName="customername" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.customername.errors }" />
-                                                            <div *ngIf="submitted && f.customername.errors" class="invalid-feedback">
-                                                                <div *ngIf="f.customername.errors.required">Customer name is required</div>
-                                                            </div>
-                                                        </div>
-                                                        </div>
-                                                        <div class="col-md-6 ">
-                                                        <div class="form-group">
-                                                            <label>Reason Of Call</label><span>*</span>
-                                                            <select name="Reason" formControlName="Reason" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
-                                                              <option value="1">Reason 1</option>
-                                                              <option value="2">Reason 2</option>
-                                                          </select>
-                                                            <div *ngIf="submitted && f.Reason.errors" class="invalid-feedback">
-                                                                <div *ngIf="f.Reason.errors.required">Reason is required</div>
-                                                            </div>
-                                                        </div>
-                                                          </div>
-                                                          <div class="col-md-6 ">
-                                                              <div class="form-group">
-                                                                  <label>Policy Number<span>*</span></label>
-                   
-                                                                  <input type="text" name="policynumber"  formControlName="policynumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.policynumber.errors }" />
-                                                                  <div *ngIf="submitted && f.policynumber.errors" class="invalid-feedback">
-                                                                      <div *ngIf="f.policynumber.errors.required">policy number is required</div>
-                                                                  </div>
-                                                              </div>
-                                                              </div>
+                                                       
+                                                      
+                                                  
       
-                                                              <div class="col-md-6 ">
-                                                                  <div class="form-group">
-                                                                      <label>Phone Number<span>*</span></label>
-                       
-                                                                      <input type="text" name="phonenumber"  formControlName="phonenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phonenumber.errors }" />
-                                                                      <div *ngIf="submitted && f.phonenumber.errors" class="invalid-feedback">
-                                                                          <div *ngIf="f.phonenumber.errors.required">Phone number is required</div>
-                                                                      </div>
-                                                                  </div>
-                                                                  </div>
+                                                            
                                                         <div class="col-md-6 ">
                                                         <div class="form-group">
                                                             <label>Ticket Due Date</label><span>*</span><br>
@@ -135,43 +97,8 @@
                                                               </div>
                                                                  </div>
       
-                                                                 <div class="col-md-6 ">
-                                                                  <div class="form-group">
-                                                                      <label>Priority</label>
-                                                                      <select formControlName="priority"  name="priority" class="form-control custom-select">
-                                                                        <option value="Normal">Normal</option>
-                                                                        <option value="Quick">Quick</option>
-                                                                    </select>
-                                                                  </div>
-                                                                     </div>
-      
-                                                                     <div class="col-md-6 ">
-                                                                      <div class="form-group">
-                                                                          <label>Received Via</label>
-                                                                          <select formControlName="Received"  name="Received" class="form-control custom-select">
-                                                                            <option value="PhoneCall">Phone Call</option>
-                                                                            <option value="Socialmedia">Social media</option>
-                                                                        </select>
-                                                                      </div>
-                                                                         </div>
-      
-                                                                         <div class="col-md-6 ">
-                                                                          <div class="form-group">
-                                                                              <label>Subject<span>*</span></label>
-                               
-                                                                              <input type="text" name="Subject"  formControlName="Subject" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Subject.errors }" />
-                                                                              <div *ngIf="submitted && f.Subject.errors" class="invalid-feedback">
-                                                                                  <div *ngIf="f.Subject.errors.required">Subject name is required</div>
-                                                                              </div>
-                                                                          </div>
-                                                                          </div> 
-      
-                                                        <div class="col-md-6 ">  
-                                                        <div class="form-group">
-                                                            <label>Description</label><span>*</span>
-                                                            <textarea name="Description" formControlName="Description" style="height: 100px;" class="form-control form-control-danger" ></textarea>
-                                                        </div>
-                                                        </div>
+                                                              
+                                                    
       
                                                        
                                                         <div class="col-md-6 "></div>

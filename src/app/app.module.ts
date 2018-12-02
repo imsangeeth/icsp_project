@@ -47,6 +47,7 @@ import { EditservicesComponent } from './editservices/editservices.component';
 import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetails.component';
 import { SurveyComponent } from './survey/survey.component';
 import { KtviewComponent } from './ktview/ktview.component';
+import { MasterpageComponent } from './masterpage/masterpage.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { KtviewComponent } from './ktview/ktview.component';
     EditservicesComponent,
     SingleuserdetailsComponent,
     SurveyComponent,
-    KtviewComponent
+    KtviewComponent,
+    MasterpageComponent
   ],
   imports: [
     BrowserModule,

@@ -15,8 +15,8 @@
     <div class="card">
         <div class="card-body" style="margin-top: 0px;"  *ngIf="user$">
             <div class="card-two">
-               <h4>{{user$.firstname}}</h4>
-                <div class="desc">{{user$.email}}</div>
+               <h4>{{user$.ASSR_NAME}}</h4>
+                <!-- <div class="desc">{{user$.email}}</div> -->
 
                 <div class="card-body" style="padding: 0">
                         <div class="table-responsive">
@@ -33,8 +33,8 @@
                                     
                                     <tr>
                                         </tr><tr>
-                                            <td><b>Mobile Number</b></td>
-                                            <td>{{user$.mobile_number}}</td>
+                                            <td><b>Phone Number</b></td>
+                                            <td>{{user$.ASSR_PHONE}}</td>
                                             
                                         </tr>
 
@@ -53,13 +53,13 @@
                                         
                                     </tr>
                                     <tr>
-                                        <td><b>Land Line No</b></td>
-                                        <td>{{user$.gender}}</td>
+                                        <td><b>Office Phone</b></td>
+                                        <td>{{user$.ASSR_OFFICE_PHONE}}</td>
                                         
                                     </tr>
                                     <tr>
                                         <td><b>Nationality</b></td>
-                                        <td>{{user$.nationality}}</td>
+                                        <td>{{user$.NATIONALITY}}</td>
                                         
                                     </tr>
                                 </tbody>
@@ -131,407 +131,216 @@
                      </form>
             </mat-tab>
             <mat-tab label="Call History">
-                <div class="example-small-box mat-elevation-z4">
-                        <mat-card>
-                                <mat-grid-list cols="1">            
-                            <mat-grid-tile>
-                                    <div class="row">
-                                            <div class="col-12">
-                                                <div class="card">
-                                                    <div class="card-body">                      
-                                                     <div class="table-responsive m-t-40">
-                                                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                                                <thead>
-                                                                        <tr>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="table-responsive m-t-40">
+                                    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                                 <tr>
                                                                                 <th>Sl No</th>
                                                                                 <th>Call Type</th>
                                                                                 <th>Call Reason</th>
                                                                                 <th>Called Date</th>
                                                                                 <th>Comment</th>
                                                                         </tr>
-                                                                </thead>
-                                                              
-                                                                <tbody> 
-                                                                    <tr *ngFor="let call_note of call_note$">
+                                        </thead>
+                                        
+                                        <tbody> 
+                                                                 <tr *ngFor="let call_note of call_note$">
                                                                         <td>{{call_note.slno}}</td>
                                                                         <td>{{call_note.calltype}}</td>
                                                                         <td>{{call_note.callreason}}</td>
                                                                         <td>{{call_note.callNoteTime}}</td>
                                                                         <td>{{call_note.comment}}</td>
                                                                     </tr>
-                                                                   
-                         
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        
-                                            </div>
-                                        </div>
-
-                           
-                        
-                            </mat-grid-tile>
-  
-                       
-                                <!--<mat-list>
-                                        
-                                    <mat-divider></mat-divider>
-                                    
-                                  </mat-list>-->
-                                </mat-grid-list>
-  
-                                
-  
-  
-                        </mat-card>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
                 </div>
               </mat-tab>
             
 
             <mat-tab label="Active Policy Information">
-                    <div class="example-small-box mat-elevation-z4">
-                            
-      
-                            <mat-card>
-                                    <mat-grid-list cols="1">            
-                                <mat-grid-tile>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                           
-                                            <tbody>
+                    <mat-vertical-stepper  #stepper>
+                            <mat-step *ngFor="let policy_info of policy_information$">
+                                    <ng-template matStepLabel>{{policy_info.POLICY_NUMBER}}</ng-template>
 
-                                                    <tr>
-                                                            <td><b>Branch</b></td>
-                                                              <td>{{user$.DOB}}</td>
-                                                              
-                                                          </tr>
-                                                          <tr>
-                                                                <td><b>Policy number</b></td>
-                                                                  <td>{{user$.DOB}}</td>
-                                                                  
-                                                              </tr>
-                                                 
-                                                    <tr>
-                                                          <td><b>Sum Insured</b></td>
-                                                            <td>{{user$.DOB}}</td>
-                                                            
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Policy from date</b></td>
-                                                            <td>{{user$.gender}}</td>
-                                                            
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>Policy to date</b></td>
-                                                            <td>{{user$.nationality}}</td>
-                                                            
-                                                        </tr>
+                                    <div class="example-small-box mat-elevation-z4">
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                           
+                                                            <tbody>
+                
+                                                                    <tr>
+                                                                            <td><b>DIVISION NAME</b></td>
+                                                                              <td>{{policy_info.DIVISION_NAME}}</td>
+                                                                              
+                                                                          </tr>
+                                                                          <tr>
+                                                                                <td><b>POLICY NUMBER</b></td>
+                                                                                  <td>{{policy_info.POLICY_NUMBER}}</td>
+                                                                                  
+                                                                              </tr>
+                                                                 
+                                                                    <tr>
+                                                                          <td><b>ENDORSEMENT NUMBER</b></td>
+                                                                            <td>{{policy_info.ENDORSEMENT_NUMBER}}</td>
+                                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><b>INSURED AMOUNT</b></td>
+                                                                            <td>{{policy_info.INSURED_AMOUNT}}</td>
+                                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><b>POLICY TO DATE</b></td>
+                                                                            <td>{{policy_info.POLICY_TO_DATE}}</td>
+                                                                            
+                                                                        </tr>
+                
+                                                                        <tr>
+                                                                                <td><b>POLICY FROM DATE</b></td>
+                                                                                <td>{{policy_info.POLICY_FROM_DATE}}</td>
+                                                                                
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><b>POLICY APPR DATE</b></td>
+                                                                                <td>{{policy_info.POLICY_APPR_DATE}}</td>
+                                                                                
+                                                                        </tr>
+                      
+                                                                        <tr>
+                                                                                <td><b>CREATED USER</b></td>
+                                                                                <td>{{policy_info.CREATED_USER}}</td>
+                                                                                
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><b>Discount</b></td>
+                                                                                <td>{{policy_info.nationality}}</td>
+                                                                                
+                                                                        </tr>
+                                                                        <tr>
+                                                                                <td><b>GROSS PREMIUM</b></td>
+                                                                                <td>{{policy_info.GROSS_PREMIUM}}</td>
+                                                                                
+                                                                        </tr>
+                        
+                                                                        <tr>
+                                                                                <td><b>DISCOUNT</b></td>
+                                                                                <td>{{policy_info.DISCOUNT}}</td>
+                                                                                
+                                                                        </tr>
+                                                                        
+                                                                        <tr>
+                                                                                <td><b>COMMISSION</b></td>
+                                                                                <td>{{policy_info.COMMISSION}}</td>
+                                                                                
+                                                                        </tr>
 
-                                                        <tr>
-                                                                <td><b>Policy Approved date</b></td>
-                                                                <td>{{user$.nationality}}</td>
-                                                                
-                                                        </tr>
-                                                        <tr>
-                                                                <td><b>Policy Created user</b></td>
-                                                                <td>{{user$.nationality}}</td>
-                                                                
-                                                        </tr>
-      
-                                                        <tr>
-                                                                <td><b>Gross Premium</b></td>
-                                                                <td>{{user$.nationality}}</td>
-                                                                
-                                                        </tr>
-                                                        <tr>
-                                                                <td><b>Discount</b></td>
-                                                                <td>{{user$.nationality}}</td>
-                                                                
-                                                        </tr>
-                                                        <tr>
-                                                                <td><b>Commission</b></td>
-                                                                <td>{{user$.nationality}}</td>
-                                                                
-                                                        </tr>
-        
-                                                        <tr>
-                                                                <td><b>Net</b></td>
-                                                                <td>{{user$.nationality}}</td>
-                                                                
-                                                        </tr>
-        
-                                                       
-                                                       
-                                            </tbody>
-                                        </table>
+                                                                        <tr>
+                                                                                <td><b>NET_PREMIUM</b></td>
+                                                                                <td>{{policy_info.NET_PREMIUM}}</td>
+                                                                                
+                                                                        </tr>
+                        
+                                                                       
+                                                                       
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                   
+                                                </div>
+                      
                                     </div>
-                                   
-                                </div></mat-grid-tile>
-      
-                           
-                                    <!--<mat-list>
-                                            
-                                        <mat-divider></mat-divider>
-                                        
-                                      </mat-list>-->
-                                    </mat-grid-list>
-      
-                                    
-      
-      
-                            </mat-card>
-                    </div>
+
+                            </mat-step>
+                          </mat-vertical-stepper>
                   </mat-tab>
 
                   <mat-tab label="Vehicle  Information">
-                        <div class="example-small-box mat-elevation-z4">
-                                
-          
-                                <mat-card>
-                                          <mat-grid-list cols="2"  > 
-                                            <div class="col-md-12" style="border-bottom: 1px solid #dcdcdc;">
-                                            <div class="form-group">
-                                            <div ><span style="font-size: 15px;background-color: #272727;padding: 5px;color: #fff;margin-left: 17px;">Vehicle Information 1</span> 
-                                            <button mat-raised-button color="accent" style="margin-left: 48%;margin-top: 2%;">Create Services</button></div>
-                                            </div></div>  
-                                <mat-grid-tile>
-                                    <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table">
-                                               
-                                                <tbody>
-                                                     
-                                                    <tr>
-                                                        </tr><tr>
-                                                            <td><b>Vehicle Make</b></td>
-                                                            <td>{{user$.companyname}}</td>
-                                                            
-                                                        </tr>
-                                                    
-                                                    <tr>
-                                                        </tr><tr>
-                                                            <td><b>Vehicle Model</b></td>
-                                                            <td>{{user$.mobile_number}}</td>
-                                                            
-                                                        </tr>
-          
-                                                       <!-- <tr>
-                                                            </tr><tr>
-                                                                <td><b>Status</b></td>
-                                                                <td><span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></td>
-                                                                
-                                                            </tr>-->
-                                                    
-                                                    
-                                                    
-                                                    <tr>
-                                                        <td><b>Body Type</b></td>
-                                                        <td>{{user$.DOB}}</td>
-                                                        
-                                                    </tr>
-                                                    <tr>
-                                                        <td><b>Chassis Number</b></td>
-                                                        <td>{{user$.gender}}</td>
-                                                        
-                                                    </tr>
-                                                    
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                       
-                                    </div></mat-grid-tile>
-
-                                  
-          
-                                <mat-grid-tile >
-                                        <div class="card-body">
-                                                <div class="table-responsive">
-                                                    <table class="table">
-                                                       
-                                                        <tbody>
-                                                            
-                                                            <!--<tr>
-                                                                <td><b>Create Date</b></td>
-                                                                <td>{{user$.createDate}}</td>
-                                                                
-                                                            </tr>-->
-
-                                                            <tr>
-                                                                    <td><b>Registration No</b></td>
-                                                                    <td>{{user$.nationality}}</td>
-                                                                    
-                                                                </tr>
-          
-                                                            <tr>
-                                                                <td><b>Agency</b></td>
-                                                                <td>{{user$.insurance_amount}}</td>
-                                                                
-                                                            </tr>
-                                                            
-                                                           
-          
-                                                                <tr>
-                                                                    </tr><tr>
-                                                                        <td><b>Location</b></td>
-                                                                        <td>{{user$.insurance_card_no}}</td>
-                                                                        
-                                                                    </tr>
-                                                            
-                                                            <tr>
-                                                                </tr><tr>
-                                                                    <td><b>Vehicle Age</b></td>
-                                                                    <td>{{user$.insurance_company}}</td>
-                                                                    
-                                                                </tr>
-
-                                                                
-                                                            
-                                                            
-                                                            
+                        <mat-vertical-stepper #stepper>
+                                <mat-step *ngFor="let vehicl of vehicle$">
+                                        <ng-template matStepLabel>{{vehicl.POLICY_NUMBER}}</ng-template>
+    
+                                        <div class="example-small-box mat-elevation-z4">
+                                                    <div class="card-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                               
+                                                                <tbody>
+                    
+                                                                        <tr>
+                                                                                <td><b>BRAND</b></td>
+                                                                                  <td>{{vehicl.BRAND}}</td>
+                                                                                  
+                                                                              </tr>
+                                                                              <tr>
+                                                                                    <td><b>MAKE</b></td>
+                                                                                      <td>{{vehicl.MAKE}}</td>
+                                                                                      
+                                                                                  </tr>
+                                                                     
+                                                                        <tr>
+                                                                              <td><b>BODY TYPE</b></td>
+                                                                                <td>{{vehicl.BODY_TYPE}}</td>
+                                                                                
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><b>INSURED AMOUNT</b></td>
+                                                                                <td>{{vehicl.INSURED_AMOUNT}}</td>
+                                                                                
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td><b>CHASSIS NO</b></td>
+                                                                                <td>{{vehicl.CHASSIS_NO}}</td>
+                                                                                
+                                                                            </tr>
+                    
+                                                                            <tr>
+                                                                                    <td><b>VS_REGN_NO</b></td>
+                                                                                    <td>{{vehicl.VS_REGN_NO}}</td>
+                                                                                    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td><b>AGENCY</b></td>
+                                                                                    <td>{{vehicl.AGENCY}}</td>
+                                                                                    
+                                                                            </tr>
+                          
+                                                                            <tr>
+                                                                                    <td><b>VEHICLE_AGE</b></td>
+                                                                                    <td>{{vehicl.VEHICLE_AGE}}</td>
+                                                                                    
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td><b>REGISTRATION LOCATION</b></td>
+                                                                                    <td>{{vehicl.REGISTRATION_LOCATION}}</td>
+                                                                                    
+                                                                            </tr>
                                                         </tbody>
-                                                    </table>
-                                                </div>
-                                               
-                                            </div>
-                                    
-                                    
-                                    </mat-grid-tile> 
-
-
-                                        <!--<mat-list>
-                                                
-                                            <mat-divider></mat-divider>
-                                            
-                                          </mat-list>-->
-                                        </mat-grid-list>
-          
-                                        
-          
-          
-                                </mat-card>
-                        </div>
+                                                            </table>
+                                                        </div>
+                                                       
+                                                    </div>
+                          
+                                        </div>
+    
+                                </mat-step>
+                              </mat-vertical-stepper>
                       </mat-tab>
             <mat-tab label="Claim Information">
                             <div class="example-small-box mat-elevation-z4">
                                     
               
                                     <mat-card>
-                                            <mat-grid-list cols="2" rowHeight="350px" > 
-                                                    
-                                    <mat-grid-tile>
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table class="table">
-                                                   
-                                                    <tbody>
-                                                         
-                                                        <tr>
-                                                            </tr><tr>
-                                                                <td><b>companyname</b></td>
-                                                                <td>{{user$.companyname}}</td>
-                                                                
-                                                            </tr>
-                                                        
-                                                        <tr>
-                                                            </tr><tr>
-                                                                <td><b>mobile_number</b></td>
-                                                                <td>{{user$.mobile_number}}</td>
-                                                                
-                                                            </tr>
-              
-                                                           <!-- <tr>
-                                                                </tr><tr>
-                                                                    <td><b>Status</b></td>
-                                                                    <td><span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></td>
-                                                                    
-                                                                </tr>-->
-                                                        
-                                                        
-                                                        
-                                                        <tr>
-                                                            <td><b>DOB</b></td>
-                                                            <td>{{user$.DOB}}</td>
-                                                            
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>gender</b></td>
-                                                            <td>{{user$.gender}}</td>
-                                                            
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>nationality</b></td>
-                                                            <td>{{user$.nationality}}</td>
-                                                            
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                           
-                                        </div></mat-grid-tile>
-              
-                                    <mat-grid-tile >
-                                            <div class="card-body">
-                                                    <div class="table-responsive">
-                                                        <table class="table">
-                                                           
-                                                            <tbody>
-                                                                
-                                                                <!--<tr>
-                                                                    <td><b>Create Date</b></td>
-                                                                    <td>{{user$.createDate}}</td>
-                                                                    
-                                                                </tr>-->
-              
-                                                                <tr>
-                                                                    <td><b>insurance Amount</b></td>
-                                                                    <td>{{user$.insurance_amount}}</td>
-                                                                    
-                                                                </tr>
-                                                                
-                                                               
-              
-                                                                    <tr>
-                                                                        </tr><tr>
-                                                                            <td><b>insurance Card No</b></td>
-                                                                            <td>{{user$.insurance_card_no}}</td>
-                                                                            
-                                                                        </tr>
-                                                                
-                                                                <tr>
-                                                                    </tr><tr>
-                                                                        <td><b>insurance_company</b></td>
-                                                                        <td>{{user$.insurance_company}}</td>
-                                                                        
-                                                                    </tr>
-                                                                
-                                                                <tr>
-                                                                    <td><b>home_address</b></td>
-                                                                    <td>{{user$.home_address}}</td>
-                                                                    
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><b>company_address</b></td>
-                                                                    <td>{{user$.company_address}}</td>
-                                                                    
-                                                                </tr>
-                                                                
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                   
-                                                </div>
-                                        
-                                        
-                                        </mat-grid-tile> 
-                                            <!--<mat-list>
-                                                    
-                                                <mat-divider></mat-divider>
-                                                
-                                              </mat-list>-->
-                                            </mat-grid-list>
+                                            
               
                                             
               

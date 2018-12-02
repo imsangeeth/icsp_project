@@ -224,7 +224,7 @@ onSubmit_inbound() {
     inboundtype_department : this.inboundForm.get('inboundtype_department').value,
     inboundtypeRemarks : this.inboundForm.get('inboundtypeRemarks').value,
     inboundtypecomment:  this.inboundForm.get('inboundtypecomment').value,
-    phone:this.phone,
+    phone:this.phn$,
   };
 
   this.data.createservice_inbound(inbound).subscribe((response) => {
@@ -262,7 +262,7 @@ onSubmit_corporate() {
     Corporate_department : this.corporateForm.get('Corporate_department').value,
     CorporateRemarks:  this.corporateForm.get('CorporateRemarks').value,
     Corporatecomment:  this.corporateForm.get('Corporatecomment').value,
-    phone:this.phone,
+    phone:this.phn$,
   };
 
   console.log(corporates);
@@ -309,7 +309,7 @@ onSubmit_individual() {
     ser_assign:  this.IndividualForm.get('ser_assign').value,
     ser_comment:this.IndividualForm.get('ser_comment').value,
     Remarks:  this.IndividualForm.get('Remarks').value,
-    phone:this.phone,
+    phone:this.phn$,
    
   };
 

@@ -15,6 +15,7 @@ import { SingleserviceviewComponent } from './singleserviceview/singleservicevie
 import {AuthGuard} from './auth.guard';
 import { EditservicesComponent } from './editservices/editservices.component';
 import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetails.component';
+import { MasterpageComponent } from './masterpage/masterpage.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
   {
     path: 'Createcustomer',
     component: CreatecustomerComponent,
-    //canActivate:[AuthGuard]
+   // canActivate:[AuthGuard]
   },
   {
     path: 'viewcustomer',
@@ -40,7 +41,7 @@ const routes: Routes = [
   {
     path: 'viewcontact',
     component: ViewcontactComponent,
-    //canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path: 'createservice',
@@ -60,17 +61,17 @@ const routes: Routes = [
   {
     path: 'createcampaign',
     component: CampaignComponent,
-   // canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path: 'viewcampaign',
     component: CampaignviewComponent,
-    //canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path: 'updatecontacts/:id',
     component: UpdatecontactviewComponent,
-   // canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path: 'login',
@@ -79,30 +80,36 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-   // canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
     
   },
   {
     path: 'singletask/:id',
     component: SingleserviceviewComponent,
-   // canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
 
   },
   {
     path: 'singleuserview/:id',
     component: SingleuserdetailsComponent,
-   // canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path: 'singleuserview/:id/:phn',
     component: SingleuserdetailsComponent,
-   // canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path: 'editservice/:id',
     component: EditservicesComponent,
-   // canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
+  {
+    path: 'masterpage',
+    component: MasterpageComponent,
+    //canActivate:[AuthGuard]
+  },
+
 
 ];
 

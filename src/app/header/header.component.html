@@ -96,7 +96,7 @@
                         <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/5.jpg" alt="user" class="profile-pic" /></a>
                         <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                             <ul class="dropdown-user">
-                                <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="/login"><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
                         </div>
                     </li>
@@ -132,18 +132,17 @@
                         </ul>
                     </li>
                     <li (click)="changescampign()" [ngClass]="campstatus ? 'active' : '' "> <a class="has-arrow" aria-expanded="false"><i class="fa fa-reply"></i><span class="hide-menu">Campaign</span></a>
-                        <ul [ngClass]="campstatus ? 'collapse in' : 'collapse' " aria-expanded="false" class="">
-                            <li ><a routerLink="/createcampaign">Create Campaign</a></li>
+                        <!-- <ul [ngClass]="campstatus ? 'collapse in' : 'collapse' " aria-expanded="false" class="">
+                           
                             <li ><a routerLink="/viewcampaign">View Campaign</a></li>
-                            <li ><a routerLink="/createcontact">Add Contact</a></li>
-                            <li ><a routerLink="/viewcontact">View Contact</a></li>
-                        </ul>
+                           
+                        </ul> -->
                     </li>
-                    <li (click)="changescampign()" [ngClass]="campstatus ? 'active' : '' "> <a class="has-arrow" aria-expanded="false"><i class="fa  fa-cc-mastercard"></i><span class="hide-menu">Master</span></a>
-                        <ul [ngClass]="campstatus ? 'collapse in' : 'collapse' " aria-expanded="false" class="">
+                    <li (click)="changescampign()"> <a class="has-arrow" aria-expanded="false"><i class="fa  fa-cc-mastercard"></i><span class="hide-menu">Master</span></a>
+                        <!-- <ul [ngClass]="campstatus ? 'collapse in' : 'collapse' " aria-expanded="false" class="">
                             <li ><a routerLink="/createcampaign">Create Master</a></li>
                             <li ><a routerLink="/viewcampaign">View Master</a></li>
-                        </ul>
+                        </ul> -->
                     </li>
                 </ul>
             </nav>
