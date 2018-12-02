@@ -23,21 +23,27 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "src/styles.css",
               "src/style/style.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/style/spinners.css",
-               "src/style/animate.css",
-               "src/style/icons/font-awesome/css/font-awesome.min.css",
-               "src/style/icons/simple-line-icons/css/simple-line-icons.css",
-               "src/style/icons/weather-icons/css/weather-icons.min.css",
-               "src/style/icons/linea-icons/linea.css",
-               "src/style/icons/themify-icons/themify-icons.css",
-               "src/style/icons/flag-icon-css/flag-icon.min.css",
-               "src/style/icons/material-design-iconic-font/css/materialdesignicons.min.css"
+              "src/style/animate.css",
+              "src/style/icons/font-awesome/css/font-awesome.min.css",
+              "src/style/icons/simple-line-icons/css/simple-line-icons.css",
+              "src/style/icons/weather-icons/css/weather-icons.min.css",
+              "src/style/icons/linea-icons/linea.css",
+              "src/style/icons/themify-icons/themify-icons.css",
+              "src/style/icons/flag-icon-css/flag-icon.min.css",
+              "src/style/icons/material-design-iconic-font/css/materialdesignicons.min.css"
             ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery/dist/jquery.min.js","style/awl.min.js"]
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "style/awl.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -84,21 +90,27 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "src/styles.css",
               "src/style/style.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-               "src/style/spinners.css",
-               "src/style/animate.css",
-               "src/style/icons/font-awesome/css/font-awesome.min.css",
-               "src/style/icons/simple-line-icons/css/simple-line-icons.css",
-               "src/style/icons/weather-icons/css/weather-icons.min.css",
-               "src/style/icons/linea-icons/linea.css",
-               "src/style/icons/themify-icons/themify-icons.css",
-               "src/style/icons/flag-icon-css/flag-icon.min.css",
-               "src/style/icons/material-design-iconic-font/css/materialdesignicons.min.css"
+              "src/style/spinners.css",
+              "src/style/animate.css",
+              "src/style/icons/font-awesome/css/font-awesome.min.css",
+              "src/style/icons/simple-line-icons/css/simple-line-icons.css",
+              "src/style/icons/weather-icons/css/weather-icons.min.css",
+              "src/style/icons/linea-icons/linea.css",
+              "src/style/icons/themify-icons/themify-icons.css",
+              "src/style/icons/flag-icon-css/flag-icon.min.css",
+              "src/style/icons/material-design-iconic-font/css/materialdesignicons.min.css"
             ],
-            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery/dist/jquery.js","style/awl.min.js"],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "style/awl.min.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -148,4 +160,4 @@
     }
   },
   "defaultProject": "icsp"
-} 
+}
