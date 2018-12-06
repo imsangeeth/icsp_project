@@ -35,7 +35,7 @@ export class DataService {
   private url
 
   //private base = "http://172.16.1.46/";
-  private base = "http://localhost/"
+  private base = "http://localhost/";
 
   constructor(private http: HttpClient,private auth: AuthService) { }
 
@@ -75,6 +75,67 @@ export class DataService {
   office_department_user($ky){
     return this.http.get(this.base+'IcspApi/Api/index.php/user/office_department_user/'+$ky);
   }
+
+  single_edit_view_service(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/single_edit_view_service/'+ofid);
+  }
+
+
+  services_csp_corporate_phase1(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_corporate_phase1/'+ofid);
+  }
+
+  services_csp_corporate_phase2(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_corporate_phase2/'+ofid);
+  }
+
+  services_csp_corporate_phase3(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_corporate_phase3/'+ofid);
+  }
+
+  services_csp_corporate_phase4(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_corporate_phase4/'+ofid);
+  }
+
+
+  services_csp_insurance_phase2(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_insurance_phase2/'+ofid);
+  }
+
+  services_csp_insurance_phase3(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_insurance_phase3/'+ofid);
+  }
+
+  services_phase_category1(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_phase_category1/'+ofid);
+  }
+
+  services_phase_category2(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_phase_category2/'+ofid);
+  }
+
+  services_phase_category3(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_phase_category3/'+ofid);
+  }
+
+  services_phase_category4(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_phase_category4/'+ofid);
+  }
+
+  services_phase_category5(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_phase_category5/'+ofid);
+  }
+
+  services_phase_category6(ofid){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_phase_category6/'+ofid);
+  }
+
+  services_phase_user(ofid,type){
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_phase_user/'+ofid+'/'+type);
+  }
+
+
+
 
   branchoffice(ofid){
     return this.http.get(this.base+'IcspApi/Api/index.php/user/officebranches/'+ofid);
@@ -192,6 +253,35 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/cop_phase5/'+phaseId);
   }
 
+  services_csp_inbound_phase3(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_inbound_phase3/'+phaseId);
+  }
+
+  services_csp_inbound_phase2(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_inbound_phase2/'+phaseId);
+  }
+
+  services_csp_inbound_phase1(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_inbound_phase1/'+phaseId);
+  }
+
+  singleknowledge(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/singleknowledge/'+phaseId);
+  }
+
+  viewcalltype()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewcalltype');
+  }
+
+  viewcallreason()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewcallreason');
+  }
 
 
 
@@ -211,6 +301,35 @@ export class DataService {
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_ind',contact);
   }
+
+  updateservice_ind(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/updateservice_ind',contact);
+  }
+
+  updateservice_cop(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/updateservice_cop',contact);
+  }
+
+  updateservice_inbound(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/updateservice_inbound',contact);
+  }
+
+  createcalltype(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createcalltype',contact);
+  }
+
+  createcallreason(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createcallreason',contact);
+  }
+
+  
+
+  
 
   createservice_cop(contact)
   {
@@ -261,6 +380,11 @@ export class DataService {
   vehicle_info(userId)
   {
     return this.http.post(this.base+'oracle/vehicle.php/',userId);
+  }
+
+  claim_info(userId)
+  {
+    return this.http.post(this.base+'oracle/claim_new.php/',userId);
   }
 
 

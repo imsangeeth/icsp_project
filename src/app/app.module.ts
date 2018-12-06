@@ -48,6 +48,7 @@ import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetail
 import { SurveyComponent } from './survey/survey.component';
 import { KtviewComponent } from './ktview/ktview.component';
 import { MasterpageComponent } from './masterpage/masterpage.component';
+import {MatExpansionModule} from '@angular/material/expansion'
 
 
 @NgModule({
@@ -99,7 +100,8 @@ import { MasterpageComponent } from './masterpage/masterpage.component';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
     //MatPaginator,
    // MatSort,
    // MatTableDataSource

@@ -1,17 +1,18 @@
 
     <!-- header header  -->
-    <div class="header">
+    <div class="header" style="background: #356957;">
         <nav class="navbar top-navbar navbar-expand-md navbar-light">
             <!-- Logo -->
             <div class="navbar-header">
                 <a class="navbar-brand" href="">
                     <!-- Logo icon -->
-                    <b><img id="rag" width="128px" src="assets/logo.png" alt="homepage" class="dark-logo" /></b>
+                  
                     <!--End Logo icon -->
                     <!-- Logo text -->
                     <!-- <span><img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" /></span>-->
                 </a>
             </div>
+            <b><img style="background: rgba(0, 86, 64, 0.67)" id="rag" width="128px" src="assets/logo.png" alt="homepage" class="dark-logo" /></b>
             <!-- End Logo -->
             <div class="navbar-collapse">
                 <!-- toggle and nav items -->
@@ -96,7 +97,7 @@
                         <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/5.jpg" alt="user" class="profile-pic" /></a>
                         <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                             <ul class="dropdown-user">
-                                <li><a href="/login"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a routerLink="/login"><i class="fa fa-power-off"></i> Logout</a></li>
                             </ul>
                         </div>
                     </li>
@@ -118,12 +119,12 @@
                        
                     </li>
                     <li class="nav-label">Features</li>
-                    <li (click)="changeviewcustomer()" [ngClass]="status ? 'active' : '' "> <a class="has-arrow"  aria-expanded="false"><i class="fa fa-address-book"></i><span class="hide-menu">Customer</span></a>
+                    <!-- <li (click)="changeviewcustomer()" [ngClass]="status ? 'active' : '' "> <a class="has-arrow"  aria-expanded="false"><i class="fa fa-address-book"></i><span class="hide-menu">Customer</span></a>
                         <ul aria-expanded="false" [ngClass]="status ? 'collapse in' : 'collapse' ">
                             <li ><a routerLink="/createcontact" >Create Contact</a></li>
                             <li><a routerLink="/viewcontact">View Contact</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li (click)="changeservices()" [ngClass]="serstatus ? 'active' : '' "> <a class="has-arrow"  aria-expanded="false"><i class="fa fa-handshake-o"></i><span class="hide-menu">Services</span></a>
                         <ul aria-expanded="false" [ngClass]="serstatus ? 'collapse in' : 'collapse' ">
                             <li ><a routerLink="/createservice">Create Services</a></li>
@@ -139,10 +140,16 @@
                         </ul> -->
                     </li>
                     <li (click)="changescampign()"> <a class="has-arrow" aria-expanded="false"><i class="fa  fa-cc-mastercard"></i><span class="hide-menu">Master</span></a>
+                        <ul [ngClass]="campstatus ? 'collapse in' : 'collapse' " aria-expanded="false" class="">
+                            <li ><a routerLink="/masterpage">Create Master for call Note</a></li>
+                            <!-- <li ><a routerLink="/viewcampaign">View Master</a></li> -->
+                        </ul> 
+                    </li>
+                    <li (click)="changescampign()"> <a class="has-arrow" routerLink="/knowledge" aria-expanded="false"><i class="fa fa-book"></i><span class="hide-menu">knowledge Transfer</span></a>
                         <!-- <ul [ngClass]="campstatus ? 'collapse in' : 'collapse' " aria-expanded="false" class="">
-                            <li ><a routerLink="/createcampaign">Create Master</a></li>
-                            <li ><a routerLink="/viewcampaign">View Master</a></li>
-                        </ul> -->
+                            <li ><a routerLink="/knowledge">knowledge Transfer</a></li>
+                            <li ><a routerLink="/viewcampaign">View Master</a></li> 
+                        </ul>  -->
                     </li>
                 </ul>
             </nav>

@@ -16,32 +16,33 @@ import {AuthGuard} from './auth.guard';
 import { EditservicesComponent } from './editservices/editservices.component';
 import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetails.component';
 import { MasterpageComponent } from './masterpage/masterpage.component';
+import { KtviewComponent } from './ktview/ktview.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    //canActivate:[AuthGuard]
+   // canActivate:[AuthGuard]
   },
   {
     path: 'Createcustomer',
     component: CreatecustomerComponent,
-   // canActivate:[AuthGuard]
+     //canActivate:[AuthGuard]
   },
   {
     path: 'viewcustomer',
     component: ViewcustomerComponent,
-    //canActivate:[AuthGuard]
+     //canActivate:[AuthGuard]
   },
   {
     path: 'createcontact',
     component: ContactComponent,
-    //canActivate:[AuthGuard]
+     //canActivate:[AuthGuard]
   },
   {
-    path: 'viewcontact',
+    path: 'knowledge',
     component: ViewcontactComponent,
-    // canActivate:[AuthGuard]
+     //canActivate:[AuthGuard]
   },
   {
     path: 'createservice',
@@ -56,7 +57,7 @@ const routes: Routes = [
   {
     path: 'viewservices',
     component: ViewserviceComponent,
-    //canActivate:[AuthGuard]
+   // canActivate:[AuthGuard]
   },
   {
     path: 'createcampaign',
@@ -66,12 +67,12 @@ const routes: Routes = [
   {
     path: 'viewcampaign',
     component: CampaignviewComponent,
-    // canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path: 'updatecontacts/:id',
     component: UpdatecontactviewComponent,
-    // canActivate:[AuthGuard]
+   // canActivate:[AuthGuard]
   },
   {
     path: 'login',
@@ -86,7 +87,7 @@ const routes: Routes = [
   {
     path: 'singletask/:id',
     component: SingleserviceviewComponent,
-    // canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
 
   },
   {
@@ -100,16 +101,20 @@ const routes: Routes = [
     //canActivate:[AuthGuard]
   },
   {
-    path: 'editservice/:id',
+    path: 'editservice/:id/:type',
     component: EditservicesComponent,
-    //canActivate:[AuthGuard]
+   //canActivate:[AuthGuard]
   },
   {
     path: 'masterpage',
     component: MasterpageComponent,
     //canActivate:[AuthGuard]
   },
-
+  {
+    path: 'ktview/:id',
+    component: KtviewComponent,
+    //canActivate:[AuthGuard]
+  },
 
 ];
 

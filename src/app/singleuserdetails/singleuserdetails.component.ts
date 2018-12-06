@@ -21,6 +21,7 @@ export class SingleuserdetailsComponent implements OnInit {
   call_note$:object;
   policy_information$:object;
   vehicle$ : object;
+  claim_info$ : object;
 
   taskid;
   selected = 'option2';
@@ -55,6 +56,10 @@ export class SingleuserdetailsComponent implements OnInit {
 
   this.data.vehicle_info(phnumber).subscribe(
     data => this.vehicle$ = data 
+  );
+
+  this.data.claim_info(phnumber).subscribe(
+    data => this.claim_info$ = data 
   );
 
   this.data.call_type().subscribe(

@@ -267,7 +267,7 @@
                   <mat-tab label="Vehicle  Information">
                         <mat-vertical-stepper #stepper>
                                 <mat-step *ngFor="let vehicl of vehicle$">
-                                        <ng-template matStepLabel>{{vehicl.POLICY_NUMBER}}</ng-template>
+                                        <ng-template matStepLabel>{{vehicl.POLICY_NUMBER }}</ng-template>
     
                                         <div class="example-small-box mat-elevation-z4">
                                                     <div class="card-body">
@@ -336,17 +336,71 @@
                               </mat-vertical-stepper>
                       </mat-tab>
             <mat-tab label="Claim Information">
+                <mat-vertical-stepper #stepper>
+                    <mat-step *ngFor="let claim_info of claim_info$">
+                            <ng-template matStepLabel>{{claim_info.POLICY_NUMBER}}</ng-template>
+
                             <div class="example-small-box mat-elevation-z4">
-                                    
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                   
+                                                    <tbody>
+        
+                                                            <tr>
+                                                                    <td><b>CLAIM NUMBER</b></td>
+                                                                      <td>{{claim_info.CLAIM_NUMBER}}</td>
+                                                                      
+                                                                  </tr>
+                                                                  <tr>
+                                                                        <td><b>INSURED NAME</b></td>
+                                                                          <td>{{claim_info.INSURED_NAME}}</td>
+                                                                          
+                                                                      </tr>
+                                                         
+                                                            <tr>
+                                                                  <td><b>LOSS DATE</b></td>
+                                                                    <td>{{claim_info.LOSS_DATE}}</td>
+                                                                    
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>INTIMATION DATE</b></td>
+                                                                    <td>{{claim_info.INTIMATION_DATE}}</td>
+                                                                    
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><b>PAID DATE</b></td>
+                                                                    <td>{{claim_info.PAID_DATE}}</td>
+                                                                    
+                                                                </tr>
+        
+                                                                <tr>
+                                                                        <td><b>CREATED USER</b></td>
+                                                                        <td>{{claim_info.CREATED_USER}}</td>
+                                                                        
+                                                                </tr>
+                                                                <tr>
+                                                                        <td><b>CREATED DATE</b></td>
+                                                                        <td>{{claim_info.CREATED_DATE}}</td>
+                                                                        
+                                                                </tr>
               
-                                    <mat-card>
-                                            
+                                                                <tr>
+                                                                        <td><b>PAID AMOUNT</b></td>
+                                                                        <td>{{claim_info.PAID_AMOUNT}}</td>
+                                                                        
+                                                                </tr>
+                                                               
+                                            </tbody>
+                                                </table>
+                                            </div>
+                                           
+                                        </div>
               
-                                            
-              
-              
-                                    </mat-card>
                             </div>
+
+                    </mat-step>
+                  </mat-vertical-stepper>
             </mat-tab>
 
 

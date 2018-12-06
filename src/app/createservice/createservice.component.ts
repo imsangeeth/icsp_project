@@ -230,6 +230,10 @@ onSubmit_inbound() {
   this.data.createservice_inbound(inbound).subscribe((response) => {
 
     this.inboundForm.reset();
+
+    this.msg = response['msg'];
+    this.bgcolor = response['bgcolor'];
+    this.msgview = true;
   
   });
 
@@ -270,6 +274,10 @@ onSubmit_corporate() {
   this.data.createservice_cop(corporates).subscribe((response) => {
 
     this.corporateForm.reset();
+
+    this.msg = response['msg'];
+    this.bgcolor = response['bgcolor'];
+    this.msgview = true;
   
   });
 
@@ -544,9 +552,6 @@ onSubmit_individual() {
     data => this.copphase12$ = data  
    ); 
  }
-
- 
-
 
 
 
