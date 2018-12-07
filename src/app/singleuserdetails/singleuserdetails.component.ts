@@ -22,20 +22,25 @@ export class SingleuserdetailsComponent implements OnInit {
   policy_information$:object;
   vehicle$ : object;
   claim_info$ : object;
+ 
 
   taskid;
   selected = 'option2';
 
   registerForm: FormGroup;
   submitted = false;
-  Calltype : string
-  Callreason : string
-  comment :String
-  phn$:string
+  Calltype : string;
+  Callreason : string;
+  comment :String;
+  phn$:string;
+  agentname$:string;
+  topic$:string;
 
   constructor(private route: ActivatedRoute, private data: DataService,private formBuilder: FormBuilder) {
-    this.route.params.subscribe(params => this.user$ = params.id);
+    this.route.params.subscribe(params => this.agentname$ = params.agentname);
     this.route.params.subscribe(params => this.phn$ = params.phn);
+    this.route.params.subscribe(params => this.topic$ = params.topic);
+
     this.taskid = this.user$; 
     //this.comment = this.phn$;
    }
@@ -87,6 +92,16 @@ export class SingleuserdetailsComponent implements OnInit {
   
     //password: ['', [Validators.required, Validators.minLength(6)]]
 });
+
+var  calldetails  = {
+   agentname:  this.agentname$,
+   topic:  this.topic$, 
+   phonenumber: this.phn$
+};
+
+ this.data.called_user_details(calldetails).subscribe((response) => {
+ 
+ });
 
   }
 

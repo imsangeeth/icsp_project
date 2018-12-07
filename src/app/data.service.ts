@@ -172,6 +172,16 @@ export class DataService {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/addcallcallnote',contact);
   }
 
+  called_user_details(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/called_user_details',contact);
+  }
+
+  genrate_ticket(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/genrate_ticket',contact);
+  }
+
 
   viewcall_note(phaseId)
   {

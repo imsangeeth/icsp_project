@@ -175,9 +175,6 @@ this.inboundForm = this.formBuilder.group({
 });
 
 
-
-
-
 this.data.getofficelocation().subscribe(
   data => this.location$ = data  
 );

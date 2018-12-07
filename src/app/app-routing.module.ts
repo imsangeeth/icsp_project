@@ -17,6 +17,7 @@ import { EditservicesComponent } from './editservices/editservices.component';
 import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetails.component';
 import { MasterpageComponent } from './masterpage/masterpage.component';
 import { KtviewComponent } from './ktview/ktview.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 const routes: Routes = [
   {
@@ -96,7 +97,7 @@ const routes: Routes = [
     //canActivate:[AuthGuard]
   },
   {
-    path: 'singleuserview/:id/:phn',
+    path: 'singleuserview/:agentname/:phn/:topic',
     component: SingleuserdetailsComponent,
     //canActivate:[AuthGuard]
   },
@@ -113,6 +114,11 @@ const routes: Routes = [
   {
     path: 'ktview/:id',
     component: KtviewComponent,
+    //canActivate:[AuthGuard]
+  },
+  {
+    path: 'report',
+    component: ReportesComponent,
     //canActivate:[AuthGuard]
   },
 

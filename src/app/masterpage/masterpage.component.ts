@@ -111,10 +111,6 @@ export class MasterpageComponent implements OnInit {
   this.msgview = false;
  }
 
- cancel_form()
-  {this.registerForm.reset();
-    this.callreasonForm.reset();
-
-  }
+  
 
 }

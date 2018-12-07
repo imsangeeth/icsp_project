@@ -33,6 +33,7 @@ import {MatSortModule} from '@angular/material/sort';
 import { DataTableComponent } from './data-table/data-table.component';
 import { UsertableComponent } from './components/usertable/usertable.component';
 import { DataService } from './data.service';
+import {ExcelService} from './excel.service';
 import { ViewcontactComponent } from './viewcontact/viewcontact.component';
 import { CreateserviceComponent } from './createservice/createservice.component';
 import { ViewserviceComponent } from './viewservice/viewservice.component';
@@ -48,7 +49,8 @@ import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetail
 import { SurveyComponent } from './survey/survey.component';
 import { KtviewComponent } from './ktview/ktview.component';
 import { MasterpageComponent } from './masterpage/masterpage.component';
-import {MatExpansionModule} from '@angular/material/expansion'
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ReportesComponent } from './reportes/reportes.component'
 
 
 @NgModule({
@@ -74,7 +76,8 @@ import {MatExpansionModule} from '@angular/material/expansion'
     SingleuserdetailsComponent,
     SurveyComponent,
     KtviewComponent,
-    MasterpageComponent
+    MasterpageComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +110,7 @@ import {MatExpansionModule} from '@angular/material/expansion'
    // MatTableDataSource
     
   ],
-  providers: [DataService,AuthGuard],
+  providers: [DataService,AuthGuard,ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

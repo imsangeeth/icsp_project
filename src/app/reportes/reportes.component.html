@@ -1,0 +1,102 @@
+<app-header></app-header>     
+
+<div class="page-wrapper">
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h5 class="text-primary">Report Page</h5> </div>
+    <div class="col-md-7 align-self-center">
+        <ol class="breadcrumb">
+            <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+            <li class="breadcrumb-item active">Add New Customer</li> -->
+        </ol>
+    </div>
+</div>
+<div class="container-fluid">
+    <!-- Start Page Content -->
+    <div class="row justify-content-center">
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="form-validation">
+            <div class="card-body">
+            
+                <div class="form-body">
+
+                    <h5 class="box-title m-t-40">Reports</h5>
+                    <hr>
+                    
+                    <form [formGroup]="ReportForm" (ngSubmit)="reportsubmit()">
+                    <div class="row">
+                        
+                          <div class="col-md-6 ">
+                          <div class="form-group">
+                                        <label>From date</label>                                                          
+                                        <input type="date" name="fromdate"  formControlName="fromdate" class="form-control" />
+                                      
+                                    </div>
+                                    </div>
+
+                                    <div class="col-md-6 ">
+                                        <div class="form-group">
+                                                      <label>To date</label>                                                          
+                                                      <input type="date" name="todate"  formControlName="todate" class="form-control" />
+                                                    
+                                                  </div>
+                                                  </div>
+                                    
+                                    <div class="col-md-6 "></div>
+                                 
+                                    <div class="col-md-6 ">
+                                    <div class="form-actions">
+                                        <button [disabled]="ReportForm.pristine || ReportForm.invalid" class="btn btn-primary" style="margin: 8px;">Generate</button>
+                                        <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                    </div>
+                                    </div>
+                                
+                            
+                        </div></form>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body" style="padding: 0px;">
+                                        <div class="table-responsive m-t-40">
+                                                <button (click)="exportAsXLSX()"  class="btn btn-primary" >Generate Excel</button>
+                                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                <thead>
+                                                         <tr>
+                                                          <th style="width: 16%;">Caller_number</th>
+                                                          <th>agent name</th>
+                                                          <th>topic</th>
+                                                          <th>Called Time</th>
+                                                          </tr>
+                                                </thead>
+                                                
+                                                <tbody> 
+                                                                             <tr *ngFor="let report of report$">
+                                                                                <td>{{report.caller_number}}</td>
+                                                                                <td>{{report.agent_name}}</td>
+                                                                                <td>{{report.topic}}</td>
+                                                                                <td>{{report.called_time}}</td>
+                                                                                
+                                                                            </tr>
+                                                                           
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </div>
+
+                
+
+                    </div>
+        </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div></div>
