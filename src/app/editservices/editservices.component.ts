@@ -87,6 +87,7 @@ export class EditservicesComponent implements OnInit {
   inboundtype_department:string;
   inboundtypeRemarks:string;
   inboundtypecomment:string;
+  inboundtypeticketstatus:string;
   
 
 
@@ -118,7 +119,7 @@ export class EditservicesComponent implements OnInit {
     Individual_three : ['', Validators.required],
     Individual_four : ['', Validators.required],
     Individual_five : ['', Validators.required],
-    ticketstatus: [''],
+    ticketstatus_cop: [''],
     Individual_six : [''],
     Individual_sevan: [''],
     Individual_eight: [''],
@@ -156,7 +157,7 @@ export class EditservicesComponent implements OnInit {
     inboundtype_assign : [''],
     inboundtype_department:[''],
     inboundtypeRemarks:[''],
-    ticketstatus: [''],
+    inboundtypeticketstatus: [''],
 
   });
   
@@ -342,12 +343,12 @@ onSubmit() {
     ser_department: this.IndividualForm.get('ser_department').value,
     ser_assign:  this.IndividualForm.get('ser_assign').value,
     Remarks:  this.IndividualForm.get('Remarks').value,
-    ticketstatus:  this.IndividualForm.get('ticketstatus').value,
+    ticketstatus:  this.IndividualForm.get('ticketstatus_cop').value,
     ticketid : this.contactId
    
   };
 
-  //console.log(individual);
+  console.log(individual);
 
 //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
  // alert(this.registerForm.get('StartTime').value)
@@ -384,11 +385,11 @@ onSubmit() {
 
   console.log(corporates);
 
-     this.data.updateservice_cop(corporates).subscribe((response) => {
+      this.data.updateservice_cop(corporates).subscribe((response) => {
 
-     this.msg = response['msg'];
-     this.bgcolor = response['bgcolor'];
-     this.msgview = true;
+      this.msg = response['msg'];
+      this.bgcolor = response['bgcolor'];
+      this.msgview = true;
 
      });
 
@@ -411,17 +412,17 @@ onSubmit() {
     inboundtype_assign:  this.inboundForm.get('inboundtype_assign').value,
     inboundtype_department : this.inboundForm.get('inboundtype_department').value,
     inboundtypeRemarks : this.inboundForm.get('inboundtypeRemarks').value,
-    ticketstatus:  this.corporateForm.get('ticketstatus').value,
+    ticketstatus:  this.inboundForm.get('inboundtypeticketstatus').value,
     ticketid : this.contactId
   };
 
  console.log(inbound);
 
- this.data.updateservice_inbound(inbound).subscribe((response) => {
+  this.data.updateservice_inbound(inbound).subscribe((response) => {
 
-  this.msg = response['msg'];
-  this.bgcolor = response['bgcolor'];
-  this.msgview = true;
+    this.msg = response['msg'];
+    this.bgcolor = response['bgcolor'];
+    this.msgview = true;
 
   });
 

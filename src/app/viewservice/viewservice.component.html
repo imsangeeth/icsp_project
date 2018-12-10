@@ -70,7 +70,7 @@
                             matSort matSortActive="created" matSortDisableClear matSortDirection="asc">
 
                                <ng-container matColumnDef="slno">
-                                <th mat-header-cell *matHeaderCellDef>
+                                <th style="z-index: 9" mat-header-cell *matHeaderCellDef>
                                    Sl No
                                   </th>
                               <td mat-cell *matCellDef="let row">{{row.slno}}</td>
@@ -78,7 +78,7 @@
 
                             
                            <ng-container matColumnDef="ticket_id">
-                                    <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+                                    <th style="z-index: 9" mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
                                        Ticket id
                                       </th>
                                   <td mat-cell *matCellDef="let row">{{row.ticket_id}}</td>

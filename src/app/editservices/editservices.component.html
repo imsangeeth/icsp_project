@@ -9,7 +9,7 @@
       <!-- Bread crumb -->
       <div class="row page-titles">
           <div class="col-md-5 align-self-center">
-              <h5 class="text-primary">Update Service Deatils</h5> </div>
+              <h5 class="text-primary">Update Service Deatils #{{contactId}}</h5> </div>
           <div class="col-md-7 align-self-center">
               <ol class="breadcrumb">
                  
@@ -423,14 +423,12 @@
                                                                     <div class="col-md-6 ">
                                                                         <div class="form-group">
                                                                             <label>Ticket Status</label><span>*</span>
-                                                                            <select formControlName="ticketstatus"  name="ticketstatus" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.ticketstatus.errors }">
+                                                                            <select formControlName="inboundtypeticketstatus"  name="inboundtypeticketstatus" class="form-control custom-select">
                                                                               <option value="Open">Open</option>
                                                                               <option value="Closed">Closed</option>
                                                                           </select>
                                                                             
-                                                                          <div *ngIf="submitted && f.ticketstatus.errors" class="invalid-feedback">
-                                                                              <div *ngIf="f.ticketstatus.errors.required">Ticket status is required</div>
-                                                                          </div>
+                                                                          
                                                                             <!--<input type="text" formControlName="StopDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.StopDate.errors }" />
                                                                             <div *ngIf="submitted && f.StopDate.errors" class="invalid-feedback">
                                                                                 <div *ngIf="f.StopDate.errors.required">StopDate Name is required</div>

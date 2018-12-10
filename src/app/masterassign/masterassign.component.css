@@ -1,17 +1,14 @@
-.text-primary {
-    color: #356957 !important;
-}
-.sidebar-nav ul li a:hover i {
-    color: #060606;
-}
 .alert-primary {
     color: #f3f3f3 !important;
     background-color: #4CAF50 !important;
     border-color: #f1f1f1 !important;
     width: 28%;
     position: absolute !important;
-    min-height: 4%;
+    min-height: 2%;
     right: 3px;
     font-size: 14px;
-    height: 5%;
+    height: 4%;
 }
+.text-primary {
+    color: #356957!important;
+  }

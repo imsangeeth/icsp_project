@@ -16,6 +16,8 @@ export class ReportesComponent implements OnInit {
   todate:string;
   location$ :any;
   report$ : any;
+  isreportview: boolean = false;
+ 
  
   constructor(private excelService:ExcelService,private data: DataService,private formBuilder: FormBuilder) { }
 
@@ -36,6 +38,7 @@ export class ReportesComponent implements OnInit {
 
   reportsubmit()
   {
+    this.isreportview = true;
     var reportdate  = {
       fromdate:  this.ReportForm.get('fromdate').value,
       todate:  this.ReportForm.get('todate').value,

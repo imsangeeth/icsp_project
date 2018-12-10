@@ -1,0 +1,13 @@
+.mat-header-cell[_ngcontent-c1] {
+    color: #356957;
+    z-index: 9 !important;
+  }
+  .text-primary {
+    color: #356957!important;
+  }
+  .mat-header-cell[_ngcontent-c3] {
+    font-size: 13px;
+    font-weight: bold;
+    z-index: 9 !important;
+    color: #356957;
+  }

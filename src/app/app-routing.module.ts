@@ -18,62 +18,65 @@ import { SingleuserdetailsComponent } from './singleuserdetails/singleuserdetail
 import { MasterpageComponent } from './masterpage/masterpage.component';
 import { KtviewComponent } from './ktview/ktview.component';
 import { ReportesComponent } from './reportes/reportes.component';
+import { MasterassignComponent } from './masterassign/masterassign.component';
+import { MasterserviceComponent } from './masterservice/masterservice.component';
+import { MasterktComponent } from './masterkt/masterkt.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-   // canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'Createcustomer',
     component: CreatecustomerComponent,
-     //canActivate:[AuthGuard]
+      canActivate:[AuthGuard]
   },
   {
     path: 'viewcustomer',
     component: ViewcustomerComponent,
-     //canActivate:[AuthGuard]
+      canActivate:[AuthGuard]
   },
   {
     path: 'createcontact',
     component: ContactComponent,
-     //canActivate:[AuthGuard]
+      canActivate:[AuthGuard]
   },
   {
     path: 'knowledge',
     component: ViewcontactComponent,
-     //canActivate:[AuthGuard]
+      canActivate:[AuthGuard]
   },
   {
     path: 'createservice',
     component: CreateserviceComponent,
-    //canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
   },
   {
-    path: 'createservice/:phn',
+    path: 'createservice/:phn/:key',
     component: CreateserviceComponent,
-    //canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
   },
   {
     path: 'viewservices',
     component: ViewserviceComponent,
-   // canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'createcampaign',
     component: CampaignComponent,
-    //canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
   },
   {
     path: 'viewcampaign',
     component: CampaignviewComponent,
-    //canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
   },
   {
     path: 'updatecontacts/:id',
     component: UpdatecontactviewComponent,
-   // canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'login',
@@ -82,45 +85,62 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    //canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
     
   },
   {
     path: 'singletask/:id',
     component: SingleserviceviewComponent,
-    //canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
 
   },
   {
     path: 'singleuserview/:id',
     component: SingleuserdetailsComponent,
-    //canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
   },
   {
-    path: 'singleuserview/:agentname/:phn/:topic',
+    path: 'singleuserview/:id/:phn/:topic/:ky',
     component: SingleuserdetailsComponent,
-    //canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'editservice/:id/:type',
     component: EditservicesComponent,
-   //canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'masterpage',
     component: MasterpageComponent,
-    //canActivate:[AuthGuard]
+     canActivate:[AuthGuard]
   },
   {
     path: 'ktview/:id',
     component: KtviewComponent,
-    //canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'report',
     component: ReportesComponent,
-    //canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
+  {
+    path: 'masterassign',
+    component: MasterassignComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'masterservice',
+    component: MasterserviceComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'masterkt',
+    component: MasterktComponent,
+    canActivate:[AuthGuard]
+  }
+  
+  
 
 ];
 

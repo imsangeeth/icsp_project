@@ -1,0 +1,144 @@
+<!-- main app container -->
+
+    
+    <!-- credits -->
+    
+    <app-header></app-header>     
+
+    <div class="page-wrapper">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h5 class="text-primary">Master Page for service </h5> </div>
+                <div class="col-md-7 align-self-center">
+                    <ol class="breadcrumb">
+                        <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                        <li class="breadcrumb-item active">Add New Customer</li> -->
+                    </ol>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                <div class="card-body">
+                                
+                                    <div class="form-body">
+
+                                        <h5 class="box-title m-t-40">Add services</h5>
+                                        <hr>
+                                        
+                                        <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                        <div class="row">
+                                            
+                                            <div class="col-md-6 ">
+                                                <div class="form-group">
+                                                    <label>category </label><span>*</span>
+                                                    <select (change)="onChangeoffice($event.target.value)" name="category1" formControlName="category1" class="form-control custom-select">
+                                                        <option value="">Choose category</option>
+                                                        <option *ngFor="let calltype of calltype$" value="{{calltype.typId}}">{{calltype.department}}</option>
+                                                      
+                                                  </select> 
+                                                    
+                                                </div>
+                                                  </div> 
+                                                <div class="col-md-6 ">
+                                                <div class="form-group">
+                                                    <label>Sub category</label><span>*</span>
+                                                    <select (change)="onChangecategory()" name="category2" formControlName="category2" class="form-control custom-select" >
+                                                        <option value="">Select sub category</option>
+                                                        <option *ngFor="let sub of sub$" value="{{sub.typId}}">{{sub.module_name}}</option>
+                                                  </select>
+                                                   
+                                                </div>
+                                                  </div>
+
+                                                  <div class="col-md-6 ">
+                                                      <div class="form-group">
+                                                         <label>Add new<span>*</span></label>                                                          
+                                                          <input type="text" name="newfiled"  formControlName="newfiled" class="form-control" />
+                                                                              
+                                                      </div>
+                                                     </div> 
+                                                        
+                                                        <div class="col-md-6 "></div>
+                                                     
+                                                        <div class="col-md-6 " *ngIf="iscalltypebutton" >
+                                                        <div class="form-actions">
+                                                            <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Create</button>
+                                                            <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                        </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 " *ngIf="iscalltypeupdatebutton" >
+                                                            <div class="form-actions">
+                                                                <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Update</button>
+                                                                <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                            </div>
+                                                            </div>
+                                                    
+                                                
+                                            </div></form>
+
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card">
+                                                        <div class="card-body" style="padding: 0px;">
+                                                            <div class="table-responsive m-t-40">
+                                                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                                    <thead>
+                                                                             <tr>
+                                                                              <th style="width: 16%;">Sl No</th>
+                                                                              <th style="width: 80%;"> Name</th>
+                                                                              <th></th>
+                                                                              <th></th>
+                                                                              </tr>
+                                                                    </thead>
+                                                                    
+                                                                    <tbody> 
+                                                                                                 <tr *ngFor="let callreason of callreason$">
+                                                                                                    <td>{{callreason.sl}}</td>
+                                                                                                    <td>{{callreason.name}}</td>
+                                                                                                    <td (click)="editcalltype(callreason.typId)" style="cursor:pointer">Edit</td>
+                                                                                                    <td (click)="deletetype(callreason.typId)" style="cursor:pointer">Delete</td>
+                                                                                                    
+                                                                                                </tr>
+                                                                                               
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            
+                                                </div>
+                                            </div>
+
+                                    
+        
+                                        </div>
+                            </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
+                        <div class="alert alert-primary alert-dismissible fade show">
+                            <button type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>{{msg}}</strong> 
+                        </div>
+                    </div>
+
+                   
+                </div>
+              
+        
+    

@@ -2,10 +2,10 @@
     display: block;
 }
 .sidebar-nav > ul > li.active > a i {
-    color: #5a7bef;
+    color: #356957;
 }
 .sidebar-nav > ul > li.active > a {
-    color: #5a7bef;
+    color: #356957;
     font-weight: 500;
     border-left: 3px solid #fff;
 }
@@ -17,4 +17,18 @@
     line-height: 45px;
     text-align: center;
     background: rgba(0, 86, 64, 0.67);
+}
+.sidebar-nav > ul > li > a i {
+    width: 27px;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #356957;
+}
+.mini-sidebar .sidebar-nav #sidebarnav > li:hover > a {
+    width: 260px;
+    background: #76ad9a;
+}
+.sidebar-nav ul li a:hover {
+    color: #356957;
 }

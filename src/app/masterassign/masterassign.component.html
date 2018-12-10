@@ -9,7 +9,7 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h5 class="text-primary">Master page For Call Note</h5> </div>
+                    <h5 class="text-primary">Master Page For Department Users</h5> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
@@ -30,7 +30,7 @@
                                 
                                     <div class="form-body">
 
-                                        <h5 class="box-title m-t-40">Call Type</h5>
+                                        <h5 class="box-title m-t-40">Create Department</h5>
                                         <hr>
                                         
                                         <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -38,10 +38,10 @@
                                             
                                               <div class="col-md-6 ">
                                               <div class="form-group">
-                                                            <label>Call type<span>*</span></label>                                                          
-                                                            <input type="text" name="Calltype"  formControlName="Calltype" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Calltype.errors }" />
-                                                            <div *ngIf="submitted && f.Calltype.errors" class="invalid-feedback">
-                                                                <div *ngIf="f.Calltype.errors.required">Calltype is required</div>
+                                                            <label>Department Name<span>*</span></label>                                                          
+                                                            <input type="text" name="DepartmentName"  formControlName="DepartmentName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.DepartmentName.errors }" />
+                                                            <div *ngIf="submitted && f.DepartmentName.errors" class="invalid-feedback">
+                                                                <div *ngIf="f.DepartmentName.errors.required">DepartmentName is required</div>
                                                             </div>
                                                         </div>
                                                         </div>
@@ -74,7 +74,7 @@
                                                                     <thead>
                                                                              <tr>
                                                                               <th style="width: 16%;">Sl No</th>
-                                                                              <th style="width: 80%;">Call Type</th>
+                                                                              <th style="width: 80%;">Department Name</th>
                                                                               <th></th>
                                                                               <th></th>
                                                                               </tr>
@@ -83,7 +83,7 @@
                                                                     <tbody> 
                                                                                                  <tr *ngFor="let calltype of calltype$">
                                                                                                     <td>{{calltype.sl}}</td>
-                                                                                                    <td>{{calltype.calltype}}</td>
+                                                                                                    <td>{{calltype.department}}</td>
                                                                                                     <td (click)="editcalltype(calltype.typId)" style="cursor:pointer">Edit</td>
                                                                                                     <td (click)="deletetype(calltype.typId)" style="cursor:pointer">Delete</td>
                                                                                                     
@@ -116,33 +116,52 @@
                                 
                                     <div class="form-body">
 
-                                        <h5 class="box-title m-t-40">Call Reason</h5>
+                                        <h5 class="box-title m-t-40">Department Users</h5>
                                         <hr>
                                         
                                         <form [formGroup]="callreasonForm" (ngSubmit)="callsubmit()">
                                         <div class="row">
+
+                                            <div class="col-md-12 ">
+                                                <div class="form-group">
+                                                    <label>Department</label><span>*</span>
+                                                    <select  name="userdepartment" formControlName="userdepartment" class="form-control custom-select">
+                                                      <option  *ngFor="let calltype of calltype$" value="{{calltype.typId}}">{{calltype.department}}</option>
+                                                      
+                                                  </select> 
+                                                  
+                                                </div>
+                                                  </div>
                                             
                                               <div class="col-md-6 ">
                                               <div class="form-group">
-                                                            <label>Call Reason<span>*</span></label>                                                          
-                                                            <input type="text" name="callreason"  formControlName="callreason" class="form-control" [ngClass]="{ 'is-invalid': submitted && call.callreason.errors }" />
+                                                            <label>Name<span>*</span></label>                                                          
+                                                            <input type="text" name="username"  formControlName="username" class="form-control" />
                                                            
                                                         </div>
                                                         </div>
+
+                                                <div class="col-md-6 ">
+                                                 <div class="form-group">
+                                                    <label>Email<span>*</span></label>                                                          
+                                                     <input type="text" name="email"  formControlName="email" class="form-control" />
+                                                                         
+                                                 </div>
+                                                </div>   
                                                         
                                                         <div class="col-md-6 "></div>
                                                      
                                                         <div class="col-md-6"  *ngIf="iscallreasonbutton">
                                                         <div class="form-actions">
                                                             <button [disabled]="callreasonForm.pristine || callreasonForm.invalid" class="btn btn-primary" style="margin: 8px;">Create</button>
-                                                            <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                            <button (click)="cancel_reason_form()" type="button" class="btn btn-inverse">Cancel</button>
                                                         </div>
                                                         </div>
 
                                                         <div class="col-md-6"  *ngIf="iscallreasonupdatebutton">
                                                             <div class="form-actions">
                                                                 <button [disabled]="callreasonForm.pristine || callreasonForm.invalid" class="btn btn-primary" style="margin: 8px;">Update</button>
-                                                                <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                                <button (click)="cancel_reason_form()" type="button" class="btn btn-inverse">Cancel</button>
                                                             </div>
                                                             </div>
                                                     
@@ -157,8 +176,9 @@
                                                                 <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                                                     <thead>
                                                                              <tr>
-                                                                              <th style="width: 16%;">Sl No</th>
-                                                                              <th style="width: 80%;">Call Reason</th>
+                                                                              <th style="width: 16%;">sl</th>
+                                                                              <th style="width: 80%;">Department</th>
+                                                                              <th style="width: 80%;">Name</th>
                                                                               <th></th>
                                                                               <th></th>
                                                                               </tr>
@@ -167,7 +187,8 @@
                                                                     <tbody> 
                                                                                                  <tr *ngFor="let callre of callreason$">
                                                                                                     <td>{{callre.sl}}</td>
-                                                                                                    <td>{{callre.calltype}}</td>
+                                                                                                    <td>{{callre.department}}</td>
+                                                                                                    <td>{{callre.name}}</td>
                                                                                                     <td (click)="editcallreason(callre.typId)" style="cursor:pointer">Edit</td>
                                                                                                     <td (click)="deletereason(callre.typId)" style="cursor:pointer">Delete</td>
                                                                                                     

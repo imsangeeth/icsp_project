@@ -68,7 +68,7 @@
                        
                     </div>
                <div class="contacts">
-                    <a title="Create new Service" href="createservice/{{this.phn$}}"><button mat-button color="primary">Create new Services</button>
+                    <a title="Create new Service" href="createservice/{{this.phn$}}/{{this.ky$}}"><button mat-button color="primary">Create new Services</button>
                     
                     </a>
 
@@ -86,7 +86,7 @@
 <div class="col-lg-8">
     <div class="card">
 
-        <mat-tab-group dynamicHeight *ngIf="user$">
+        <mat-tab-group dynamicHeight>
             <mat-tab label="Call Note">
                 
                 <form class="callnoteform" [formGroup]="registerForm" (ngSubmit)="onSubmit()">

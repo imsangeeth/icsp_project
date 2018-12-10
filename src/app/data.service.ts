@@ -34,8 +34,8 @@ export class DataService {
 
   private url
 
-  //private base = "http://172.16.1.46/";
-  private base = "http://localhost/";
+  private base = "http://172.16.1.46/";
+  //private base = "http://localhost/";
 
   constructor(private http: HttpClient,private auth: AuthService) { }
 
@@ -188,6 +188,43 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/viewcall_note/'+phaseId);
   }
 
+  editcategory_list(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/editcategory_list/',phaseId);
+  }
+
+  editcalltype(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/editcalltype/',phaseId);
+  }
+
+  delete_list(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/delete_list/',phaseId);
+  }
+
+  
+
+  editcallreason(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/editcallreason/',phaseId);
+  }
+
+  deletecalltype(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/deletecalltype/',phaseId);
+  }
+
+  deletecallreason(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/deletecallreason/',phaseId);
+  }
+
+  deletedepartmentuser(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/deletedepartmentuser/',phaseId);
+  }
+
   insurance_phase4(phaseId)
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/insurance_phase4/'+phaseId);
@@ -283,9 +320,62 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/singleknowledge/'+phaseId);
   }
 
+  viewservices_module_filed(phaseId)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewservices_module_filed/'+phaseId);
+  }
+
+  allcontacts()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/allcontacts/');
+  }
+
+  viewknowldge()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewknowldge');
+  }
+
+  createknowldge(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createknowldge/',phaseId);
+  }
+
+  editknow(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/editknow/',phaseId);
+  }
+
+  deletedknowldge(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/deletedknowldge/',phaseId);
+  }
+
+  creatmasterservice(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/creatmasterservice/',phaseId);
+  }
+
+  viewcategory_list(phaseId)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/viewcategory_list/',phaseId);
+  }
+  
+  
+  
+  
   viewcalltype()
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/viewcalltype');
+  }
+
+  viewdepartment()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewdepartment');
+  }
+
+  viewservices_module()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewservices_module');
   }
 
   viewcallreason()
@@ -307,6 +397,39 @@ export class DataService {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createcontact',contact);
   }
 
+  createnewdepartment(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createnewdepartment',contact);
+  }
+  editdepartment(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/editdepartment',contact);
+  }
+
+  deletedepartment(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/deletedepartment',contact);
+  }
+
+  createdepartmentuser(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createdepartmentuser',contact);
+  }
+
+  viewdepartmentuser()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewdepartmentuser');
+  }
+
+
+  editdepartmentuser(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/editdepartmentuser',contact);
+  }
+  
+  
+  
+  
   createservice_ind(contact)
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_ind',contact);

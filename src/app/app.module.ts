@@ -50,7 +50,10 @@ import { SurveyComponent } from './survey/survey.component';
 import { KtviewComponent } from './ktview/ktview.component';
 import { MasterpageComponent } from './masterpage/masterpage.component';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { ReportesComponent } from './reportes/reportes.component'
+import { ReportesComponent } from './reportes/reportes.component';
+import { MasterassignComponent } from './masterassign/masterassign.component';
+import { MasterserviceComponent } from './masterservice/masterservice.component';
+import { MasterktComponent } from './masterkt/masterkt.component'
 
 
 @NgModule({
@@ -77,7 +80,10 @@ import { ReportesComponent } from './reportes/reportes.component'
     SurveyComponent,
     KtviewComponent,
     MasterpageComponent,
-    ReportesComponent
+    ReportesComponent,
+    MasterassignComponent,
+    MasterserviceComponent,
+    MasterktComponent
   ],
   imports: [
     BrowserModule,

@@ -35,15 +35,19 @@ export class SingleuserdetailsComponent implements OnInit {
   phn$:string;
   agentname$:string;
   topic$:string;
+  ky$:string;
 
   constructor(private route: ActivatedRoute, private data: DataService,private formBuilder: FormBuilder) {
-    this.route.params.subscribe(params => this.agentname$ = params.agentname);
+    this.route.params.subscribe(params => this.agentname$ = params.id);
     this.route.params.subscribe(params => this.phn$ = params.phn);
     this.route.params.subscribe(params => this.topic$ = params.topic);
+    this.route.params.subscribe(params => this.ky$ = params.ky);
 
     this.taskid = this.user$; 
     //this.comment = this.phn$;
    }
+
+
 
    angularForm = new FormGroup ({
     name: new FormControl()
@@ -96,7 +100,8 @@ export class SingleuserdetailsComponent implements OnInit {
 var  calldetails  = {
    agentname:  this.agentname$,
    topic:  this.topic$, 
-   phonenumber: this.phn$
+   phonenumber: this.phn$,
+   key: this.ky$,
 };
 
  this.data.called_user_details(calldetails).subscribe((response) => {
@@ -120,7 +125,8 @@ var  calldetails  = {
       Calltype:  this.registerForm.get('Calltype').value,
       Callreason:  this.registerForm.get('Callreason').value,
       Comment:  this.registerForm.get('comment').value, 
-      phonenumber: this.phn$
+      phonenumber: this.phn$,
+      key: this.ky$
     };
 
     console.log(contact);

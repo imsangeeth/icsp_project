@@ -95,11 +95,14 @@ export class CreateserviceComponent implements OnInit {
   inboundtypeRemarks:string;
   inboundtypecomment:string;
   phn$: string;
+  key$: string;
 
   allinbound$:object;
 
 constructor(private route: ActivatedRoute,private formBuilder: FormBuilder,private data: DataService) {
   this.route.params.subscribe( params => this.phn$ = params.phn );
+  this.route.params.subscribe( params => this.key$ = params.key );
+  
  }
 
 angularForm = new FormGroup ({
@@ -222,6 +225,8 @@ onSubmit_inbound() {
     inboundtypeRemarks : this.inboundForm.get('inboundtypeRemarks').value,
     inboundtypecomment:  this.inboundForm.get('inboundtypecomment').value,
     phone:this.phn$,
+    key : this.key$
+    
   };
 
   this.data.createservice_inbound(inbound).subscribe((response) => {
@@ -264,6 +269,7 @@ onSubmit_corporate() {
     CorporateRemarks:  this.corporateForm.get('CorporateRemarks').value,
     Corporatecomment:  this.corporateForm.get('Corporatecomment').value,
     phone:this.phn$,
+    key : this.key$
   };
 
   console.log(corporates);
@@ -315,10 +321,11 @@ onSubmit_individual() {
     ser_comment:this.IndividualForm.get('ser_comment').value,
     Remarks:  this.IndividualForm.get('Remarks').value,
     phone:this.phn$,
+    key: this.key$
    
   };
 
-  console.log(individual);
+ // console.log(individual);
 
 //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
  // alert(this.registerForm.get('StartTime').value)
@@ -332,8 +339,6 @@ onSubmit_individual() {
   this.msgview = true;
   
 });
-
-
 
   
  }
