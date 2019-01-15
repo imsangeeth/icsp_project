@@ -22,6 +22,9 @@ export class SingleuserdetailsComponent implements OnInit {
   policy_information$:object;
   vehicle$ : object;
   claim_info$ : object;
+  inputtype : string;
+  selecttype : string;
+  selectactive : string = 'non';
  
 
   taskid;
@@ -133,9 +136,129 @@ var  calldetails  = {
 
     this.data.addcallcallnote(contact).subscribe((response) => {
       this.registerForm.reset();
+
+      this.data.viewcall_note(this.phn$).subscribe(
+        data => this.call_note$ = data 
+      );
+    
     });
 
   
    }
+
+
+  onsearchoracle()
+  {
+    console.log(this.selectactive)
+    console.log(this.selecttype)
+
+    if(this.selecttype == 'phone' && this.selectactive == 'non')
+    {
+         
+      var pos = {
+        key : this.inputtype
+      }
+
+      this.data.getsearchphone(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+  
+    }
+    
+    else if(this.selecttype == 'policy' && this.selectactive == 'non')
+    {
+
+      var pos = {
+        key : this.inputtype
+      }
+      this.data.getsearchpolicy(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
+    
+    else if(this.selecttype == 'chassis' && this.selectactive == 'non'){
+
+      var pos = {
+        key : this.inputtype
+      }
+
+      this.data.getsearchchassis(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
+
+    else if(this.selecttype == 'policy' && this.selectactive == 'active')
+    {
+
+      var pos = {
+        key : this.inputtype
+      }
+      this.data.getsearchpolicyactive(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
+    
+    else if(this.selecttype == 'chassis' && this.selectactive == 'active'){
+
+      var pos = {
+        key : this.inputtype
+      }
+
+      this.data.getsearchchassisactive(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
+
+    else if(this.selecttype == 'phone' && this.selectactive == 'active'){
+
+      var pos = {
+        key : this.inputtype
+      }
+
+      this.data.getsearchphoneactive(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
+
+    
+    
+
+
+  }
 
 }

@@ -29,7 +29,7 @@ export class MasterktComponent implements OnInit {
   iscallreasonupdatebutton:boolean = false;
   updatedId  = 0;
   updatedreasonId= 0;
-  Description 
+  Description : string = '';
 
   constructor(private formBuilder: FormBuilder,private data: DataService) { }
 
@@ -236,6 +236,7 @@ export class MasterktComponent implements OnInit {
   this.iscalltypebutton = true;
   this.iscalltypeupdatebutton = false;
   this.registerForm.controls['DepartmentName'].setValue('');
+  this.registerForm.controls['Description'].setValue('');
  }
 
  cancel_reason_form()

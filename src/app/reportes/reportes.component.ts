@@ -14,18 +14,23 @@ export class ReportesComponent implements OnInit {
   ReportForm:FormGroup;
   fromdate:string;
   todate:string;
+  type:string;
   location$ :any;
   report$ : any;
   isreportview: boolean = false;
- 
- 
+  isreportviewinbound : boolean = false;
+  isreportviewindidual : boolean = false;
+  isreportviewcorporate : boolean = false;
+  isreportviewbranch : boolean = false;
+
   constructor(private excelService:ExcelService,private data: DataService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
 
     this.ReportForm = this.formBuilder.group({
-      fromdate : [''],
-      todate : [''],
+      fromdate : ['',Validators.required],
+      todate : ['',Validators.required],
+      type : ['',Validators.required]
     });
 
 
@@ -37,16 +42,50 @@ export class ReportesComponent implements OnInit {
   }
 
   reportsubmit()
-  {
+  { 
     this.isreportview = true;
     var reportdate  = {
       fromdate:  this.ReportForm.get('fromdate').value,
       todate:  this.ReportForm.get('todate').value,
+      type:  this.ReportForm.get('type').value,
       };
+
 
     
     this.data.genrate_ticket(reportdate).subscribe((response) => {
-      this.report$ = response;
+
+
+      if(response.type == 'corporate')
+      {
+        this.isreportviewcorporate = true;
+        this.isreportviewindidual = false;
+        this.isreportviewinbound = false;
+        this.isreportviewbranch = false;
+      }
+      else if(response.type == 'Individual')
+      {
+        this.isreportviewindidual = true;
+        this.isreportviewcorporate = false;
+        this.isreportviewinbound = false;
+        this.isreportviewbranch = false;
+      }
+      else if(response.type == 'inbound')
+      {
+        this.isreportviewinbound = true;
+        this.isreportviewcorporate = false;
+        this.isreportviewindidual = false;
+        this.isreportviewbranch = false;
+      }
+      else if(response.type == 'branch')
+      {
+        this.isreportviewinbound = false;
+        this.isreportviewcorporate = false;
+        this.isreportviewindidual = false;
+        this.isreportviewbranch = true;
+      }
+
+      this.report$ = response.item;
+
     });
 
 
@@ -58,7 +97,7 @@ export class ReportesComponent implements OnInit {
   }
 
   exportAsXLSX():void {
-     this.excelService.exportAsExcelFile(this.report$, 'sample');
+     this.excelService.exportAsExcelFile(this.report$, 'Afnic');
   }
 
 }

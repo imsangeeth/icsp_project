@@ -82,8 +82,10 @@ export class SingleserviceviewComponent implements OnInit {
       this.Commentform.controls['comment'].setValue('');
       this.comment$ = Object.assign(response,this.comment$); 
 
-       console.log(response);
-       console.log(this.comment$);
+      this.data.gettaskcomments(this.taskid).subscribe(
+        data => this.comment$ = data
+      );
+     
        
      });
    }

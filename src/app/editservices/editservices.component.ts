@@ -269,7 +269,7 @@ export class EditservicesComponent implements OnInit {
     this.IndividualForm.controls['Remarks'].setValue(response['remarks']);
     this.IndividualForm.controls['ser_department'].setValue(response['csp_office_department']);
     this.IndividualForm.controls['ser_assign'].setValue(response['csp_department_user']);
-    this.corporateForm.controls['Corporatetype'].setValue(response['csp_department_user']);
+    this.corporateForm.controls['Corporatetype'].setValue(response['csp_corporate_type']);
     this.corporateForm.controls['Corporate_department'].setValue(response['csp_office_department']);
     this.corporateForm.controls['Corporate_assign'].setValue(response['csp_department_user']);
     this.corporateForm.controls['Corporate_two'].setValue(response['csp_corporate_phase1']);

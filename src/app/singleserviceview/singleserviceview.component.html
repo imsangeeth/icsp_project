@@ -2,12 +2,13 @@
 <div class="page-wrapper">
   <!-- Bread crumb -->
   <div class="row page-titles" *ngIf="user$">
-
+ 
       
         <div class="col-md-5 align-self-center">
-                <h5 class="text-primary">Ticket ID - {{taskid}} <span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></h5><span style="font-size: 14px;">Created In - {{user$.createDate}}</span> </div>
+                <h5 class="text-primary">Ticket ID - {{taskid}} <span class="badge {{user$.btnstyle}}">{{user$.ticketstatus}}</span></h5>
+                <span style="font-size: 14px;">Created In - {{user$.createDate}}</span> </div>
             <div class="col-md-7 align-self-center">
-                    <div class="button-row breadcrumb" >
+                    <div class="button-row breadcrumb" *ngIf="user$.type !='branch'" >
                            
                             <a mat-raised-button color="accent" routerLink="/editservice/{{taskid}}/{{user$.type}}">Edit</a>
                             
@@ -76,30 +77,30 @@
                                                     
                                                     <tr>
                                                         </tr><tr>
-                                                            <td><b>corporate type</b></td>
+                                                            <td><b>INS Type</b></td>
                                                             <td>{{user$.csp_corporate_type}}</td>
                                                             
                                                         </tr>
                                                     
                                                     <tr>
-                                                        <td><b>phase1 </b></td>
+                                                        <td><b>Cover Type </b></td>
                                                         <td>{{user$.csp_corporate_phase1}}</td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td><b>phase2</b></td>
+                                                        <td><b>Cover Query</b></td>
                                                         <td>{{user$.csp_corporate_phase2}}</td>
                                                         
                                                     </tr>
                                                     <tr>
-                                                        <td><b>phase3</b></td>
+                                                        <td><b>End Reasons</b></td>
                                                         <td>{{user$.csp_corporate_phase3}}</td>
                                                         
                                                     </tr>
 
                                                        <tr>
                                                         </tr><tr>
-                                                            <td><b>phase4</b></td>
+                                                            <td><b>Effective Reason</b></td>
                                                             <td>{{user$.csp_corporate_phase4}}</td>
                                                             
                                                         </tr>
@@ -180,30 +181,30 @@
                                                             
                                                             <tr>
                                                                 </tr><tr>
-                                                                    <td><b>phase1</b></td>
+                                                                    <td><b>INS.Type</b></td>
                                                                     <td>{{user$.csp_insurance_type_val}}</td>
                                                                     
                                                                 </tr>
                                                             
                                                             <tr>
-                                                                <td><b>phase2 </b></td>
+                                                                <td><b>Dept.</b></td>
                                                                 <td>{{user$.csp_insurance_phase2_val}}</td>
                                                                 
                                                             </tr>
                                                             <tr>
-                                                                <td><b>phase3</b></td>
+                                                                <td><b>Subclass</b></td>
                                                                 <td>{{user$.csp_insurance_phase3_val}}</td>
                                                                 
                                                             </tr>
                                                             <tr>
-                                                                <td><b>phase4</b></td>
+                                                                <td><b>Classification</b></td>
                                                                 <td>{{user$.phase_category1}}</td>
                                                                 
                                                             </tr>
         
                                                                <tr>
                                                                 </tr><tr>
-                                                                    <td><b>phase5</b></td>
+                                                                    <td><b>Cover Type</b></td>
                                                                     <td>{{user$.phase_category2}}</td>
                                                                     
                                                                 </tr>
@@ -230,26 +231,26 @@
                                                                 <tbody>
                                                                     
                                                                     <tr>
-                                                                        <td><b>phase1</b></td>
+                                                                        <td><b>Source Of Business</b></td>
                                                                         <td>{{user$.phase_category3}}</td>
                                                                         
                                                                     </tr>
         
                                                                     <tr>
                                                                         </tr><tr>
-                                                                            <td><b>phase2</b></td>
+                                                                            <td><b>Cover Query</b></td>
                                                                             <td>{{user$.phase_category4}}</td>
                                                                             
                                                                     </tr>
         
                                                                     <tr>
-                                                                        <td><b>phase3</b></td>
+                                                                        <td><b>End Reasons</b></td>
                                                                         <td>{{user$.phase_category5}}</td>
                                                                         
                                                                     </tr>
 
                                                                     <tr>
-                                                                            <td><b>phase4</b></td>
+                                                                            <td><b>Effective Reason</b></td>
                                                                             <td>{{user$.phase_category6}}</td>
                                                                             
                                                                         </tr>
@@ -298,26 +299,26 @@
 
                                                                         
                                                                         <tr>
-                                                                            <td><b>Category 1</b></td>
+                                                                            <td><b>Classification</b></td>
                                                                             <td>{{user$.csp_inbound_phase1_val}}</td>
                                                                             
                                                                         </tr>
             
                                                                         <tr>
                                                                             </tr><tr>
-                                                                                <td><b>Category 2</b></td>
+                                                                                <td><b>Cover Query</b></td>
                                                                                 <td>{{user$.csp_inbound_phase2_val}}</td>
                                                                                 
                                                                         </tr>
             
                                                                         <tr>
-                                                                            <td><b>Category 3</b></td>
+                                                                            <td><b>End Reasons</b></td>
                                                                             <td>{{user$.csp_inbound_phase3_val}}</td>
                                                                             
                                                                         </tr>
     
                                                                         <tr>
-                                                                                <td><b>Category 4</b></td>
+                                                                                <td><b>Effective Reason</b></td>
                                                                                 <td>{{user$.csp_inbound_phase4_val}}</td>
                                                                                 
                                                                             </tr>
@@ -340,6 +341,70 @@
                                                                                 <td>{{user$.remarks}}</td>
                                                                                 
                                                                             </tr>
+                                                                        
+                                                                        
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                           
+                                                        </div>
+                                                
+                                                
+                                                </mat-grid-tile> 
+
+                                                <mat-grid-tile *ngIf="user$.type =='branch'" >
+                                                    <div class="card-body" style="margin-top: 110px;">
+                                                            <div class="table-responsive">
+                                                                <table class="table">
+                                                                   
+                                                                    <tbody>
+                                                                            
+                                                                        <tr>
+                                                                                    <td><b>Type</b></td>
+                                                                                    <td>Branch</td>
+                                                                                    
+                                                                        </tr>
+
+                                                                        
+                                                                        <tr>
+                                                                            <td><b>location</b></td>
+                                                                            <td>{{user$.office_location_name}}</td>
+                                                                            
+                                                                        </tr>
+            
+                                                                        <tr>
+                                                                            </tr><tr>
+                                                                                <td><b>Branch</b></td>
+                                                                                <td>{{user$.office_branch_name}}</td>
+                                                                                
+                                                                        </tr>
+            
+                                                                        <tr>
+                                                                            <td><b>Branch Address</b></td>
+                                                                            <td>{{user$.office_branch_address}}</td>
+                                                                            
+                                                                        </tr>
+    
+                                                                        <tr>
+                                                                                <td><b>PhoneNumber</b></td>
+                                                                                <td>{{user$.phonenumber}}</td>
+                                                                                
+                                                                            </tr>
+                                                                        
+                                                                        <tr>
+                                                                            </tr><tr>
+                                                                                <td><b>Assigned department</b></td>
+                                                                                <td>{{user$.csp_office_department}}</td>
+                                                                                
+                                                                            </tr>
+                                                                        
+                                                                       <tr>
+                                                                            <td><b>Assigned user</b></td>
+                                                                            <td>{{user$.csp_department_user}}</td>
+                                                                            
+                                                                        </tr>
+    
+                                                                       
                                                                         
                                                                         
                                                                     </tbody>
@@ -405,7 +470,7 @@
                                 </mat-card>
                         </div>
                       </mat-tab>
-                      <mat-tab label="Audit">
+                      <!-- <mat-tab label="Audit">
                             <div class="example-large-box mat-elevation-z4">
                                    
                                           <mat-vertical-stepper [linear]="isLinear" #stepper>
@@ -416,7 +481,7 @@
                                           </mat-vertical-stepper>
                                           
                             </div>
-                          </mat-tab>
+                          </mat-tab> -->
 
                     </mat-tab-group>
 

@@ -61,41 +61,50 @@ export class CreateserviceComponent implements OnInit {
   msg: string = '';
   phone:string = '';
 
-  Insurancetype:string;
-  Individual_two:String;
-  Individual_three:string;
-  Individual_four:String;
-  Individual_five:string;
-  Individual_six:string;
-  Individual_sevan:string;
-  Individual_eight:string;
-  Individual_nine:string;
-  ser_assign:string;
-  ser_department:string;
-  ser_comment:string;
-  Remarks:string;
+
+  officelocation: string = '';
+  smsmobilenumber : string = '';
+  branch : string = '';
+  branch_department : string ='';
+  branch_assign : string = '';
+  branch_comment : string = '';
+  selectaddress : string = '';
+
+  Insurancetype:string = '';
+  Individual_two:String = '';
+  Individual_three:string = '';
+  Individual_four:String = '';
+  Individual_five:string = '';
+  Individual_six:string = '';
+  Individual_sevan:string = '';
+  Individual_eight:string = '';
+  Individual_nine:string = '';
+  ser_assign:string = '';
+  ser_department:string = '';
+  ser_comment:string = '';
+  Remarks:string ='';
 
 
-  Corporatetype:string;
-  Corporate_two:String;
-  Corporate_three:string;
-  Corporate_four:String;
-  Corporate_five:string;
-  Corporate_assign:string;
-  Corporate_department:string;
-  CorporateRemarks:string;
-  Corporatecomment:string;
+  Corporatetype:string = '';
+  Corporate_two:String ='';
+  Corporate_three:string = '';
+  Corporate_four:String = '';
+  Corporate_five:string = '';
+  Corporate_assign:string = '';
+  Corporate_department:string = '';
+  CorporateRemarks:string = '';
+  Corporatecomment:string = '';
 
-  inboundtype:string;
-  inboundtype_two:String;
-  inboundtype_three:string;
-  inboundtype_four:String;
-  inboundtype_assign:string;
-  inboundtype_department:string;
-  inboundtypeRemarks:string;
-  inboundtypecomment:string;
-  phn$: string;
-  key$: string;
+  inboundtype:string = '';
+  inboundtype_two:String = '';
+  inboundtype_three:string = '';
+  inboundtype_four:String = '';
+  inboundtype_assign:string = '';
+  inboundtype_department:string = '';
+  inboundtypeRemarks:string = '';
+  inboundtypecomment:string = '';
+  phn$: string = '';
+  key$: string = '';
 
   allinbound$:object;
 
@@ -111,21 +120,18 @@ angularForm = new FormGroup ({
 
 ngOnInit() {
 
-  console.log(this.phn$);
+  //console.log(this.phn$);
 
+ // 
   this.registerForm = this.formBuilder.group({
-    customername: ['', Validators.required],
-    Reason: ['', Validators.required],
-    Description : ['', Validators.required],
-    Subject : ['', Validators.required],
-    Received : ['', Validators.required],
-    priority : [''],
-    assign : ['', Validators.required],
-    department: ['', Validators.required],
-    ticketstatus: ['', Validators.required],
-    duedate : ['', Validators.required],
-    phonenumber : ['', Validators.required],
-    policynumber : ['', Validators.required],
+    officelocation: ['', Validators.required],
+    smsmobilenumber: ['', Validators.required],
+    branch : ['', Validators.required],
+    branch_department : [''],
+    branch_assign : [''],
+    branch_comment : [''],
+    selectaddress : ['', Validators.required],
+    
     
      //email: ['', [Validators.required, Validators.email]],
     //password: ['', [Validators.required, Validators.minLength(6)]]
@@ -177,6 +183,7 @@ this.inboundForm = this.formBuilder.group({
 
 });
 
+this.registerForm.controls['smsmobilenumber'].setValue(this.phn$);
 
 this.data.getofficelocation().subscribe(
   data => this.location$ = data  
@@ -231,8 +238,15 @@ onSubmit_inbound() {
 
   this.data.createservice_inbound(inbound).subscribe((response) => {
 
-    this.inboundForm.reset();
-
+    this.inboundForm.controls['inboundtype'].setValue('');
+    this.inboundForm.controls['inboundtype_two'].setValue('');
+    this.inboundForm.controls['inboundtype_three'].setValue('');
+    this.inboundForm.controls['inboundtype_four'].setValue('');
+    this.inboundForm.controls['inboundtype_assign'].setValue('');
+    this.inboundForm.controls['inboundtype_department'].setValue('');
+    this.inboundForm.controls['inboundtypeRemarks'].setValue('');
+    this.inboundForm.controls['inboundtypecomment'].setValue('');
+    
     this.msg = response['msg'];
     this.bgcolor = response['bgcolor'];
     this.msgview = true;
@@ -276,7 +290,15 @@ onSubmit_corporate() {
 
   this.data.createservice_cop(corporates).subscribe((response) => {
 
-    this.corporateForm.reset();
+  this.corporateForm.controls['Corporatetype'].setValue('');
+  this.corporateForm.controls['Corporate_two'].setValue('');
+  this.corporateForm.controls['Corporate_three'].setValue('');
+  this.corporateForm.controls['Corporate_four'].setValue('');
+  this.corporateForm.controls['Corporate_five'].setValue('');
+  this.corporateForm.controls['Corporate_assign'].setValue('');
+  this.corporateForm.controls['Corporate_department'].setValue('');
+  this.corporateForm.controls['CorporateRemarks'].setValue('');
+  this.corporateForm.controls['Corporatecomment'].setValue('');
 
     this.msg = response['msg'];
     this.bgcolor = response['bgcolor'];
@@ -324,7 +346,7 @@ onSubmit_individual() {
     key: this.key$
    
   };
-
+ 
  // console.log(individual);
 
 //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
@@ -332,8 +354,20 @@ onSubmit_individual() {
 
  this.data.createservice_ind(individual).subscribe((response) => {
 
-  this.IndividualForm.reset();
-
+  this.IndividualForm.controls['Insurancetype'].setValue('');
+  this.IndividualForm.controls['Individual_two'].setValue('');
+  this.IndividualForm.controls['Individual_three'].setValue('');
+  this.IndividualForm.controls['Individual_four'].setValue('');
+  this.IndividualForm.controls['Individual_five'].setValue('');
+  this.IndividualForm.controls['Individual_six'].setValue('');
+  this.IndividualForm.controls['Individual_sevan'].setValue('');
+  this.IndividualForm.controls['Individual_eight'].setValue('');
+  this.IndividualForm.controls['Individual_nine'].setValue('');
+  this.IndividualForm.controls['ser_department'].setValue('');
+  this.IndividualForm.controls['ser_assign'].setValue('');
+  this.IndividualForm.controls['ser_comment'].setValue('');
+  this.IndividualForm.controls['Remarks'].setValue('');
+  
   this.msg = response['msg'];
   this.bgcolor = response['bgcolor'];
   this.msgview = true;
@@ -353,33 +387,30 @@ onSubmit_individual() {
       return;
   }
 
+ 
+
   var  sevices  = {
-    customername:  this.registerForm.get('customername').value,
-    Reason:  this.registerForm.get('Reason').value,
-    Description:  this.registerForm.get('Description').value,
-    Subject:  this.registerForm.get('Subject').value,
-    Received:  this.registerForm.get('Received').value,
-    priority : this.registerForm.get('priority').value,
-    assign : this.registerForm.get('assign').value,
-    department:  this.registerForm.get('department').value,
-    ticketstatus:  this.registerForm.get('ticketstatus').value,
-    duedate:  this.registerForm.get('duedate').value,
-    phonenumber:  this.registerForm.get('phonenumber').value,
-    policynumber : this.registerForm.get('policynumber').value,
-  
+    officelocation:  this.registerForm.get('officelocation').value,
+    smsmobilenumber:  this.registerForm.get('smsmobilenumber').value,
+    branch:  this.registerForm.get('branch').value,
+    branch_assign:  this.registerForm.get('branch_assign').value,
+    branch_comment:  this.registerForm.get('branch_comment').value,
+    selectaddress : this.registerForm.get('selectaddress').value,
+    branch_department : this.registerForm.get('branch_department').value,
+    phone:this.phn$,
+    key: this.key$
   };
+
+  console.log(sevices);
 
 //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
  // alert(this.registerForm.get('StartTime').value)
-  this.data.postservices(sevices).subscribe((response) => {
-     if(response['error'] = false)
-     {
-        
-     }
-     this.registerForm.reset();
-     this.msg = response['msg'];
-     this.bgcolor = response['bgcolor'];
-     this.msgview = true;
+   this.data.createservice_branch(sevices).subscribe((response) => {
+      
+       this.registerForm.reset();
+       this.msg = response['msg'];
+       this.bgcolor = response['bgcolor'];
+       this.msgview = true;
    });
 
    

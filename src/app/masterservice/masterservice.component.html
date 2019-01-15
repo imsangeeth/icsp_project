@@ -35,10 +35,16 @@
                                         
                                         <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                                         <div class="row">
+
+                                                <angular-file-uploader
+                                                [config]="afuConfig">
+                                          </angular-file-uploader> 
+
+                                          <input type="file" (change)="fileChange($event)" placeholder="Upload file" >
                                             
                                             <div class="col-md-6 ">
                                                 <div class="form-group">
-                                                    <label>category </label><span>*</span>
+                                                    <label>Category </label><span>*</span>
                                                     <select (change)="onChangeoffice($event.target.value)" name="category1" formControlName="category1" class="form-control custom-select">
                                                         <option value="">Choose category</option>
                                                         <option *ngFor="let calltype of calltype$" value="{{calltype.typId}}">{{calltype.department}}</option>
@@ -49,7 +55,7 @@
                                                   </div> 
                                                 <div class="col-md-6 ">
                                                 <div class="form-group">
-                                                    <label>Sub category</label><span>*</span>
+                                                    <label>Sub Category</label><span>*</span>
                                                     <select (change)="onChangecategory()" name="category2" formControlName="category2" class="form-control custom-select" >
                                                         <option value="">Select sub category</option>
                                                         <option *ngFor="let sub of sub$" value="{{sub.typId}}">{{sub.module_name}}</option>
@@ -59,13 +65,24 @@
                                                   </div>
 
                                                   <div class="col-md-6 ">
-                                                      <div class="form-group">
-                                                         <label>Add new<span>*</span></label>                                                          
-                                                          <input type="text" name="newfiled"  formControlName="newfiled" class="form-control" />
-                                                                              
-                                                      </div>
-                                                     </div> 
-                                                        
+                                                    <div class="form-group">
+                                                       <label>Add New<span>*</span></label>                                                          
+                                                        <input type="text" name="newfiled"  formControlName="newfiled" class="form-control" />
+                                                                            
+                                                    </div>
+                                                   </div> 
+
+                                                  <div class="col-md-6 ">
+                                                    <div class="form-group">
+                                                        <label>Assign Category</label><span>*</span>
+                                                        <select  name="category3" formControlName="category3" class="form-control custom-select" >
+                                                            <option value="">Select Assign Category</option>
+                                                            <option *ngFor="let sub of sub$" value="{{sub.sl}}">{{sub.module_name}}</option>
+                                                      </select>
+                                                       
+                                                    </div>
+                                                </div> 
+   
                                                         <div class="col-md-6 "></div>
                                                      
                                                         <div class="col-md-6 " *ngIf="iscalltypebutton" >
@@ -85,7 +102,7 @@
                                                 
                                             </div></form>
 
-                                            <div class="row">
+                                            <div class="row"> 
                                                 <div class="col-12">
                                                     <div class="card">
                                                         <div class="card-body" style="padding: 0px;">

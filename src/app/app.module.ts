@@ -17,6 +17,8 @@ import {MatListModule} from '@angular/material/list';
 import {AuthGuard} from './auth.guard';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
+import { ChartsModule } from 'ng2-charts';
+
 
 //import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material'
 
@@ -53,7 +55,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { ReportesComponent } from './reportes/reportes.component';
 import { MasterassignComponent } from './masterassign/masterassign.component';
 import { MasterserviceComponent } from './masterservice/masterservice.component';
-import { MasterktComponent } from './masterkt/masterkt.component'
+import { MasterktComponent } from './masterkt/masterkt.component';
+import { AngularFileUploaderModule } from "angular-file-uploader";
+
 
 
 @NgModule({
@@ -110,7 +114,10 @@ import { MasterktComponent } from './masterkt/masterkt.component'
     MatCardModule,
     MatGridListModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ChartsModule,
+    AngularFileUploaderModule
+   
     //MatPaginator,
    // MatSort,
    // MatTableDataSource

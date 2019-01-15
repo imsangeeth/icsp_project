@@ -2274,7 +2274,7 @@
     padding: 20px;
     border: 0 solid #e7e7e7;
     border-radius: 5px;
-    /*box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);*/
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   }
   .card-subtitle {
     font-size: 12px;
@@ -4875,12 +4875,37 @@
   .form-group {
     margin-bottom: 20px;
   }
+  .mat-tab-label, .mat-tab-link {
+    color: rgba(0,0,0,.87);
+    font-size: 15px;
+    font-weight: bold;
+  }
+  label[_ngcontent-c1] {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 15px;
+    color: #000;
+    
+}
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+  font-size: 15px;
+ 
+  color: #000;
+}
   .form-control {
-    height: 42px;
-    border-radius: 0;
-    box-shadow: none;
-    border-color: #e7e7e7;
-    font-family: 'Poppins', sans-serif;
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #a9aaab;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   }
   .form-control:hover {
     box-shadow: none;
@@ -6673,6 +6698,7 @@
     border-right: 5px solid #E6E6E6;
     margin-bottom: 25px;
   }
+  
   .blockquote-box .square {
     width: 100px;
     min-height: 50px;

@@ -24,7 +24,7 @@
               <div class="col-lg-12">
                   <div class="card">
                       <div class="card-body">
-                          <div class="form-validation">
+                          <div class="form-validation"> 
                           <div class="card-body">
                           
                               <div class="form-body"> 
@@ -49,7 +49,7 @@
                                                           </div>
                                                         <div class="col-md-6 ">
                                                         <div class="form-group">
-                                                            <label>Choose 2</label><span>*</span>
+                                                            <label>Dept.</label><span>*</span>
                                                             <select (change)="onChangeInsphase2($event.target.value)" name="Individual_two" formControlName="Individual_two" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                     <option value="">Please Choose One</option>
                                                                 <option *ngFor="let insphase2 of insphase2$" value="{{insphase2.typeID}}">{{insphase2.name}}</option>
@@ -62,7 +62,7 @@
 
                                                           <div class="col-md-6 ">
                                                             <div class="form-group">
-                                                                <label>Choose 3</label><span>*</span>
+                                                                <label>Subclass</label><span>*</span>
                                                                 <select (change)="onChangeInsphase3($event.target.value)" name="Individual_three" formControlName="Individual_three" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                         <option value="">Please Choose One</option>
                                                                     <option *ngFor="let insphase3 of insphase3$" value="{{insphase3.typeID}}">{{insphase3.name}}</option>
@@ -75,7 +75,7 @@
 
                                                               <div class="col-md-6 ">
                                                                 <div class="form-group">
-                                                                    <label>Choose 4</label><span>*</span>
+                                                                    <label>Classification</label><span>*</span>
                                                                     <select (change)="onChangeInsphase4($event.target.value)" name="Individual_four" formControlName="Individual_four" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                             <option value="">Please Choose One</option>
                                                                         <option *ngFor="let insphase4 of insphase4$" value="{{insphase4.typeID}}">{{insphase4.name}}</option>
@@ -90,7 +90,7 @@
 
                                                      <div class="col-md-6 ">
                                                         <div class="form-group">
-                                                            <label>Choose 5</label><span>*</span>
+                                                            <label>Cover Type</label><span>*</span>
                                                         <select (change)="onChangeInsphase5($event.target.value)" name="Individual_five" formControlName="Individual_five" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                 <option value="">Please Choose One</option>
                                                             <option *ngFor="let insphase5 of insphase5$" value="{{insphase5.typeID}}">{{insphase5.name}}</option>
@@ -104,7 +104,7 @@
 
                                                         <div class="col-md-6 ">
                                                             <div class="form-group">
-                                                                <label>Choose 6</label>
+                                                                <label>Source Of Business</label>
                                                             <select (change)="onChangeInsphase6($event.target.value)" name="Individual_six" formControlName="Individual_six" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                     <option value="">Please Choose One</option>
                                                                 <option *ngFor="let insphase6 of insphase6$" value="{{insphase6.typeID}}">{{insphase6.name}}</option>
@@ -117,7 +117,7 @@
 
                                                             <div class="col-md-6 ">
                                                                 <div class="form-group">
-                                                                    <label>Choose 7</label>
+                                                                    <label>Cover Query</label>
                                                                 <select (change)="onChangeInsphase7($event.target.value)" name="Individual_sevan" formControlName="Individual_sevan" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                         <option value="">Please Choose One</option>
                                                                     <option *ngFor="let insphase7 of insphase7$" value="{{insphase7.typeID}}">{{insphase7.name}}</option>
@@ -130,7 +130,7 @@
 
                                                                 <div class="col-md-6 ">
                                                                     <div class="form-group">
-                                                                        <label>Choose 8</label>
+                                                                        <label>End Reasons</label>
                                                                     <select (change)="onChangeInsphase8($event.target.value)" name="Individual_eight" formControlName="Individual_eight" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                             <option value="">Please Choose One</option>
                                                                         <option *ngFor="let insphase8 of insphase8$" value="{{insphase8.typeID}}">{{insphase8.name}}</option>
@@ -143,7 +143,7 @@
 
                                                                     <div class="col-md-6 ">
                                                                         <div class="form-group">
-                                                                            <label>Choose 9</label>
+                                                                            <label>Effective Reason</label>
                                                                         <select name="Individual_nine" formControlName="Individual_nine" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                                 <option value="">Please Choose One</option>
                                                                             <option *ngFor="let insphase9 of insphase9$" value="{{insphase9.typeID}}">{{insphase9.name}}</option>
@@ -233,7 +233,7 @@
                                         <div class="row" style="margin-top: 2%">
                                                 <div class="col-md-6 ">
                                                         <div class="form-group">
-                                                            <label>Corporate</label><span>*</span>
+                                                            <label>INS.Type</label><span>*</span>
                                                             <select (change)="onChangeCopType($event.target.value)" name="Corporatetype" formControlName="Corporatetype" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                               <option *ngFor="let allCopType of allCopType$" value="{{allCopType.typeID}}">{{allCopType.name}}</option>
                                                               
@@ -245,7 +245,7 @@
                                                           </div>
                                                         <div class="col-md-6 ">
                                                         <div class="form-group">
-                                                            <label>Choose 2</label><span>*</span>
+                                                            <label>Cover Type</label><span>*</span>
                                                             <select (change)="onChangeCopType2($event.target.value)" name="Corporate_two" formControlName="Corporate_two" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                 <option *ngFor="let copphase9 of copphase9$" value="{{copphase9.typeID}}">{{copphase9.name}}</option>
                                                           </select>
@@ -257,7 +257,7 @@
 
                                                           <div class="col-md-6 ">
                                                             <div class="form-group">
-                                                                <label>Choose 3</label><span>*</span>
+                                                                <label>Cover Query</label><span>*</span>
                                                                 <select (change)="onChangeCopType3($event.target.value)" name="Corporate_three" formControlName="Corporate_three" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                     <option *ngFor="let copphase10 of copphase10$" value="{{copphase10.typeID}}">{{copphase10.name}}</option>
                                                               </select>
@@ -269,7 +269,7 @@
 
                                                               <div class="col-md-6 ">
                                                                 <div class="form-group">
-                                                                    <label>Choose 4</label><span>*</span>
+                                                                    <label>End Reasons</label><span>*</span>
                                                                     <select (change)="onChangeCopType4($event.target.value)" name="Corporate_four" formControlName="Corporate_four" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                         <option *ngFor="let copphase11 of copphase11$" value="{{copphase11.typeID}}">{{copphase11.name}}</option>
                                                                   </select>
@@ -283,7 +283,7 @@
 
                                                      <div class="col-md-6 ">
                                                         <div class="form-group">
-                                                            <label>Choose 5</label><span>*</span>
+                                                            <label>Effective Reason</label><span>*</span>
                                                         <select  name="Corporate_five" formControlName="Corporate_five" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                             <option *ngFor="let copphase12 of copphase12$" value="{{copphase12.typeID}}">{{copphase12.name}}</option>
                                                         </select>
@@ -365,7 +365,7 @@
                                         <div class="row" style="margin-top: 2%">
                                                 <div class="col-md-6 ">
                                                         <div class="form-group">
-                                                            <label>Inbound</label><span>*</span>
+                                                            <label>Classification</label><span>*</span>
                                                             <select (change)="onChangeInbondType($event.target.value)" name="inboundtype" formControlName="inboundtype" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                               <option *ngFor="let allinbound of allinbound$" value="{{allinbound.typeID}}">{{allinbound.name}}</option>
                                                               
@@ -377,7 +377,7 @@
                                                           </div>
                                                         <div class="col-md-6 ">
                                                         <div class="form-group">
-                                                            <label>Choose 2</label><span>*</span>
+                                                            <label>Cover Query</label><span>*</span>
                                                             <select (change)="onChangeInbondType2($event.target.value)" name="inboundtype_two" formControlName="inboundtype_two" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                 <option *ngFor="let inbound1 of inbound1$" value="{{inbound1.typeID}}">{{inbound1.name}}</option>
                                                           </select>
@@ -389,7 +389,7 @@
 
                                                           <div class="col-md-6 ">
                                                             <div class="form-group">
-                                                                <label>Choose 3</label><span>*</span>
+                                                                <label>End Reasons</label><span>*</span>
                                                                 <select (change)="onChangeInbondType3($event.target.value)" name="inboundtype_three" formControlName="inboundtype_three" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                     <option *ngFor="let inbound2 of inbound2$" value="{{inbound2.typeID}}">{{inbound2.name}}</option>
                                                               </select>
@@ -401,7 +401,7 @@
 
                                                               <div class="col-md-6 ">
                                                                 <div class="form-group">
-                                                                    <label>Choose 4</label><span>*</span>
+                                                                    <label>Effective Reason</label><span>*</span>
                                                                     <select name="inboundtype_four" formControlName="inboundtype_four" class="form-control custom-select" [ngClass]="{ 'is-invalid': submitted && f.Reason.errors }">
                                                                         <option *ngFor="let inbound3 of inbound3$" value="{{inbound3.typeID}}">{{inbound3.name}}</option>
                                                                   </select>
@@ -488,7 +488,7 @@
                       </div>
                           </div>
   
-                      </div>
+                      </div> 
                   </div>
               </div>
           </div>

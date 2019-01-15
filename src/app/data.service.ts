@@ -13,8 +13,22 @@ interface myData {
 
 }
 
+interface oracledata{
+  ASSR_NAME : string;
+  ASSR_PHONE : string;
+  ASSR_OFFICE_PHONE : string;
+  DOB : string;
+  NATIONALITY : string;
+  iteam : object;
+}
+
 interface isLoggedIn {
   status:boolean
+}
+
+interface reportData{
+  type : string,
+  item : object
 }
 
 
@@ -34,8 +48,8 @@ export class DataService {
 
   private url
 
-  private base = "http://172.16.1.46/";
-  //private base = "http://localhost/";
+   //private base = "http://172.16.1.46/";
+   private base = "http://localhost/";
 
   constructor(private http: HttpClient,private auth: AuthService) { }
 
@@ -80,6 +94,15 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/single_edit_view_service/'+ofid);
   }
 
+  call_reason_avg()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/call_reason_avg/');
+  }
+
+  call_reason_avg_grap()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/call_reason_avg_grap/');
+  }
 
   services_csp_corporate_phase1(ofid){
     return this.http.get(this.base+'IcspApi/Api/index.php/user/services_csp_corporate_phase1/'+ofid);
@@ -179,7 +202,7 @@ export class DataService {
 
   genrate_ticket(contact)
   {
-    return this.http.post(this.base+'IcspApi/Api/index.php/user/genrate_ticket',contact);
+    return this.http.post<reportData>(this.base+'IcspApi/Api/index.php/user/genrate_ticket',contact);
   }
 
 
@@ -427,9 +450,11 @@ export class DataService {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/editdepartmentuser',contact);
   }
   
-  
-  
-  
+  createservice_branch(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_branch',contact);
+  }
+
   createservice_ind(contact)
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_ind',contact);
@@ -507,17 +532,50 @@ export class DataService {
 
   getcontactview(userId)
   {
-    return this.http.post(this.base+'oracle/customer_details.php/',userId);
+    return this.http.post('http://172.16.1.46/oracle/customer_details.php/',userId);
   }
+
+  getsearchphone(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchphone.php',userId);
+  }
+
+  getsearchpolicy(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchpolicy.php',userId);
+  }
+
+  getsearchchassis(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchchassis.php',userId);
+  }
+
+  getsearchpolicyactive(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchpolicyactive.php',userId);
+  }
+
+  getsearchphoneactive(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchphoneactive.php',userId);
+  }
+
+
+  
+  getsearchchassisactive(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchchassisactive.php',userId);
+  }
+
 
   vehicle_info(userId)
   {
-    return this.http.post(this.base+'oracle/vehicle.php/',userId);
+    return this.http.post('http://172.16.1.46/oracle/vehicle.php/',userId);
   }
 
   claim_info(userId)
   {
-    return this.http.post(this.base+'oracle/claim_new.php/',userId);
+    return this.http.post('http://172.16.1.46/oracle/claim_new.php/',userId);
   }
 
 

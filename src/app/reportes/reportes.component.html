@@ -9,7 +9,7 @@
             <!-- <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
             <li class="breadcrumb-item active">Add New Customer</li> -->
         </ol>
-    </div>
+    </div> 
 </div>
 <div class="container-fluid">
     <!-- Start Page Content -->
@@ -43,6 +43,21 @@
                                                     
                                                   </div>
                                                   </div>
+ 
+                                                  <div class="col-md-6 ">
+                                                 <div class="form-group">
+                                                                  <label>Select Type</label>                                                          
+                                                                  <select formControlName="type" class="form-control custom-select" >
+                                                                    <option value="">Select any Type</option>
+                                                                    <option value="Individual">Individual</option>
+                                                                    <option value="corporate">Corporate</option>
+                                                                    <option value="inbound">Inbound</option>
+                                                                    <option value="branch">branch</option>
+                                                                  
+                                                              </select> 
+                                                                
+                                                              </div>
+                                                              </div>
                                     
                                     <div class="col-md-6 "></div>
                                  
@@ -56,7 +71,7 @@
                             
                         </div></form>
 
-                        <div class="row" *ngIf="isreportview"> 
+                        <div class="row" *ngIf="isreportviewindidual"> 
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body" style="padding: 0px;">
@@ -72,15 +87,155 @@
                                                           <th>Ticket Id</th>
                                                           <th>Ticket Status</th>                    
                                                           <th>Ticket Type</th> 
-                                                          <th>Category1</th>                                      
-                                                          <th>Category2</th>
-                                                          <th>Category3</th>
-                                                          <th>Category4</th>
-                                                          <th>category5</th>
-                                                          <th>category6</th>
-                                                          <th>category7</th>
-                                                          <th>category8</th>  
-                                                          <th>category9</th>   
+                                                          <th>INS.Type</th>                                      
+                                                          <th>Dept</th>
+                                                          <th>Subclass</th>
+                                                          <th>Classification</th>
+                                                          <th>Cover Type</th>
+                                                          <th>Source Of Business</th>
+                                                          <th>Cover Query</th>
+                                                          <th>End Reasons</th>  
+                                                          <th>Effective Reason</th>   
+                                                          <th>Ticket Remarks</th>
+                                                          <th>Phone Number</th>
+                                                          <th>Create Time</th>
+                                                          <th>Department Name</th>
+                                                          <th>assign_name</th>
+                                                          <th>callreason_name</th>
+                                                          <th>calltype_name</th>
+                                                          <th>message</th>
+                                                          
+                                                          </tr>
+                                                </thead>
+                                                
+                                                <tbody> 
+                                                                             <tr *ngFor="let report of report$">
+                                                                                <td>{{report.CallerNumber}}</td>
+                                                                                <td>{{report.AgentName}}</td>
+                                                                                <td>{{report.Topic}}</td>
+                                                                                <td>{{report.CallTime}}</td>
+                                                                                <td>{{report.TicketID}}</td>
+                                                                                <td>{{report.Ticketstatus}}</td>
+                                                                                <td>{{report.TicketType}}</td>
+                                                                                <td>{{report.INSType}}</td>
+                                                                                <td>{{report.Dept}}</td>
+                                                                                <td>{{report.Subclass}}</td>
+                                                                                <td>{{report.Classification}}</td>
+                                                                                <td>{{report.CoverType}}</td>
+                                                                                <td>{{report.SourceOfBusiness}}</td>
+                                                                                <td>{{report.CoverQuery}}</td>
+                                                                                <td>{{report.EndReasons}}</td>
+                                                                                <td>{{report.EffectiveReason}}</td>
+                                                                                <td>{{report.ticketRemarks}}</td>
+                                                                                <td>{{report.phonenumber}}</td>
+                                                                                <td>{{report.createtime}}</td>
+                                                                                <td>{{report.departmentName}}</td>
+                                                                                <td>{{report.assignName}}</td>
+                                                                                <td>{{report.callreasonName}}</td>
+                                                                                <td>{{report.calltypeName}}</td>
+                                                                                <td>{{report.message}}</td>
+                                                                                
+                                                                                
+                                                                            </tr>
+                                                                           
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </div>
+
+                        <div class="row" *ngIf="isreportviewinbound"> 
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body" style="padding: 0px;">
+                                        <div class="table-responsive m-t-40">
+                                                <button (click)="exportAsXLSX()" style="margin-bottom: 21px"  class="btn btn-primary" >Export Excel</button><br>
+                                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                <thead>
+                                                         <tr>
+                                                          <th style="width: 16%;">Caller Number</th>
+                                                          <th>Agent Name</th>
+                                                          <th>Topic</th>
+                                                          <th>Called Time</th>
+                                                          <th>Ticket Id</th>
+                                                          <th>Ticket Status</th>                    
+                                                          <th>Ticket Type</th> 
+                                                          <th>Classification</th>                                      
+                                                          <th>CoverQuery</th>
+                                                          <th>EndReasons</th>
+                                                          <th>EffectiveReason</th>
+                                                          
+                                                        
+                                                          <th>Ticket Remarks</th>
+                                                          <th>Phone Number</th>
+                                                          <th>Create Time</th>
+                                                          <th>Department Name</th>
+                                                          <th>assign_name</th>
+                                                          <th>callreason_name</th>
+                                                          <th>calltype_name</th>
+                                                          <th>message</th>
+                                                          
+                                                          </tr>
+                                                </thead>
+                                                
+                                                <tbody> 
+                                                                             <tr *ngFor="let report of report$">
+                                                                                <td>{{report.CallerNumber}}</td>
+                                                                                <td>{{report.AgentName}}</td>
+                                                                                <td>{{report.Topic}}</td>
+                                                                                <td>{{report.CallTime}}</td>
+                                                                                <td>{{report.TicketID}}</td>
+                                                                                <td>{{report.Ticketstatus}}</td>
+                                                                                <td>{{report.TicketType}}</td>
+                                                                                <td>{{report.Classification}}</td>
+                                                                                <td>{{report.CoverQuery}}</td>
+                                                                                <td>{{report.EndReasons}}</td>
+                                                                                <td>{{report.EffectiveReason}}</td>
+                                                                                <td>{{report.ticketRemarks}}</td>
+                                                                                <td>{{report.phonenumber}}</td>
+                                                                                <td>{{report.createtime}}</td>
+                                                                                <td>{{report.departmentName}}</td>
+                                                                                <td>{{report.assignName}}</td>
+                                                                                <td>{{report.callreasonName}}</td>
+                                                                                <td>{{report.calltypeName}}</td>
+                                                                                <td>{{report.message}}</td>
+                                                                                
+                                                                                
+                                                                            </tr>
+                                                                           
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </div>
+
+                        <div class="row" *ngIf="isreportviewcorporate"> 
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body" style="padding: 0px;">
+                                        <div class="table-responsive m-t-40">
+                                                <button (click)="exportAsXLSX()" style="margin-bottom: 21px"  class="btn btn-primary" >Export Excel</button><br>
+                                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                <thead>
+                                                         <tr>
+                                                          <th style="width: 16%;">Caller Number</th>
+                                                          <th>Agent Name</th>
+                                                          <th>Topic</th>
+                                                          <th>Called Time</th>
+                                                          <th>Ticket Id</th>
+                                                          <th>Ticket Status</th>                    
+                                                          <th>Ticket Type</th> 
+                                                          <th>INSType</th>                                      
+                                                          <th>CoverType</th>
+                                                          <th>CoverQuery</th>
+                                                          <th>EndReasons</th>
+                                                          <th>EffectiveReason</th>
                                                           <th>Ticket Remarks</th>
                                                           <th>Phone Number</th>
                                                           <th>Create Time</th>
@@ -113,6 +268,70 @@
                                                                                 <td>{{report.category9}}</td>
                                                                                 <td>{{report.ticketRemarks}}</td>
                                                                                 <td>{{report.phonenumber}}</td>
+                                                                                <td>{{report.createtime}}</td>
+                                                                                <td>{{report.departmentName}}</td>
+                                                                                <td>{{report.assignName}}</td>
+                                                                                <td>{{report.callreasonName}}</td>
+                                                                                <td>{{report.calltypeName}}</td>
+                                                                                <td>{{report.message}}</td>
+                                                                                
+                                                                                
+                                                                            </tr>
+                                                                           
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </div>
+
+                        <div class="row" *ngIf="isreportviewbranch"> 
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body" style="padding: 0px;">
+                                        <div class="table-responsive m-t-40">
+                                                <button (click)="exportAsXLSX()" style="margin-bottom: 21px"  class="btn btn-primary" >Export Excel</button><br>
+                                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                <thead>
+                                                         <tr>
+                                                          <th style="width: 16%;">Caller Number</th>
+                                                          <th>Agent Name</th>
+                                                          <th>Topic</th>
+                                                          <th>Called Time</th>
+                                                          <th>Ticket Id</th>
+                                                          <th>Ticket Status</th>                    
+                                                          <th>Ticket Type</th> 
+                                                          <th>officeLocation</th>                                      
+                                                          <th>branch</th>
+                                                          <th>branchAddress</th>
+
+                                                          <th>SendNumber</th>
+                                                          <th>Create Time</th>
+                                                          <th>Department Name</th>
+                                                          <th>assign_name</th>
+                                                          <th>callreason_name</th>
+                                                          <th>calltype_name</th>
+                                                          <th>message</th>
+                                                          
+                                                          </tr>
+                                                </thead>
+                                                
+                                                <tbody> 
+                                                                             <tr *ngFor="let report of report$">
+                                                                                <td>{{report.CallerNumber}}</td>
+                                                                                <td>{{report.AgentName}}</td>
+                                                                                <td>{{report.Topic}}</td>
+                                                                                <td>{{report.CallTime}}</td>
+                                                                                <td>{{report.TicketID}}</td>
+                                                                                <td>{{report.Ticketstatus}}</td>
+                                                                                <td>{{report.TicketType}}</td>
+                                                                                <td>{{report.officeLocation}}</td>
+                                                                                <td>{{report.branch}}</td>
+                                                                                <td>{{report.branchAddress}}</td>
+                                                                                
+                                                                                <td>{{report.SendNumber}}</td>
                                                                                 <td>{{report.createtime}}</td>
                                                                                 <td>{{report.departmentName}}</td>
                                                                                 <td>{{report.assignName}}</td>
