@@ -1,9 +1,11 @@
 import {HttpClient} from '@angular/common/http';
+import { DataService } from '../data.service';
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort} from '@angular/material';
 import {merge, Observable, of as observableOf} from 'rxjs';
 import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {MatTableDataSource} from '@angular/material';
+import {SelectionModel} from '@angular/cdk/collections';
 
 export interface Food {
   value: string;
@@ -11,15 +13,16 @@ export interface Food {
 }
 
 @Component({
-  selector: 'app-viewservice',
-  templateUrl: './viewservice.component.html',
-  styleUrls: ['./viewservice.component.css']
+  selector: 'app-viewoutboundcall',
+  templateUrl: './viewoutboundcall.component.html',
+  styleUrls: ['./viewoutboundcall.component.css']
 })
-export class ViewserviceComponent implements OnInit {
+export class ViewoutboundcallComponent implements OnInit {
 
-  displayedColumns: string[] = ['slno','ticket_id','type', 'phonenumber','department','assign','createdate','ticketStatus','view'];
+  displayedColumns: string[] = ['select','Slno','name','policynumber', 'agentname','mobileno','policyexpirydate','ticket_id','view'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
+  selection = new SelectionModel<GithubIssue>(true, []);
   name = 'Imp';
   assigns = '0';
 
@@ -28,17 +31,21 @@ export class ViewserviceComponent implements OnInit {
   isRateLimitReached = false;
   searchval:string;
   selectedValue
+  msg : string = '';
+  bgcolor : string = '';
+  msgview : boolean = false;
+
   
   foods: Food[] = [
     {value: '0', viewValue: 'Assign name'},
-    {value: '1', viewValue: 'Ram'},
-    {value: '2', viewValue: 'Sangeeth'}
+    {value: 'Ram', viewValue: 'Ram'},
+    {value: 'Sundar', viewValue: 'Sundar'}
   ]; 
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private datas: DataService) {}
 
   ngOnInit() {
     this.exampleDatabase = new ExampleHttpDao(this.http);
@@ -68,6 +75,41 @@ export class ViewserviceComponent implements OnInit {
           return observableOf([]);
         })
       ).subscribe(data => this.data = data);
+  }
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+   // console.log(this.selection.selected);
+    const numRows = this.data.length;
+    return numSelected === numRows;
+  }
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.data.forEach(row => this.selection.select(row))
+       // console.log(this.data.forEach(row => this.selection.select(row)));
+  }
+
+  assignto()
+  {
+    var totalselect = {
+      agantname : this.selectedValue,
+      changeitem : this.selection.selected
+    }
+
+    this.datas.changetheoutbondassign(totalselect).subscribe((response) => {
+
+      this.msg = response['msg'];
+      this.bgcolor = response['bgcolor'];
+     this.msgview = true;
+   
+     });
+
+
+  }
+
+  msgclose()
+  {
+   this.msgview = false;
   }
 
   applyFilter(filterValue: string) {
@@ -158,7 +200,7 @@ export class ExampleHttpDao {
   getRepoIssues(sort: string = '2d242uyz', order: string = 'asc' , page: number,search:string = 'Imp',assignsort:string = '0'): Observable<GithubApi> {
 
 
-    const href = 'http://172.16.1.46/IcspApi/Api/index.php/user/allservices';
+    const href = 'http://localhost/IcspApi/Api/index.php/user/allservice_outbound';
     //const requestUrl ='http://localhost/IcspApi/Api/index.php/user/allcontacts';
    // const requestUrl =
       //  `${href}?q=repo:angular/material2&sort=${sort}&order=${order}&page=${page + 1}`;

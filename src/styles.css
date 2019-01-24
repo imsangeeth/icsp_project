@@ -4894,6 +4894,10 @@ label {
  
   color: #000;
 }
+example-margin {
+  margin: 0 10px;
+}
+
   .form-control {
     display: block;
     width: 100%;

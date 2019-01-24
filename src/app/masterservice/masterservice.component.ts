@@ -36,10 +36,24 @@ export class MasterserviceComponent implements OnInit {
   newfiled: string = '';
   sub$ : object
 
+  //  afuConfig = {
+  //     uploadAPI: {
+  //     url:"http://localhost/IcspApi/Api/index.php/user/checkimage_upload"
+  //    }
+  //  };
+   
    afuConfig = {
-      uploadAPI: {
-      url:"http://localhost/crm"
-     }
+    multiple: false,
+   // formatsAllowed: ".jpg,.png",
+    maxSize: "1",
+    uploadAPI:  {
+      url:"http://localhost/IcspApi/Api/index.php/user/checkimage_upload",
+      
+    },
+    theme: "dragNDrop",
+    hideProgressBar: true,
+    hideResetBtn: true,
+    hideSelectBtn: true
    };
   constructor(private formBuilder: FormBuilder,private data: DataService) { }
 
@@ -101,6 +115,11 @@ export class MasterserviceComponent implements OnInit {
 
     });
 
+   }
+
+   DocUpload(ky)
+   {
+     console.log(ky);
    }
 
    onChangeoffice(deviceValue)

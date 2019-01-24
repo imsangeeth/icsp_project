@@ -21,6 +21,8 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { MasterassignComponent } from './masterassign/masterassign.component';
 import { MasterserviceComponent } from './masterservice/masterservice.component';
 import { MasterktComponent } from './masterkt/masterkt.component';
+import { CreateoutboundComponent } from './createoutbound/createoutbound.component';
+import { ViewoutboundcallComponent } from './viewoutboundcall/viewoutboundcall.component';
 
 const routes: Routes = [
   {
@@ -138,9 +140,16 @@ const routes: Routes = [
     path: 'masterkt',
     component: MasterktComponent,
     //canActivate:[AuthGuard]
+  },
+  {
+    path: 'updateoutbound/:tktId',
+    component: CreateoutboundComponent,
+    //canActivate:[AuthGuard]
+  },
+  {
+    path: 'viewoutbound',
+    component: ViewoutboundcallComponent,
   }
-  
-  
 
 ];
 

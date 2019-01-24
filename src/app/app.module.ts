@@ -57,6 +57,9 @@ import { MasterassignComponent } from './masterassign/masterassign.component';
 import { MasterserviceComponent } from './masterservice/masterservice.component';
 import { MasterktComponent } from './masterkt/masterkt.component';
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { CreateoutboundComponent } from './createoutbound/createoutbound.component';
+import { ViewoutboundcallComponent } from './viewoutboundcall/viewoutboundcall.component';
+import { SingleoutboundComponent } from './singleoutbound/singleoutbound.component';
 
 
 
@@ -87,7 +90,10 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
     ReportesComponent,
     MasterassignComponent,
     MasterserviceComponent,
-    MasterktComponent
+    MasterktComponent,
+    CreateoutboundComponent,
+    ViewoutboundcallComponent,
+    SingleoutboundComponent
   ],
   imports: [
     BrowserModule,

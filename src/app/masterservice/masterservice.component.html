@@ -36,11 +36,13 @@
                                         <form  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                                         <div class="row">
 
-                                                <angular-file-uploader
-                                                [config]="afuConfig">
-                                          </angular-file-uploader> 
+                                            <!-- <angular-file-uploader 
+                                            [config]="afuConfig"
+                                            [resetUpload]=resetVar
+                                            (ApiResponse)="DocUpload($event)">
+                                      </angular-file-uploader>
 
-                                          <input type="file" (change)="fileChange($event)" placeholder="Upload file" >
+                                          <input type="file" (change)="fileChange($event)" placeholder="Upload file" > -->
                                             
                                             <div class="col-md-6 ">
                                                 <div class="form-group">

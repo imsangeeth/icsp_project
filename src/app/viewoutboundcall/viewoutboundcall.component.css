@@ -1,0 +1,91 @@
+/* Structure */
+.example-container {
+    position: relative;
+  }
+  
+  .example-table-container {
+    position: relative;
+    max-height: 400px;
+    overflow: auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .example-loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-rate-limit-reached {
+    color: #980000;
+    max-width: 360px;
+    text-align: center;
+  }
+  
+  /* Column Widths */
+  .mat-column-number,
+  .mat-column-state {
+    max-width: 64px;
+  }
+  
+  .mat-column-created {
+    max-width: 124px;
+  }
+  .mat-header-cell {
+    color: #2196F3;
+  }
+  .mat-header-cell {
+  font-size: 13px;
+  font-weight: bold;
+  }
+  .example-table-container[_ngcontent-c2] {
+    position: relative;
+    max-height: 550px;
+    overflow: auto;
+}
+.divider{
+  width:15px;
+  height:auto;
+  display:inline-block;
+}
+.searchheader{
+  background-color: #fff;
+}
+.mat-header-cell[_ngcontent-c1] {
+  color: #356957;
+  z-index: 9 !important;
+}
+.text-primary {
+  color: #356957!important;
+}
+.mat-header-cell[_ngcontent-c3] {
+  font-size: 13px;
+  font-weight: bold;
+  z-index: 9 !important;
+  color: #356957;
+}
+.mat-header-cell[_ngcontent-c7] {
+  color: #356957;
+  z-index: 9 !important;
+}
+.mat-header-cell[_ngcontent-c13] {
+  color: #356957;
+  z-index: 9 !important;
+}
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: #356957;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+  background-color: darkcyan !important;
+}

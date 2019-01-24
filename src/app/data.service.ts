@@ -157,9 +157,6 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/services_phase_user/'+ofid+'/'+type);
   }
 
-
-
-
   branchoffice(ofid){
     return this.http.get(this.base+'IcspApi/Api/index.php/user/officebranches/'+ofid);
   }
@@ -348,6 +345,11 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/viewservices_module_filed/'+phaseId);
   }
 
+  fileupload(phaseId){
+
+    return this.http.post(this.base+'lab/excel_reader/fileupload.php',phaseId);
+  }
+
   allcontacts()
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/allcontacts/');
@@ -382,14 +384,33 @@ export class DataService {
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/viewcategory_list/',phaseId);
   }
-  
-  
-  
-  
   viewcalltype()
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/viewcalltype');
   }
+
+  
+  outbound_moredetails()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/outbound_moredetails');
+  }
+
+  view_outbound_value(ky)
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/view_outbound_value/'+ky);
+  }
+
+  updateoutboundvalue(ky)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/updateoutboundvalue/',ky);
+  }
+
+  changetheoutbondassign(ky)
+   {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/changetheoutbondassign/',ky);
+   }
+
+
 
   viewdepartment()
   {

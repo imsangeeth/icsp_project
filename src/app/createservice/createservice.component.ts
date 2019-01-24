@@ -15,6 +15,7 @@ export class CreateserviceComponent implements OnInit {
   IndividualForm : FormGroup;
   corporateForm:FormGroup;
   inboundForm:FormGroup;
+  form: FormGroup;
   submitted = false;
   ind_submitted = false;
   cop_submitted = false;
@@ -107,6 +108,10 @@ export class CreateserviceComponent implements OnInit {
   key$: string = '';
 
   allinbound$:object;
+  fileToUpload;
+  spinnloder : boolean = false;
+
+ // private readonly newProperty = this.loading = true;
 
 constructor(private route: ActivatedRoute,private formBuilder: FormBuilder,private data: DataService) {
   this.route.params.subscribe( params => this.phn$ = params.phn );
@@ -598,5 +603,64 @@ onSubmit_individual() {
   {this.registerForm.reset();
 
   }
+
+  //onchange
+
+  onFileChange(files: FileList) {
+
+    //console.log(files.item(0));
+    this.spinnloder = true; 
+    this.fileToUpload = files.item(0); 
+    
+    let formData = new FormData(); 
+    formData.append('file', this.fileToUpload, this.fileToUpload.name); 
+
+    this.data.fileupload(formData).subscribe((response) => {
+      this.spinnloder = false; 
+      this.msg = response['msg'];
+      this.bgcolor = response['bgcolor'];
+      this.msgview = true;
+      //console.log(response);
+    });
+
+    return false; 
+
+//     this.http.post(“Your end-point URL”, ).subscribe((val) => {
+
+//       console.log(val);
+// });
+  }
+
+  // onFileChange(event) {
+  //   let reader = new FileReader();
+  //   if(event.target.files && event.target.files.length > 0) {
+  //     let file = event.target.files[0];
+
+  //     console.log(file);
+
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => {
+  //       this.form.get('avatar').setValue({
+  //         filename: file.name,
+  //         filetype: file.type,
+
+  //         value: reader.result
+  //       })
+  //     };
+  //   }
+  // }
+
+  // onSubmit_file() {
+  //   const formModel = this.form.value;
+  //   //this.newProperty;
+  //   // In a real-world app you'd have a http request / service call here like
+  //   // this.http.post('apiUrl', formModel)
+  //   setTimeout(() => {
+  //     console.log(formModel);
+  //     alert('done!');
+  //    // this.loading = false;
+  //   }, 1000);
+  // }
+
  
 }

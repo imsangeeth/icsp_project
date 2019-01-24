@@ -23,7 +23,7 @@
               <div class="col-lg-12">
                   <div class="card">
                       <div class="card-body">
-                          <div class="form-validation">
+                          <div class="form-validation"> 
                           <div class="card-body">
                           
                               <div class="form-body">
@@ -489,7 +489,17 @@
                                                             
                                                   </div>
                                                            </form>  </mat-tab>
-                                        <mat-tab label="Outbound"></mat-tab>
+                                        <mat-tab label="Outbound">
+                                            <div style="margin-top: 3%;margin-left: 40%; margin-right: 40%;">
+                                            <label style="padding: 10px;background: #356957;display: table;color: #fff;text-align: center;width: 203px;cursor: pointer;" id="#bb">Please Choose one excel File<input type="file" id="avatar" class="inputfile" name="file" (change)="onFileChange($event.target.files)" #fileInput></label> 
+                                            <img *ngIf="spinnloder" style="margin-left: 37%" src="assets/spinner.gif" > 
+                                            
+                                            </div>
+
+                                        
+                                            
+                                        
+                                        </mat-tab>
                                         <mat-tab label="Suggestions"></mat-tab>
                                         <mat-tab label="Complaints"></mat-tab>
                                       </mat-tab-group>
