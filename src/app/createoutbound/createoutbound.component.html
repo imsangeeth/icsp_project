@@ -1,8 +1,8 @@
 <!-- main app container -->
 
-    
-    <!-- credits -->  
-    <app-header></app-header> 
+
+    <!-- credits -->
+    <app-header></app-header>
     <div class="page-wrapper">
       <!-- Bread crumb -->
       <div class="row page-titles">
@@ -11,11 +11,11 @@
           <div class="col-md-7 align-self-center">
               <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                  <li class="breadcrumb-item active">Update Outbound</li>
+                  <li class="breadcrumb-item active">Outbound Deatils</li>
               </ol>
           </div>
-      </div> 
-      <!-- End Bread crumb --> 
+      </div>
+      <!-- End Bread crumb -->
       <!-- Container fluid  -->
       <div class="container-fluid">
           <!-- Start Page Content -->
@@ -23,15 +23,15 @@
               <div class="col-lg-12">
                   <div class="card">
                       <div class="card-body">
-                          <div class="form-validation"> 
-                          <div class="card-body"> 
-                          
+                          <div class="form-validation">
+                          <div class="card-body">
+
                               <div class="form-body">
-                                  <h5 class="box-title m-t-40">Update Outbound</h5>
+                                  <h5 class="box-title m-t-40">Outbound Deatils</h5>
                                   <hr>
-                               
-                                       
-                                       
+
+
+
                                             <form [formGroup]="IndividualForm" style="overflow-x: hidden" (ngSubmit)="onSubmit_individual()">
                                                 <div class="row" style="margin-top: 2%">
 
@@ -42,7 +42,7 @@
                                                                 <option value="0">Please Choose One</option>
                                                             <option *ngFor="let insphase7 of insphase7$" value="{{insphase7.id}}">{{insphase7.name}}</option>
                                                         </select>
-                                                              
+
                                                         </div>
                                                         </div>
 
@@ -53,10 +53,10 @@
                                                                 <option value="0">Please Choose One</option>
                                                             <option *ngFor="let insphase17 of insphase17$" value="{{insphase17.id}}">{{insphase17.name}}</option>
                                                         </select>
-                                                              
+
                                                         </div>
                                                         </div>
-                                                        
+
 
                                                                   <div class="col-md-6 ">
                                                                     <div class="form-group">
@@ -66,7 +66,7 @@
                                                                         <option *ngFor="let insphase9 of insphase9$" value="{{insphase9.id}}">{{insphase9.name}}</option>
                                                                     </select>
                                                                                                                                                            </div>
-                                                                    </div> 
+                                                                    </div>
                                                                 <div class="col-md-6 ">
                                                                 <div class="form-group">
                                                                     <label>Outbound Classfication</label><span>*</span>
@@ -84,7 +84,7 @@
                                                                                 <option value="0">Please Choose One</option>
                                                                             <option *ngFor="let insphase3 of insphase3$" value="{{insphase3.id}}">{{insphase3.name}}</option>
                                                                       </select>
-                                                                        
+
                                                                     </div>
                                                                       </div>
 
@@ -95,11 +95,11 @@
                                                                                     <option value="0">Please Choose One</option>
                                                                                 <option *ngFor="let insphase4 of insphase4$" value="{{insphase4.id}}">{{insphase4.name}}</option>
                                                                           </select>
-                                                                           
+
                                                                         </div>
                                                                           </div>
 
-                                                                          
+
 
                                                              <div class="col-md-6 ">
                                                                 <div class="form-group">
@@ -108,10 +108,10 @@
                                                                         <option value="0">Please Choose One</option>
                                                                     <option *ngFor="let insphase5 of insphase5$" value="{{insphase5.id}}">{{insphase5.name}}</option>
                                                                 </select>
-                                                                       
+
                                                                 </div>
                                                                 </div>
-                                                                    
+
 
                                                                 <div class="col-md-6 ">
                                                                     <div class="form-group">
@@ -120,9 +120,9 @@
                                                                             <option value="0">Please Choose One</option>
                                                                         <option *ngFor="let insphase6 of insphase6$" value="{{insphase6.id}}">{{insphase6.name}}</option>
                                                                     </select>
-                                                                          
+
                                                                     </div>
-                                                                    </div>                                                                  
+                                                                    </div>
 
                                                                         <div class="col-md-6 ">
                                                                             <div class="form-group">
@@ -132,32 +132,32 @@
                                                                                 <option *ngFor="let insphase8 of insphase8$" value="{{insphase8.id}}">{{insphase8.name}}</option>
                                                                             </select>
                                                                                                                                                                </div>
-                                                                            </div> 
+                                                                            </div>
 
                                                                             <div class="col-md-6 ">
                                                                                 <div class="form-group">
                                                                                     <label>Outbound Action</label><span>*</span>
-                                                                                    
+
                                                                                     <select formControlName="Outboundaction" class="form-control custom-select" >
                                                                                             <option value="0">Please Choose One</option>
                                                                                         <option *ngFor="let type of Action$" value="{{type.id}}">{{type.name}}</option>
-                                                                                      
-                                                                                  </select> 
+
+                                                                                  </select>
                                                                                    </div>
                                                                                   </div>
 
                                                                                   <div class="col-md-6 ">
                                                                                     <div class="form-group">
                                                                                         <label>Customername</label><span>*</span>
-                                                                                        
+
                                                                                <input type="text"  formControlName="customernamenew" class="form-control" >
                                                                                        </div>
                                                                                       </div>
 
                                                                                       <div class="col-md-6 ">
                                                                                         <div class="form-group">
-                                                                                            <label>policyyear</label><span>*</span>
-                                                                                            
+                                                                                            <label>Policyyear</label><span>*</span>
+
                                                                                    <input type="text"  formControlName="policyyear" class="form-control" >
                                                                                            </div>
                                                                                           </div>
@@ -165,8 +165,8 @@
 
                                                                                           <div class="col-md-6 ">
                                                                                             <div class="form-group">
-                                                                                                <label>policynumber</label><span>*</span>
-                                                                                                
+                                                                                                <label>Policynumber</label><span>*</span>
+
                                                                                        <input type="text"  formControlName="policynumber" class="form-control" >
                                                                                                </div>
                                                                                               </div>
@@ -174,77 +174,97 @@
                                                                                               <div class="col-md-6 ">
                                                                                                 <div class="form-group">
                                                                                                     <label>Mobileno</label><span>*</span>
-                                                                                                    
+
                                                                                            <input type="text"  formControlName="mobileno" class="form-control" >
                                                                                                    </div>
                                                                                                   </div>
                                                                                                   <div class="col-md-6 ">
                                                                                                     <div class="form-group">
-                                                                                                        <label>callduration</label><span>*</span>
-                                                                                                        
+                                                                                                        <label>Callduration</label><span>*</span>
+
                                                                                                <input type="text"  formControlName="callduration" class="form-control" >
                                                                                                        </div>
                                                                                                       </div>
 
-                                                                                                      <div class="col-md-6 ">
+                                                                                                      <div class="col-md-6">
                                                                                                         <div class="form-group">
-                                                                                                            <label>Calldate</label><span>*</span>
-                                                                                                            
-                                                                                                   <input type="date" value="" formControlName="calldates" class="form-control" >
+                                                                                                            <!-- <label>Calldate</label><span>*</span> -->
+
+                                                                                                            <mat-form-field>
+                                                                                                                    <input formControlName="calldates" [matDatepicker]="picker" matInput placeholder="Call date">
+                                                                                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                                                                                    <mat-datepicker #picker></mat-datepicker>
+                                                                                                                  </mat-form-field>
+                                                                                                            <!-- <input matInput formControlName="calldates" [matDatepicker]="picker" placeholder="Choose a date">       -->
+                                                                                                   <!-- <input type="date"  formControlName="calldates" class="form-control" > -->
                                                                                                            </div>
                                                                                                           </div>
 
                                                                                                           <div class="col-md-6 ">
                                                                                                             <div class="form-group">
-                                                                                                                <label>noofcall</label><span>*</span>
-                                                                                                                
+                                                                                                                <label>No Of Call</label><span>*</span>
+
                                                                                                        <input type="text"  formControlName="noofcall" class="form-control" >
                                                                                                                </div>
                                                                                                               </div>
 
                                                                                                               <div class="col-md-6 ">
                                                                                                                 <div class="form-group">
-                                                                                                                    <label>followupdate</label><span>*</span>
-                                                                                                                    
-                                                                                                           <input type="date" formControlName="followupdate" class="form-control" >
+                                                                                                                    <!-- <label>Followup Date</label><span>*</span> -->
+
+                                                                                                                    <mat-form-field>
+                                                                                                                            <input formControlName="followupdate" [matDatepicker]="picker1" matInput placeholder="Followup Date">
+                                                                                                                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                                                                                            <mat-datepicker #picker1></mat-datepicker>
+                                                                                                                          </mat-form-field>
+
+                                                                                                           <!-- <input type="date" formControlName="followupdate" class="form-control" > -->
                                                                                                                    </div>
                                                                                                                   </div>
-                                                                                   
-                                                                               
 
-                                                                  
+                                                                                                                  <div class="col-md-12 ">
+                                                                                                                        <div class="form-group">
+                                                                                                                            <label>Remarks</label><span>*</span>
+
+                                                                                                                   <input type="text" formControlName="remarks" class="form-control" >
+                                                                                                                           </div>
+                                                                                                                          </div>
+
+
+
+
 
                                                                 <div class="col-md-6 "></div>
                                                                 <div class="col-md-6 "></div>
-                                                                
+
                                                                 <div class="col-md-6 "  >
                                                                     <div class="form-actions">
                                                                         <button [disabled]="IndividualForm.pristine || IndividualForm.invalid" class="btn btn-primary" style="margin: 8px;">Update</button>
                                                                         <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
                                                                     </div>
-                                                                    </div> 
-                                                         
+                                                                    </div>
+
                                                     </div>
-                                                    
-                                                </form> 
-                                        
-                                        
-                                       
-                                     
+
+                                                </form>
+
+
+
+
 
                                       <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
                                           <div class="alert alert-primary alert-dismissible fade show">
                                               <button type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                              <strong>{{msg}}</strong> 
+                                              <strong>{{msg}}</strong>
                                           </div>
                                   </div>
-  
+
                                   </div>
                       </div>
                           </div>
-  
+
                       </div>
                   </div>
               </div>
           </div>
-  
+

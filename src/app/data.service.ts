@@ -77,6 +77,11 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/viewcustomer');
   }
 
+  check_admin()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/check_admin');
+  }
+
   getofficelocation(){
     return this.http.get(this.base+'IcspApi/Api/index.php/user/officelocation');
   }
@@ -238,6 +243,11 @@ export class DataService {
   deletecallreason(phaseId)
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/deletecallreason/',phaseId);
+  }
+
+  editbranch_service(content)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/editbranch_service/',content);
   }
 
   deletedepartmentuser(phaseId)
@@ -417,6 +427,16 @@ export class DataService {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/viewdepartment');
   }
 
+  viewagents()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/viewagents');
+  }
+
+  editagent(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/editagent',contact);
+  }
+
   viewservices_module()
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/viewservices_module');
@@ -445,6 +465,10 @@ export class DataService {
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/createnewdepartment',contact);
   }
+  createnewagent(contact)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createnewagent',contact);
+  }
   editdepartment(contact)
   {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/editdepartment',contact);
@@ -471,9 +495,15 @@ export class DataService {
     return this.http.post(this.base+'IcspApi/Api/index.php/user/editdepartmentuser',contact);
   }
   
-  createservice_branch(contact)
+  createservice_branch(content)
   {
-    return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_branch',contact);
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/createservice_branch',content);
+  }
+
+  addnew_services_branch(content)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/addnew_services_branch',content);
+
   }
 
   createservice_ind(contact)

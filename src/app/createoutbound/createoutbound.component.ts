@@ -60,6 +60,7 @@ export class CreateoutboundComponent implements OnInit {
   noofcall : string = '';
   calldates : string = '';
   callduration : string = '';
+  remarks : string = '';
   msg : string = '';
   bgcolor: string = '';
   msgview : boolean = false;
@@ -68,6 +69,11 @@ export class CreateoutboundComponent implements OnInit {
   constructor(private route: ActivatedRoute,private formBuilder: FormBuilder,private data: DataService) { 
     this.route.params.subscribe( params => this.ticketid = params.tktId );
   }
+
+  angularForm = new FormGroup ({
+    name: new FormControl()
+  });
+
 
   ngOnInit() {
     
@@ -91,6 +97,7 @@ export class CreateoutboundComponent implements OnInit {
       noofcall :[''],
       calldates : [''],
       callduration :[''],
+      remarks:['']
 
     });
 
@@ -119,9 +126,8 @@ export class CreateoutboundComponent implements OnInit {
 
       this.IndividualForm.controls['followupdate'].setValue(new Date(response['followupdate']));
       this.IndividualForm.controls['noofcall'].setValue(response['noofcall']);
-      this.IndividualForm.controls['calldates'].setValue(new Date(response['Calldate']));
-      this.IndividualForm.controls['callduration'].setValue(response['callduration']);
-      
+      this.IndividualForm.controls['calldates'].setValue(new Date(response['calldate']));
+      this.IndividualForm.controls['callduration'].setValue(response['callduration']);   
       this.IndividualForm.controls['policyyear'].setValue(response['policyyear']);
       this.IndividualForm.controls['customernamenew'].setValue(response['customername']);
       this.IndividualForm.controls['mobileno'].setValue(response['mobileno']);
@@ -136,6 +142,7 @@ export class CreateoutboundComponent implements OnInit {
       this.IndividualForm.controls['effective_reason'].setValue(response['outboundeffectivereason']);
       this.IndividualForm.controls['endreason'].setValue(response['outboundendreason']);
       this.IndividualForm.controls['Outboundaction'].setValue(response['outboundaction']);
+      this.IndividualForm.controls['remarks'].setValue(response['remarks']);
 
     });
 
@@ -187,6 +194,7 @@ export class CreateoutboundComponent implements OnInit {
       outboundeffectivereason:  this.IndividualForm.get('effective_reason').value,
       outboundendreason:  this.IndividualForm.get('endreason').value,
       outboundaction:  this.IndividualForm.get('Outboundaction').value,
+      remarks : this.IndividualForm.get('remarks').value,
       ticketid:this.ticketid,
      
      

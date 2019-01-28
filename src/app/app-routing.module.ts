@@ -23,6 +23,10 @@ import { MasterserviceComponent } from './masterservice/masterservice.component'
 import { MasterktComponent } from './masterkt/masterkt.component';
 import { CreateoutboundComponent } from './createoutbound/createoutbound.component';
 import { ViewoutboundcallComponent } from './viewoutboundcall/viewoutboundcall.component';
+import { CreateagentComponent } from './createagent/createagent.component';
+import { MasterticketComponent } from './masterticket/masterticket.component';
+
+
 
 const routes: Routes = [
   {
@@ -149,6 +153,14 @@ const routes: Routes = [
   {
     path: 'viewoutbound',
     component: ViewoutboundcallComponent,
+  },
+  {
+    path: 'newagent',
+    component : CreateagentComponent
+  },
+  {
+    path:"masterservices",
+    component :MasterticketComponent
   }
 
 ];

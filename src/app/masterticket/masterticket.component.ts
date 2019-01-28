@@ -5,11 +5,11 @@ import { ActivatedRoute } from "@angular/router";
 import { FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
-  selector: 'app-createservice',
-  templateUrl: './createservice.component.html',
-  styleUrls: ['./createservice.component.css']
+  selector: 'app-masterticket',
+  templateUrl: './masterticket.component.html',
+  styleUrls: ['./masterticket.component.css']
 })
-export class CreateserviceComponent implements OnInit {
+export class MasterticketComponent implements OnInit {
 
   registerForm: FormGroup;
   IndividualForm : FormGroup;
@@ -43,6 +43,7 @@ export class CreateserviceComponent implements OnInit {
   copphase10$:object;
   copphase11$:object;
   copphase12$:object;
+  updatedId  = 0;
 
   customername: string = '';
   Reason: string = '';
@@ -84,6 +85,7 @@ export class CreateserviceComponent implements OnInit {
   ser_department:string = '';
   ser_comment:string = '';
   Remarks:string ='';
+  addnewiteam : string = '';
 
 
   Corporatetype:string = '';
@@ -106,18 +108,27 @@ export class CreateserviceComponent implements OnInit {
   inboundtypecomment:string = '';
   phn$: string = '';
   key$: string = '';
-  checkadmin : boolean = true;
+
+
+  iscalltypebutton:boolean = true;
+  iscalltypeupdatebutton:boolean = false;
+
+  viewofficelocation : boolean = true;
+  viewbranch : boolean = false;
+  viewaddress : boolean = false;
+
 
   allinbound$:object;
+  totalview$:object;
+  totalindiv$ : object;
+
   fileToUpload;
   spinnloder : boolean = false;
 
  // private readonly newProperty = this.loading = true;
 
 constructor(private route: ActivatedRoute,private formBuilder: FormBuilder,private data: DataService) {
-  this.route.params.subscribe( params => this.phn$ = params.phn );
-  this.route.params.subscribe( params => this.key$ = params.key );
-  
+ 
  }
 
 angularForm = new FormGroup ({
@@ -128,23 +139,14 @@ ngOnInit() {
 
   //console.log(this.phn$);
 
-  this.data.check_admin().subscribe((response) => {
-    
-    this.checkadmin = response['status']; 
-  
-  });
-
  // 
   this.registerForm = this.formBuilder.group({
-    officelocation: ['', Validators.required],
+
+    officelocation: [''],
     smsmobilenumber: ['', Validators.required],
-    branch : ['', Validators.required],
-    branch_department : [''],
-    branch_assign : [''],
-    branch_comment : [''],
-    selectaddress : ['', Validators.required],
-    
-    
+    branch : [''],
+    selectaddress : [''],
+
      //email: ['', [Validators.required, Validators.email]],
     //password: ['', [Validators.required, Validators.minLength(6)]]
 });
@@ -165,19 +167,16 @@ this.corporateForm = this.formBuilder.group({
 
 this.IndividualForm = this.formBuilder.group({
 
-  Insurancetype: ['', Validators.required],
-  Individual_two: ['', Validators.required],
-  Individual_three : ['', Validators.required],
-  Individual_four : ['', Validators.required],
-  Individual_five : ['', Validators.required],
+  Insurancetype: [''],
+  Individual_two: [''],
+  Individual_three : [''],
+  Individual_four : [''],
+  Individual_five : [''],
   Individual_six : [''],
   Individual_sevan: [''],
   Individual_eight: [''],
   Individual_nine : [''],
-  ser_assign:[''],
-  ser_department:[''],
-  ser_comment:[''],
-  Remarks:[''],
+  addnewiteam : ['',Validators.required]
  
 });
 
@@ -195,20 +194,26 @@ this.inboundForm = this.formBuilder.group({
 
 });
 
-this.registerForm.controls['smsmobilenumber'].setValue(this.phn$);
+//this.registerForm.controls['smsmobilenumber'].setValue(this.phn$);
 
-this.data.getofficelocation().subscribe(
-  data => this.location$ = data  
-);
+this.data.getofficelocation().subscribe((response) => {
 
-this.data.getoffice_department().subscribe(
-  data => this.getoffice_department = data  
-);
+  //data => this.location$ = data, 
+  this.location$ = response;
+  this.totalview$ = response;
+  
+});
+
+this.data.getoffice_department().subscribe((response) => {
+  this.getoffice_department = response
+    
+});
 
 
-this.data.insuranctype().subscribe(
-  data => this.insurancetype$ = data  
-);
+this.data.insuranctype().subscribe((response) => {
+  this.insurancetype$ = response
+  this.totalindiv$ = response  
+});
 
 this.data.allCopType().subscribe(
   data => this.allCopType$ = data  
@@ -243,8 +248,7 @@ onSubmit_inbound() {
     inboundtype_department : this.inboundForm.get('inboundtype_department').value,
     inboundtypeRemarks : this.inboundForm.get('inboundtypeRemarks').value,
     inboundtypecomment:  this.inboundForm.get('inboundtypecomment').value,
-    phone:this.phn$,
-    key : this.key$
+   
     
   };
 
@@ -294,8 +298,7 @@ onSubmit_corporate() {
     Corporate_department : this.corporateForm.get('Corporate_department').value,
     CorporateRemarks:  this.corporateForm.get('CorporateRemarks').value,
     Corporatecomment:  this.corporateForm.get('Corporatecomment').value,
-    phone:this.phn$,
-    key : this.key$
+   
   };
 
   console.log(corporates);
@@ -350,41 +353,35 @@ onSubmit_individual() {
     Individual_sevan : this.IndividualForm.get('Individual_sevan').value,
     Individual_eight:  this.IndividualForm.get('Individual_eight').value,
     Individual_nine:  this.IndividualForm.get('Individual_nine').value,
-    ser_department: this.IndividualForm.get('ser_department').value,
-    ser_assign:  this.IndividualForm.get('ser_assign').value,
-    ser_comment:this.IndividualForm.get('ser_comment').value,
-    Remarks:  this.IndividualForm.get('Remarks').value,
-    phone:this.phn$,
-    key: this.key$
-   
+    addnewiteam : this.IndividualForm.get('addnewiteam').value
   };
  
- // console.log(individual);
+    console.log(individual);
 
 //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
  // alert(this.registerForm.get('StartTime').value)
 
- this.data.createservice_ind(individual).subscribe((response) => {
+//  this.data.createservice_ind(individual).subscribe((response) => {
 
-  this.IndividualForm.controls['Insurancetype'].setValue('');
-  this.IndividualForm.controls['Individual_two'].setValue('');
-  this.IndividualForm.controls['Individual_three'].setValue('');
-  this.IndividualForm.controls['Individual_four'].setValue('');
-  this.IndividualForm.controls['Individual_five'].setValue('');
-  this.IndividualForm.controls['Individual_six'].setValue('');
-  this.IndividualForm.controls['Individual_sevan'].setValue('');
-  this.IndividualForm.controls['Individual_eight'].setValue('');
-  this.IndividualForm.controls['Individual_nine'].setValue('');
-  this.IndividualForm.controls['ser_department'].setValue('');
-  this.IndividualForm.controls['ser_assign'].setValue('');
-  this.IndividualForm.controls['ser_comment'].setValue('');
-  this.IndividualForm.controls['Remarks'].setValue('');
+//   this.IndividualForm.controls['Insurancetype'].setValue('');
+//   this.IndividualForm.controls['Individual_two'].setValue('');
+//   this.IndividualForm.controls['Individual_three'].setValue('');
+//   this.IndividualForm.controls['Individual_four'].setValue('');
+//   this.IndividualForm.controls['Individual_five'].setValue('');
+//   this.IndividualForm.controls['Individual_six'].setValue('');
+//   this.IndividualForm.controls['Individual_sevan'].setValue('');
+//   this.IndividualForm.controls['Individual_eight'].setValue('');
+//   this.IndividualForm.controls['Individual_nine'].setValue('');
+//   this.IndividualForm.controls['ser_department'].setValue('');
+//   this.IndividualForm.controls['ser_assign'].setValue('');
+//   this.IndividualForm.controls['ser_comment'].setValue('');
+//   this.IndividualForm.controls['Remarks'].setValue('');
   
-  this.msg = response['msg'];
-  this.bgcolor = response['bgcolor'];
-  this.msgview = true;
+//   this.msg = response['msg'];
+//   this.bgcolor = response['bgcolor'];
+//   this.msgview = true;
   
-});
+// });
 
   
  }
@@ -399,31 +396,27 @@ onSubmit_individual() {
       return;
   }
 
- 
 
   var  sevices  = {
     officelocation:  this.registerForm.get('officelocation').value,
     smsmobilenumber:  this.registerForm.get('smsmobilenumber').value,
     branch:  this.registerForm.get('branch').value,
-    branch_assign:  this.registerForm.get('branch_assign').value,
-    branch_comment:  this.registerForm.get('branch_comment').value,
     selectaddress : this.registerForm.get('selectaddress').value,
-    branch_department : this.registerForm.get('branch_department').value,
-    phone:this.phn$,
-    key: this.key$
+    updatedval:  this.updatedId
+   
   };
 
-  console.log(sevices);
+  //console.log(sevices);
 
 //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value));
  // alert(this.registerForm.get('StartTime').value)
-   this.data.createservice_branch(sevices).subscribe((response) => {
+   this.data.addnew_services_branch(sevices).subscribe((response) => {
       
-       this.registerForm.reset();
-       this.msg = response['msg'];
-       this.bgcolor = response['bgcolor'];
-       this.msgview = true;
-   });
+          this.registerForm.reset();
+          this.msg = response['msg'];
+          this.bgcolor = response['bgcolor'];
+          this.msgview = true;
+   }); 
 
    
  }
@@ -454,18 +447,51 @@ onSubmit_individual() {
 
  onChangeoffice(deviceValue)
  {
-    this.data.branchoffice(deviceValue).subscribe(
-     data => this.branch$ = data  
-    );
+    this.data.branchoffice(deviceValue).subscribe((response) => {
+      this.branch$ = response;  
+      this.totalview$ = response;
+      this.viewofficelocation = false;
+      this.viewbranch = true;
+      this.viewaddress = false;
+     
+    });
  }
 
 
- onChangeadreess(brancId)
+ onChangeadreess(brancId) 
  {
-   this.data.branchaddress(brancId).subscribe(
-    data => this.branchaddress$ = data  
-   ); 
+   this.data.branchaddress(brancId).subscribe((response) => {
+     this.branchaddress$ = response;
+     this.totalview$ = response;
+
+      this.viewofficelocation = false;
+      this.viewbranch = false;
+      this.viewaddress = true;
+   }); 
  }
+
+ editcalltype(ky,table)
+   {
+
+    this.updatedId = ky
+
+    this.iscalltypebutton = false;
+    this.iscalltypeupdatebutton = true;
+
+
+     var edittype  = {
+      callid: ky,
+      calltable : table,
+      };
+
+      this.data.editbranch_service(edittype).subscribe((response) => {
+
+       this.registerForm.controls['smsmobilenumber'].setValue(response['name']);
+        //this.registerForm.controls['Description'].setValue(response['description']);
+      
+      });
+  
+   }
  
 
  onChangedepartment(depID)
@@ -485,9 +511,10 @@ onSubmit_individual() {
   this.insphase8$ = Array();  
   this.insphase9$ = Array();  
   
-  this.data.insurance_phase2(typid).subscribe(
-    data => this.insphase2$ = data  
-   ); 
+  this.data.insurance_phase2(typid).subscribe((response) => {
+     this.insphase2$ = response
+     this.totalindiv$ = response    
+  }); 
  }
 
  onChangeInsphase2(phaseId)
@@ -499,9 +526,10 @@ onSubmit_individual() {
   this.insphase8$ = Array();  
   this.insphase9$ = Array();  
 
-   this.data.insurance_phase3(phaseId).subscribe(
-    data => this.insphase3$ = data  
-   ); 
+   this.data.insurance_phase3(phaseId).subscribe((response) => {
+     this.insphase3$ = response  
+     this.totalindiv$ = response    
+  }); 
  }
 
  onChangeInsphase3(phaseId)
@@ -512,9 +540,11 @@ onSubmit_individual() {
   this.insphase7$ = Array();  
   this.insphase8$ = Array();  
   this.insphase9$ = Array();  
-   this.data.insurance_phase4(phaseId).subscribe(
-    data => this.insphase4$ = data  
-   ); 
+
+   this.data.insurance_phase4(phaseId).subscribe((response) => {
+     this.insphase4$ = response 
+     this.totalindiv$ = response    
+   }); 
  }
 
  onChangeInsphase4(phaseId)
@@ -524,9 +554,11 @@ onSubmit_individual() {
   this.insphase7$ = Array();  
   this.insphase8$ = Array();  
   this.insphase9$ = Array();  
-   this.data.insurance_phase5(phaseId).subscribe(
-    data => this.insphase5$ = data  
-   ); 
+
+   this.data.insurance_phase5(phaseId).subscribe((response) => {
+    this.insphase5$ = response  
+    this.totalindiv$ = response  
+   }); 
  }
 
  onChangeInsphase5(phaseId)
@@ -536,9 +568,12 @@ onSubmit_individual() {
   this.insphase8$ = Array();  
   this.insphase9$ = Array();  
 
-   this.data.insurance_phase6(phaseId).subscribe(
-    data => this.insphase6$ = data  
-   ); 
+   this.data.insurance_phase6(phaseId).subscribe((response) => {
+
+    this.insphase6$ = response ;
+    this.totalindiv$ = response ;
+    
+   }); 
  }
 
  onChangeInsphase6(phaseId)
@@ -547,25 +582,30 @@ onSubmit_individual() {
   this.insphase8$ = Array();  
   this.insphase9$ = Array();  
 
-  this.data.insurance_phase7(phaseId).subscribe(
-    data => this.insphase7$ = data  
-   ); 
+  this.data.insurance_phase7(phaseId).subscribe((response) => {
+    this.insphase7$ = response;
+    this.totalindiv$ = response ;
+  }); 
  }
 
  onChangeInsphase7(phaseId)
  {
   this.insphase9$ = Array();  
 
-  this.data.insurance_phase8(phaseId).subscribe(
-    data => this.insphase8$ = data  
-   ); 
+  this.data.insurance_phase8(phaseId).subscribe((response) => {
+     this.insphase8$ = response ;
+     this.totalindiv$ = response ;
+
+  }); 
  }
 
  onChangeInsphase8(phaseId)
  {
-  this.data.insurance_phase9(phaseId).subscribe(
-    data => this.insphase9$ = data  
-   ); 
+  this.data.insurance_phase9(phaseId).subscribe((response) => {
+       this.insphase9$ = response ;
+       this.totalindiv$ = response ;
+
+  }); 
  }
 
  //corporate
@@ -602,13 +642,15 @@ onSubmit_individual() {
 
  msgclose()
  {
-  console.log('clicked');
   this.msgview = false;
  }
 
  cancel_form()
-  {this.registerForm.reset();
-
+  {
+    this.registerForm.reset();
+    this.updatedId = 0 ;
+    this.iscalltypebutton = true;
+    this.iscalltypeupdatebutton = false;
   }
 
   //onchange
@@ -671,3 +713,5 @@ onSubmit_individual() {
 
  
 }
+
+ 

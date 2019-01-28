@@ -14,18 +14,18 @@ export class HeaderComponent implements OnInit {
   serstatus: boolean = false;
   contstatus: boolean = false;
   campstatus: boolean = false;
+  checkadmin : boolean = true;
   
 
   constructor(private data: DataService) { console.log(this.data.isLoggedIn); }
 
   ngOnInit() {
 
-    $(document).ready(function(){
-
-      //var cli = new AWL.client();
-      
-      
-  });
+    this.data.check_admin().subscribe((response) => {
+    
+      this.checkadmin = response['status'];
+    
+    });
     
   
   }

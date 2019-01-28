@@ -22,6 +22,8 @@ export class ReportesComponent implements OnInit {
   isreportviewindidual : boolean = false;
   isreportviewcorporate : boolean = false;
   isreportviewbranch : boolean = false;
+  isreportoutbound : boolean = false;
+
 
   constructor(private excelService:ExcelService,private data: DataService,private formBuilder: FormBuilder) { }
 
@@ -54,13 +56,13 @@ export class ReportesComponent implements OnInit {
     
     this.data.genrate_ticket(reportdate).subscribe((response) => {
 
-
       if(response.type == 'corporate')
       {
         this.isreportviewcorporate = true;
         this.isreportviewindidual = false;
         this.isreportviewinbound = false;
         this.isreportviewbranch = false;
+        this.isreportoutbound = false;
       }
       else if(response.type == 'Individual')
       {
@@ -68,6 +70,7 @@ export class ReportesComponent implements OnInit {
         this.isreportviewcorporate = false;
         this.isreportviewinbound = false;
         this.isreportviewbranch = false;
+        this.isreportoutbound = false;
       }
       else if(response.type == 'inbound')
       {
@@ -75,6 +78,7 @@ export class ReportesComponent implements OnInit {
         this.isreportviewcorporate = false;
         this.isreportviewindidual = false;
         this.isreportviewbranch = false;
+        this.isreportoutbound = false;
       }
       else if(response.type == 'branch')
       {
@@ -82,6 +86,15 @@ export class ReportesComponent implements OnInit {
         this.isreportviewcorporate = false;
         this.isreportviewindidual = false;
         this.isreportviewbranch = true;
+        this.isreportoutbound = false;
+      }
+      else if(response.type == 'Outbound'){
+
+        this.isreportviewinbound = false;
+        this.isreportviewcorporate = false;
+        this.isreportviewindidual = false;
+        this.isreportviewbranch = false;
+        this.isreportoutbound = true;
       }
 
       this.report$ = response.item;

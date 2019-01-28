@@ -34,6 +34,8 @@ export class ViewoutboundcallComponent implements OnInit {
   msg : string = '';
   bgcolor : string = '';
   msgview : boolean = false;
+  viewagents$ : object;
+  checkadmin : boolean = false;
 
   
   foods: Food[] = [
@@ -48,6 +50,18 @@ export class ViewoutboundcallComponent implements OnInit {
   constructor(private http: HttpClient,private datas: DataService) {}
 
   ngOnInit() {
+
+    this.datas.viewagents().subscribe(
+      datas => this.viewagents$ = datas 
+    );
+
+    this.datas.check_admin().subscribe((response) => {
+    
+      this.checkadmin = response['status'];
+    
+    });
+
+
     this.exampleDatabase = new ExampleHttpDao(this.http);
 
     // If the user changes the sort order, reset back to the first page.

@@ -60,6 +60,8 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 import { CreateoutboundComponent } from './createoutbound/createoutbound.component';
 import { ViewoutboundcallComponent } from './viewoutboundcall/viewoutboundcall.component';
 import { SingleoutboundComponent } from './singleoutbound/singleoutbound.component';
+import { CreateagentComponent } from './createagent/createagent.component';
+import { MasterticketComponent } from './masterticket/masterticket.component';
 
 
 
@@ -93,7 +95,9 @@ import { SingleoutboundComponent } from './singleoutbound/singleoutbound.compone
     MasterktComponent,
     CreateoutboundComponent,
     ViewoutboundcallComponent,
-    SingleoutboundComponent
+    SingleoutboundComponent,
+    CreateagentComponent,
+    MasterticketComponent
   ],
   imports: [
     BrowserModule,

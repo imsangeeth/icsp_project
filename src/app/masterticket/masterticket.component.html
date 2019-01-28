@@ -3,15 +3,15 @@
     
     <!-- credits -->  
     <app-header></app-header>
-    <div class="page-wrapper"> 
+    <div class="page-wrapper">
       <!-- Bread crumb -->
       <div class="row page-titles">
           <div class="col-md-5 align-self-center">
-              <h5 class="text-primary">Create Services</h5> </div>
+              <h5 class="text-primary">Master For Services</h5> </div>
           <div class="col-md-7 align-self-center">
               <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                  <li class="breadcrumb-item active">Create Services</li>
+                  <li class="breadcrumb-item active">Master For Services</li>
               </ol>
           </div>
       </div> 
@@ -25,11 +25,11 @@
                       <div class="card-body">
                           <div class="form-validation"> 
                           <div class="card-body">
-                          
+                           
                               <div class="form-body">
-                                  <h5 class="box-title m-t-40">Create New Services </h5>
+                                  <h5 class="box-title m-t-40">Master For Services </h5> 
                                   <hr>
-                                  <mat-tab-group>
+                                  <mat-tab-group> 
                                         <mat-tab label="Branch Addresses"> 
                                            <form [formGroup]="registerForm" style="overflow-x: hidden" (ngSubmit)="onSubmit()">
                                                 <div class="row" style="margin-top: 2%">
@@ -72,66 +72,78 @@
 
                                                                           <div class="col-md-6 ">
                                                                                 <div class="form-group">
-                                                                                    <label>Mobile Number</label><span>*</span>
+                                                                                    <label>ADD NEW</label><span>*</span>
                                                                                     <input type="text" name="firstname" formControlName="smsmobilenumber"  class="form-control"  />
                         
                                                                                 </div>
                                                                            </div>
                                                                   
                                                          
-                                                               
+                                                                
                                                                 <div class="col-md-6 "></div>
                                                                 <div class="col-md-6 "></div>
                                                                 
                                                             
                                                         
                                                     </div>
-                                                
-                                                    <div class="row" style="margin-top: 2%">
-                                                        <p style="margin-left: 2%">Assign to Department</p><br/>
-                                                </div>
-                                                <div class="row" style="margin-top: 2%">
-                                                        
-                                               <div class="col-md-6 ">
-                                                <div class="form-group">
-                                                <label>Department</label><span>*</span>
-                                                <select (change)="onChangedepartment($event.target.value)" name="branch_department" formControlName="branch_department" class="form-control custom-select" >
-                                                        <option value="">Select one</option>
-                                                    <option *ngFor="let department of getoffice_department" value="{{department.id}}">{{department.department}}</option>
-                                                </select>
-                                                                </div>
-                                                                    </div>
 
-                                                                    <div class="col-md-6 ">
-                                                                            <div class="form-group">
-                                                                                    <label>Assign</label><span>*</span>
-                                                                                    <select name="inboundtype_assign" formControlName="branch_assign" class="form-control custom-select">
-                                                                                    <option value="">Select one</option>
-                                                                                    <option *ngFor="let office_department_user of office_department_user$" value="{{office_department_user.id}}">{{office_department_user.department}}</option>
-                                                                                    </select>
-                                                                                   
-                                                                            </div>
-                                                                                </div>
-
-                                                                    <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                            <label>Comment</label><span>*</span>
-                                                                            <input type="text"  formControlName="branch_comment" name="branch_comment"  class="form-control"  />
+                                                    <div class="col-md-6 " *ngIf="iscalltypebutton" >
+                                                            <div class="form-actions">
+                                                                <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">ADD NEW</button>
+                                                                <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                            </div>
+                                                            </div>
     
-                                                                    </div>
-                                                                        </div>
+                                                            <div class="col-md-6 " *ngIf="iscalltypeupdatebutton" >
+                                                                <div class="form-actions">
+                                                                    <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">UPDATE NEW</button>
+                                                                    <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                                </div>
+                                                                </div>
+                                                
+                                                </form>
 
-                                                                        <div class="col-md-6 ">
-                                                                            <div class="form-actions">
-                                                                                <button [disabled]="registerForm.pristine || registerForm.invalid" class="btn btn-primary" style="margin: 8px;">Send SMS</button>
-                                                                                <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
-                                                                            </div>
-                                                                            </div>
-                                                  </div>
-                                                
-                                                
-                                                </form></mat-tab>
-                                        <mat-tab label="Individual"> 
+                                                <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="card">
+                                                                <div class="card-body" style="padding: 0px;">
+                                                                    <div class="table-responsive m-t-40">
+                                                                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                                            <thead>
+                                                                                     <tr>
+                                                                                      
+                                                                                      <th style="width: 80%;">Tittle</th>
+                                                                                      <th></th>
+                                                                                      <th></th>
+                                                                                      </tr> 
+                                                                            </thead>
+                                                                            
+                                                                            <tbody> 
+                                                                                                         <tr *ngFor="let totalview of totalview$">
+                                                                                                            
+                                                                                                            <td>{{totalview.name}}</td>
+                                                                                                            <td *ngIf="viewofficelocation" (click)="editcalltype(totalview.locId,'Office')" style="cursor:pointer">Edit</td>
+                                                                                                            <td *ngIf="viewbranch" (click)="editcalltype(totalview.branId,'branch')" style="cursor:pointer">Edit</td>
+                                                                                                            <td *ngIf="viewaddress" (click)="editcalltype(totalview.addressId,'address')" style="cursor:pointer">Edit</td>
+                                                                                                            <td  style="cursor:pointer"><a title="fff" (click)="deletetype(calltype.typId)">Delete</a> </td>
+                                                                                                            
+                                                                                                        </tr>
+                                                                                                       
+                                                                            </tbody>
+
+                                                                           
+
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                    
+                                                        </div>
+                                                    </div>
+                                            
+                                            
+                                            </mat-tab>
+                                        <!-- <mat-tab label="Individual"> 
                                             <form [formGroup]="IndividualForm" style="overflow-x: hidden" (ngSubmit)="onSubmit_individual()">
                                                 <div class="row" style="margin-top: 2%">
                                                         <div class="col-md-6 ">
@@ -233,65 +245,66 @@
                                                                                                                                                                        </div>
                                                                                 </div> 
 
-                                                                  <div class="col-md-6 ">
-                                                                        <div class="form-group">
-                                                                            <label>Remarks</label><span>*</span>
-                                                                            <input type="text"  formControlName="Remarks" name="Remarks"  class="form-control"  />
-                
-                                                                        </div>
-                                                                   </div>
+                                                                                <div class="col-md-6 ">
+                                                                                        <div class="form-group">
+                                                                                            <label>ADD NEW</label>
+                                                                                            <input type="text" formControlName="addnewiteam"  class="form-control"  />
+                                                                                                                                                                               </div>
+                                                                                        </div> 
 
-                                                                <div class="col-md-6 "></div>
-                                                                <div class="col-md-6 "></div>
-                                                                
-                                                            
                                                         
+
+                                                                <div class="col-md-6 "></div>
+                                                                <div class="col-md-6 "></div>
+
+                                                                <div class="col-md-6 ">
+                                                                        <div class="form-actions">
+                                                                            <button [disabled]="IndividualForm.pristine || IndividualForm.invalid" class="btn btn-primary" style="margin: 8px;">Add New</button>
+                                                                            <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
+                                                                        </div>
+                                                                        </div>
                                                     </div>
-                                                    <div class="row" style="margin-top: 2%">
-                                                            <p style="margin-left: 2%">Assign to Department</p><br/>
-                                                    </div>
-                                                    <div class="row" style="margin-top: 2%">
-                                                            
-                                                            <div class="col-md-6 ">
-                                                                    <div class="form-group">
-                                                                        <label>Department</label>
-                                                                    <select (change)="onChangedepartment($event.target.value)" name="ser_department" formControlName="ser_department" class="form-control custom-select" >
-                                                                            <option value="">Please Choose One</option>
-                                                                        <option *ngFor="let department of getoffice_department" value="{{department.id}}">{{department.department}}</option>
-                                                                    </select>
+                                                    
+                                                </form> 
+                                            
+                                                <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="card">
+                                                                <div class="card-body" style="padding: 0px;">
+                                                                    <div class="table-responsive m-t-40">
+                                                                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                                            <thead>
+                                                                                     <tr>
+                                                                                      
+                                                                                      <th style="width: 80%;">Name</th>
+                                                                                      <th></th>
+                                                                                      <th></th>
+                                                                                      </tr> 
+                                                                            </thead>
+                                                                            
+                                                                            <tbody> 
+                                                                                                         <tr *ngFor="let totalindiview of totalindiv$">
+                                                                                                            
+                                                                                                            <td>{{totalindiview.name}}</td>
+                                                                                                            <td  (click)="editcalltype(totalindiview.typeID)" style="cursor:pointer">Edit</td>
+                                                                                                            <td  style="cursor:pointer"><a title="fff" (click)="deletetype(totalindiview.typeID)">Delete</a> </td>
+                                                                                                            
+                                                                                                        </tr>
+                                                                                                       
+                                                                            </tbody>
+
                                                                            
+
+                                                                        </table>
                                                                     </div>
-                                                                    </div> 
-
-
-                                                               <div class="col-md-6 ">
-                                                                        <div class="form-group">
-                                                                            <label>Assign</label>
-                                                                        <select name="ser_assign" formControlName="ser_assign" class="form-control custom-select" >
-                                                                                <option value="">Please Choose One</option>
-                                                                            <option *ngFor="let office_department_user of office_department_user$" value="{{office_department_user.id}}">{{office_department_user.department}}</option>
-                                                                        </select>
-                                                                              
-                                                                        </div>
-                                                                        </div> 
-    
-                                                                        <div class="col-md-12">
-                                                                        <div class="form-group">
-                                                                                <label>Comment</label><span>*</span>
-                                                                                <input type="text"  formControlName="ser_comment" name="ser_comment"  class="form-control"  />
-        
-                                                                        </div>
-                                                                            </div>
-    
-                                                                            <div class="col-md-6 ">
-                                                                                    <div class="form-actions">
-                                                                                        <button [disabled]="IndividualForm.pristine || IndividualForm.invalid" class="btn btn-primary" style="margin: 8px;">Create Service</button>
-                                                                                        <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
-                                                                                    </div>
-                                                                                    </div>
-                                                                
-                                                      </div> 
-                                                </form> </mat-tab>
+                                                                </div>
+                                                            </div>
+                                                    
+                                                        </div>
+                                                    </div>
+                                            
+                                            
+                                              </mat-tab>
                                         <mat-tab label="Corporate"> 
                                             <form [formGroup]="corporateForm" (ngSubmit)="onSubmit_corporate()" style="overflow-x: hidden">
                                                 <div class="row" style="margin-top: 2%">
@@ -395,8 +408,8 @@
                                                                         </div>
                                                             
                                                   </div>
-                                                           </form> </mat-tab>
-                                        <mat-tab label="Inbound">  
+                                                           </form> </mat-tab> -->
+                                        <!-- <mat-tab label="Inbound">  
                                             
                                       <form [formGroup]="inboundForm" (ngSubmit)="onSubmit_inbound()" style="overflow-x: hidden">
                                                 <div class="row" style="margin-top: 2%">
@@ -488,21 +501,8 @@
                                                                         </div>
                                                             
                                                   </div>
-                                                           </form>  </mat-tab>
-                                        <mat-tab label="Outbound">
-                                            <div *ngIf="checkadmin" style="margin-top: 3%;margin-left: 40%; margin-right: 40%;">
-                                            <label style="padding: 10px;background: #356957;display: table;color: #fff;text-align: center;width: 203px;cursor: pointer;" id="#bb">Please Choose one excel File<input type="file" id="avatar" class="inputfile" name="file" (change)="onFileChange($event.target.files)" #fileInput></label> 
-                                            <img *ngIf="spinnloder" style="margin-left: 37%" src="assets/spinner.gif" > 
-                                            
-                                            </div>
-
-                                        
-                                            
-                                        
-                                        </mat-tab>
-                                        <mat-tab label="Suggestions"></mat-tab>
-                                        <mat-tab label="Complaints"></mat-tab>
-                                      </mat-tab-group>
+                                                           </form>  </mat-tab> -->
+                                        </mat-tab-group>
 
                                       <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
                                           <div class="alert alert-primary alert-dismissible fade show">

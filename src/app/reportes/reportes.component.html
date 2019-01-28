@@ -53,7 +53,7 @@
                                                                     <option value="corporate">Corporate</option>
                                                                     <option value="inbound">Inbound</option>
                                                                     <option value="branch">branch</option>
-                                                                  
+                                                                    <option value="Outbound">Outbound</option>
                                                               </select> 
                                                                 
                                                               </div>
@@ -69,7 +69,86 @@
                                     </div>
                                 
                             
-                        </div></form>
+                        </div></form> 
+
+                        <div class="row" *ngIf="isreportoutbound"> 
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body" style="padding: 0px;">
+                                            <div class="table-responsive m-t-40">
+                                                    <button (click)="exportAsXLSX()" style="margin-bottom: 21px"  class="btn btn-primary" >Export Excel</button><br>
+                                                <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                    <thead>
+                                                             <tr>
+                                                              <th style="width: 16%;">Policyyear</th>
+                                                              <th>Policynumber</th>
+                                                    
+                                                              <th>Createdfromdate</th>
+                                                              <th>Created To Date </th>
+                                                              <th>Policyno</th>                    
+                                                              <th>Assured Name</th> 
+                                                              <th>Customername</th>                                      
+                                                              <th>Mobileno</th>
+                                                              <th>Policy Expiry Date</th>
+                                                              <th>Vehicle Make</th>
+                                                              <th>Registration no</th>
+                                                              <th>Sum insured</th>
+                                                              <th>No Of Claims</th>
+                                                              <th>Agentname</th>  
+                                                              <th>Ticket Id</th>   
+                                                              <th>Remarks</th>   
+                                                              <th>Outbound Subclass</th>
+                                                              <th>Outbound instype</th>
+                                                              <th>Outbound End Reason</th>
+                                                              <th>Outbound Effective Reason</th>
+                                                              <th>Outbound Directedto</th>
+                                                              <th>Outbound Covertype</th>
+                                                              <th>Outbound Coverquery</th>
+                                                              <th>Outbound Classfication</th>
+                                                              <th>Outbound Action</th>
+                                                              
+                                                              </tr>
+                                                    </thead>
+                                                    
+                                                    <tbody> 
+                                                                                 <tr *ngFor="let report of report$">
+                                                                                    <td>{{report.policyyear}}</td>
+                                                                                    <td>{{report.policynumber}}</td>
+                                                                                    <td>{{report.createdfromdate}}</td>
+                                                                                    <td>{{report.createdtodate}}</td>
+                                                                                    <td>{{report.policyno}}</td>
+                                                                                    <td>{{report.assuredname}}</td>
+                                                                                    <td>{{report.customername}}</td>
+                                                                                    <td>{{report.mobileno}}</td>
+                                                                                    <td>{{report.policyexpirydate}}</td>
+                                                                                    <td>{{report.vehiclemake}}</td>
+                                                                                    <td>{{report.registrationno}}</td>
+                                                                                    <td>{{report.suminsured}}</td>
+                                                                                    <td>{{report.noOfClaims}}</td>
+                                                                                    <td>{{report.agentname}}</td>
+                                                                                    <td>{{report.ticket_id}}</td>
+                                                                                    <td>{{report.remarks}}</td>
+                                                                                    <td>{{report.ooutboundSubclass}}</td>
+                                                                                    <td>{{report.outboundinstype}}</td>
+                                                                                    <td>{{report.outbound_endreason}}</td>
+                                                                                    <td>{{report.outboundeffectivereason}}</td>
+                                                                                    <td>{{report.outbound_directedto}}</td>
+                                                                                    <td>{{report.outbound_covertype}}</td>
+                                                                                    <td>{{report.outbound_coverquery}}</td>
+                                                                                    <td>{{report.outbound_classfication}}</td>
+                                                                                    <td>{{report.outbound_action}}</td>
+                                                                                    
+                                                                                    
+                                                                                </tr>
+                                                                               
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                            </div>
 
                         <div class="row" *ngIf="isreportviewindidual"> 
                             <div class="col-12">
