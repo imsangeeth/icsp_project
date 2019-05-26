@@ -1096,6 +1096,9 @@
   .header .top-navbar {
     min-height: 50px;
     padding: 0 15px 0 0;
+    position: fixed;
+    width: 100%;
+    background: #356957;
   }
   .header .top-navbar .dropdown-toggle:after {
     display: none;
@@ -2125,9 +2128,9 @@
     stroke-linejoin: round;
     stroke-linecap: round;
     stroke-dasharray: 500%;
-    stroke-dasharray: 0 /;
+    stroke-dasharray: 0 ;
     /* fixes IE prob */
-    stroke-dashoffset: 0 /;
+    stroke-dashoffset: 0;
     /* fixes IE prob */
     -webkit-animation: am-draw 40s;
     animation: am-draw 40s;
@@ -4896,7 +4899,12 @@ label {
 }
 .mat-form-field-appearance-legacy .mat-form-field-wrapper {
   padding-bottom: 1.25em;
-  width: 527px;
+}
+.mat-grid-tile {
+  display: block;
+  position: absolute;
+  overflow: hidden;
+  padding-top: 430px !important;
 }
 example-margin {
   margin: 0 10px;
@@ -5880,7 +5888,7 @@ example-margin {
   -------------*/
   .alert-primary {
     color: #f3f3f3 !important;
-    background-color: #4CAF50 !important;
+    background-color: #F44336 !important;
     border-color: #f1f1f1 !important;
     width: 28%;
     position: absolute !important;
@@ -6983,9 +6991,7 @@ example-margin {
     }
     .retina-logo {
       display: inline-block !important;
+    }}
     
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
-}
-  }
+
   

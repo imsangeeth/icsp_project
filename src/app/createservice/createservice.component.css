@@ -28,3 +28,14 @@
 	position: absolute;
 	z-index: -1;
 }
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 1.25em !important;
+  width: 527px !important;
+}
+::ng-deep.mat-form-field-infix{
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 383px;
+}

@@ -23,236 +23,278 @@
               <div class="col-lg-12">
                   <div class="card">
                       <div class="card-body">
-                          <div class="form-validation">
+                          <div class="form-validation"> 
                           <div class="card-body">
 
                               <div class="form-body">
-                                  <h5 class="box-title m-t-40">Outbound Deatils</h5>
+                                  <h5 class="box-title m-t-40">Policy Details</h5>
                                   <hr>
+                                  <form [formGroup]="IndividualForm" style="overflow-x: hidden" (ngSubmit)="onSubmit_individual()">
+                                  <div class="row">
 
+                                        <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Subclass</label>
+                                                    <input   formControlName="subclass" class="form-control"  />
+                                                </div>
+                                                </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>InsuType</label>
+                                                    <input   formControlName="InsuType"   class="form-control"  />
+                                                </div>
+                                                </div>
 
-
-                                            <form [formGroup]="IndividualForm" style="overflow-x: hidden" (ngSubmit)="onSubmit_individual()">
-                                                <div class="row" style="margin-top: 2%">
-
-                                                    <div class="col-md-6 ">
+                                                <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label>Subclass</label>
-                                                        <select  formControlName="Subclass" class="form-control custom-select" >
-                                                                <option value="0">Please Choose One</option>
-                                                            <option *ngFor="let insphase7 of insphase7$" value="{{insphase7.id}}">{{insphase7.name}}</option>
-                                                        </select>
-
+                                                            <label>CoverType</label>
+                                                            <input  formControlName="CoverType"  class="form-control"  />
                                                         </div>
                                                         </div>
-
-                                                    <div class="col-md-6 ">
+                                               <div class="col-md-3">
+                                                    <div class="form-group">
+                                                                    <label>Classification</label>
+                                                                    <input  formControlName="Classification"   class="form-control"  />
+                                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Policy Number</label>
+                                                    <input  formControlName="policynumber"  class="form-control"  />
+                                                </div>
+                                                </div>
+                                              <div class="col-md-3">
+                                                 <div class="form-group">
+                                                            <label>Assured Name</label>
+                                                            <input  formControlName="assuredname" class="form-control"  />
+                                                        </div>
+                                                </div>
+                                              <div class="col-md-3">
+                                                <div class="form-group">
+                                                  <label>Customer Name</label>
+                                                <input  formControlName="customername"  class="form-control"  />
+                                                </div>
+                                                </div>
+                                                <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label>Outbound Effective Status</label>
-                                                        <select  formControlName="effective_status" class="form-control custom-select" >
-                                                                <option value="0">Please Choose One</option>
-                                                            <option *ngFor="let insphase17 of insphase17$" value="{{insphase17.id}}">{{insphase17.name}}</option>
-                                                        </select>
-
+                                                          <label>Mobile Number</label>
+                                                        <input  formControlName="mobileno"  class="form-control"  />
                                                         </div>
                                                         </div>
 
-
-                                                                  <div class="col-md-6 ">
-                                                                    <div class="form-group">
-                                                                        <label>Outbound Instype</label>
-                                                                    <select name="Instype" formControlName="Instype" class="form-control custom-select" >
-                                                                            <option value="o">Please Choose One</option>
-                                                                        <option *ngFor="let insphase9 of insphase9$" value="{{insphase9.id}}">{{insphase9.name}}</option>
-                                                                    </select>
-                                                                                                                                                           </div>
-                                                                    </div>
-                                                                <div class="col-md-6 ">
+                                                        <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label>Outbound Classfication</label><span>*</span>
-                                                                    <select  formControlName="Outbound_classfication" class="form-control custom-select" >
-                                                                            <option value="0">Please Choose One</option>
-                                                                        <option *ngFor="let insphase2 of insphase2$" value="{{insphase2.id}}">{{insphase2.name}}</option>
-                                                                  </select>
-                                                                                                                                    </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-6 ">
-                                                                    <div class="form-group">
-                                                                        <label>Outbound Coverquery</label><span>*</span>
-                                                                        <select formControlName="outboundcoverquery" class="form-control custom-select" >
-                                                                                <option value="0">Please Choose One</option>
-                                                                            <option *ngFor="let insphase3 of insphase3$" value="{{insphase3.id}}">{{insphase3.name}}</option>
-                                                                      </select>
-
-                                                                    </div>
-                                                                      </div>
-
-                                                                      <div class="col-md-6 ">
-                                                                        <div class="form-group">
-                                                                            <label>Outbound covertype</label><span>*</span>
-                                                                            <select formControlName="outboundcovertype" class="form-control custom-select" >
-                                                                                    <option value="0">Please Choose One</option>
-                                                                                <option *ngFor="let insphase4 of insphase4$" value="{{insphase4.id}}">{{insphase4.name}}</option>
-                                                                          </select>
-
-                                                                        </div>
-                                                                          </div>
-
-
-
-                                                             <div class="col-md-6 ">
-                                                                <div class="form-group">
-                                                                    <label>Outbound Directedto</label><span>*</span>
-                                                                <select   formControlName="outbounddirectedto" class="form-control custom-select" >
-                                                                        <option value="0">Please Choose One</option>
-                                                                    <option *ngFor="let insphase5 of insphase5$" value="{{insphase5.id}}">{{insphase5.name}}</option>
-                                                                </select>
-
+                                                                  <label>Policy Expiry Date</label>
+                                                                <input  class="form-control"  formControlName="policyexpirydate"  />
                                                                 </div>
-                                                                </div>
-
-
-                                                                <div class="col-md-6 ">
-                                                                    <div class="form-group">
-                                                                        <label>outbound effective reason</label>
-                                                                    <select name="effective_reason" formControlName="effective_reason" class="form-control custom-select" >
-                                                                            <option value="0">Please Choose One</option>
-                                                                        <option *ngFor="let insphase6 of insphase6$" value="{{insphase6.id}}">{{insphase6.name}}</option>
-                                                                    </select>
-
-                                                                    </div>
-                                                                    </div>
-
-                                                                        <div class="col-md-6 ">
-                                                                            <div class="form-group">
-                                                                                <label>Outbound endreason</label>
-                                                                            <select  name="endreason" formControlName="endreason" class="form-control custom-select" >
-                                                                                    <option value="0">Please Choose One</option>
-                                                                                <option *ngFor="let insphase8 of insphase8$" value="{{insphase8.id}}">{{insphase8.name}}</option>
-                                                                            </select>
-                                                                                                                                                               </div>
-                                                                            </div>
-
-                                                                            <div class="col-md-6 ">
-                                                                                <div class="form-group">
-                                                                                    <label>Outbound Action</label><span>*</span>
-
-                                                                                    <select formControlName="Outboundaction" class="form-control custom-select" >
-                                                                                            <option value="0">Please Choose One</option>
-                                                                                        <option *ngFor="let type of Action$" value="{{type.id}}">{{type.name}}</option>
-
-                                                                                  </select>
-                                                                                   </div>
-                                                                                  </div>
-
-                                                                                  <div class="col-md-6 ">
-                                                                                    <div class="form-group">
-                                                                                        <label>Customername</label><span>*</span>
-
-                                                                               <input type="text"  formControlName="customernamenew" class="form-control" >
-                                                                                       </div>
-                                                                                      </div>
-
-                                                                                      <div class="col-md-6 ">
-                                                                                        <div class="form-group">
-                                                                                            <label>Policyyear</label><span>*</span>
-
-                                                                                   <input type="text"  formControlName="policyyear" class="form-control" >
-                                                                                           </div>
-                                                                                          </div>
-
-
-                                                                                          <div class="col-md-6 ">
-                                                                                            <div class="form-group">
-                                                                                                <label>Policynumber</label><span>*</span>
-
-                                                                                       <input type="text"  formControlName="policynumber" class="form-control" >
-                                                                                               </div>
-                                                                                              </div>
-
-                                                                                              <div class="col-md-6 ">
-                                                                                                <div class="form-group">
-                                                                                                    <label>Mobileno</label><span>*</span>
-
-                                                                                           <input type="text"  formControlName="mobileno" class="form-control" >
-                                                                                                   </div>
-                                                                                                  </div>
-                                                                                                  <div class="col-md-6 ">
-                                                                                                    <div class="form-group">
-                                                                                                        <label>Callduration</label><span>*</span>
-
-                                                                                               <input type="text"  formControlName="callduration" class="form-control" >
-                                                                                                       </div>
-                                                                                                      </div>
-
-                                                                                                      <div class="col-md-6">
-                                                                                                        <div class="form-group">
-                                                                                                            <!-- <label>Calldate</label><span>*</span> -->
-
-                                                                                                            <mat-form-field>
-                                                                                                                    <input formControlName="calldates" [matDatepicker]="picker" matInput placeholder="Call date">
-                                                                                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                                                                                                    <mat-datepicker #picker></mat-datepicker>
-                                                                                                                  </mat-form-field>
-                                                                                                            <!-- <input matInput formControlName="calldates" [matDatepicker]="picker" placeholder="Choose a date">       -->
-                                                                                                   <!-- <input type="date"  formControlName="calldates" class="form-control" > -->
-                                                                                                           </div>
-                                                                                                          </div>
-
-                                                                                                          <div class="col-md-6 ">
-                                                                                                            <div class="form-group">
-                                                                                                                <label>No Of Call</label><span>*</span>
-
-                                                                                                       <input type="text"  formControlName="noofcall" class="form-control" >
-                                                                                                               </div>
-                                                                                                              </div>
-
-                                                                                                              <div class="col-md-6 ">
-                                                                                                                <div class="form-group">
-                                                                                                                    <!-- <label>Followup Date</label><span>*</span> -->
-
-                                                                                                                    <mat-form-field>
-                                                                                                                            <input formControlName="followupdate" [matDatepicker]="picker1" matInput placeholder="Followup Date">
-                                                                                                                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                                                                                                                            <mat-datepicker #picker1></mat-datepicker>
-                                                                                                                          </mat-form-field>
-
-                                                                                                           <!-- <input type="date" formControlName="followupdate" class="form-control" > -->
-                                                                                                                   </div>
-                                                                                                                  </div>
-
-                                                                                                                  <div class="col-md-12 ">
-                                                                                                                        <div class="form-group">
-                                                                                                                            <label>Remarks</label><span>*</span>
-
-                                                                                                                   <input type="text" formControlName="remarks" class="form-control" >
-                                                                                                                           </div>
-                                                                                                                          </div>
-
-
-
-
-
-                                                                <div class="col-md-6 "></div>
-                                                                <div class="col-md-6 "></div>
-
-                                                                <div class="col-md-6 "  >
-                                                                    <div class="form-actions">
-                                                                        <button [disabled]="IndividualForm.pristine || IndividualForm.invalid" class="btn btn-primary" style="margin: 8px;">Update</button>
-                                                                        <button (click)="cancel_form()" type="button" class="btn btn-inverse">Cancel</button>
-                                                                    </div>
-                                                                    </div>
-
                                                     </div>
 
-                                                </form>
+
+                                                    <div class="col-md-3">
+                                                            <div class="form-group">
+                                                              <label>Vehicle Make</label>
+                                                            <input  class="form-control"  formControlName="vehiclemake"  />
+                                                            </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                        <div class="form-group">
+                                                          <label>Registration No</label>
+                                                        <input  class="form-control"   formControlName="registrationno" />
+                                                        </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                    <div class="form-group">
+                                                      <label>Sum Insured</label>
+                                                    <input  class="form-control"  formControlName="suminsured" /> 
+                                                    </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                                <div class="form-group">
+                                                  <label>No Of Claims</label>
+                                                <input  class="form-control"  formControlName="noofclaims" />
+                                                </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                              <label>Ticket Status</label>
+                                              <select name="effective_status"  class="form-control custom-select" >
+                                                <option value="0">Please Choose One</option>
+                                            <option  value="">Open</option>
+                                            <option  value="">Close</option>
+                                        </select>
+                                            </div>
+                                    </div>
+
+                                    <div class="col-md-12 "  >
+                                        <div class="form-actions">
+                                            <button [disabled]="IndividualForm.pristine || IndividualForm.invalid" class="btn btn-primary" style="margin: 8px;">Update</button>
+                                            
+                                        </div>
+                                        </div>
+                                  </div>
+
+                                  
+                                  </form>
+
+                                  <hr>
+
+                                  <form [formGroup]="productForm" (ngSubmit)="updatetherecords()" >
+                                  
+                                    <!-- <label>
+                                      Title: <input formControlName="title" />
+                                    </label> -->
+                                    <button style="float: right;background-color: #356957;color: #fff;cursor: pointer;font-size: 14px;border-radius: 3px;" type="button"  (click)="addSellingPoint()">New Followup</button>
+                                    <h5 class="box-title m-t-40">Customer FeedBack</h5>
+                                  
+                                    <hr>
+                                   
+                                    <div style="background-color: #f9f9f9;border: 1px solid #b1b1b1;padding: 10px;" formArrayName="selling_points">
+                                      <div *ngFor="let item of sellingPoints.controls; let pointIndex=index" [formGroupName]="pointIndex">
+                                            <div class="row">
+
+                                                    <div class="col-md-2">
+                                                            <div class="form-group">
+                                                                <label>Effective Status</label>
+                                                                <!-- <input  class="form-control" formControlName="point" /> -->
+                                                                <select name="effective_status" formControlName="effective_status" class="form-control custom-select" >
+                                                                        <option value="0">Please Choose One</option>
+                                                                    <option *ngFor="let insphase17 of insphase17$" value="{{insphase17.id}}">{{insphase17.name}}</option>
+                                                                </select>
+                                                            </div>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                    <div class="form-group">
+                                                                        <label>Coverquery</label>
+                                                                        <!-- <input  class="form-control" formControlName="point" /> -->
+                                                                        <select name="Coverquery" formControlName="Coverquery" class="form-control custom-select" >
+                                                                                <option value="0">Please Choose One</option>
+                                                                            <option *ngFor="let insphase3 of insphase3$" value="{{insphase3.id}}">{{insphase3.name}}</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    </div>
+                                                             <div class="col-md-2">
+                                                                            <div class="form-group">
+                                                                                <label>End Reasons</label>
+                                                                                <!-- <input  class="form-control" formControlName="point" /> -->
+                                                                                <select name="end_reason" formControlName="end_reason" class="form-control custom-select" >
+                                                                                        <option value="0">Please Choose One</option>
+                                                                                    <option *ngFor="let insphase8 of insphase8$" value="{{insphase8.id}}">{{insphase8.name}}</option>
+                                                                                </select>
+                                                                </div>
+                                                             </div>
+                                                                           
+                                                   <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label>Effective Reason</label>
+                                                        <!-- <input  class="form-control" formControlName="point" /> -->
+                                                        <select name="effective_reason" formControlName="effective_reason" class="form-control custom-select" >
+                                                                <option value="0">Please Choose One</option>
+                                                            <option *ngFor="let insphase6 of insphase6$" value="{{insphase6.id}}">{{insphase6.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                            <div class="form-group"> 
+                                                                <label>Call Date</label>
+                                                                <!-- <input  class="form-control" formControlName="point" /> -->
+                                                                <!-- <input class="form-control" type="date" formControlName="calldate" /> -->
+
+                                                                <mat-form-field>
+                                                                        <input formControlName="calldates" [matDatepicker]="picker2" matInput placeholder="Call Date">
+                                                                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                                                        <mat-datepicker #picker2></mat-datepicker>
+                                                                      </mat-form-field>
+                                                            </div>
+                                                    </div>
 
 
 
+                                                    <div class="col-md-1">
+                                                            <div class="form-group">
+                                                                <label>Duration</label>
+                                                                <input  class="form-control" formControlName="Duration" />
+                                                            </div>
+                                                            </div>
+
+                                                            <div class="col-md-2">
+                                                                    <div class="form-group">
+                                                                        <label>Action</label>
+                                                                        <!-- <input  class="form-control" formControlName="point" /> -->
+                                                                        <select name="action" formControlName="action" class="form-control custom-select" >
+                                                                                <option value="0">Please Choose One</option>
+                                                                            <option *ngFor="let Action of Action$" value="{{Action.id}}">{{Action.name}}</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    </div>
 
 
-                                      <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
+                                                      <div class="col-md-1">
+                                                                    <div class="form-group">
+                                                                        <label style="font-size: 13px;">No Of Calls</label>
+                                                                        <input formControlName="noofcalls"  class="form-control"  />
+                                                                    </div>
+                                                                    </div>
+
+                                                        <div class="col-md-3">
+                                                                            <div class="form-group">
+                                                                                <label>Followup Date</label>
+                                                                                <mat-form-field>
+                                                                                        <input formControlName="followupdates" [matDatepicker]="picker1" matInput placeholder="Followup Date">
+                                                                                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                                                        <mat-datepicker #picker1></mat-datepicker>
+                                                                                      </mat-form-field>
+                                                                            </div>
+                                                                            </div>
+
+                                                     <div class="col-md-3">
+                                                                                    <div class="form-group">
+                                                                                        <label>Remarks</label>
+                                                                                        <input formControlName="Remarks"  class="form-control"  />
+                                                                                    </div>
+                                                            </div>
+
+
+                                                        <div class="col-md-2">
+                                                                                            <div class="form-group">
+                                                                                                <label>Directed To</label>
+                                                                                                <i (click)="deleteSellingPoint(pointIndex)" class="fa fa-trash-o" style="margin-left: 56px;cursor: pointer;" aria-hidden="true"></i>
+                                                                                               
+                                                                                                <select   formControlName="outbounddirectedto" class="form-control custom-select" >
+                                                                                                        <option value="0">Please Choose One</option>
+                                                                                                    <option *ngFor="let insphase5 of insphase5$" value="{{insphase5.id}}">{{insphase5.name}}</option>
+                                                                                                </select>
+                                                                                               
+                                                                                            </div>
+                                                         </div>
+                                                                                            
+                                                                                            <!-- <button type="button" >Delete Selling Point</button> -->
+                                                                                            
+                                                                                                   
+                                                                                         
+                                                                    </div>
+
+                                                                    <hr>
+
+                                     
+                                      
+                                      </div>
+                                     
+                                    </div>
+
+                                    <div class="col-md-6 "  >
+                                        <div class="form-actions">
+                                            <button [disabled]="productForm.pristine || productForm.invalid" class="btn btn-primary" style="margin: 8px;">Update</button>
+                                            
+                                        </div>
+                                        </div>
+                                  
+                                  </form>
+                                  
+                                  <!-- {{ this.productForm.value | json }} -->
+
+                                    <div class="card-content" (click)="msgclose()" *ngIf="msgview" >
                                           <div class="alert alert-primary alert-dismissible fade show">
                                               <button type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                               <strong>{{msg}}</strong>

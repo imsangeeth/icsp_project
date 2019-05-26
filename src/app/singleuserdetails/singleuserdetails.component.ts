@@ -204,6 +204,38 @@ var  calldetails  = {
 
     }
 
+    else if(this.selecttype == 'Claim' && this.selectactive == 'non'){
+
+      var pos = {
+        key : this.inputtype
+      }
+
+      this.data.getsearchClaim(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
+    else if(this.selecttype == 'TCNumber' && this.selectactive == 'non'){
+
+      var pos = {
+        key : this.inputtype
+      }
+
+      this.data.getsearchTCNumber(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
     else if(this.selecttype == 'policy' && this.selectactive == 'active')
     {
 
@@ -220,7 +252,38 @@ var  calldetails  = {
       });
 
     }
-    
+    else if(this.selecttype == 'Claim' && this.selectactive == 'active')
+    {
+
+      var pos = {
+        key : this.inputtype
+      }
+      this.data.getsearchClaimactive(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
+    else if(this.selecttype == 'TCNumber' && this.selectactive == 'active')
+    {
+
+      var pos = {
+        key : this.inputtype
+      }
+      this.data.getsearchTCNumberactive(pos).subscribe((response) => {
+
+        //console.log(response);
+        this.user$ = response;
+        this.vehicle$ = response.iteam;
+        this.claim_info$ = response.iteam;
+        this.policy_information$ = response.iteam;  
+      });
+
+    }
     else if(this.selecttype == 'chassis' && this.selectactive == 'active'){
 
       var pos = {
@@ -254,7 +317,7 @@ var  calldetails  = {
       });
 
     }
-
+    
     
     
 

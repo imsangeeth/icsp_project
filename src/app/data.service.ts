@@ -49,7 +49,7 @@ export class DataService {
   private url
 
    //private base = "http://172.16.1.46/";
-   private base = "http://localhost/";
+    private base = "http://localhost/";
 
   constructor(private http: HttpClient,private auth: AuthService) { }
 
@@ -80,6 +80,11 @@ export class DataService {
   check_admin()
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/check_admin');
+  }
+
+  logout()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/logout');
   }
 
   getofficelocation(){
@@ -357,7 +362,7 @@ export class DataService {
 
   fileupload(phaseId){
 
-    return this.http.post(this.base+'lab/excel_reader/fileupload.php',phaseId);
+    return this.http.post(this.base+'IcspApi/excel_reader/fileupload.php',phaseId);
   }
 
   allcontacts()
@@ -409,6 +414,18 @@ export class DataService {
   {
     return this.http.get(this.base+'IcspApi/Api/index.php/user/view_outbound_value/'+ky);
   }
+
+  out_bound_list()
+  {
+    return this.http.get(this.base+'IcspApi/Api/index.php/user/out_bound_list');
+  }
+
+  update_followup(ky)
+  {
+    return this.http.post(this.base+'IcspApi/Api/index.php/user/update_followup/',ky);
+  }
+
+
 
   updateoutboundvalue(ky)
   {
@@ -601,11 +618,28 @@ export class DataService {
     return this.http.post<oracledata>('http://172.16.1.46/oracle/searchchassis.php',userId);
   }
 
+  getsearchClaim(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchClaim.php',userId);
+  }
+
+  getsearchTCNumber(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchTCNumber.php',userId);
+  }
+
   getsearchpolicyactive(userId)
   {
     return this.http.post<oracledata>('http://172.16.1.46/oracle/searchpolicyactive.php',userId);
   }
-
+  getsearchClaimactive(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchClaimactive.php',userId);
+  }
+  getsearchTCNumberactive(userId)
+  {
+    return this.http.post<oracledata>('http://172.16.1.46/oracle/searchTCNumberactive.php',userId);
+  }
   getsearchphoneactive(userId)
   {
     return this.http.post<oracledata>('http://172.16.1.46/oracle/searchphoneactive.php',userId);

@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
   submitted = false;
   username: string = '';
   password: string = '';
+  msgview: boolean = false;
+  msg:string = ''
 
   constructor(private formBuilder: FormBuilder,private data: DataService,private router:Router) { }
 
@@ -57,14 +59,23 @@ export class LoginComponent implements OnInit {
     {
       this.router.navigate(['home'])
       this.data.setLoggedIn(true)
+      this.msgview = true;
+      this.msg = 'Success';
     }else{
-      console.log(response.message)
+      //console.log(response.message)
+      this.msgview = true;
+      this.msg = 'please check Username and Password';
     }
    
          
      });
 
 
+   }
+
+   msgclose()
+   {
+     this.msgview = false;
    }
 
 

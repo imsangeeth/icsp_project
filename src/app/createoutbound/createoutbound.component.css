@@ -2,3 +2,10 @@
     padding-bottom: 1.25em;
     width: 527px;
 }
+.mat-form-field-infix {
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    width: 153px !important;
+}

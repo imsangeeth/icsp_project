@@ -58,6 +58,45 @@
                                                                 
                                                               </div>
                                                               </div>
+
+                                            <div class="col-md-6 "> 
+                                              <div class="form-group">
+                                                    <label>Ticket Status</label>                                                          
+                                                <select formControlName="Ticketstatus" class="form-control custom-select" >
+                                                          <option value="">Select any Type</option>
+                                                           <option value="Open">OPEN</option>
+                                                           <option value="Closed">CLOSE</option>
+                                                </select> 
+                                                                               
+                                               </div>
+                                           </div>
+
+                                          
+                                            
+                                             <div class="col-md-6 ">
+                                    <div class="form-group">
+                                    <label>Department</label><span>*</span>
+                                    <select (change)="onChangedepartment($event.target.value)" name="branch_department" formControlName="branch_department" class="form-control custom-select" >
+                                            <option value="">Select one</option>
+                                        <option *ngFor="let department of getoffice_department" value="{{department.id}}">{{department.department}}</option>
+                                    </select>
+                                                    </div>
+                                                        </div>
+
+                                            <div class="col-md-6 ">
+                                                             <div class="form-group">
+                                                                        <label>Assign</label><span>*</span>
+                                                                        <select name="inboundtype_assign" formControlName="branch_assign" class="form-control custom-select">
+                                                                        <option value="">Select one</option>
+                                                                        <option *ngFor="let office_department_user of office_department_user$" value="{{office_department_user.id}}">{{office_department_user.department}}</option>
+                                                                        </select>
+                                            </div>
+                                             </div>
+
+                                                       
+
+                                                          
+                                   
                                     
                                     <div class="col-md-6 "></div>
                                  
@@ -110,7 +149,7 @@
                                                               </tr>
                                                     </thead>
                                                     
-                                                    <tbody> 
+                                                    <tbody>  
                                                                                  <tr *ngFor="let report of report$">
                                                                                     <td>{{report.policyyear}}</td>
                                                                                     <td>{{report.policynumber}}</td>
@@ -179,10 +218,10 @@
                                                           <th>Phone Number</th>
                                                           <th>Create Time</th>
                                                           <th>Department Name</th>
-                                                          <th>assign_name</th>
-                                                          <th>callreason_name</th>
-                                                          <th>calltype_name</th>
-                                                          <th>message</th>
+                                                          <th>Assign name</th>
+                                                          <th>callreason name</th>
+                                                          <th>Calltype name</th>
+                                                          <th>Comment</th>
                                                           
                                                           </tr>
                                                 </thead>
@@ -212,7 +251,7 @@
                                                                                 <td>{{report.assignName}}</td>
                                                                                 <td>{{report.callreasonName}}</td>
                                                                                 <td>{{report.calltypeName}}</td>
-                                                                                <td>{{report.message}}</td>
+                                                                                <td>{{report.comment}}</td>
                                                                                 
                                                                                 
                                                                             </tr>

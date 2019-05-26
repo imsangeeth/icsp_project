@@ -62,6 +62,7 @@ import { ViewoutboundcallComponent } from './viewoutboundcall/viewoutboundcall.c
 import { SingleoutboundComponent } from './singleoutbound/singleoutbound.component';
 import { CreateagentComponent } from './createagent/createagent.component';
 import { MasterticketComponent } from './masterticket/masterticket.component';
+import { OutboundComponent } from './outbound/outbound.component';
 
 
 
@@ -97,7 +98,8 @@ import { MasterticketComponent } from './masterticket/masterticket.component';
     ViewoutboundcallComponent,
     SingleoutboundComponent,
     CreateagentComponent,
-    MasterticketComponent
+    MasterticketComponent,
+    OutboundComponent
   ],
   imports: [
     BrowserModule,

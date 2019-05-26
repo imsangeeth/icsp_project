@@ -16,6 +16,13 @@ export class HomeComponent implements OnInit {
   linecharts = [];
 
   constructor(private newdata: DataService) { }
+
+  // public doughnutChartLabels:string[] = ['Total ticket', 'Close', 'open'];
+  // public doughnutChartData:number[] = [7, 6, 1];
+  // public doughnutChartType:string = 'doughnut';
+ 
+  // events
+  
   
   public barChartOptions:any = {
     scaleShowVerticalLines: false,
@@ -40,6 +47,8 @@ export class HomeComponent implements OnInit {
   public chartHovered(e:any):void {
     console.log(e);
   }
+
+  
  
   public randomize():void {
     // Only Change 3 values

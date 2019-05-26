@@ -25,6 +25,7 @@ import { CreateoutboundComponent } from './createoutbound/createoutbound.compone
 import { ViewoutboundcallComponent } from './viewoutboundcall/viewoutboundcall.component';
 import { CreateagentComponent } from './createagent/createagent.component';
 import { MasterticketComponent } from './masterticket/masterticket.component';
+import { OutboundComponent } from './outbound/outbound.component';
 
 
 
@@ -32,7 +33,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    //canActivate:[AuthGuard]
+   // canActivate:[AuthGuard]
   },
   {
     path: 'Createcustomer',
@@ -67,7 +68,7 @@ const routes: Routes = [
   {
     path: 'viewservices',
     component: ViewserviceComponent,
-    //canActivate:[AuthGuard]
+    ////canActivate:[AuthGuard]
   },
   {
     path: 'createcampaign',
@@ -97,7 +98,7 @@ const routes: Routes = [
   {
     path: 'singletask/:id',
     component: SingleserviceviewComponent,
-     //canActivate:[AuthGuard]
+     ////canActivate:[AuthGuard]
 
   },
   {
@@ -153,14 +154,22 @@ const routes: Routes = [
   {
     path: 'viewoutbound',
     component: ViewoutboundcallComponent,
+     //canActivate:[AuthGuard]
   },
   {
     path: 'newagent',
-    component : CreateagentComponent
+    component : CreateagentComponent,
+     //canActivate:[AuthGuard]
   },
   {
     path:"masterservices",
-    component :MasterticketComponent
+    component :MasterticketComponent,
+     //canActivate:[AuthGuard]
+  },
+  {
+    path:"outbound",
+    component:OutboundComponent,
+    //canActivate:[AuthGuard]
   }
 
 ];

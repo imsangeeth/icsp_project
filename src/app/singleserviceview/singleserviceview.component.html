@@ -53,7 +53,7 @@
           <div class="col-lg-12">
               <div class="card" *ngIf="user$">
 
-                  <mat-tab-group dynamicHeight>
+                  <mat-tab-group >
                       <mat-tab label="Services Details">
                         <div class="example-small-box mat-elevation-z4">
                                 
@@ -223,7 +223,7 @@
                                                
                                             </div></mat-grid-tile>
         
-                                        <mat-grid-tile *ngIf="user$.type =='Individual'" >
+                                 <mat-grid-tile *ngIf="user$.type =='Individual'" >
                                                 <div class="card-body">
                                                         <div class="table-responsive">
                                                             <table class="table">
@@ -284,7 +284,7 @@
                                             
                                             </mat-grid-tile> 
 
-                                            <mat-grid-tile *ngIf="user$.type =='inbound'" >
+                                  <mat-grid-tile *ngIf="user$.type =='inbound'" >
                                                     <div class="card-body">
                                                             <div class="table-responsive">
                                                                 <table class="table">
@@ -350,10 +350,10 @@
                                                         </div>
                                                 
                                                 
-                                                </mat-grid-tile> 
+                                   </mat-grid-tile> 
 
-                                                <mat-grid-tile *ngIf="user$.type =='branch'" >
-                                                    <div class="card-body" style="margin-top: 110px;">
+                                  <mat-grid-tile *ngIf="user$.type =='branch'"  >
+                                                    <div class="card-body">
                                                             <div class="table-responsive">
                                                                 <table class="table">
                                                                    
@@ -384,28 +384,6 @@
                                                                             <td>{{user$.office_branch_address}}</td>
                                                                             
                                                                         </tr>
-    
-                                                                        <tr>
-                                                                                <td><b>PhoneNumber</b></td>
-                                                                                <td>{{user$.phonenumber}}</td>
-                                                                                
-                                                                            </tr>
-                                                                        
-                                                                        <tr>
-                                                                            </tr><tr>
-                                                                                <td><b>Assigned department</b></td>
-                                                                                <td>{{user$.csp_office_department}}</td>
-                                                                                
-                                                                            </tr>
-                                                                        
-                                                                       <tr>
-                                                                            <td><b>Assigned user</b></td>
-                                                                            <td>{{user$.csp_department_user}}</td>
-                                                                            
-                                                                        </tr>
-    
-                                                                       
-                                                                        
                                                                         
                                                                     </tbody>
                                                                 </table>
@@ -414,7 +392,46 @@
                                                         </div>
                                                 
                                                 
-                                                </mat-grid-tile> 
+                                   </mat-grid-tile> 
+
+                                   <mat-grid-tile *ngIf="user$.type =='branch'"  >
+                                    <div class="card-body" style="margin-top: 20px">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                   
+                                                    <tbody>
+                                                            
+                                                       
+                                                        <tr>
+                                                                <td><b>PhoneNumber</b></td>
+                                                                <td>{{user$.phonenumber}}</td>
+                                                                
+                                                            </tr>
+                                                        
+                                                        <tr>
+                                                            </tr><tr>
+                                                                <td><b>Assigned department</b></td>
+                                                                <td>{{user$.csp_office_department}}</td>
+                                                                
+                                                            </tr>
+                                                        
+                                                       <tr>
+                                                            <td><b>Assigned user</b></td>
+                                                            <td>{{user$.csp_department_user}}</td>
+                                                            
+                                                        </tr>
+
+                                                       
+                                                        
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                           
+                                        </div>
+                                
+                                
+                                   </mat-grid-tile> 
 
                                         <!--<mat-list>
                                                 

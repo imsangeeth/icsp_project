@@ -17,7 +17,7 @@ export interface Food {
 })
 export class ViewserviceComponent implements OnInit {
 
-  displayedColumns: string[] = ['slno','ticket_id','type', 'phonenumber','department','assign','createdate','ticketStatus','view'];
+  displayedColumns: string[] = ['slno','ticket_id','type', 'phonenumber','createdate','ticketStatus','view'];
   exampleDatabase: ExampleHttpDao | null;
   data: GithubIssue[] = [];
   name = 'Imp';

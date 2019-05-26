@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import * as $ from 'jquery';
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -10,19 +11,20 @@ import * as $ from 'jquery';
 })
 export class HeaderComponent implements OnInit {
 
-  status: boolean = false;
+  //status: boolean = false;
   serstatus: boolean = false;
   contstatus: boolean = false;
   campstatus: boolean = false;
-  checkadmin : boolean = true;
+  checkadmin : boolean = false;
   
 
-  constructor(private data: DataService) { console.log(this.data.isLoggedIn); }
+  constructor(private data: DataService,private router: Router) { console.log(this.data.isLoggedIn); }
 
   ngOnInit() {
 
     this.data.check_admin().subscribe((response) => {
-    
+
+      //console.log('ss'+response['status']);
       this.checkadmin = response['status'];
     
     });
@@ -30,9 +32,20 @@ export class HeaderComponent implements OnInit {
   
   }
 
+  logout() 
+  {
+    
+    this.data.logout().subscribe((response) => {
+      localStorage.clearItem('loggedIn'); 
+      this.router.navigate(['/login']);
+      
+    });
+     
+  }
+
   changeviewcustomer()
   {
-    this.status = !this.status;
+   // this.status = !this.status;
   }
   changeservices()
   {
