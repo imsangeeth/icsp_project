@@ -129,7 +129,7 @@ export class ExampleHttpDao {
     console.log(order);
 
 
-    const href = 'http://172.16.1.46/IcspApi/Api/index.php/user/allcontacts';
+    const href = 'http://172.16.1.46/cepapi/Api/index.php/user/allcontacts';
     //const requestUrl ='http://localhost/IcspApi/Api/index.php/user/allcontacts';
    // const requestUrl =
       //  `${href}?q=repo:angular/material2&sort=${sort}&order=${order}&page=${page + 1}`;

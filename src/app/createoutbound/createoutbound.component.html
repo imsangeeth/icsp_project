@@ -35,57 +35,57 @@
                                         <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Subclass</label>
-                                                    <input   formControlName="subclass" class="form-control"  />
+                                                    <input disabled  formControlName="subclass" class="form-control"  />
                                                 </div>
                                                 </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>InsuType</label>
-                                                    <input   formControlName="InsuType"   class="form-control"  />
+                                                    <input disabled   formControlName="InsuType"   class="form-control"  />
                                                 </div>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                         <div class="form-group">
                                                             <label>CoverType</label>
-                                                            <input  formControlName="CoverType"  class="form-control"  />
+                                                            <input  disabled formControlName="CoverType"  class="form-control"  />
                                                         </div>
                                                         </div>
                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                                     <label>Classification</label>
-                                                                    <input  formControlName="Classification"   class="form-control"  />
+                                                                    <input disabled  formControlName="Classification"   class="form-control"  />
                                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Policy Number</label>
-                                                    <input  formControlName="policynumber"  class="form-control"  />
+                                                    <input disabled  formControlName="policynumber"  class="form-control"  />
                                                 </div>
                                                 </div>
                                               <div class="col-md-3">
                                                  <div class="form-group">
                                                             <label>Assured Name</label>
-                                                            <input  formControlName="assuredname" class="form-control"  />
+                                                            <input disabled  formControlName="assuredname" class="form-control"  />
                                                         </div>
                                                 </div>
                                               <div class="col-md-3">
                                                 <div class="form-group">
                                                   <label>Customer Name</label>
-                                                <input  formControlName="customername"  class="form-control"  />
+                                                <input disabled  formControlName="customername"  class="form-control"  />
                                                 </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                         <div class="form-group">
                                                           <label>Mobile Number</label>
-                                                        <input  formControlName="mobileno"  class="form-control"  />
+                                                        <input disabled  formControlName="mobileno"  class="form-control"  />
                                                         </div>
                                                         </div>
 
                                                         <div class="col-md-3">
                                                                 <div class="form-group">
                                                                   <label>Policy Expiry Date</label>
-                                                                <input  class="form-control"  formControlName="policyexpirydate"  />
+                                                                <input disabled  class="form-control"  formControlName="policyexpirydate"  />
                                                                 </div>
                                                     </div>
 
@@ -93,52 +93,52 @@
                                                     <div class="col-md-3">
                                                             <div class="form-group">
                                                               <label>Vehicle Make</label>
-                                                            <input  class="form-control"  formControlName="vehiclemake"  />
+                                                            <input disabled  class="form-control"  formControlName="vehiclemake"  />
                                                             </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                         <div class="form-group">
                                                           <label>Registration No</label>
-                                                        <input  class="form-control"   formControlName="registrationno" />
+                                                        <input disabled  class="form-control"   formControlName="registrationno" />
                                                         </div>
                                             </div>
                                             <div class="col-md-3">
                                                     <div class="form-group">
                                                       <label>Sum Insured</label>
-                                                    <input  class="form-control"  formControlName="suminsured" /> 
+                                                    <input disabled  class="form-control"  formControlName="suminsured" /> 
                                                     </div>
                                         </div>
                                         <div class="col-md-3">
                                                 <div class="form-group">
                                                   <label>No Of Claims</label>
-                                                <input  class="form-control"  formControlName="noofclaims" />
+                                                <input disabled  class="form-control"  formControlName="noofclaims" />
                                                 </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="form-group">
                                               <label>Ticket Status</label>
-                                              <select name="effective_status"  class="form-control custom-select" >
+                                              <select (change)="changestatus($event.target.value)" name="effective_status"  class="form-control custom-select" >
                                                 <option value="0">Please Choose One</option>
-                                            <option  value="">Open</option>
-                                            <option  value="">Close</option>
+                                            <option  value="1">Open</option>
+                                            <option  value="2">Close</option>
                                         </select>
                                             </div>
                                     </div>
 
-                                    <div class="col-md-12 "  >
+                                    <!-- <div class="col-md-12 "  >
                                         <div class="form-actions">
                                             <button [disabled]="IndividualForm.pristine || IndividualForm.invalid" class="btn btn-primary" style="margin: 8px;">Update</button>
                                             
                                         </div>
-                                        </div>
+                                        </div> -->
                                   </div>
 
                                   
                                   </form>
 
                                   <hr>
-
+ 
                                   <form [formGroup]="productForm" (ngSubmit)="updatetherecords()" >
                                   
                                     <!-- <label>
@@ -152,6 +152,14 @@
                                     <div style="background-color: #f9f9f9;border: 1px solid #b1b1b1;padding: 10px;" formArrayName="selling_points">
                                       <div *ngFor="let item of sellingPoints.controls; let pointIndex=index" [formGroupName]="pointIndex">
                                             <div class="row">
+
+                                                    <div class="col-md-1">
+                                                            <div class="form-group">
+                                                                <label style="font-size: 13px;">No Of Calls</label>
+                                                                <input disabled formControlName="noofcalls" value="{{pointIndex + 1}}"  class="form-control"  />
+                                                            </div>
+                                                            </div>
+
 
                                                     <div class="col-md-2">
                                                             <div class="form-group">
@@ -214,7 +222,7 @@
                                                     <div class="col-md-1">
                                                             <div class="form-group">
                                                                 <label>Duration</label>
-                                                                <input  class="form-control" formControlName="Duration" />
+                                                                <input  class="form-control"  formControlName="Duration" />
                                                             </div>
                                                             </div>
 
@@ -230,13 +238,7 @@
                                                                     </div>
 
 
-                                                      <div class="col-md-1">
-                                                                    <div class="form-group">
-                                                                        <label style="font-size: 13px;">No Of Calls</label>
-                                                                        <input formControlName="noofcalls"  class="form-control"  />
-                                                                    </div>
-                                                                    </div>
-
+                                                     
                                                         <div class="col-md-3">
                                                                             <div class="form-group">
                                                                                 <label>Followup Date</label>
@@ -247,6 +249,13 @@
                                                                                       </mat-form-field>
                                                                             </div>
                                                                             </div>
+
+                                                        <div class="col-md-3">
+                                                                                <div class="form-group">
+                                                                                    <label>Time</label>
+                                                                                    <input type="time" class="form-control"  />
+                                                                                </div>
+                                                        </div>
 
                                                      <div class="col-md-3">
                                                                                     <div class="form-group">

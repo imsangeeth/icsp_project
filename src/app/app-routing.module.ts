@@ -33,7 +33,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-   // canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path: 'Createcustomer',
@@ -68,7 +68,7 @@ const routes: Routes = [
   {
     path: 'viewservices',
     component: ViewserviceComponent,
-    ////canActivate:[AuthGuard]
+    //canActivate:[AuthGuard]
   },
   {
     path: 'createcampaign',
@@ -98,7 +98,7 @@ const routes: Routes = [
   {
     path: 'singletask/:id',
     component: SingleserviceviewComponent,
-     ////canActivate:[AuthGuard]
+     //canActivate:[AuthGuard]
 
   },
   {

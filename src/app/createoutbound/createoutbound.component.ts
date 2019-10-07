@@ -89,8 +89,17 @@ export class CreateoutboundComponent implements OnInit {
      /* Initiate the form structure */
      this.productForm = this.formBuilder.group({
       //title: [],
-      selling_points: this.formBuilder.array([this.formBuilder.group({effective_status:'',Coverquery:'',end_reason:'',effective_reason:'',calldates:'',Duration:'',action:'',noofcalls:'',followupdates:'',Remarks:'',outbounddirectedto:''})])
+       selling_points: this.formBuilder.array([this.formBuilder.group({effective_status:'',Coverquery:'',end_reason:'',effective_reason:'',calldates:'',Duration:'',action:'',noofcalls:'',followupdates:'',Remarks:'',outbounddirectedto:''})])
+      //selling_points: this.formBuilder.array([this.formBuilder.group({effective_status:'',Coverquery:'',end_reason:'',effective_reason:'',calldates:'',Duration:'',action:'',noofcalls:'',followupdates:'',Remarks:'',outbounddirectedto:''},{effective_status:'',Coverquery:'',end_reason:'',effective_reason:'',calldates:'',Duration:'',action:'',noofcalls:'',followupdates:'',Remarks:'',outbounddirectedto:''})])
+
+        
     })
+
+    
+
+    //var arr_names = new Array(4);
+
+
     
     this.IndividualForm = this.formBuilder.group({
 
@@ -128,6 +137,7 @@ export class CreateoutboundComponent implements OnInit {
 
 
     this.data.view_outbound_value(this.ticketid).subscribe((response) => {
+
       this.IndividualForm.controls['subclass'].setValue(response['Subclass']);
       this.IndividualForm.controls['policynumber'].setValue(response['policynumber']);
       this.IndividualForm.controls['CoverType'].setValue(response['CoverType']);
@@ -149,6 +159,18 @@ export class CreateoutboundComponent implements OnInit {
       // this.IndividualForm.controls['remarks'].setValue(response['remarks']);
 
     });
+
+
+    this.data.allfollowupdetails(this.ticketid).subscribe((response) => {
+
+      console.log(Object.keys(response).length)
+
+      for (var i = 0; i < Object.keys(response).length; i++) {
+        //arr_names[i] = i * 2;
+        this.sellingPoints.push(this.formBuilder.group({effective_status:response[i].effective_status,Coverquery:response[i].coverquery,end_reason:response[i].end_reason,effective_reason:response[i].effective_reason,calldates:response[i].calldates,Duration:response[i].duration,action:response[i].action,noofcalls:'',followupdates:response[i].followupdates,Remarks:response[i].remarks,outbounddirectedto:response[i].outbounddirectedto}))
+     }
+
+    })
 
 
   }
@@ -183,8 +205,6 @@ export class CreateoutboundComponent implements OnInit {
     });
   }
 
-
-
   msgclose()
   {
    
@@ -198,8 +218,6 @@ export class CreateoutboundComponent implements OnInit {
  
    }
  
-
-
   onSubmit_individual() {
 
     this.ind_submitted = true;
@@ -250,6 +268,26 @@ export class CreateoutboundComponent implements OnInit {
    });
   
     
+   }
+
+
+   changestatus(ky)
+   {
+     //console.log(ky);
+
+     var allfollowp = { 
+       ticket : this.ticketid,
+       status : ky
+    }
+
+    this.data.updateoutboundstatus(allfollowp).subscribe((response) => {
+
+      this.msg = response['msg'];
+      this.bgcolor = response['bgcolor'];
+      this.msgview = true;
+
+    });
+
    }
 
 }

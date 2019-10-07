@@ -158,7 +158,7 @@ export class ExampleHttpDao {
   getRepoIssues(sort: string = '2d242uyz', order: string = 'asc' , page: number,search:string = 'Imp',assignsort:string = '0'): Observable<GithubApi> {
 
 
-    const href = 'http://172.16.1.46/IcspApi/Api/index.php/user/allservices';
+    const href = 'http://172.16.1.46/cepapi/Api/index.php/user/allservices';
     //const requestUrl ='http://localhost/IcspApi/Api/index.php/user/allcontacts';
    // const requestUrl =
       //  `${href}?q=repo:angular/material2&sort=${sort}&order=${order}&page=${page + 1}`;
