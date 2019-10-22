@@ -63,6 +63,7 @@ import { SingleoutboundComponent } from './singleoutbound/singleoutbound.compone
 import { CreateagentComponent } from './createagent/createagent.component';
 import { MasterticketComponent } from './masterticket/masterticket.component';
 import { OutboundComponent } from './outbound/outbound.component';
+import { ReportoutboundComponent } from './reportoutbound/reportoutbound.component';
 
 
 
@@ -99,7 +100,8 @@ import { OutboundComponent } from './outbound/outbound.component';
     SingleoutboundComponent,
     CreateagentComponent,
     MasterticketComponent,
-    OutboundComponent
+    OutboundComponent,
+    ReportoutboundComponent
   ],
   imports: [
     BrowserModule,

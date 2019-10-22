@@ -114,6 +114,12 @@ export class DataService {
     return this.http.get(this.base+'Api/index.php/user/call_reason_avg_grap/');
   }
 
+  outbound_graph()
+  {
+    return this.http.get("http://localhost/lab/afnic/star_corp/ticketstatus");
+  }
+
+
   services_csp_corporate_phase1(ofid){
     return this.http.get(this.base+'Api/index.php/user/services_csp_corporate_phase1/'+ofid);
   }

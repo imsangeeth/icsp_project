@@ -26,6 +26,7 @@ import { ViewoutboundcallComponent } from './viewoutboundcall/viewoutboundcall.c
 import { CreateagentComponent } from './createagent/createagent.component';
 import { MasterticketComponent } from './masterticket/masterticket.component';
 import { OutboundComponent } from './outbound/outbound.component';
+import { ReportoutboundComponent } from './reportoutbound/reportoutbound.component';
 
 
 
@@ -170,6 +171,10 @@ const routes: Routes = [
     path:"outbound",
     component:OutboundComponent,
     //canActivate:[AuthGuard]
+  },
+  {
+    path:"outboundreport",
+    component:ReportoutboundComponent,
   }
 
 ];

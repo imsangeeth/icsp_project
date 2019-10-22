@@ -17,9 +17,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private newdata: DataService) { }
 
-  // public doughnutChartLabels:string[] = ['Total ticket', 'Close', 'open'];
-  // public doughnutChartData:number[] = [7, 6, 1];
-  // public doughnutChartType:string = 'doughnut';
+  public doughnutChartLabels:string[] = ['Total ticket', 'Close', 'open'];
+  public doughnutChartData:number[] = [7, 6, 1];
+  public doughnutChartType:string = 'doughnut';
  
   // events
   
@@ -74,6 +74,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+    //this.doughnutChartData = [5, 3, 2];
+
     this.newdata.call_reason_avg().subscribe(
       newdata => this.callpercetage = newdata 
     );
@@ -87,7 +89,7 @@ export class HomeComponent implements OnInit {
 
       let clone = JSON.parse(JSON.stringify(this.barChartData));
 
-      clone[0].data = data;
+      clone[0].data = data; 
       clone[1].data = data1;
       clone[2].data = data2;
       clone[3].data = data3;
@@ -95,6 +97,18 @@ export class HomeComponent implements OnInit {
       this.barChartData = clone;
 
     });
+
+    this.newdata.outbound_graph().subscribe((response) => {
+
+        let opentkt = response['openticket'];
+        let closetkt = response['closedticket'];
+        let totaltkt = response['totalticket'];
+
+        this.doughnutChartData = [opentkt, closetkt,totaltkt];
+
+    })
+
+
 
     
   }
